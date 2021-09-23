@@ -57,6 +57,7 @@ class _HomePage extends React.Component {
     });
     userService.login(guest);
     this.props.history.push('/boardlist');
+    // console.log('logged',logged)
   };
   toggleSignup = () => {
     this.setState({ isSignup: !this.state.isSignup });
@@ -91,6 +92,13 @@ class _HomePage extends React.Component {
           alt=''
         />
         <section>
+        <button
+            className='signup-btn'
+            onClick={() => {
+              this.toggleSignup();
+            }}>
+            Sign Up!(link to signup-cmp)
+          </button>
           {isSignup && (
             <div className='signup-section'>
               {isSignup && (
@@ -119,18 +127,12 @@ class _HomePage extends React.Component {
                     onChange={this.handleChange}
                     required
                   />
-                  <button>Signup!</button>
+                  <button>Sign Up!</button>
                 </form>
               )}
             </div>
           )}
-          <button
-            className='signup-btn'
-            onClick={() => {
-              this.toggleSignup();
-            }}>
-            Sign Up!(link to signup-cmp)
-          </button>
+         
         </section>
       </main>
     );
