@@ -22,7 +22,7 @@ class _AppHeader extends React.Component {
     render() {
         const { user } = this.props
         return (
-            <header className="app-header flex justify-space-between">
+            <header className="app-header flex ">
                 {/* <button>Home</button> */}
                 <a href="/workspace" >Home</a>
                 {/* <button>boards</button> */}
