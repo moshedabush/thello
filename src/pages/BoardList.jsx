@@ -1,9 +1,12 @@
 import React from 'react';
 import { connect } from 'react-redux';
-
+import { userService } from '../services/user.service';
+import {loadUsers} from '../store/user.actions'
 class _BoardList extends React.Component {
-  state = {};
-  componentDidMount() {}
+  state = {
+    user: '',
+  };
+
 
   render() {
     return (
@@ -16,9 +19,13 @@ class _BoardList extends React.Component {
 }
 
 function mapStateToProps(state) {
-  return {};
+  return {
+    user: state.userModule.user,
+  };
 }
-const mapDispatchToProps = {};
+const mapDispatchToProps = {
+  loadUsers,
+};
 
 export const BoardList = connect(
   mapStateToProps,

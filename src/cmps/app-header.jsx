@@ -11,6 +11,7 @@ import { LoginSignup } from './login-signup.jsx'
 class _AppHeader extends React.Component {
     onLogin = (credentials) => {
         this.props.onLogin(credentials)
+        
     }
     onSignup = (credentials) => {
         this.props.onSignup(credentials)
