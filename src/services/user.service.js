@@ -84,18 +84,19 @@ function getLoggedinUser() {
 
 
 // (async ()=>{
-//     await userService.signup({
-    
-//         "fullname": "Guest Guest",
-//         "username": "Guest",
-//         "password": "Guest",
-//         "imgUrl": "http://some-img.jpg",
-//         "mentions": [{
-//             "id": "m101",
-//             "boardId": "m101",
-//             "taskId": "t101"
-//         }]
-//     })
+//     var user = {
+     
+//          "fullname": "Guest Guest",
+//          "username": "Guest",
+//          "password": "Guest",
+//          "imgUrl": "http://some-img.jpg",
+//          "mentions": [{
+//              "id": "m101",
+//              "boardId": "m101",
+//              "taskId": "t101"
+//          }]
+//      }
+//     sessionStorage.setItem(STORAGE_KEY_LOGGEDIN_USER, JSON.stringify(user))
 // })();
 
 
