@@ -118,7 +118,5 @@
             }
         }
     ],
-    // for monday
-    "cmpsOrder": ["status-picker", "member-picker", "date-picker"]
 }
 ]

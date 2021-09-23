@@ -17,15 +17,25 @@
 // Later, support switching a specific task
 
 // Store - saveTask
-board = boardService.saveTask(boardId, payload.groupId, payload.task, activity)
-commit(board)  
-socketService.emit('update-task', {boardId, groupId: payload.groupId, task: payload.task})
+function storeSaveTask(){
+
+    const activity =   {
+        "id": makeId(),
+        "txt": "Changed Color",
+        "createdAt": Date.now(),
+        "byMember": userService.getLoggedinUser(),
+        "task": task
+    }
+    board = boardService.saveTask(boardId, payload.groupId, payload.task, activity)
+    commit(board)  
+}
+// socketService.emit('update-task', {boardId, groupId: payload.groupId, task: payload.task})
 
 
-// boardService
+// boardService  -- BACKEND eventually
 function saveTask(boardId, groupId, task, activity) {
     const board = getById(boardId)
-    // find the task, and update
+    //TODO find the task, and update
     board.activities.push(activity)
     saveBoard(board)
     return board
