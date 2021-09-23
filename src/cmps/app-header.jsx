@@ -5,7 +5,7 @@ import { Link, NavLink } from 'react-router-dom'
 import routes from '../routes'
 
 
-import { onLogin, onLogout, onSignup, loadUsers, removeUser } from '../store/user.actions.js'
+// import { onLogin, onLogout, onSignup, loadUsers, removeUser } from '../store/user.actions.js'
 import { LoginSignup } from './login-signup.jsx'
 
 class _AppHeader extends React.Component {
@@ -54,16 +54,15 @@ function mapStateToProps(state) {
     return {
         users: state.userModule.users,
         user: state.userModule.user,
-        count: state.userModule.count,
-        isLoading: state.systemModule.isLoading
+        // isLoading: state.systemModule.isLoading
     }
 }
 const mapDispatchToProps = {
-    onLogin,
-    onSignup,
-    onLogout,
-    loadUsers,
-    removeUser
+    // onLogin,
+    // onSignup,
+    // onLogout,
+    // loadUsers,
+    // removeUser
 }
 
 
