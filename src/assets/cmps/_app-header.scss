@@ -1,15 +1,15 @@
 .app-header {
-    min-height: 100vh;
+    min-height: 5vh;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
+    flex-direction: row;
+    justify-content: space-between;
     align-items: center;
 
     background: linear-gradient(
         180deg,
-        rgba(255, 255, 255, 1) 0%,
-        rgba(255, 255, 255, 1) 80%,
-        rgba(255, 255, 255, 0) 100%
+        rgb(2, 106, 167) 0%,
+        rgb(2, 106, 150) 80%,
+        rgba(2, 106, 140) 100%
     );
 
     p {
