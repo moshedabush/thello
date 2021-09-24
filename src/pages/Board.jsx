@@ -46,44 +46,31 @@ export class Board extends React.Component {
             return
         }
 
-        const taskStartPos = this.state.groups[source.droppableId];
-        console.log('source.droppableId',source.droppableId);
 
-        const taskEndPos = this.state.groups[destination.droppableId];
-        console.log('destination.droppableId',destination.droppableId);
+        // Check and move task inside same list
 
-        // Move task inside same list
-
-        // if(taskStartPos === taskEndPos) {
-        //     console.log('taskStartPos', taskStartPos)
-        //     console.log('taskEndPos', taskEndPos)
-
-        const locationGroupStart = this.state.groups.find(group => group.id = source.droppableId)
-        console.log('locationGroupStart -BEFORE FUNCTION',locationGroupStart);
+        const locationGroupStart = source.droppableId
+        //  this.state.groups.find(group => group.id = source.droppableId)
+        console.log('locationGroupStart - BEFORE FUNCTION',locationGroupStart);
         
 
-        const locationGroupFinish = this.state.groups.find(group => group.id = destination.droppableId)
+        const locationGroupFinish = destination.droppableId
+        //  this.state.groups.find(group => group.id = destination.droppableId)
         console.log('locationGroupFinish - BEFORE FUNCTION',locationGroupFinish);
 
 
         if(locationGroupStart === locationGroupFinish) {
 
-            console.log('sernity now');
+            console.log('sanity check');
 
-            console.log('locationGroupStart - AFTER FUNCTION',locationGroupStart);
-            console.log('locationGroupFinish - AFTER FUNCTION',locationGroupFinish);
+            console.log('locationGroupStart - INSIDE FUNCTION',locationGroupStart);
+            console.log('locationGroupFinish - INSIDE FUNCTION',locationGroupFinish);
 
-            // const newTasks = this.state.groups.find(group => group.droppableId = source.droppableId)
-            // // const movedTask = newTasks.splice(source.index, 1)
-            // console.log('newTasks',newTasks);
-            // const a = newTasks.splice(destination.index, 0, movedTask[0])
-            
-            // console.log('a',a);
-
+            const newTasksOrder = this.state.groups.find(group => group.droppableId = source.droppableId)
+            console.log('newTasksOrder',newTasksOrder);
+         
             // const newTaskOrder = this.state.groups.find(task => task.draggableId = source.draggableId)
             // console.log('ddddfdfd',newTaskOrder);
-
-
 
             // const movedGroup = newTaskOrder.splice(source.index, 1)
             // newTaskOrder.splice(destination.index, 0, movedGroup[0])
