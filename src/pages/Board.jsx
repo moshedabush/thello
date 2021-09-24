@@ -48,26 +48,38 @@ export class Board extends React.Component {
 
 
         // Check and move task inside same list
-
+        
         const locationGroupStart = source.droppableId
-        //  this.state.groups.find(group => group.id = source.droppableId)
         console.log('locationGroupStart - BEFORE FUNCTION',locationGroupStart);
         
-
         const locationGroupFinish = destination.droppableId
-        //  this.state.groups.find(group => group.id = destination.droppableId)
         console.log('locationGroupFinish - BEFORE FUNCTION',locationGroupFinish);
 
 
         if(locationGroupStart === locationGroupFinish) {
 
-            console.log('sanity check');
+            console.log('Entered same list function');
+            const newGroups = Array.from(this.state.groups)
+            const indexOfSourceGroup = newGroups.findIndex(group => group.id === source.droppableId)
+            // console.log('indexOfSourceGroup',indexOfSourceGroup);
+            const isolatedGroup = newGroups.splice(indexOfSourceGroup,1)
+            console.log('isolatedGroup',isolatedGroup);
+            const isolatedTasks = isolatedGroup.map(task => task.tasks)
+            console.log('isolatedTasks',isolatedTasks);
 
-            console.log('locationGroupStart - INSIDE FUNCTION',locationGroupStart);
-            console.log('locationGroupFinish - INSIDE FUNCTION',locationGroupFinish);
+            const newTask = isolatedTasks.splice(0,1)
+            console.log('newTask',newTask);
+         
 
-            const newTasksOrder = this.state.groups.find(group => group.droppableId = source.droppableId)
-            console.log('newTasksOrder',newTasksOrder);
+                        
+            
+            // console.log('locationGroupStart - INSIDE FUNCTION',locationGroupStart);
+            // console.log('locationGroupFinish - INSIDE FUNCTION',locationGroupFinish);
+            
+
+
+            // const newTasksOrder = this.state.groups.find(group => group.droppableId = source.droppableId)
+            // console.log('newTasksOrder',newTasksOrder);
          
             // const newTaskOrder = this.state.groups.find(task => task.draggableId = source.draggableId)
             // console.log('ddddfdfd',newTaskOrder);
