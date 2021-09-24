@@ -17,9 +17,9 @@ export class Board extends React.Component {
 
 
 
-    onDragEnd = result => { 
+    onDragEnd = result => {
         const { destination, source, draggableId, type } = result
-      
+
         if (!destination) {
             return
         }
@@ -31,55 +31,91 @@ export class Board extends React.Component {
             return
         }
 
-        
-        if(type === 'group') {
+
+        if (type === 'group') {
             const newGroupOrder = [...this.state.groups]
             const movedGroup = newGroupOrder.splice(source.index, 1)
-            console.log('movedGroup',movedGroup);
+            console.log('movedGroup', movedGroup);
             newGroupOrder.splice(destination.index, 0, movedGroup[0])
 
-            const newState= {
+            const newState = {
                 ...this.state,
                 groups: newGroupOrder,
             }
             this.setState(newState)
-            console.log('Checking state of columns order:', newState.groups)
-
             return
         }
 
-
-        // Check and move task inside same list
-        
         const locationGroupStart = source.droppableId
         const locationGroupFinish = destination.droppableId
 
-        if(locationGroupStart === locationGroupFinish) {
+        // CHECK AND MOVE TASKS INSIDE THE SAME LIST
 
-            console.log('Entered same list function');
+        if (locationGroupStart === locationGroupFinish) {
+
+            console.log('Executing the drag&drop in same list function');
             const newGroups = [...this.state.groups]
             const indexOfSourceGroup = newGroups.findIndex(group => group.id === locationGroupStart)
-            const isolatedGroup = newGroups.splice(indexOfSourceGroup,1)
+            const isolatedGroup = newGroups.splice(indexOfSourceGroup, 1)
             const isolatedTasks = isolatedGroup.map(task => task.tasks)
             const currTasks = isolatedTasks[0].findIndex(task => task.id === draggableId)
-            const targetedTask = isolatedTasks[0].splice(currTasks,1)
-            isolatedTasks[0].splice(destination.index,0,targetedTask[0])
+            const targetedTask = isolatedTasks[0].splice(currTasks, 1)
+            isolatedTasks[0].splice(destination.index, 0, targetedTask[0])
+            const newGroupOrder = this.state.groups
+
+            const newState = {
+                ...this.state,
+                groups: newGroupOrder,
+            }
+            this.setState(newState)
+            return
+
         }
+
+        // CHECK AND MOVE TASKS BETWEEN LISTS
+
+        if (locationGroupStart !== locationGroupFinish) {
+
+            console.log('Executing the drag&drop in from different lists function');
+            const newGroups = [...this.state.groups]
+            
+            const indexOfSourceGroup = newGroups.findIndex(group => group.id === locationGroupStart)
+            const isolatedStartGroup = newGroups.splice(indexOfSourceGroup, 1)
+            const isolatedStartTasks = isolatedStartGroup.map(task => task.tasks)
+            const currTasks = isolatedStartTasks[0].findIndex(task => task.id === draggableId)
+            const targetedTask = isolatedStartTasks[0].splice(currTasks, 1)
+
+            const indexOfDestinationGroup = newGroups.findIndex(group => group.id === locationGroupFinish)
+            const isolatedDestinaionGroup = newGroups.splice(indexOfDestinationGroup, 1)
+            const isolatedDestinationTasks = isolatedDestinaionGroup.map(task => task.tasks)
+            isolatedDestinationTasks[0].splice(destination.index, 0, targetedTask[0])
+    
+            const newGroupOrder = this.state.groups
+
+            const newState = {
+                ...this.state,
+                groups: newGroupOrder,
+            }
+            this.setState(newState)
+            return
+
+        }
+
         return
-        
+
     }
 
     render() {
-        
-        const {groups} = this.state
-       
+
+        const { groups } = this.state
+
         return (
             <DragDropContext onDragEnd={this.onDragEnd}>
                 <Droppable
                     droppableId="groups.id"
                     direction="horizontal"
                     type="group"
-                    >
+                >
                     {provided => (
                         <Container
                             {...provided.droppableProps}
@@ -88,7 +124,7 @@ export class Board extends React.Component {
                             {groups.map((group, index) => {
                                 const column = group;
                                 const tasks = column.tasks.map(task => task)
-                                return <Column key={column.id} column={column} tasks= {tasks}  index={index}/>
+                                return <Column key={column.id} column={column} tasks={tasks} index={index} />
                             })}
                             {provided.placeholder}
                         </Container>
