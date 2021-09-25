@@ -1,6 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Route } from 'react-router-dom'
+import { connect } from 'react-redux'
 import { DragDropContext, Droppable } from 'react-beautiful-dnd'
+import { onSaveBoard } from '../store/board.actions'
 import { Column } from '../cmps/column.jsx'
 import boardData from '../data/boardsData';
 import styled from 'styled-components';
@@ -11,7 +14,7 @@ const Container = styled.div`
 display: flex;
 `;
 
-export class Board extends React.Component {
+class _Board extends React.Component {
 
     state = boardData;
 
@@ -31,6 +34,7 @@ export class Board extends React.Component {
             return
         }
 
+        // CHANGE LOCATION BETWEEN GROUPS
 
         if (type === 'group') {
             const newGroupOrder = [...this.state.groups]
@@ -53,7 +57,7 @@ export class Board extends React.Component {
 
         if (locationGroupStart === locationGroupFinish) {
 
-            console.log('Executing the drag&drop in same group function');
+            console.log('Executing the drag&drop in same group');
             const newGroups = [...this.state.groups]
             const indexOfSourceGroup = newGroups.findIndex(group => group.id === locationGroupStart)
             const isolatedGroup = newGroups.splice(indexOfSourceGroup, 1)
@@ -62,10 +66,12 @@ export class Board extends React.Component {
             const targetedTask = isolatedTasks[0].splice(currTasks, 1)
             isolatedTasks[0].splice(destination.index, 0, targetedTask[0])
             const newGroupOrder = this.state.groups
-
+            const board = newGroupOrder
+            onSaveBoard(board)
+            
             const newState = {
                 ...this.state,
-                groups: newGroupOrder,
+                groups: board,
             }
             this.setState(newState)
             return
@@ -76,9 +82,9 @@ export class Board extends React.Component {
 
         if (locationGroupStart !== locationGroupFinish) {
 
-            console.log('Executing the drag&drop in from different groups function');
+            console.log('Executing the drag&drop from different groups');
             const newGroups = [...this.state.groups]
-            
+
             const indexOfSourceGroup = newGroups.findIndex(group => group.id === locationGroupStart)
             const isolatedStartGroup = newGroups.splice(indexOfSourceGroup, 1)
             const isolatedStartTasks = isolatedStartGroup.map(task => task.tasks)
@@ -89,12 +95,14 @@ export class Board extends React.Component {
             const isolatedDestinaionGroup = newGroups.splice(indexOfDestinationGroup, 1)
             const isolatedDestinationTasks = isolatedDestinaionGroup.map(task => task.tasks)
             isolatedDestinationTasks[0].splice(destination.index, 0, targetedTask[0])
-    
+
             const newGroupOrder = this.state.groups
+            const board = newGroupOrder
+            onSaveBoard(board)
 
             const newState = {
                 ...this.state,
-                groups: newGroupOrder,
+                groups: board,
             }
             this.setState(newState)
             return
@@ -135,3 +143,17 @@ export class Board extends React.Component {
     }
 }
 
+
+function mapStateToProps(state) {
+    return {
+        board: state.boardModule.board,
+    }
+}
+
+
+const mapDispatchToProps = {
+    onSaveBoard,
+    
+}
+
+export const Board = connect(mapStateToProps, mapDispatchToProps)(_Board)

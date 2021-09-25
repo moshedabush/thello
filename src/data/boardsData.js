@@ -24,7 +24,7 @@ const boardData =
             "imgUrl": "https://www.google.com"
         }
     ],
-    groups: [
+    "groups": [
         {
             "id": "g101",
             "title": "Group 1",
