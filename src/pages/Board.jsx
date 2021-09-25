@@ -49,11 +49,11 @@ export class Board extends React.Component {
         const locationGroupStart = source.droppableId
         const locationGroupFinish = destination.droppableId
 
-        // CHECK AND MOVE TASKS INSIDE THE SAME LIST
+        // CHECK AND MOVE TASKS INSIDE THE SAME GROUP
 
         if (locationGroupStart === locationGroupFinish) {
 
-            console.log('Executing the drag&drop in same list function');
+            console.log('Executing the drag&drop in same group function');
             const newGroups = [...this.state.groups]
             const indexOfSourceGroup = newGroups.findIndex(group => group.id === locationGroupStart)
             const isolatedGroup = newGroups.splice(indexOfSourceGroup, 1)
@@ -72,11 +72,11 @@ export class Board extends React.Component {
 
         }
 
-        // CHECK AND MOVE TASKS BETWEEN LISTS
+        // CHECK AND MOVE TASKS BETWEEN GROUPS
 
         if (locationGroupStart !== locationGroupFinish) {
 
-            console.log('Executing the drag&drop in from different lists function');
+            console.log('Executing the drag&drop in from different groups function');
             const newGroups = [...this.state.groups]
             
             const indexOfSourceGroup = newGroups.findIndex(group => group.id === locationGroupStart)
