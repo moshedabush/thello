@@ -1,23 +1,35 @@
 import { storageService } from './async-storage.service'
+const gBoards = require('../data/boards.json')
 
 export const boardService = {
     save,
+    // getById,
+    getBoards
 }
 
 window.boardService = boardService
 
 
+async function getBoards(){
+    try{
+        const boards = await storageService.get('board') ||  gBoards
+        // console.log('boards from service',boards);
+        return boards
+    }catch (err) {
+        throw err
+    }
+}
+
 async function save(board) {
     if (board._id) {
         try {
-            console.log('save function in BoardService');
-            await storageService.post('board', board._id)
+           return await storageService.put('board', board)
         } catch (err) {
             throw err
         }
     } else {
         try {
-            await storageService.post('board', board)
+            return await storageService.post('board', board)
         } catch (err) {
             throw err
         }
