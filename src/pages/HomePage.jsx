@@ -54,6 +54,7 @@ class _HomePage extends React.Component {
       fullname: 'Guest Guest',
       username: 'Guest',
       password: 'Guest',
+      userBoardIds: "b101",
     });
     userService.login(guest);
     this.props.history.push('/boardlist');
