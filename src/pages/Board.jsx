@@ -3,9 +3,9 @@ import React from 'react';
 // import { Route } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { DragDropContext, Droppable } from 'react-beautiful-dnd'
-import { onSaveBoard, loadBoards } from '../store/board.actions.js'
+import { onSaveBoard, loadBoard } from '../store/board.actions.js'
 import { Column } from '../cmps/column.jsx'
-import boardData from '../data/boardsData';
+// import boardData from '../data/boardsData';
 import styled from 'styled-components';
 import { tableSortLabelClasses } from '@mui/material';
 
@@ -18,13 +18,15 @@ display: flex;
 class _Board extends React.Component {
 
     state = {
+    }
         
-    };
+    
 
     async componentDidMount() {
         try {
            const {boardId} = this.props.match.params
-           await this.props.loadBoards(boardId)
+           await this.props.loadBoard(boardId)
+           console.log('this.props.match.params',this.props.board);
            
         }catch (err) {
             console.log('err');
@@ -32,13 +34,12 @@ class _Board extends React.Component {
         }
     }
 
-    omponentWillUnmount() {
-        this.props.loadBoards()
-    }
-
-
+  
     onDragEnd = result => {
         const { destination, source, draggableId, type } = result
+        const {board, board: {groups}} = this.props
+        console.log('{board, board: {groups}}',{board, board: {groups}});
+        
        
 
         if (!destination) return
@@ -52,11 +53,11 @@ class _Board extends React.Component {
 
         // CHANGE LOCATION BETWEEN GROUPS
         if (type === 'group') {
-            const newGroupOrder = [...this.state.groups]
+            const newGroupOrder = [...this.props.board.groups]
+            console.log('newGroupOrder',newGroupOrder);
             const movedGroup = newGroupOrder.splice(source.index, 1)
             newGroupOrder.splice(destination.index, 0, movedGroup[0])
-            const board = {...this.state, groups: newGroupOrder}
-            this.setState(board)
+            board.groups = newGroupOrder
             this.props.onSaveBoard(board)
             return
         }
@@ -67,16 +68,14 @@ class _Board extends React.Component {
         // CHECK AND MOVE TASKS INSIDE THE SAME GROUP
         if (locationGroupStart === locationGroupFinish) {
 
-            
-            const newGroups = [...this.state.groups]
+            const newGroups = [...groups]
             const indexOfSourceGroup = newGroups.findIndex(group => group.id === locationGroupStart)
             const isolatedGroup = newGroups.splice(indexOfSourceGroup, 1)
             const isolatedTasks = isolatedGroup.map(task => task.tasks)
             const currTasks = isolatedTasks[0].findIndex(task => task.id === draggableId)
             const targetedTask = isolatedTasks[0].splice(currTasks, 1)
             isolatedTasks[0].splice(destination.index, 0, targetedTask[0])
-            const newGroupOrder = this.state
-            const board = newGroupOrder
+            groups[isolatedTasks[0]] = newGroups
             this.props.onSaveBoard(board)
 
         }
@@ -84,8 +83,9 @@ class _Board extends React.Component {
         // CHECK AND MOVE TASKS BETWEEN GROUPS
         if (locationGroupStart !== locationGroupFinish) {
 
-            
-            const newGroups = this.props
+            console.log('CHECK AND MOVE TASKS BETWEEN GROUPS', groups);
+            const newGroups = [...groups]
+            console.log('newGroupsnewGroups',newGroups);
             const indexOfSourceGroup = newGroups.findIndex(group => group.id === locationGroupStart)
             const isolatedStartGroup = newGroups.splice(indexOfSourceGroup, 1)
             const isolatedStartTasks = isolatedStartGroup.map(task => task.tasks)
@@ -96,11 +96,8 @@ class _Board extends React.Component {
             const isolatedDestinaionGroup = newGroups.splice(indexOfDestinationGroup, 1)
             const isolatedDestinationTasks = isolatedDestinaionGroup.map(task => task.tasks)
             isolatedDestinationTasks[0].splice(destination.index, 0, targetedTask[0])
-
-            const newGroupOrder = this.state
-            const board = newGroupOrder
+            groups[isolatedDestinationTasks] = newGroups
             this.props.onSaveBoard(board)
-    
         }
 
         return
@@ -108,8 +105,12 @@ class _Board extends React.Component {
     }
 
     render() {
-        const { groups } = this.state
-        // console.log('this.state',this.state);
+        
+        const {board} = this.props
+        console.log('boards',board);
+        if (!board) return <div>loading...</div>
+        const {groups} = board  
+     
         return (
             <DragDropContext onDragEnd={this.onDragEnd}>
                 <Droppable
@@ -147,7 +148,7 @@ function mapStateToProps(state) {
 
 const mapDispatchToProps = {
     onSaveBoard,
-    loadBoards,
+    loadBoard,
 
 }
 

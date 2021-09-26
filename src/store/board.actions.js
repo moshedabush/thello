@@ -1,7 +1,8 @@
 import { boardService } from "../services/board.service.js";
 import { showErrorMsg } from '../services/event-bus.service.js'
 
-export function onSaveBoard(board) {   
+export function onSaveBoard(board) {  
+    console.log('board inside save-action', board); 
     return async dispatch => {
         try {
             const savedBoard = await boardService.save(board)
@@ -17,18 +18,19 @@ export function onSaveBoard(board) {
 }
 
 
-export function loadBoards(boardId) {
+export function loadBoard(boardId) {
+ 
     return async dispatch => {
         try {
-            const boards = await boardService.getBoardById(boardId)
-            console.log(boards);
+            const board = await boardService.getBoardById(boardId)
+           
             dispatch({
                 type: 'SET_BOARDS',
-                boards :boards
+                board :board
             })
         } catch (err) {
             showErrorMsg('Cannot load board')
-            console.log('BoardAction: err in loadBoards', err)
+            console.log('BoardAction: err in loadBoard', err)
         }
     }
 }
