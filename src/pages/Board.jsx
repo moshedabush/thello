@@ -18,6 +18,7 @@ display: flex;
 class _Board extends React.Component {
 
     state = {
+        board:[]
     }
         
     
@@ -59,6 +60,7 @@ class _Board extends React.Component {
             newGroupOrder.splice(destination.index, 0, movedGroup[0])
             board.groups = newGroupOrder
             this.props.onSaveBoard(board)
+            this.setState(board)
             return
         }
 
@@ -77,6 +79,7 @@ class _Board extends React.Component {
             isolatedTasks[0].splice(destination.index, 0, targetedTask[0])
             groups[isolatedTasks[0]] = newGroups
             this.props.onSaveBoard(board)
+            this.setState(board)
 
         }
 
@@ -98,8 +101,8 @@ class _Board extends React.Component {
             isolatedDestinationTasks[0].splice(destination.index, 0, targetedTask[0])
             groups[isolatedDestinationTasks] = newGroups
             this.props.onSaveBoard(board)
+            this.setState(board)
         }
-
         return
 
     }
