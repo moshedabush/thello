@@ -1,8 +1,7 @@
 import { boardService } from "../services/board.service.js";
 import { showErrorMsg } from '../services/event-bus.service.js'
 
-export function onSaveBoard(board) {
-    
+export function onSaveBoard(board) {   
     return async dispatch => {
         try {
             const savedBoard = await boardService.save(board)
@@ -24,7 +23,7 @@ export function loadBoards() {
             const boards = await boardService.getBoards()
             dispatch({
                 type: 'SET_BOARDS',
-                boards
+                boards :boards
             })
         } catch (err) {
             showErrorMsg('Cannot load board')

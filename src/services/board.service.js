@@ -12,8 +12,7 @@ window.boardService = boardService
 
 async function getBoards(){
     try{
-        const boards = await storageService.get('board') ||  gBoards
-        // console.log('boards from service',boards);
+        const boards = await gBoards 
         return boards
     }catch (err) {
         throw err
