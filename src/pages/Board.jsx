@@ -39,9 +39,7 @@ class _Board extends React.Component {
     onDragEnd = result => {
         const { destination, source, draggableId, type } = result
         const {board, board: {groups}} = this.props
-        console.log('{board, board: {groups}}',{board, board: {groups}});
-        
-       
+        console.log('{board, board: {groups}}',{board, board: {groups}});    
 
         if (!destination) return
 
@@ -55,7 +53,6 @@ class _Board extends React.Component {
         // CHANGE LOCATION BETWEEN GROUPS
         if (type === 'group') {
             const newGroupOrder = [...this.props.board.groups]
-            console.log('newGroupOrder',newGroupOrder);
             const movedGroup = newGroupOrder.splice(source.index, 1)
             newGroupOrder.splice(destination.index, 0, movedGroup[0])
             board.groups = newGroupOrder
@@ -86,9 +83,8 @@ class _Board extends React.Component {
         // CHECK AND MOVE TASKS BETWEEN GROUPS
         if (locationGroupStart !== locationGroupFinish) {
 
-            console.log('CHECK AND MOVE TASKS BETWEEN GROUPS', groups);
+            
             const newGroups = [...groups]
-            console.log('newGroupsnewGroups',newGroups);
             const indexOfSourceGroup = newGroups.findIndex(group => group.id === locationGroupStart)
             const isolatedStartGroup = newGroups.splice(indexOfSourceGroup, 1)
             const isolatedStartTasks = isolatedStartGroup.map(task => task.tasks)
