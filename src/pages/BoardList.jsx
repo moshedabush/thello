@@ -18,6 +18,7 @@ class _BoardList extends React.Component {
   }
 
   getUserBoardsIds = (loggedUser) => {
+    //test with multiple board ids
     const boardIds = [loggedUser.userBoardIds];
     return boardIds;
   };
