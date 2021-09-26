@@ -57,8 +57,8 @@ class _HomePage extends React.Component {
     });
     userService.login(guest);
     this.props.history.push('/boardlist');
-    // console.log('logged',logged)
-  };
+console.log('guest',guest) 
+ };
   toggleSignup = () => {
     this.setState({ isSignup: !this.state.isSignup });
     console.log('signed up');

@@ -90,6 +90,7 @@ function getLoggedinUser() {
 //          "username": "Guest",
 //          "password": "Guest",
 //          "imgUrl": "http://some-img.jpg",
+//          "userBoardIds": "b101",
 //          "mentions": [{
 //              "id": "m101",
 //              "boardId": "m101",
@@ -99,6 +100,8 @@ function getLoggedinUser() {
 //     sessionStorage.setItem(STORAGE_KEY_LOGGEDIN_USER, JSON.stringify(user))
 // })();
 
+
+// "userBoardIds": ["b101","b102"] - boardlist still works
 
 
 // This IIFE functions for Dev purposes 

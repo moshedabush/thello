@@ -5,25 +5,18 @@ const routes = [
     {
         path:'/',
         component: HomePage,
-        label: 'Home 🏠',
+        label: 'Home | ',
     },
     {
         path:'/boardlist',
         component: BoardList,
-        label: 'Board List',
+        label: 'Boards | ',
     },
     {
-        path:'/board',
+        path:'/board/:boardId',
         component: Board,
         label: 'Board',
     },
-
-
-    // {
-    //     path:'/board/:boardId',
-    //     component: Board,
-    //     label: 'Board',
-    // },
 ]
 
 export default routes;
