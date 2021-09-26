@@ -24,7 +24,8 @@ class _Board extends React.Component {
     async componentDidMount() {
         try {
            const {boardId} = this.props.match.params
-           await this.props.loadBoards()
+           await this.props.loadBoards(boardId)
+           
         }catch (err) {
             console.log('err');
             

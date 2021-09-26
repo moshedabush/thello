@@ -3,16 +3,15 @@ const gBoards = require('../data/boards.json')
 
 export const boardService = {
     save,
-    // getById,
-    getBoards
+    getBoardById
 }
 
 window.boardService = boardService
 
 
-async function getBoards(){
+async function getBoardById(boardId){
     try{
-        const boards = await gBoards 
+        const boards = await gBoards.find(board => board._id === boardId)
         return boards
     }catch (err) {
         throw err

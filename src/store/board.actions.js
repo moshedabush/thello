@@ -17,10 +17,11 @@ export function onSaveBoard(board) {
 }
 
 
-export function loadBoards() {
+export function loadBoards(boardId) {
     return async dispatch => {
         try {
-            const boards = await boardService.getBoards()
+            const boards = await boardService.getBoardById(boardId)
+            console.log(boards);
             dispatch({
                 type: 'SET_BOARDS',
                 boards :boards
