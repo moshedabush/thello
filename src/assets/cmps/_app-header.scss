@@ -1,15 +1,15 @@
 .app-header {
-    min-height: 100vh;
+    min-height: 7vh;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
+    flex-direction: row;
+    justify-content: space-between;
     align-items: center;
 
     background: linear-gradient(
         180deg,
-        rgba(255, 255, 255, 1) 0%,
-        rgba(255, 255, 255, 1) 80%,
-        rgba(255, 255, 255, 0) 100%
+        rgb(2, 106, 167) 0%,
+        rgb(2, 106, 150) 80%,
+        rgba(2, 106, 140) 100%
     );
 
     p {
@@ -20,5 +20,66 @@
         width: 280px;
         transform: rotate(10deg);
         mix-blend-mode: multiply;
+    }
+    a:link{
+        text-decoration: none;
+    }
+    a{
+        color: $clr1;
+    }
+    .btn-header {
+        background-color: rgba(255, 255, 255, 0.3);
+        border-radius: 3px;
+        border: none;
+        align-items: center;
+        align-self: center;
+        color: #ffffff;
+        display: flex;
+        font-weight: bold;
+        height: 32px;
+        line-height: 32px;
+        margin: 0 4px 0 0;
+        padding: 0 6px 0;
+        white-space: nowrap;
+        transition: 0.15s;
+        cursor: pointer;
+        span {
+            padding: 0 2px 0 8px;
+        }
+        &:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+        &.new-notific {
+            background-color: #e54c31d6;
+        }
+    }
+    .logo {
+        font-style: normal;
+        transition: 0.15s;
+        // margin: 0 2.2rem; // RESPONSIVE 
+        margin: 0 1.2rem;
+        a {
+            text-decoration: none;
+            display: flex;
+        }
+        span {
+            color: rgba(255, 255, 255, 0.5);
+            font-weight: bold;
+            font-size: 20px;
+        }
+        svg {
+            align-self: flex-end;
+        }
+        path {
+            fill: rgba(255, 255, 255, 0.5);
+        }
+        &:hover {
+            path {
+                fill: rgba(255, 255, 255, 0.8);
+            }
+            span {
+                color: rgba(255, 255, 255, 0.8);
+            }
+        }
     }
 }

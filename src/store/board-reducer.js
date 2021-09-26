@@ -1,15 +1,21 @@
+import { boardService } from '../services/board.service.js'
+
 const initialState = {
     boards: [],
+
 }
+
 export function boardReducer(state = initialState, action) {
-    var newState = state
+
     switch (action.type) {
-      
-        
+        case 'SAVE_BOARD':
+            return { ...state, boards: { ...action.board } }
+
+        case 'SET_BOARDS':
+            return { ...state, boards: action.boards }
+
         default:
+            return state
     }
-    // For debug:
-    // window.boardState = newState
-    return newState
 
 }

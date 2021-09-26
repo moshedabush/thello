@@ -1,6 +1,8 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { Link, NavLink } from 'react-router-dom'
+import HomeIcon from '../assets/img/home-icon.svg';
+import BoardIcon from '../assets/img/board-icon.svg';
 
 import routes from '../routes'
 
@@ -24,14 +26,19 @@ class _AppHeader extends React.Component {
         const { user } = this.props
         return (
             <header className="app-header flex ">
-                {/* <button>Home</button> */}
-                <a href="/workspace" >Home</a>
-                {/* <button>boards</button> */}
-                <button >boards</button>
-                <div className="app-title">
-
-                <a href="/"><span>thello</span></a>
-                </div>
+                <a className="btn-header" href="/">
+                <img src={HomeIcon} alt="" />
+                </a>
+                <button className="btn-header" href="/board"> 
+                <img src={BoardIcon} alt="" />
+                <span>Boards</span>
+                </button>
+                    <div className="logo">  
+                <a href="/">
+                <img src={BoardIcon} alt="" />
+                    <span>thello</span></a>
+                    </div>
+                
                 
                 <nav>
                     {routes.map(route => <NavLink exact key={route.path} to={route.path}>{route.label}</NavLink>)}

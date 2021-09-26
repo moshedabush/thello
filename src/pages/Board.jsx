@@ -1,27 +1,34 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Route } from 'react-router-dom'
+import { connect } from 'react-redux'
 import { DragDropContext, Droppable } from 'react-beautiful-dnd'
+import { onSaveBoard, loadBoards } from '../store/board.actions'
 import { Column } from '../cmps/column.jsx'
 import boardData from '../data/boardsData';
 import styled from 'styled-components';
+import { tableSortLabelClasses } from '@mui/material';
+
 
 
 const Container = styled.div`
 display: flex;
 `;
 
-export class Board extends React.Component {
+class _Board extends React.Component {
 
     state = boardData;
 
+    componentDidMount() {
+     const test =  this.props.loadBoards()
+     console.log(test);
+    }
 
 
-    onDragEnd = result => { 
+    onDragEnd = result => {
         const { destination, source, draggableId, type } = result
-      
-        if (!destination) {
-            return
-        }
+
+        if (!destination) return
 
         if (
             destination.droppableId === source.draggableId &&
@@ -30,165 +37,91 @@ export class Board extends React.Component {
             return
         }
 
-        
-        if(type === 'group') {
+        // CHANGE LOCATION BETWEEN GROUPS
+        if (type === 'group') {
             const newGroupOrder = [...this.state.groups]
             const movedGroup = newGroupOrder.splice(source.index, 1)
             newGroupOrder.splice(destination.index, 0, movedGroup[0])
-
-            const newState= {
-                ...this.state,
-                groups: newGroupOrder,
-            }
-            this.setState(newState)
-            console.log('Checking state of columns order:', newState.groups)
-
+            const board = {...this.state, groups: newGroupOrder}
+            this.setState(board)
+            this.props.onSaveBoard(board)
             return
         }
 
-
-        // Check and move task inside same list
-        
         const locationGroupStart = source.droppableId
-        console.log('locationGroupStart - BEFORE FUNCTION',locationGroupStart);
-        
         const locationGroupFinish = destination.droppableId
-        console.log('locationGroupFinish - BEFORE FUNCTION',locationGroupFinish);
 
+        // CHECK AND MOVE TASKS INSIDE THE SAME GROUP
+        if (locationGroupStart === locationGroupFinish) {
 
-        if(locationGroupStart === locationGroupFinish) {
-
-            console.log('Entered same list function');
-            const newGroups = Array.from(this.state.groups)
-            const indexOfSourceGroup = newGroups.findIndex(group => group.id === source.droppableId)
-            // console.log('indexOfSourceGroup',indexOfSourceGroup);
-            const isolatedGroup = newGroups.splice(indexOfSourceGroup,1)
-            console.log('isolatedGroup',isolatedGroup);
+            
+            const newGroups = [...this.state.groups]
+            const indexOfSourceGroup = newGroups.findIndex(group => group.id === locationGroupStart)
+            const isolatedGroup = newGroups.splice(indexOfSourceGroup, 1)
             const isolatedTasks = isolatedGroup.map(task => task.tasks)
-            console.log('isolatedTasks',isolatedTasks);
+            const currTasks = isolatedTasks[0].findIndex(task => task.id === draggableId)
+            const targetedTask = isolatedTasks[0].splice(currTasks, 1)
+            isolatedTasks[0].splice(destination.index, 0, targetedTask[0])
+            const newGroupOrder = this.state
+            const board = newGroupOrder
+            this.props.onSaveBoard(board)
 
-            const newTask = isolatedTasks.splice(0,1)
-            console.log('newTask',newTask);
-         
-
-                        
-            
-            // console.log('locationGroupStart - INSIDE FUNCTION',locationGroupStart);
-            // console.log('locationGroupFinish - INSIDE FUNCTION',locationGroupFinish);
-            
-
-
-            // const newTasksOrder = this.state.groups.find(group => group.droppableId = source.droppableId)
-            // console.log('newTasksOrder',newTasksOrder);
-         
-            // const newTaskOrder = this.state.groups.find(task => task.draggableId = source.draggableId)
-            // console.log('ddddfdfd',newTaskOrder);
-
-            // const movedGroup = newTaskOrder.splice(source.index, 1)
-            // newTaskOrder.splice(destination.index, 0, movedGroup[0])
-
-            // const newState= {
+            // const newState = {
             //     ...this.state,
-            //     groups: newTaskOrder,
+            //     groups: board,
             // }
             // this.setState(newState)
-            // console.log('Checking state of columns order:', newState.groups)
-
             // return
+
         }
-        
 
-
-
-        
-
-
-        // if(type === 'task') {
-        //     const newTaskOrder = [...this.state.groups.tasks]
-        //     const movedTask = newTaskOrder.splice(source.index, 1)
-        //     newTaskOrder.splice(destination.index, 0, movedTask[0])
-        //     console.log('newTaskOrder', newTaskOrder);
-
-        //     const newState= {
-        //         ...this.state,
-        //         task: newTaskOrder,
-        //     }
-        //     this.setState(newState)
-        //     console.log('Checking state of columns order:', newState.tasks)
-
-        //     return
-        // }
-        
-        // if (locationGroupStart.droppableId === locationGroupFinish.droppableId) {
-        //     const newTask = Array.from(locationGroupStart.tasks)
-        //     newTask.splice(source.index, 1)
-        //     newTask.splice(destination.index, 0, draggableId)
-
-        //     // const newColumn = { 
-        //     //     tasks: newTask,
-        //     // }
-
+        // CHECK AND MOVE TASKS BETWEEN GROUPS
+        if (locationGroupStart !== locationGroupFinish) {
 
             
-        //     // const newState = { 
-        //     //     ...this.state,
-        //     //     groups: {
-        //     //         ...this.state.groups,
-        //     //         [newColumn.id]: newColumn,
-        //     //     },
-        //     // }
+            const newGroups = [...this.state.groups]
 
-        //     // this.setState(newState)
-        //     return
-        //     console.log('same');
-        // }
+            const indexOfSourceGroup = newGroups.findIndex(group => group.id === locationGroupStart)
+            const isolatedStartGroup = newGroups.splice(indexOfSourceGroup, 1)
+            const isolatedStartTasks = isolatedStartGroup.map(task => task.tasks)
+            const currTasks = isolatedStartTasks[0].findIndex(task => task.id === draggableId)
+            const targetedTask = isolatedStartTasks[0].splice(currTasks, 1)
 
+            const indexOfDestinationGroup = newGroups.findIndex(group => group.id === locationGroupFinish)
+            const isolatedDestinaionGroup = newGroups.splice(indexOfDestinationGroup, 1)
+            const isolatedDestinationTasks = isolatedDestinaionGroup.map(task => task.tasks)
+            isolatedDestinationTasks[0].splice(destination.index, 0, targetedTask[0])
 
+            const newGroupOrder = this.state
+            const board = newGroupOrder
+            this.props.onSaveBoard(board)
 
-        // Moving from one list to another
+            // const newState = {
+            //     ...this.state,
+            //     groups: board,
+            // }
+            // this.setState(newState)
+            // return
 
-        // const startTaskIds = Array.from(start.tasks) 
-        // console.log('startTaskIds',startTaskIds);
-        // startTaskIds.splice(source.index, 1)
-        // const newStart = { 
-        //     ...start,
-        //     task: startTaskIds,
-        // }
-
-        // const finishTaskIds = Array.from(finish.tasks)
-        // finishTaskIds.splice(destination.index, 0, draggableId)
-        // const newFinish = { 
-        //     ...finish,
-        //     taskIds: finishTaskIds,
-        // }
-
-        // const newState = { 
-        //     ...this.state,
-        //     groups: {
-        //         ...this.state.groups,
-        //         [newStart.id]: newStart,
-        //         [newFinish.id]: newFinish,
-
-        //     },
-        // }
-        // this.setState(newState, () => {
-        //     console.log('Checking state of tasks:', newState.groups);
-        // })
+        }
 
         return
+
     }
 
     render() {
-        
-        const {groups} = this.state
-       
+
+        const { groups } = this.state
+        const {activities} = this.props
+        console.log('activities',activities); // NOT GETTING PROPS
+
         return (
             <DragDropContext onDragEnd={this.onDragEnd}>
                 <Droppable
                     droppableId="groups.id"
                     direction="horizontal"
                     type="group"
-                    >
+                >
                     {provided => (
                         <Container
                             {...provided.droppableProps}
@@ -197,9 +130,10 @@ export class Board extends React.Component {
                             {groups.map((group, index) => {
                                 const column = group;
                                 const tasks = column.tasks.map(task => task)
-                                return <Column key={column.id} column={column} tasks= {tasks}  index={index}/>
+                                return <Column key={column.id} column={column} tasks={tasks} index={index} />
                             })}
                             {provided.placeholder}
+
                         </Container>
                     )}
                 </Droppable>
@@ -208,3 +142,18 @@ export class Board extends React.Component {
     }
 }
 
+
+function mapStateToProps(state) {
+    return {
+        board: state.boardModule.board,
+    }
+}
+
+
+const mapDispatchToProps = {
+    onSaveBoard,
+    loadBoards,
+
+}
+
+export const Board = connect(mapStateToProps, mapDispatchToProps)(_Board)

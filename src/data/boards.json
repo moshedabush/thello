@@ -1,15 +1,13 @@
-const boardData = 
-    {
+{
     "_id": "b101",
-    "title": "Robot dev proj",
+    "title": "Trello clone",
     "createdAt": 1589983468418,
     "createdBy": {
         "_id": "u102",
         "fullname": "MosheDabush",
         "imgUrl": "http://some-img"
     },
-    "style": {
-    },
+    "style": {},
     "labels": [
         {
             "id": "l101",
@@ -32,12 +30,12 @@ const boardData =
                 {
                     "id": "c101",
                     "title": "Replace logo",
-                    "description": "description",
+                    "description": "description"
                 },
                 {
                     "id": "c102",
                     "title": "Add Samples",
-                    "description": "description",
+                    "description": "description"
                 }
             ],
             "style": {}
@@ -49,7 +47,7 @@ const boardData =
                 {
                     "id": "c103",
                     "title": "Do that",
-                    "description": "description",
+                    "description": "description"
                 },
                 {
                     "id": "c104",
@@ -88,7 +86,10 @@ const boardData =
                             "imgUrl": "http://res.cloudinary.com/shaishar9/image/upload/v1590850482/j1glw3c9jsoz2py0miol.jpg"
                         }
                     ],
-                    "labelIds": ["l101", "l102"],
+                    "labelIds": [
+                        "l101",
+                        "l102"
+                    ],
                     "createdAt": 1590999730348,
                     "dueDate": 16156215211,
                     "byMember": {
@@ -111,20 +112,20 @@ const boardData =
                 {
                     "id": "c105",
                     "title": "setup server",
-                    "description": "description",
+                    "description": "description"
                 },
                 {
                     "id": "c106",
                     "title": "conver css to scss",
-                    "description": "description",
+                    "description": "description"
                 }
             ],
             "style": {}
-        },
+        }
     ],
     "activities": [
         {
-            "id": "a101",
+            "id": "a191",
             "txt": "Changed Color",
             "createdAt": 154514,
             "byMember": {
@@ -134,12 +135,8 @@ const boardData =
             },
             "task": {
                 "id": "c101",
-                "title": "Replace Logo",
-                
+                "title": "Replace Logo"
             }
         }
-    ],
+    ]
 }
-
-
-export default boardData;

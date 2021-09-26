@@ -12,11 +12,8 @@ function query(entityType, delay = 1200) {
     var entities = JSON.parse(localStorage.getItem(entityType)) || []
 
     return new Promise((resolve, reject)=>{
-        setTimeout(()=>{
-            resolve(entities)
-        }, delay)   
+           resolve(entities)
     })
-  
 }
 
 
