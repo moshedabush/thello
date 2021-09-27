@@ -3,7 +3,10 @@ import ReactDOM from 'react-dom';
 import { Droppable, Draggable } from 'react-beautiful-dnd';
 import styled from 'styled-components'
 import { Task } from '../cmps/task.jsx'
+import {TaskAdd} from '../cmps/TaskAdd'
+import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 
+//Need to convert it to scss
 const Container = styled.div`
 margin: 8px;
 border: 1px solid lightgrey;
@@ -12,6 +15,8 @@ background-color:white;
 width: 220px;
 display:flex;
 flex-direction: column;
+border-radius: 3px;
+justify-content: space-between;
 `;
 
 const Title = styled.h3`
@@ -26,14 +31,22 @@ min-height:100px;
 `;
 
 
+
 export class Column extends React.Component {
     render() {
+        const {board} = this.props
+        console.log('board in render',board);
+        const {groups} = board
+        // if (!board) return <div>loading...</div> // Create cmp with killer loading
         return (
             <Draggable draggableId={this.props.column.id} index={this.props.index}>
                 {(provided) => (
                     <Container {...provided.draggableProps} ref={provided.innerRef}
                     >
-                        <Title {...provided.dragHandleProps}>{ this.props.column.title}</Title>
+                        <div className="group-header">
+                            <MoreHorizIcon fontSize="small" />
+                            <Title {...provided.dragHandleProps}>{this.props.column.title}</Title>
+                        </div>
                         <Droppable droppableId={this.props.column.id} type="task">
                             {(provided, snapshot) => (
                                 <TaskList ref={provided.innerRef} {...provided.droppableProps}
@@ -43,7 +56,9 @@ export class Column extends React.Component {
                                         <Task key={task.id} task={task} index={index} />
                                     ))}
                                     {provided.placeholder}
+                                    <TaskAdd board={this.props.board} groups={this.props.groups} onSaveBoard={this.props.onSaveBoard} />
                                 </TaskList>
+                                
                             )}
                         </Droppable>
                     </Container>

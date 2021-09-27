@@ -1,0 +1,38 @@
+.add-group-wrapper{
+    width: 272px;
+    margin: 0 4px;
+    height: auto;
+    min-height: 32px;
+    padding: 4px;
+    border-radius: 3px;
+    transition: background 85ms ease-in,opacity 40ms ease-in,border-color 85ms ease-in;
+}
+
+.group-add-closed{
+    width: 272px;
+    background-color: rgba(240, 240, 240, 0.356);
+    margin: 0 4px;
+    height: auto;
+    min-height: 32px;
+    padding: 4px;
+    border-radius: 3px;
+    transition: background 85ms ease-in,opacity 40ms ease-in,border-color 85ms ease-in;
+}
+
+.group-add-open {
+    box-sizing: border-box;
+    height: 100%;
+    display: flex;
+    margin: 0 4px;
+    vertical-align: top;
+    white-space: nowrap;
+    flex-direction: column;
+    background-color: white;
+    width: 272px;
+    border-radius: 3px;
+}
+
+.group-add-input{
+    background-color:rgb(255, 255, 255);
+}
+
