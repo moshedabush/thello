@@ -1,9 +1,10 @@
 import React from 'react';
+import { connect } from 'react-redux'
 import ReactDOM from 'react-dom';
 import { Droppable, Draggable } from 'react-beautiful-dnd';
 import styled from 'styled-components'
 import { Task } from '../cmps/task.jsx'
-import {TaskAdd} from '../cmps/TaskAdd'
+import { TaskAdd } from '../cmps/TaskAdd'
 import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 
 //Need to convert it to scss
@@ -30,24 +31,29 @@ flex-grow: 1;
 min-height:100px;
 `;
 
+class _Column extends React.Component {
+
+    state ={}
 
 
-export class Column extends React.Component {
+   
+
     render() {
         const {board} = this.props
-        console.log('board in render',board);
-        // const {groups} = board
+        const {group} = this.props
+        const {onSaveBoard} = this.props
+             
         // if (!board) return <div>loading...</div> // Create cmp with killer loading
         return (
-            <Draggable draggableId={this.props.column.id} index={this.props.index}>
+            <Draggable draggableId={this.props.group.id} index={this.props.index}>
                 {(provided) => (
                     <Container {...provided.draggableProps} ref={provided.innerRef}
                     >
                         <div className="group-header">
                             <MoreHorizIcon fontSize="small" />
-                            <Title {...provided.dragHandleProps}>{this.props.column.title}</Title>
+                            <Title {...provided.dragHandleProps}>{this.props.group.title}</Title>
                         </div>
-                        <Droppable droppableId={this.props.column.id} type="task">
+                        <Droppable droppableId={this.props.group.id} type="task">
                             {(provided, snapshot) => (
                                 <TaskList ref={provided.innerRef} {...provided.droppableProps}
                                     isDraggingOver={snapshot.isDraggingOver}
@@ -55,10 +61,11 @@ export class Column extends React.Component {
                                     {this.props.tasks.map((task, index) => (
                                         <Task key={task.id} task={task} index={index} />
                                     ))}
+                                    <TaskAdd board={board} group={group} onSaveBoard={onSaveBoard} />
                                     {provided.placeholder}
-                                    <TaskAdd board={this.props.board} groups={this.props.groups} onSaveBoard={this.props.onSaveBoard} />
+                                    
                                 </TaskList>
-                                
+
                             )}
                         </Droppable>
                     </Container>
@@ -67,3 +74,8 @@ export class Column extends React.Component {
         )
     }
 }
+
+const mapDispatchToProps = {
+    
+}
+export const Column = connect(null, mapDispatchToProps)(_Column)

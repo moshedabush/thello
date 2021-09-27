@@ -27,17 +27,18 @@ export class TaskAdd extends React.Component{
 
     onAddTask =()=> {
         const {taskTitle} = this.state
-        const {board } = this.props 
-        const {groups} = board 
-        const {tasks} = groups
-        const task ={
+        const {board} = this.props 
+        const {group} = this.props
+        const groupIdx = board.groups.indexOf(group)
+         const task ={
             id: utilService.makeId(),
             title:taskTitle,
+            //need to add here fields
             
         }
-        tasks.push(task)
-        this.setState({taskTitle:''})     
-        this.props.onSaveBoard(board)
+        board.groups[groupIdx].tasks.push(task)
+        this.props.onSaveBoard(board) // need to fix this. not working.
+        this.setState({taskTitle:''})  
     }
 
     render() {

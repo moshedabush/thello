@@ -17,9 +17,8 @@ display: flex;
 
 class _Board extends React.Component {
 
-    state = {
-        board:[]
-    }
+    state = {}
+
         
     
 
@@ -34,14 +33,8 @@ class _Board extends React.Component {
         }
     }
 
-    onAddGroup = () => {
-        const {board} = this.props
-        console.log('boardboard',board);
-        this.props.onSaveBoard(board)
-        this.setState(board)
-        
-    }
   
+
     onDragEnd = result => {
         const { destination, source, draggableId, type } = result
         const {board, board: {groups}} = this.props  
@@ -61,8 +54,8 @@ class _Board extends React.Component {
             newGroupOrder.splice(destination.index, 0, movedGroup[0])
             board.groups = newGroupOrder
             this.props.onSaveBoard(board)
-            this.setState(board)
             return
+            
         }
 
         const locationGroupStart = source.droppableId
@@ -79,7 +72,7 @@ class _Board extends React.Component {
             isolatedTasks[0].splice(destination.index, 0, targetedTask[0])
             groups[isolatedTasks[0]] = newGroups
             this.props.onSaveBoard(board)
-            this.setState(board)
+            return
 
         }
 
@@ -98,7 +91,8 @@ class _Board extends React.Component {
             isolatedDestinationTasks[0].splice(destination.index, 0, targetedTask[0])
             groups[isolatedDestinationTasks] = newGroups
             this.props.onSaveBoard(board)
-            this.setState(board)
+            return
+       
         }
         return
 
@@ -123,9 +117,9 @@ class _Board extends React.Component {
                             ref={provided.innerRef}
                         >
                             {groups.map((group, index) => {
-                                const column = group;
-                                const tasks = column.tasks.map(task => task)
-                                return <Column key={column.id} column={column} tasks={tasks} index={index} />
+                                
+                                const tasks = group.tasks.map(task => task)
+                                return <Column key={group.id} group={group} tasks={tasks} index={index} board={board}/>
                             })}
                             {provided.placeholder}
                             <GroupAdd board={board}  onSaveBoard={this.props.onSaveBoard}/>
