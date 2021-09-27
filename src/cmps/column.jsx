@@ -36,7 +36,7 @@ export class Column extends React.Component {
     render() {
         const {board} = this.props
         console.log('board in render',board);
-        const {groups} = board
+        // const {groups} = board
         // if (!board) return <div>loading...</div> // Create cmp with killer loading
         return (
             <Draggable draggableId={this.props.column.id} index={this.props.index}>
