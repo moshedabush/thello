@@ -15,32 +15,31 @@ const emails = ['username@gmail.com', 'user02@gmail.com'];
 export default function SimpleDialog(props) {
   const { onClose, selectedValue, open } = props;
   const [value, setValue] = React.useState('Controlled');
-  const handleClose = () => {
-    onClose(selectedValue);
-  };
 
   // const handleListItemClick = (value) => {
   //   onClose(value);
   // };
   const handleChange = (event) => {
-    debugger
+    console.log('event',event.target.value)
+    props.task.title=event.target.value;
     setValue(event.target.value);
   };
 
   const { title, members } = props.task;
   const { task } = props;
   return (
-    <Dialog onClose={handleClose} open={open} className={'dialog-container'}>
+    <Dialog onClose={props.onClose} open={open} className={'dialog-container'}>
       <main className={'dialog'}>
         <header className={'header-dialog '}>
-          <IconButton className={'closeBtn'} onClick={onClose}>
-            <CloseIcon />
+          <IconButton className={'closeBtn'} onClick={()=>{onClose()}}>
+            <CloseIcon  />
           </IconButton>
           <DialogTitle>
           <TextField
           id="flexible"
-          
-          maxRows={1}
+          autoFocus 
+          multiline
+          maxRows={2}
           value={title}
           onChange={handleChange}
         />
