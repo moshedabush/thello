@@ -1,10 +1,11 @@
 import React from "react";
-import HomePageCover from "../assets/img/home-page-hero.png";
+import Hero from "../assets/img/hero.png";
 import { LoginSignup } from "../cmps/login-signup";
 import { connect } from "react-redux";
 
 import { userService } from "../services/user.service";
 import { onSignup } from "../store/user.actions";
+import { HomeHeader } from "../cmps/home-header";
 
 class _HomePage extends React.Component {
   state = {
@@ -76,8 +77,9 @@ class _HomePage extends React.Component {
     const { username, password, fullname } = this.state.credentials;
     const { isSignup, users } = this.state;
     return (
-      <main style={sectionStyle}>
-        <div className="home">
+      <div className="home">
+        <main style={sectionStyle} className="home-container">
+          <HomeHeader />
           <div className="hero-container">
             <section className="hero">
               <div className="hero-info">
@@ -92,7 +94,8 @@ class _HomePage extends React.Component {
                 </a>
               </div>
               <div className="hero-img">
-                <img style={imgStyle} src={HomePageCover} alt="" />
+                <img src={Hero} alt="" />
+                <img src="assets/img/hero.png" alt="" />
               </div>
             </section>
           </div>
@@ -156,8 +159,8 @@ class _HomePage extends React.Component {
               </div>
             )}
           </section>
-        </div>
-      </main>
+        </main>
+      </div>
     );
   }
 }
