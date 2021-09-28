@@ -60,7 +60,7 @@ export class Task extends React.Component {
                         {this.props.task.title}
                         {this.state.isClicked && <SimpleDialog open={true} onClose={this.onClose} selectedValue={'task'} task={this.props.task} groupTitle={this.props.groupTitle} />}
                         <span className="edit-icon"><CreateIcon fontSize="small" onClick={this.togglePopUpMenu} /></span>
-                        {isPopUpMenuOpen? <Card className="quick-menu"> <Button size="small">Learn More</Button> </Card> : ''}
+                        {isPopUpMenuOpen? <Card className="quick-menu"> <Button color="primary" size="small">Learn More</Button> </Card> : ''}
                         </div>
                     </Container>
                 )}
