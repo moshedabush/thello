@@ -35,9 +35,9 @@ export class Task extends React.Component {
         this.setState({isPopUpMenuOpen:!isPopUpMenuOpen})
     }
 
-    handleClick = (ev) => {
-        console.log('ev', ev)
-        this.setState({ isClicked: !this.state.isClicked })
+    handleClick = (bool) => {
+       
+        this.setState({ isClicked: bool })
 
     }
     onClose = () => {
@@ -47,19 +47,21 @@ export class Task extends React.Component {
         const {isPopUpMenuOpen} = this.state
         return (
             <Draggable draggableId={this.props.task.id} index={this.props.index}>
+
                 {(provided, snapshot) => (
-                    <Container 
-                    
-                        onClick={() => { this.handleClick() }}
-                        {...provided.draggableProps}
-                        {...provided.dragHandleProps}
-                        ref={provided.innerRef}
-                        isDragging={snapshot.isDragging}
+                    <Container
+                    {...provided.draggableProps}
+                    {...provided.dragHandleProps}
+                    ref={provided.innerRef}
+                    isDragging={snapshot.isDragging}
                     >
+                        {<SimpleDialog open={this.state.isClicked} onClose={this.onClose} selectedValue={'task'} task={this.props.task} groupTitle={this.props.groupTitle}/>}
+                        <div onClick={()=>{this.handleClick(!this.state.isClicked)}}> 
                         {this.props.task.title}
                         {this.state.isClicked && <SimpleDialog open={true} onClose={this.onClose} selectedValue={'task'} task={this.props.task} groupTitle={this.props.groupTitle} />}
                         <span className="edit-icon"><CreateIcon fontSize="small" onClick={this.togglePopUpMenu} /></span>
                         {isPopUpMenuOpen? <Card className="quick-menu"> <Button size="small">Learn More</Button> </Card> : ''}
+                        </div>
                     </Container>
                 )}
                 
