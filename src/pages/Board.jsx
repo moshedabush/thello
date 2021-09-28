@@ -119,7 +119,7 @@ class _Board extends React.Component {
                             {groups.map((group, index) => {
                                 
                                 const tasks = group.tasks.map(task => task)
-                                return <Column key={group.id} group={group} tasks={tasks} index={index} board={board}/>
+                                return <Column key={group.id} group={group} tasks={tasks} index={index} board={board} onSaveBoard={this.props.onSaveBoard}/>
                             })}
                             {provided.placeholder}
                             <GroupAdd board={board}  onSaveBoard={this.props.onSaveBoard}/>
