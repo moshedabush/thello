@@ -58,6 +58,9 @@ export class Task extends React.Component {
                         {<SimpleDialog open={this.state.isClicked} onClose={this.onClose} selectedValue={'task'} task={this.props.task} groupTitle={this.props.groupTitle}/>}
                         <div style={{width: 100 + '%', height: 100 + '%' }} onClick={()=>{this.handleClick(!this.state.isClicked)}}> 
                         {this.props.task.title}
+                        {this.state.isClicked && <SimpleDialog open={true} onClose={this.onClose} selectedValue={'task'} task={this.props.task} groupTitle={this.props.groupTitle} />}
+                        <span className="edit-icon"><CreateIcon fontSize="small" onClick={this.togglePopUpMenu} /></span>
+                        {isPopUpMenuOpen? <Card className="quick-menu"> <Button size="small">Learn More</Button> </Card> : ''}
                         </div>
                     </Container>
                 )}
