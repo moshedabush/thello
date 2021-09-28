@@ -4,7 +4,7 @@ import React from 'react';
 import { connect } from 'react-redux'
 import { DragDropContext, Droppable } from 'react-beautiful-dnd'
 import { onSaveBoard, loadBoard } from '../store/board.actions.js'
-import { Column } from '../cmps/Column.jsx'
+import { Column } from '../cmps/column.jsx'
 import styled from 'styled-components';
 import { tableSortLabelClasses } from '@mui/material';
 import SimpleDialog from '../cmps/dialog-modal.jsx';
