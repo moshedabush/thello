@@ -56,7 +56,7 @@ export class Task extends React.Component {
                     isDragging={snapshot.isDragging}
                     >
                         {<SimpleDialog open={this.state.isClicked} onClose={this.onClose} selectedValue={'task'} task={this.props.task} groupTitle={this.props.groupTitle}/>}
-                        <div onClick={()=>{this.handleClick(!this.state.isClicked)}}> 
+                        <div style={{width: 100 + '%', height: 100 + '%' }} onClick={()=>{this.handleClick(!this.state.isClicked)}}> 
                         {this.props.task.title}
                         {this.state.isClicked && <SimpleDialog open={true} onClose={this.onClose} selectedValue={'task'} task={this.props.task} groupTitle={this.props.groupTitle} />}
                         <span className="edit-icon"><CreateIcon fontSize="small" onClick={this.togglePopUpMenu} /></span>

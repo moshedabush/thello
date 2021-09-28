@@ -37,6 +37,7 @@ export default function SimpleDialog(props) {
           <DialogTitle>
           <TextField
           id="flexible"
+          autoFocus 
           multiline
           maxRows={2}
           value={title}
