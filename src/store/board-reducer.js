@@ -1,6 +1,6 @@
 const initialState = {
     // boards: [],
-    board: null
+    board: null,
 }
 
 export function boardReducer(state = initialState, action) {

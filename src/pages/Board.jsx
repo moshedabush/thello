@@ -8,6 +8,8 @@ import { Column } from '../cmps/column.jsx'
 // import boardData from '../data/boardsData';
 import styled from 'styled-components';
 import { tableSortLabelClasses } from '@mui/material';
+import SimpleDialog from '../cmps/dialog-modal.jsx';
+
 
 
 
@@ -18,8 +20,11 @@ display: flex;
 class _Board extends React.Component {
 
     state = {
-        board:[]
+        board:[],
+       
     }
+
+ 
         
     
 
@@ -109,9 +114,12 @@ class _Board extends React.Component {
         console.log('boards',board);
         if (!board) return <div>loading...</div>
         const {groups} = board  
+        console.log('state in Board.jsx',this.state)
+
      
         return (
             <DragDropContext onDragEnd={this.onDragEnd}>
+      
                 <Droppable
                     droppableId="groups.id"
                     direction="horizontal"
@@ -125,10 +133,10 @@ class _Board extends React.Component {
                             {groups.map((group, index) => {
                                 const column = group;
                                 const tasks = column.tasks.map(task => task)
-                                return <Column key={column.id} column={column} tasks={tasks} index={index} />
+                                return <Column key={column.id} column={column} tasks={tasks} index={index} board={board} 
+                               />
                             })}
                             {provided.placeholder}
-
                         </Container>
                     )}
                 </Droppable>

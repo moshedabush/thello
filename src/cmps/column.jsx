@@ -40,7 +40,9 @@ export class Column extends React.Component {
                                     isDraggingOver={snapshot.isDraggingOver}
                                 >
                                     {this.props.tasks.map((task, index) => (
-                                        <Task key={task.id} task={task} index={index} />
+                                        <Task key={task.id} task={task} index={index}
+                                         board={this.props.board} columnTitle={this.props.column.title} 
+                                         />
                                     ))}
                                     {provided.placeholder}
                                 </TaskList>
