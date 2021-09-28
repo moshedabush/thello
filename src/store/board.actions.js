@@ -32,3 +32,19 @@ export function loadBoard(boardId) {
         }
     }
 }
+
+// export function setTask(boardId,columnId,taskId) {
+ 
+//     return async dispatch => {
+//         try {
+//             const task = await boardService.getTaskById(boardId,columnId,taskId)
+//             dispatch({
+//                 type: 'SET_TASK',
+//                 task :task
+//             })
+//         } catch (err) {
+//             showErrorMsg('Cannot set task')
+//             console.log('BoardAction: err in setTask', err)
+//         }
+//     }
+// }

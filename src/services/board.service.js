@@ -18,6 +18,7 @@ async function getBoardById(boardId){
     }
 }
 
+
 async function save(board) {
     if (board._id) {
         try {

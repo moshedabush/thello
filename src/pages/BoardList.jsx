@@ -27,7 +27,7 @@ class _BoardList extends React.Component {
   };
 
   getBoards = (boardIds) => {
-   let filteredBoards = boardIds.map((id)=> boardsData.find(({_id})=>_id===id))
+    let filteredBoards = boardIds.map((id)=> boardsData.find(({_id})=>_id===id))
     return filteredBoards;
     
   };
@@ -43,7 +43,7 @@ class _BoardList extends React.Component {
         <h1>Board List</h1>
         {boards.map((board, idx) => (
           <Link to={`board/${board._id}`} key={idx}>
-            <div>{board.title}</div>
+            <span>{board.title}</span>
           </Link>
         ))}
       </div>

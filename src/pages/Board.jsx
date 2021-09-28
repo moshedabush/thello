@@ -7,6 +7,8 @@ import { onSaveBoard, loadBoard } from '../store/board.actions.js'
 import { Column } from '../cmps/Column.jsx'
 import styled from 'styled-components';
 import { tableSortLabelClasses } from '@mui/material';
+import SimpleDialog from '../cmps/dialog-modal.jsx';
+
 import { GroupAdd } from '../cmps/GroupAdd.jsx';
 
 
@@ -17,8 +19,12 @@ display: flex;
 
 class _Board extends React.Component {
 
-    state = {}
+    state = {
+        board:[],
+       
+    }
 
+ 
         
     
 
@@ -103,9 +109,12 @@ class _Board extends React.Component {
         const {board} = this.props
         if (!board) return <div>loading...</div> // Create cmp with killer loading
         const {groups} = board  
+        console.log('state in Board.jsx',this.state)
+
      
         return (
             <DragDropContext onDragEnd={this.onDragEnd}>
+      
                 <Droppable
                     droppableId="groups.id"
                     direction="horizontal"

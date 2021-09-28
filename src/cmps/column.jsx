@@ -60,7 +60,9 @@ class _Column extends React.Component {
                                 <TaskList ref={provided.innerRef} {...provided.droppableProps}
                                     isDraggingOver={snapshot.isDraggingOver}>
                                     {this.props.tasks.map((task, index) => (
-                                        <Task key={task.id} task={task} index={index} />
+                                        <Task key={task.id} task={task} index={index}
+                                         board={this.props.board} groupTitle={this.props.group.title} 
+                                         />
                                     ))}
                                     
                                     {provided.placeholder}
