@@ -46,11 +46,11 @@ export class TaskAdd extends React.Component{
 
         return (
 
-            <div className="add-group-wrapper" >
+            <div className="add-task-wrapper" >
                 {isWrapperOpen ? 
-                <div className="group-add-open">
+                <div className="task-add-open">
                     
-                    <TextField className="group-add-input"
+                    <TextField className="task-add-input"
                         id="outlined-size-small"
                         placeholder="Enter a title for this card.."
                         size="small"
@@ -62,7 +62,7 @@ export class TaskAdd extends React.Component{
                     />
                 </div>
                 :
-                <div className="group-add-closed" onClick={this.toggleTaskAdd}>Add a card</div>
+                <div className="task-add-closed" onClick={this.toggleTaskAdd}>+ Add a card</div>
                 }
             </div>
         )

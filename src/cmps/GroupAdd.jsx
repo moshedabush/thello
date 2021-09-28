@@ -60,7 +60,7 @@ export class GroupAdd extends React.Component {
                     />
                 </div>
                 :
-                <div className="group-add-closed" onClick={this.toggleGroupAdd}>Add another list</div>
+                <div className="group-add-closed" onClick={this.toggleGroupAdd}>+ Add another list</div>
                 }
             </div>
         )

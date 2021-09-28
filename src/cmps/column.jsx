@@ -13,7 +13,7 @@ margin: 8px;
 border: 1px solid lightgrey;
 border-radius: 2px;
 background-color:white;
-width: 220px;
+width: 272px;
 display:flex;
 flex-direction: column;
 border-radius: 3px;
@@ -43,8 +43,9 @@ class _Column extends React.Component {
         const {group} = this.props
         const {onSaveBoard} = this.props
              
-        // if (!board) return <div>loading...</div> // Create cmp with killer loading
+        if (!board) return <div>loading...</div> // Create cmp with killer loading
         return (
+            
             <Draggable draggableId={this.props.group.id} index={this.props.index}>
                 {(provided) => (
                     <Container {...provided.draggableProps} ref={provided.innerRef}
@@ -55,18 +56,19 @@ class _Column extends React.Component {
                         </div>
                         <Droppable droppableId={this.props.group.id} type="task">
                             {(provided, snapshot) => (
+                                <>
                                 <TaskList ref={provided.innerRef} {...provided.droppableProps}
-                                    isDraggingOver={snapshot.isDraggingOver}
-                                >
+                                    isDraggingOver={snapshot.isDraggingOver}>
                                     {this.props.tasks.map((task, index) => (
                                         <Task key={task.id} task={task} index={index} />
                                     ))}
-                                    <TaskAdd board={board} group={group} onSaveBoard={onSaveBoard} />
-                                    {provided.placeholder}
                                     
+                                    {provided.placeholder}
                                 </TaskList>
-
+                                <TaskAdd board={board} group={group} onSaveBoard={onSaveBoard} />
+                                </>
                             )}
+                            
                         </Droppable>
                     </Container>
                 )}

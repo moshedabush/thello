@@ -1,6 +1,8 @@
-.add-group-wrapper{
-    width: 272px;
+.task-add-closed{
+    width: 252px;
+    background-color: rgba(240, 240, 240, 0.356);
     margin: 0 4px;
+    margin-bottom: 8px;
     height: auto;
     min-height: 32px;
     padding: 8px;
@@ -8,31 +10,20 @@
     transition: background 85ms ease-in,opacity 40ms ease-in,border-color 85ms ease-in;
 }
 
-.group-add-closed{
-    width: 272px;
-    background-color: rgba(240, 240, 240, 0.356);
-    margin: 0 4px;
-    height: auto;
-    min-height: 32px;
-    padding: 4px;
-    border-radius: 3px;
-    transition: background 85ms ease-in,opacity 40ms ease-in,border-color 85ms ease-in;
-}
-
-.group-add-open {
-    box-sizing: border-box;
+.task-add-open {
     height: 100%;
     display: flex;
     margin: 0 4px;
+    padding: 8px;
+    margin-bottom: 8px;
     vertical-align: top;
     white-space: nowrap;
     flex-direction: column;
     background-color: white;
-    width: 272px;
+    width: 252px;
     border-radius: 3px;
 }
 
-.group-add-input{
+.task-add-input{
     background-color:rgb(255, 255, 255);
 }
-
