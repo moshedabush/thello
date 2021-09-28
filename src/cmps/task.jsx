@@ -23,8 +23,7 @@ export class Task extends React.Component {
     }
    
     handleClick=(ev)=>{
-console.log('ev',ev)
-        this.setState({isClicked:!this.state.isClicked})
+        this.setState({isClicked:ev})
        
     }
     onClose=()=>{
@@ -33,16 +32,18 @@ console.log('ev',ev)
     render() {
         return (
             <Draggable draggableId={this.props.task.id} index={this.props.index}>
+
                 {(provided, snapshot) => (
                     <Container
-                    onClick={()=>{this.handleClick()}}
                     {...provided.draggableProps}
                     {...provided.dragHandleProps}
                     ref={provided.innerRef}
                     isDragging={snapshot.isDragging}
                     >
+                        {<SimpleDialog open={this.state.isClicked} onClose={this.onClose} selectedValue={'task'} task={this.props.task} groupTitle={this.props.groupTitle}/>}
+                        <div onClick={()=>{this.handleClick(!this.state.isClicked)}}> 
                         {this.props.task.title}
-                        {this.state.isClicked && <SimpleDialog open={true} onClose={this.onClose} selectedValue={'task'} task={this.props.task} groupTitle={this.props.groupTitle}/>}
+                        </div>
                     </Container>
                 )}
             </Draggable>
