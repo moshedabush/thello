@@ -61,7 +61,7 @@ class _Column extends React.Component {
                                     isDraggingOver={snapshot.isDraggingOver}>
                                     {this.props.tasks.map((task, index) => (
                                         <Task key={task.id} task={task} index={index}
-                                         board={this.props.board} columnTitle={this.props.column.title} 
+                                         board={this.props.board} groupTitle={this.props.group.title} 
                                          />
                                     ))}
                                     

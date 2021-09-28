@@ -22,8 +22,10 @@ export class Task extends React.Component {
         isClicked: false,
     }
    
-    handleClick=()=>{
+    handleClick=(ev)=>{
+console.log('ev',ev)
         this.setState({isClicked:!this.state.isClicked})
+       
     }
     onClose=()=>{
         this.setState({isClicked:false})
@@ -40,7 +42,7 @@ export class Task extends React.Component {
                     isDragging={snapshot.isDragging}
                     >
                         {this.props.task.title}
-                        {this.state.isClicked && <SimpleDialog open={true} onClose={this.onClose} selectedValue={this.props.task.title} task={this.props.task} columnTitle={this.props.columnTitle}/>}
+                        {this.state.isClicked && <SimpleDialog open={true} onClose={this.onClose} selectedValue={'task'} task={this.props.task} groupTitle={this.props.groupTitle}/>}
                     </Container>
                 )}
             </Draggable>

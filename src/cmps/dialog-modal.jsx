@@ -1,32 +1,30 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
-import Button from '@mui/material/Button';
-import Avatar from '@mui/material/Avatar';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
-import ListItemAvatar from '@mui/material/ListItemAvatar';
-import ListItemText from '@mui/material/ListItemText';
 import DialogTitle from '@mui/material/DialogTitle';
 import Dialog from '@mui/material/Dialog';
-// import PersonIcon from '@mui/icons-material/Person';
-// import AddIcon from '@mui/icons-material/Add';
 import IconButton from '@material-ui/core/IconButton';
 import CloseIcon from '@material-ui/icons/Close';
 import Typography from '@mui/material/Typography';
-import { blue, blueGrey, grey, red } from '@mui/material/colors';
-import { color, fontSize } from '@mui/system';
+import TextField from '@mui/material/TextField';
+
 
 const emails = ['username@gmail.com', 'user02@gmail.com'];
 
 export default function SimpleDialog(props) {
   const { onClose, selectedValue, open } = props;
-
+  const [value, setValue] = React.useState('Controlled');
   const handleClose = () => {
     onClose(selectedValue);
   };
 
-  const handleListItemClick = (value) => {
-    onClose(value);
+  // const handleListItemClick = (value) => {
+  //   onClose(value);
+  // };
+  const handleChange = (event) => {
+    debugger
+    setValue(event.target.value);
   };
 
   const { title, members } = props.task;
@@ -39,9 +37,16 @@ export default function SimpleDialog(props) {
             <CloseIcon />
           </IconButton>
           <DialogTitle>
-            Title: {title}
+          <TextField
+          id="flexible"
+          
+          maxRows={1}
+          value={title}
+          onChange={handleChange}
+        />
+          
           </DialogTitle>
-            <small>in list: {props.columnTitle}</small>
+            <small>in list: {props.groupTitle}</small>
          
         </header>
         <section className={'main-dialog'}>
