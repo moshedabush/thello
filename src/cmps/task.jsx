@@ -4,12 +4,14 @@ import { Draggable } from 'react-beautiful-dnd';
 import styled from 'styled-components'
 import SimpleDialog from './dialog-modal';
 
+//Need to convert it to scss
 const Container = styled.div`
 border: 1px solid lightgrey;
-border-radius: 2px;
+border-radius: 3px;
+min-width: 256px;
 padding: 8px;
 margin-bottom: 8px;
-background-color: ${props => (props.isDragging ? 'lightgreen' :'white')};
+background-color: ${props => (props.isDragging ? 'lightblue' :'white')};
 `;
 
 export class Task extends React.Component {

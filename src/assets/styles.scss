@@ -1,6 +1,7 @@
 // Setup
 @import "setup/mixins.scss";
 @import "setup/variables.scss";
+@import "setup/base.scss";
 
 // Basics
 @import "basics/helpers.scss";
@@ -8,3 +9,9 @@
 // Components
 @import "cmps/app-header.scss";
 @import "cmps/dialog-modal.scss";
+@import "cmps/GroupAdd.css";
+@import "cmps/Group.css";
+@import "cmps/TaskAdd.css";
+
+// Pages 
+@import "pages/home-page.scss";

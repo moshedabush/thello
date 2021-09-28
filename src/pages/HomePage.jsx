@@ -1,29 +1,29 @@
-import React from 'react';
-import HomePageCover from '../assets/img/home-page-hero.png';
-import { LoginSignup } from '../cmps/login-signup';
-import { connect } from 'react-redux';
+import React from "react";
+import HomePageCover from "../assets/img/home-page-hero.png";
+import { LoginSignup } from "../cmps/login-signup";
+import { connect } from "react-redux";
 
-import { userService } from '../services/user.service';
-import { onSignup } from '../store/user.actions';
+import { userService } from "../services/user.service";
+import { onSignup } from "../store/user.actions";
 
 class _HomePage extends React.Component {
   state = {
     credentials: {
-      username: '',
-      password: '',
-      fullname: '',
+      username: "",
+      password: "",
+      fullname: "",
     },
     isSignup: false,
   };
   componentDidMount = () => {
-    console.log('loggedInUser', userService.getLoggedinUser());
+    console.log("loggedInUser", userService.getLoggedinUser());
   };
   clearState = () => {
     const clearTemplate = {
       credentials: {
-        username: '',
-        password: '',
-        fullname: '',
+        username: "",
+        password: "",
+        fullname: "",
       },
       isSignup: false,
     };
@@ -40,7 +40,7 @@ class _HomePage extends React.Component {
       return;
     this.props.onSignup(this.state.credentials);
     this.clearState();
-    this.props.history.push('/boardlist');
+    this.props.history.push("/boardlist");
   };
   handleChange = (ev) => {
     const field = ev.target.name;
@@ -51,90 +51,112 @@ class _HomePage extends React.Component {
   };
   onGuestLogin = async () => {
     const guest = await userService.signup({
-      fullname: 'Guest Guest',
-      username: 'Guest',
-      password: 'Guest',
+      fullname: "Guest Guest",
+      username: "Guest",
+      password: "Guest",
       userBoardIds: "b101",
     });
     userService.login(guest);
-    this.props.history.push('/boardlist');
-console.log('guest',guest) 
- };
+    this.props.history.push("/boardlist");
+    console.log("guest", guest);
+  };
   toggleSignup = () => {
     this.setState({ isSignup: !this.state.isSignup });
-    console.log('signed up');
+    console.log("signed up");
   };
 
   render() {
     const sectionStyle = {
-      textAlign: 'center',
-      margin: '10px',
+      textAlign: "center",
+      margin: "10px",
     };
     const imgStyle = {
-      width: '400px',
+      width: "400px",
     };
     const { username, password, fullname } = this.state.credentials;
     const { isSignup, users } = this.state;
     return (
       <main style={sectionStyle}>
-        <h1>Thello</h1>
-        <button
-          className='guest-login-btn'
-          onClick={() => {
-            this.onGuestLogin();
-          }}>
-          Try As Guest!(logs in with Guest creds)
-        </button>
-        <h3>Home Page</h3>
-        <img
-          style={imgStyle}
-          className='home-page-hero'
-          src={HomePageCover}
-          alt=''
-        />
-        <section>
-        <button
-            className='signup-btn'
+        <div className="home">
+          <div className="hero-container">
+            <section className="hero">
+              <div className="hero-info">
+                <h1>Thello helps teams move work forward.</h1>
+                <p>
+                  Collaborate, manage projects, and reach new productivity
+                  peaks. From high rises to the home office, the way your team
+                  works is unique—accomplish it all with Thello.
+                </p>
+                <a className="clean-link" href="/boards">
+                  Get started!
+                </a>
+              </div>
+              <div className="hero-img">
+                <img style={imgStyle} src={HomePageCover} alt="" />
+              </div>
+            </section>
+          </div>
+
+          {/* <h1>Thello</h1> */}
+          <button
+            className="guest-login-btn"
             onClick={() => {
-              this.toggleSignup();
-            }}>
-            Sign Up!(link to signup-cmp)
+              this.onGuestLogin();
+            }}
+          >
+            Try As Guest!(logs in with Guest creds)
           </button>
-          {isSignup && (
-            <div className='signup-section'>
-              {isSignup && (
-                <form className='signup-form' onSubmit={this.onSignup}>
-                  <input
-                    type='text'
-                    name='fullname'
-                    value={fullname}
-                    placeholder='Fullname'
-                    onChange={this.handleChange}
-                    required
-                  />
-                  <input
-                    type='text'
-                    name='username'
-                    value={username}
-                    placeholder='Username'
-                    onChange={this.handleChange}
-                    required
-                  />
-                  <input
-                    type='password'
-                    name='password'
-                    value={password}
-                    placeholder='Password'
-                    onChange={this.handleChange}
-                    required
-                  />
-                  <button>Sign Up!</button>
-                </form>
-              )}
-            </div>
-          )}
-         
-        </section>
+          {/* <h3>Home Page</h3> */}
+          {/* <img
+            style={imgStyle}
+            className="home-page-hero"
+            src={HomePageCover}
+            alt=""
+          /> */}
+          <section>
+            <button
+              className="signup-btn"
+              onClick={() => {
+                this.toggleSignup();
+              }}
+            >
+              Sign Up!(link to signup-cmp)
+            </button>
+            {isSignup && (
+              <div className="signup-section">
+                {isSignup && (
+                  <form className="signup-form" onSubmit={this.onSignup}>
+                    <input
+                      type="text"
+                      name="fullname"
+                      value={fullname}
+                      placeholder="Fullname"
+                      onChange={this.handleChange}
+                      required
+                    />
+                    <input
+                      type="text"
+                      name="username"
+                      value={username}
+                      placeholder="Username"
+                      onChange={this.handleChange}
+                      required
+                    />
+                    <input
+                      type="password"
+                      name="password"
+                      value={password}
+                      placeholder="Password"
+                      onChange={this.handleChange}
+                      required
+                    />
+                    <button>Sign Up!</button>
+                  </form>
+                )}
+              </div>
+            )}
+          </section>
+        </div>
       </main>
     );
   }
