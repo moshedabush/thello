@@ -3,8 +3,8 @@ import { connect } from 'react-redux'
 import ReactDOM from 'react-dom';
 import { Droppable, Draggable } from 'react-beautiful-dnd';
 import styled from 'styled-components'
-import { Task } from '../cmps/task.jsx'
-import { TaskAdd } from '../cmps/TaskAdd'
+import { Task } from './Task.jsx'
+import { TaskAdd } from './TaskAdd'
 import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 
 //Need to convert it to scss
