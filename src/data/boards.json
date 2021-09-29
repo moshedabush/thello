@@ -46,7 +46,8 @@
                 "tasks": [
                     {
                         "id": "c103",
-                        "title": "Do that"
+                        "title": "Do that",
+                        "isArchived":false
                     },
                     {
                         "id": "c104",

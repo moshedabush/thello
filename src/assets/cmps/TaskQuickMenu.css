@@ -1,0 +1,43 @@
+.quick-task-editor-buttons {
+    left: 100%;
+    position: absolute; 
+    top: 0;
+    transform: translateX(-20px);
+    transition: opacity 85ms ease-in,transform 85ms ease-in;
+    width: 240px;
+    z-index: 300;
+}   
+
+.quick-menu-modal{
+    display: flex;
+    flex-direction: column;
+   
+}
+
+.quick-task-editor-title-input {
+    height: 100%;
+    white-space: nowrap;
+    background-color: white;
+    border-radius: 3px;
+}
+
+.quick-task-editor-buttons-items {
+    background:rgba(0, 0, 0, 0.6);
+    border-radius: 3px;
+    clear: both;
+    color: white;
+    display: block;
+    float: left;
+    margin: 0 0 4px 45px;
+    padding: 6px 12px 6px 8px;
+    text-decoration: none;
+    transform: translateX(0);
+    transition: transform 85ms ease-in;
+    cursor: pointer;
+}
+
+.quick-task-editor-buttons-items:hover{
+    transform: translateX(+10px);
+
+    
+}
