@@ -6,8 +6,8 @@ import DialogTitle from '@mui/material/DialogTitle';
 import Dialog from '@mui/material/Dialog';
 import IconButton from '@material-ui/core/IconButton';
 import CloseIcon from '@material-ui/icons/Close';
-import Typography from '@mui/material/Typography';
 import TextField from '@mui/material/TextField';
+import BasicMenu from './SideMenuDialog';
 
 
 const emails = ['username@gmail.com', 'user02@gmail.com'];
@@ -20,7 +20,6 @@ export default function SimpleDialog(props) {
   //   onClose(value);
   // };
   const handleChange = (event) => {
-    console.log('event',event.target.value)
     props.task.title=event.target.value;
     setValue(event.target.value);
   };
@@ -34,16 +33,15 @@ export default function SimpleDialog(props) {
           <IconButton className={'closeBtn'} onClick={()=>{onClose()}}>
             <CloseIcon  />
           </IconButton>
-          <DialogTitle>
+          <DialogTitle  style={{width: 95 + '%', borderRadius: 40 + 'px'}}>
           <TextField
           id="flexible"
-          autoFocus 
           multiline
           maxRows={2}
           value={title}
+          style={{width: 95 + '%', borderRadius: 40 + 'px'}}
           onChange={handleChange}
-        />
-          
+        />          
           </DialogTitle>
             <small>in list: {props.groupTitle}</small>
          
@@ -66,6 +64,7 @@ export default function SimpleDialog(props) {
         </section>
         <section className={'sidebar-menu-dialog'}>
           SideBar Menu CMP placeholder
+          <BasicMenu />
         </section>
       </main>
     </Dialog>

@@ -101,6 +101,7 @@ class _HomePage extends React.Component {
               </div>
             </section>
           </div>
+          
           <section>
             <button
               className="signup-btn"
