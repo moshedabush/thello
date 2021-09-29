@@ -7,10 +7,81 @@ import Popper from '@mui/material/Popper';
 import MenuItem from '@mui/material/MenuItem';
 import MenuList from '@mui/material/MenuList';
 import Stack from '@mui/material/Stack';
+import { makeStyles } from '@material-ui/styles';
+
+const useStyles = makeStyles({
+  paper:{
+    width: 192+'px',
+    // float: 'right',
+    overflow: 'hidden',
+    padding: '0 16px 8px 8px',
+    zIndex: 10,
+    color: '#172b4d',
+    fontFamily: '-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Noto Sans,Ubuntu,Droid Sans,Helvetica Neue,sans-serif',
+    fontSize: 14+ 'px',
+    fontWeight: 400,
+    lineHeight: 20+ 'px',
+    backgroundColor: '#0000',
+    position: 'absolute',
+    right: 0,
+    top: 55 + 'px',   
+    
+    
+  },
+  title: {
+    fontSize: 12 + 'px',
+    color: '#5e6c84',
+    fontWeight: 500,
+    lineHeight: 20 + 'px',
+    marginBottom: -4 + 'px',
+    textTransform: 'uppercase',
+    marginTop: 8 + 'px',
+    display: 'block',
+    fontFamily:' -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Noto Sans,Ubuntu,Droid Sans,Helvetica Neue,sans-serif;',
+   
+  },
+  field: {
+    backgroundColor: '#091e420a',
+    border: 'none',
+    borderRadius: 3 + 'px',
+    color: '#172b4d',
+    boxShadow: 'none',
+    boxSizing: 'border-box',
+    cursor: 'pointer',
+    display: 'block',
+    height: 32 + 'px',
+    marginTop: 8+ 'px',
+    width: 168 + 'px',
+    overflow: 'hidden',
+    paddingTop: 6 + 'px',
+    paddingRight: 12 + 'px',
+    paddingLeft: 12 + 'px',
+    position: 'relative',
+    textDecoration: 'none',
+    textOverflow: 'ellipsis',
+    transitionDuration: 85 + 'ms',
+    transitionProperty: 'background-color,border-color,box-shadow',
+    transitionTimingFunction: 'ease',
+    userSelect: 'none',
+    whiteSpace: 'nowrap',
+    fontFamily: '-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Noto Sans,Ubuntu,Droid Sans,Helvetica Neue,sans-serif',
+    fontSize: 14 + 'px',
+    fontWeight: 400,
+    lineHeight: 20 + 'px',
+    '&:hover':{
+      backgroundColor: '#091e4214',
+    border: 'none',
+    boxShadow: 'none',
+    color: '#091e42',
+    
+    }
+  },
+});
 
 export default function MenuListComposition() {
   const [open, setOpen] = React.useState(false);
   const anchorRef = React.useRef(null);
+  const classes = useStyles();
 
   const handleToggle = () => {
     setOpen((prevOpen) => !prevOpen);
@@ -44,70 +115,59 @@ export default function MenuListComposition() {
   }, [open]);
 
   return (
-    <Stack direction="row" spacing={2} >
-      <Paper >
-        <MenuList 
-            style={{display:'flex',flexDirection:'column',margin:5 + 'px',textAlign:'left'}}
-            >
-                ADD TO CARD
-          <MenuItem divider={true} >Members</MenuItem>
-          <MenuItem style={{padding: 2 + 'px'}}>Labels</MenuItem>
-          <MenuItem style={{padding: 2 + 'px'}}>Checklist</MenuItem>
-          <MenuItem style={{padding: 2 + 'px'}}>Dates</MenuItem>
-          <MenuItem style={{padding: 2 + 'px'}}>Attachment</MenuItem>
-          <MenuItem style={{padding: 2 + 'px'}}>Location</MenuItem>
-          <MenuItem style={{padding: 2 + 'px'}}>Cover</MenuItem>
-          <MenuItem style={{padding: 2 + 'px'}}>Custom Fields</MenuItem>
-          POWER-UPS 
-          <MenuItem style={{padding: 2 + 'px'}}>+ Add Power-Ups</MenuItem>
-          AUTOMATION
-          <MenuItem style={{padding: 2 + 'px'}}>+ Add Button</MenuItem>
-          ACTIONS
-          <MenuItem style={{padding: 2 + 'px'}}>Move</MenuItem>
-          <MenuItem style={{padding: 2 + 'px'}}>Copy</MenuItem>
-          <MenuItem style={{padding: 2 + 'px'}}>Make Template</MenuItem>
-          <MenuItem style={{padding: 2 + 'px'}}>Watch</MenuItem>
-          <MenuItem style={{padding: 2 + 'px'}}>Archive</MenuItem>
-          <MenuItem style={{padding: 2 + 'px'}}>Share</MenuItem>
-
+    <Stack direction='row' spacing={2} >
+      <Paper className={classes.paper}>
+        <MenuList
+          style={{
+            display: 'flex',
+            flexDirection: 'column',
+            margin: 5 + 'px',
+            textAlign: 'left',
+          }}>
+          <span className={classes.title}>add to card</span>
+          <MenuItem className={classes.field}>Members</MenuItem>
+          <MenuItem className={classes.field}>Labels</MenuItem>
+          <MenuItem className={classes.field}>Checklist</MenuItem>
+          <MenuItem className={classes.field}>Dates</MenuItem>
+          <MenuItem className={classes.field}>Attachment</MenuItem>
+          <MenuItem className={classes.field}>Location</MenuItem>
+          <MenuItem className={classes.field}>Cover</MenuItem>
+          <MenuItem className={classes.field}>Custom Fields</MenuItem>
+          <span className={classes.title}>power-ups</span>
+          <MenuItem className={''}>+ Add Power-Ups</MenuItem>
+          <span className={classes.title}>automation </span>
+          <MenuItem className={''}>+ Add Button</MenuItem>
+          <span className={classes.title}>actions </span>
+          <MenuItem className={classes.field}>Move</MenuItem>
+          <MenuItem className={classes.field}>Copy</MenuItem>
+          <MenuItem className={classes.field}>Make Template</MenuItem>
+          <MenuItem className={classes.field}>Watch</MenuItem>
+          <MenuItem className={classes.field}>Archive</MenuItem>
+          <MenuItem className={classes.field}>Share</MenuItem>
         </MenuList>
       </Paper>
       <div>
-        {/* <Button
-          ref={anchorRef}
-          id="composition-button"
-          aria-controls={open ? 'composition-menu' : undefined}
-          aria-expanded={open ? 'true' : undefined}
-          aria-haspopup="true"
-          onClick={handleToggle}
-        >
-          Dashboard
-        </Button> */}
         <Popper
           open={open}
           anchorEl={anchorRef.current}
           role={undefined}
-          placement="bottom-start"
+          placement='bottom-start'
           transition
-          disablePortal
-        >
+          disablePortal>
           {({ TransitionProps, placement }) => (
             <Grow
-
               {...TransitionProps}
               style={{
                 transformOrigin:
                   placement === 'bottom-start' ? 'left top' : 'left bottom',
-              }}
-            >
-              <Paper >
+              }}>
+              <Paper>
                 <ClickAwayListener onClickAway={handleClose}>
                   <MenuList
                     autoFocusItem={open}
-                    id="composition-menu"
-                    aria-labelledby="composition-button"
-                    onKeyDown={handleListKeyDown}
-                  >
+                    id='composition-menu'
+                    aria-labelledby='composition-button'
+                    onKeyDown={handleListKeyDown}>
                     <MenuItem onClick={handleClose}>Where</MenuItem>
                     <MenuItem onClick={handleClose}>Is</MenuItem>
                     <MenuItem onClick={handleClose}>This</MenuItem>
