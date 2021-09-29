@@ -71,9 +71,6 @@ class _HomePage extends React.Component {
       textAlign: "center",
       margin: "10px",
     };
-    const imgStyle = {
-      width: "400px",
-    };
     const { username, password, fullname } = this.state.credentials;
     const { isSignup, users } = this.state;
     return (
@@ -89,9 +86,14 @@ class _HomePage extends React.Component {
                   peaks. From high rises to the home office, the way your team
                   works is unique—accomplish it all with Thello.
                 </p>
-                <a className="clean-link" href="/boards">
+                <button
+                  className="clean-link a"
+                  onClick={() => {
+                    this.onGuestLogin();
+                  }}
+                >
                   Get started! Guest Mode
-                </a>
+                </button>
               </div>
               <div className="hero-img">
                 <img src={Hero} alt="" />
@@ -99,23 +101,6 @@ class _HomePage extends React.Component {
               </div>
             </section>
           </div>
-
-          {/* <h1>Thello</h1> */}
-          <button
-            className="guest-login-btn"
-            onClick={() => {
-              this.onGuestLogin();
-            }}
-          >
-            Try As Guest!(logs in with Guest creds)
-          </button>
-          {/* <h3>Home Page</h3> */}
-          {/* <img
-            style={imgStyle}
-            className="home-page-hero"
-            src={HomePageCover}
-            alt=""
-          /> */}
           <section>
             <button
               className="signup-btn"

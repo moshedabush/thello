@@ -6,17 +6,19 @@ import routes from "./routes";
 // import {BoardList} from '../src/pages/BoardList.jsx'
 // import {Board} from '../src/pages/Board.jsx'
 import { userService } from "./services/user.service";
-import { getLoggedinUser } from "./services/user.service.js";
 
 export class RootCmp extends React.Component {
+  state = {
+    user : userService.getLoggedinUser()
+  }
   componentDidMount = () => {
-    console.log("loggedInUser", userService.getLoggedinUser());
+    console.log("loggedInUser", userService.getLoggedinUser(),this.state.user);
+    
   };
   render() {
     return (
       <div>
-        {userService.getLoggedinUser() && <AppHeader />}
-        {/* <AppHeader/> */}
+        {this.state.user && <AppHeader />}
         <main>
           <Switch>
             {routes.map((route) => (
