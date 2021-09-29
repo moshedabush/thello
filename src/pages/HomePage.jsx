@@ -90,7 +90,7 @@ class _HomePage extends React.Component {
                   works is unique—accomplish it all with Thello.
                 </p>
                 <a className="clean-link" href="/boards">
-                  Get started!
+                  Get started! Guest Mode
                 </a>
               </div>
               <div className="hero-img">
