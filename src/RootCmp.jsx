@@ -18,7 +18,8 @@ export class RootCmp extends React.Component {
   render() {
     return (
       <div>
-        {this.state.user && <AppHeader />}
+        {/* {this.state.user && <AppHeader />} */}
+         <AppHeader />
         <main>
           <Switch>
             {routes.map((route) => (

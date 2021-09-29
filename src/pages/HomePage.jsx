@@ -69,7 +69,6 @@ class _HomePage extends React.Component {
   render() {
     const sectionStyle = {
       textAlign: "center",
-      margin: "10px",
     };
     const { username, password, fullname } = this.state.credentials;
     const { isSignup, users } = this.state;
@@ -101,7 +100,6 @@ class _HomePage extends React.Component {
               </div>
             </section>
           </div>
-          
           <section>
             <button
               className="signup-btn"
