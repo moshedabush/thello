@@ -20,6 +20,7 @@ export class TaskQuickMenu extends React.Component {
             this.setState({ isMenuOpen: !isMenuOpen })
             return
         }
+      
     }
 
     toggleQuickMenu = () => {
@@ -50,6 +51,7 @@ export class TaskQuickMenu extends React.Component {
                         onBackdropClick ={this.toggleQuickMenu}
                         disableAutoFocus
                         onKeyDown={this.handleClose}
+                        onClick ={this.handleClose}
                     >
                         <div >
                             <div>

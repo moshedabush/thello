@@ -37,6 +37,7 @@ export class TaskTitleEdit extends React.Component {
         task.title = this.state.taskTitle
         onSaveBoard(board)
         this.setState({ taskTitle: '' })
+        this.toggleTitleEdit()
         return
 
     }
@@ -55,6 +56,7 @@ export class TaskTitleEdit extends React.Component {
                 }}
             >
                 {isTextEditOpen ?
+                    <form id="savetitle">
                     <div className="quick-task-editor-title-container">
                         <div className="quick-task-editor-title-input-wrapper">
                             <TextField className="quick-task-editor-title-input" style={{
@@ -73,10 +75,10 @@ export class TaskTitleEdit extends React.Component {
                             />
                         </div>
                         <div className="quick-task-editor-title-save-btn">
-                            <Button onClick={this.handleChange} variant="contained">Save</Button>
+                            <Button name="save" onClick={this.onEditTaskTitle} variant="contained">Save</Button>
                         </div>
-
                     </div>
+                    </form>
                     :
                     ''
                 }
