@@ -19,10 +19,9 @@ export class TaskQuickMenu extends React.Component {
             const { isMenuOpen } = this.state
             this.setState({ isMenuOpen: !isMenuOpen })
             return
-
-
-
         }
+        const { isMenuOpen } = this.state
+        this.setState({ isMenuOpen: !isMenuOpen })
     }
 
     sendToArchive = ({ target }) => {
