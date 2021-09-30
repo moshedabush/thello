@@ -1,6 +1,8 @@
 import React from 'react';
 import TextField from '@mui/material/TextField';
 import {utilService} from '../services/util.service'
+import TextareaAutosize from '@mui/material/TextareaAutosize';
+
 
 export class GroupAdd extends React.Component {
 
@@ -53,6 +55,8 @@ export class GroupAdd extends React.Component {
                         placeholder="Enter a list title..."
                         size="small"
                         autoFocus
+                        multiline
+                        maxRows={1}
                         onBlur = {this.toggleGroupAdd}
                         value={groupTitle}
                         onChange={this.handleChange}

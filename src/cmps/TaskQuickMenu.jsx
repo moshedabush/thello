@@ -13,9 +13,16 @@ export class TaskQuickMenu extends React.Component {
     }
 
 
-    handleClose = () => {
-        const { isMenuOpen } = this.state
-        this.setState({ isMenuOpen: !isMenuOpen })
+    handleClose = (ev) => {
+        if (ev.key === 'Enter') {
+            ev.preventDefault();
+            const { isMenuOpen } = this.state
+            this.setState({ isMenuOpen: !isMenuOpen })
+            return
+
+
+
+        }
     }
 
     sendToArchive = ({ target }) => {
@@ -29,22 +36,23 @@ export class TaskQuickMenu extends React.Component {
 
     render() {
         const { isMenuOpen } = this.state
-        const { task ,width, height ,right,onSaveBoard,board } = this.props
+        const { task, width, height, right, onSaveBoard, board } = this.props
         return (
 
             <div>
                 {isMenuOpen ?
-                    <Modal className="quick-menu-modal" style={{ bottom: this.props.bottom, top: this.props.top, left: this.props.left}}
+                    <Modal className="quick-menu-modal" style={{ bottom: this.props.bottom, top: this.props.top, left: this.props.left }}
                         onClose={this.handleClose}
                         closeAfterTransition
                         open={isMenuOpen}
                         disableAutoFocus
+                        onKeyDown={this.handleClose}
                     >
 
 
                         <div >
                             <div>
-                                <TaskTitleEdit task={task} width={width} height={height} right={right} onSaveBoard={onSaveBoard} board={board}/>
+                                <TaskTitleEdit task={task} width={width} height={height} right={right} onSaveBoard={onSaveBoard} board={board} />
                             </div>
                             <div>
                                 <a className="quick-task-editor-buttons-items">Open card</a>
