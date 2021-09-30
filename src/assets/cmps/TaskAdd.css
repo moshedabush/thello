@@ -26,4 +26,5 @@
 
 .task-add-input{
     background-color:rgb(255, 255, 255);
+    overflow-y: hidden !important;
 }

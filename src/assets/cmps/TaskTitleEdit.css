@@ -2,6 +2,9 @@
 .quick-task-editor-title-wrapper{
     background-color:transparent;
     position: absolute;
+    position: fixed;
+
+    
  
 
 
@@ -10,11 +13,18 @@
 .quick-task-editor-title-input {
     box-sizing: border-box;
     min-height: 112px;
+    height: 100%;
     white-space: nowrap;
     background-color: rgb(255, 255, 255);
     border: none;
     border-radius: 3px;
-    position: absolute;
+    position: fixed;
     right: 225px;
     
+}
+
+.quick-task-editor-title-save-btn{
+    position: absolute;
+    right: 413px;
+    top:145px
 }
