@@ -27,7 +27,7 @@ export class GroupAdd extends React.Component {
 
     onAddGroup =()=> {
         const {groupTitle} = this.state
-        const {board } = this.props 
+        const {board ,onSaveBoard } = this.props 
         const {groups} = board 
         const group ={
             id: utilService.makeId(),
@@ -36,7 +36,7 @@ export class GroupAdd extends React.Component {
         }
         groups.push(group)
         this.setState({groupTitle:''})     
-        this.props.onSaveBoard(board)
+        onSaveBoard(board)
     }
 
     render() {
@@ -60,7 +60,7 @@ export class GroupAdd extends React.Component {
                     />
                 </div>
                 :
-                <div className="group-add-closed" onClick={this.toggleGroupAdd}>+ Add another list</div>
+                <div className="group-add-closed" onClick={this.toggleGroupAdd}>Add another list</div>
                 }
             </div>
         )

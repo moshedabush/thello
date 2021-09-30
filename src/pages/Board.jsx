@@ -109,7 +109,6 @@ class _Board extends React.Component {
         const {board} = this.props
         if (!board) return <div>loading...</div> // Create cmp with killer loading
         const {groups} = board  
-        console.log('state in Board.jsx',this.state)
 
      
         return (
