@@ -28,6 +28,11 @@ const useStyles = makeStyles({
   },
   headerDialog:{
     width: 75 + '%',
+  },
+  closeBtn:{
+    position: 'absolute',
+    right: 5,
+    top: 5,
   }
 })
 
@@ -51,7 +56,7 @@ export default function SimpleDialog(props) {
       {/* <CssBaseline /> */}
       <main className={classes.dialog}>
         <header className={classes.headerDialog}>
-          <IconButton className={'closeBtn'} onClick={()=>{onClose()}}>
+          <IconButton className={classes.closeBtn} onClick={()=>{onClose()}}>
             <CloseIcon  />
           </IconButton>
           <DialogTitle  >
