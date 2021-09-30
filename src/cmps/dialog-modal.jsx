@@ -8,13 +8,33 @@ import IconButton from '@material-ui/core/IconButton';
 import CloseIcon from '@material-ui/icons/Close';
 import TextField from '@mui/material/TextField';
 import BasicMenu from './SideMenuDialog';
+import { makeStyles } from '@material-ui/styles';
+import { CssBaseline } from '@mui/material';
+import { InputBase } from '@mui/material';
 
-
-const emails = ['username@gmail.com', 'user02@gmail.com'];
+const useStyles = makeStyles({
+  dialog:{
+    backgroundColor: '#f4f5f7',
+    width: 768 + 'px',
+    padding: 16 + 'px',
+   
+  },
+  dialogContainer:{
+    // display: 'flex',
+    // alignItems: 'flex-start',
+    backgroundColor: '#000000a3',
+    justifyContent: 'center',
+    // position: 'fixed',
+  },
+  headerDialog:{
+    width: 75 + '%',
+  }
+})
 
 export default function SimpleDialog(props) {
   const { onClose, selectedValue, open } = props;
   const [value, setValue] = React.useState('Controlled');
+  const classes = useStyles();
 
   // const handleListItemClick = (value) => {
   //   onClose(value);
@@ -27,20 +47,21 @@ export default function SimpleDialog(props) {
   const { title, members } = props.task;
   const { task } = props;
   return (
-    <Dialog onClose={props.onClose} open={open} className={'dialog-container'}>
-      <main className={'dialog'}>
-        <header className={'header-dialog '}>
+    <Dialog onClose={props.onClose} open={open} className={classes.dialogContainer}>
+      {/* <CssBaseline /> */}
+      <main className={classes.dialog}>
+        <header className={classes.headerDialog}>
           <IconButton className={'closeBtn'} onClick={()=>{onClose()}}>
             <CloseIcon  />
           </IconButton>
-          <DialogTitle  style={{width: 95 + '%', borderRadius: 40 + 'px'}}>
+          <DialogTitle  >
           <TextField
           id="flexible"
           multiline
           maxRows={2}
           value={title}
-          style={{width: 95 + '%', borderRadius: 40 + 'px'}}
           onChange={handleChange}
+         
         />          
           </DialogTitle>
             <small>in list: {props.groupTitle}</small>
@@ -63,7 +84,6 @@ export default function SimpleDialog(props) {
           )}
         </section>
         <section className={'sidebar-menu-dialog'}>
-          SideBar Menu CMP placeholder
           <BasicMenu />
         </section>
       </main>

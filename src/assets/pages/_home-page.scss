@@ -4,7 +4,7 @@
         padding: 0 15px;
         margin: auto;
         text-align: center;
-        a {
+        button {
             transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out;
         }
         .hero {
@@ -27,7 +27,7 @@
                     font-size: rem(20px);
                     margin-bottom: 24px;
                 }
-                a {
+                button {
                     border-radius: 6px;
                     font-size: rem(20px);
                     line-height: rem(44px);
@@ -37,6 +37,7 @@
                     &:hover {
                         background-color: #0051cc;
                     }
+                    cursor: pointer;
                 }
             }
             .hero-img {
