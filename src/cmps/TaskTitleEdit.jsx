@@ -37,6 +37,7 @@ export class TaskTitleEdit extends React.Component {
         task.title = this.state.taskTitle
         onSaveBoard(board)
         this.setState({ taskTitle: '' })
+        this.toggleTitleEdit()
         return
 
     }
@@ -47,7 +48,7 @@ export class TaskTitleEdit extends React.Component {
     }
 
     render() {
-        const { isTextEditOpen ,taskTitle } = this.state
+        const { isTextEditOpen, taskTitle } = this.state
         return (
             <div className="quick-task-editor-title-wrapper"
                 style={{
@@ -55,26 +56,29 @@ export class TaskTitleEdit extends React.Component {
                 }}
             >
                 {isTextEditOpen ?
-                    <div>
-                        <TextField className="quick-task-editor-title-input" style={{
-                            width: this.props.width,
-                            height: this.props.height,
-                            top: this.props.top,
-                            bottom: this.props.bottom,
-                        }}
-                            multiline
-                            autoFocus
-                            open={isTextEditOpen}
-                            value={taskTitle}
-                            onChange={this.handleChange}
-                            onKeyDown={this.handleChange}
-                            minRows={4}
-                        />
-                          <div className="quick-task-editor-title-save-btn">
-                            <Button onClick={this.handleChange} variant="contained">Save</Button>
+                    <form id="savetitle">
+                    <div className="quick-task-editor-title-container">
+                        <div className="quick-task-editor-title-input-wrapper">
+                            <TextField className="quick-task-editor-title-input" style={{
+                                width: this.props.width,
+                                minHeight: this.props.height,
+                                top: this.props.top,
+                                bottom: this.props.bottom,
+                            }}
+                                multiline
+                                autoFocus
+                                open={isTextEditOpen}
+                                value={taskTitle}
+                                onChange={this.handleChange}
+                                onKeyDown={this.handleChange}
+                                minRows={4}
+                            />
                         </div>
-                      
+                        <div className="quick-task-editor-title-save-btn">
+                            <Button name="save" onClick={this.onEditTaskTitle} variant="contained">Save</Button>
+                        </div>
                     </div>
+                    </form>
                     :
                     ''
                 }
