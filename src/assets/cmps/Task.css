@@ -2,20 +2,6 @@
     z-index: 200;
 }
 
-/* .quick-menu{
-    left: 100%;
-    position: absolute;
-    top: 0;
-    transform: translateX(-20px);
-    transition: opacity 85ms ease-in,transform 85ms ease-in;
-    width: 240px;
-    z-index: 0;
-    cursor: help;
-}    */
-
-.quick-menu-btns{
-    background-color: #252525;
-}
 
 .quick-edit-icon{
     position: relative;

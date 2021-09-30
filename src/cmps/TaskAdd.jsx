@@ -51,10 +51,12 @@ export class TaskAdd extends React.Component{
                 <div className="task-add-open">
                     
                     <TextField className="task-add-input"
-                        id="outlined-size-small"
+                        id="outlined-multiline-static"
                         placeholder="Enter a title for this card.."
                         size="small"
                         autoFocus
+                        multiline
+                        rows={4}
                         onBlur = {this.toggleTaskAdd}
                         value={taskTitle}
                         onChange={this.handleChange}

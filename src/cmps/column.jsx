@@ -9,6 +9,9 @@ import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 
 //Need to convert it to scss
 const Container = styled.div`
+box-sizing:border-box;
+display: inline-block;
+height: 100%;
 margin: 8px;
 border: 1px solid lightgrey;
 border-radius: 2px;
@@ -21,14 +24,15 @@ justify-content: space-between;
 `;
 
 const Title = styled.h3`
-padding :8px;`;
+padding :8px;;
+white-space:pre;
+`
 
 
 const TaskList = styled.div`
 padding: 8px;
 background-color: ${props => (props.isDraggingOver ? 'lightgrey' : 'inherit')};
 flex-grow: 1;
-min-height:100px;
 `;
 
 class _Column extends React.Component {

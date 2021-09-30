@@ -1,4 +1,4 @@
-import React, { createRef } from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom';
 import { Draggable } from 'react-beautiful-dnd';
 import styled from 'styled-components'
@@ -6,6 +6,7 @@ import SimpleDialog from './dialog-modal';
 import CreateIcon from '@mui/icons-material/Create';
 import Card from '@mui/material/Card';
 import { TaskQuickMenu } from '../cmps/TaskQuickMenu'
+import { TaskTitleEdit } from './TaskTitleEdit.jsx'
 import { Icon } from '@mui/material';
 
 
@@ -20,6 +21,9 @@ background-color: ${props => (props.isDragging ? 'lightblue' : 'white')};
 display:flex;
 flex-direction: row;
 justify-content:space-between;
+overflow: hidden;
+white-space: pre-wrap;
+word-break:break-word;
 `;
 
 
@@ -31,19 +35,31 @@ export class Task extends React.Component {
         isClicked: false,
         isQuickMenuOpen: false,
         left: 0,
+        right:0,
+        bottom: 0,
+        width: 0,
+        height: 0,
         top: 0,
-        bottom: 0
     }
 
 
 
     getDimsOfObject = (ev) => {
-        ev.preventDefault();
-        let icon = this.editIcon.getBoundingClientRect()
         let divTaskDims = this.taskDims.getBoundingClientRect()
+        let icon = this.editIcon.getBoundingClientRect()
+        ev.preventDefault();
+        console.log('divTaskDims', divTaskDims);
         let { left, bottom } = icon
-        let { top, width, height } = divTaskDims
-        this.setState({ left: left, top: top, bottom: bottom, width: width, height: height })
+        let { top, width, height ,right } = divTaskDims
+        this.setState({
+            menuLeft: left,
+            bottom: bottom,
+            width: width,
+            height: height,
+            top: top,
+            left: left,
+            right:right
+        })
     }
 
     toggleQuickMenu = (ev) => {
@@ -54,17 +70,21 @@ export class Task extends React.Component {
 
     }
 
+
+
     handleClick = (bool) => {
 
         this.setState({ isClicked: bool })
 
     }
+
     onClose = () => {
         this.setState({ isClicked: false })
     }
+
     render() {
         const { isQuickMenuOpen } = this.state
-        const { left, top, bottom, width, height } = this.state
+        const { left, top, bottom, width, height, right } = this.state
         const { task, onSaveBoard, board } = this.props
 
         return (
@@ -83,7 +103,12 @@ export class Task extends React.Component {
                                 {this.props.task.title}</div>
                             <div>
                                 <div onClick={this.toggleQuickMenu} ref={(div) => { this.editIcon = div }} ><CreateIcon className="quick-edit-icon" onClick={this.toggleQuickMenu} /></div>
-                                {isQuickMenuOpen ? <span className="quick-menu"><TaskQuickMenu left={left} top={top} bottom={bottom} width={width} height={height} task={task} onSaveBoard={onSaveBoard} board={board} /></span> : ''}
+                                {isQuickMenuOpen ?
+                                    <div>
+
+                                        <TaskQuickMenu left={left} right={right} top={top} bottom={bottom} onSaveBoard={onSaveBoard} height={height} width={width} task={task} board={board} />
+                                        
+                                    </div> : ''}
 
                             </div>
 

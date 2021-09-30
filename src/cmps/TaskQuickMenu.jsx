@@ -1,6 +1,7 @@
 import React from 'react';
-import Modal from '@mui/material/Modal';
-import TextField from '@mui/material/TextField';
+import Modal from '@mui/material/Modal'
+import { TaskTitleEdit } from '../cmps/TaskTitleEdit';
+
 
 
 
@@ -8,6 +9,7 @@ export class TaskQuickMenu extends React.Component {
 
     state = {
         isMenuOpen: true,
+        taskTitle: ''
     }
 
 
@@ -27,7 +29,7 @@ export class TaskQuickMenu extends React.Component {
 
     render() {
         const { isMenuOpen } = this.state
-
+        const { task ,width, height ,right,onSaveBoard,board } = this.props
         return (
 
             <div>
@@ -37,35 +39,24 @@ export class TaskQuickMenu extends React.Component {
                         closeAfterTransition
                         open={isMenuOpen}
                         disableAutoFocus
-                        BackdropProps={{
-                            timeout: 500,
-                        }}
                     >
-                       
-                            <div className="quick-task-editor-title">
-                                {/* <TextField className="quick-task-editor-title-input" 
-                                    style={{width:this.props.width, height:this.props.height }}
-                                    id="outlined-size-small"
-                                    placeholder="Enter a list title..."
-                                    size="small"
-                                    autoFocus */}
-                                    {/* // onBlur={this.toggleGroupAdd}
-                                    // value={taskTitle}
-                                    // onChange={this.handleChange}
-                                    // onKeyDown={this.handleChange}
-                                // /> */}
-                                <div>
-                                    <a className="quick-task-editor-buttons-items">Open card</a>
-                                    <a className="quick-task-editor-buttons-items">Edit labels</a>
-                                    <a className="quick-task-editor-buttons-items">Change members</a>
-                                    <a className="quick-task-editor-buttons-items">Change cover</a>
-                                    <a className="quick-task-editor-buttons-items">Change Move</a>
-                                    <a className="quick-task-editor-buttons-items">Copy</a>
-                                    <a className="quick-task-editor-buttons-items">Edit dates</a>
-                                    <a className="quick-task-editor-buttons-items" name="archive" onClick={(ev) => this.sendToArchive(ev)}>Archive</a>
-                                </div >
+
+
+                        <div >
+                            <div>
+                                <TaskTitleEdit task={task} width={width} height={height} right={right} onSaveBoard={onSaveBoard} board={board}/>
                             </div>
-                      
+                            <div>
+                                <a className="quick-task-editor-buttons-items">Open card</a>
+                                <a className="quick-task-editor-buttons-items">Edit labels</a>
+                                <a className="quick-task-editor-buttons-items">Change members</a>
+                                <a className="quick-task-editor-buttons-items">Change cover</a>
+                                <a className="quick-task-editor-buttons-items">Change Move</a>
+                                <a className="quick-task-editor-buttons-items">Copy</a>
+                                <a className="quick-task-editor-buttons-items">Edit dates</a>
+                                <a className="quick-task-editor-buttons-items" name="archive" onClick={(ev) => this.sendToArchive(ev)}>Archive</a>
+                            </div>
+                        </div>
 
                     </Modal>
                     : ''
