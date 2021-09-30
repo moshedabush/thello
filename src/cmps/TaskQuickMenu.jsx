@@ -20,8 +20,11 @@ export class TaskQuickMenu extends React.Component {
             this.setState({ isMenuOpen: !isMenuOpen })
             return
         }
+    }
+
+    toggleQuickMenu = () => {
         const { isMenuOpen } = this.state
-        this.setState({ isMenuOpen: !isMenuOpen })
+            this.setState({ isMenuOpen: !isMenuOpen })
     }
 
     sendToArchive = ({ target }) => {
@@ -44,11 +47,10 @@ export class TaskQuickMenu extends React.Component {
                         onClose={this.handleClose}
                         closeAfterTransition
                         open={isMenuOpen}
+                        onBackdropClick ={this.toggleQuickMenu}
                         disableAutoFocus
                         onKeyDown={this.handleClose}
                     >
-
-
                         <div >
                             <div>
                                 <TaskTitleEdit task={task} width={width} height={height} right={right} onSaveBoard={onSaveBoard} board={board} />
