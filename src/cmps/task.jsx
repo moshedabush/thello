@@ -48,7 +48,6 @@ export class Task extends React.Component {
         let divTaskDims = this.taskDims.getBoundingClientRect()
         let icon = this.editIcon.getBoundingClientRect()
         ev.preventDefault();
-        console.log('divTaskDims', divTaskDims);
         let { left, bottom } = icon
         let { top, width, height ,right } = divTaskDims
         this.setState({
