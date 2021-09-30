@@ -21,11 +21,15 @@ display:flex;
 flex-direction: column;
 border-radius: 3px;
 justify-content: space-between;
+
 `;
 
 const Title = styled.h3`
 padding :8px;;
 white-space:pre;
+overflow: hidden;
+white-space: pre-wrap;
+word-break:break-word;
 `
 
 
