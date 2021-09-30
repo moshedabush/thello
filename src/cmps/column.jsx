@@ -56,11 +56,11 @@ class _Column extends React.Component {
             
             <Draggable draggableId={this.props.group.id} index={this.props.index}>
                 {(provided) => (
-                    <Container {...provided.draggableProps} ref={provided.innerRef}
+                    <Container {...provided.draggableProps} ref={provided.innerRef}{...provided.dragHandleProps}
                     >
                         <div className="group-header">
                             <MoreHorizIcon fontSize="small" />
-                            <Title {...provided.dragHandleProps}>{this.props.group.title}</Title>
+                            <Title >{this.props.group.title}</Title>
                         </div>
                         <Droppable droppableId={this.props.group.id} type="task">
                             {(provided, snapshot) => (
