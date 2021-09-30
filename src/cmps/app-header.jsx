@@ -29,10 +29,14 @@ class _AppHeader extends React.Component {
                 {/* <a className="btn-header" href="/boardlist">
                 <img src={HomeIcon} alt="" />
                 </a> */}
-                <button className="btn-header" href="/boardlist"> 
+                
+
+                <button className="btn-header"  href="/boardlist" > 
+              
                 <img src={BoardIcon} alt="" />
                 <span>Boards</span>
                 </button>
+               
                     <div className="logo">  
                 <a href="/boardlist">
                 <img src={BoardIcon} alt="" />

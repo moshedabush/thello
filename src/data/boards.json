@@ -27,7 +27,7 @@
         "groups": [
             {
                 "id": "g101",
-                "title": "Group 1",
+                "title": "Todo",
                 "tasks": [
                     {
                         "id": "c101",
@@ -42,15 +42,78 @@
             },
             {
                 "id": "g102",
-                "title": "Group 2",
+                "title": "Doing",
                 "tasks": [
                     {
                         "id": "c103",
-                        "title": "Do that"
+                        "title": "Do that",
+                        "isArchived":false
                     },
                     {
                         "id": "c104",
                         "title": "Help me",
+                        "description": "description",
+                        "comments": [
+                            {
+                                "id": "ZdPnm",
+                                "txt": "also @yaronb please CR this",
+                                "createdAt": 1590999817436.0,
+                                "byMember": {
+                                    "_id": "u103",
+                                    "fullname": "DanKatorza",
+                                    "imgUrl": "http://res.cloudinary.com/shaishar9/image/upload/v1590850482/j1glw3c9jsoz2py0miol.jpg"
+                                }
+                            }
+                        ],
+                        "checklists": [
+                            {
+                                "id": "YEhmF",
+                                "title": "Checklist",
+                                "todos": [
+                                    {
+                                        "id": "212jX",
+                                        "title": "To Do 1",
+                                        "isDone": false
+                                    }
+                                ]
+                            }
+                        ],
+                        "members": [
+                            {
+                                "_id": "u103",
+                                "username": "DanKatorza",
+                                "fullname": "Dan Katorza",
+                                "imgUrl": "http://res.cloudinary.com/shaishar9/image/upload/v1590850482/j1glw3c9jsoz2py0miol.jpg"
+                            }
+                        ],
+                        "labelIds": ["l101", "l102"],
+                        "createdAt": 1590999730348,
+                        "dueDate": 1592999830348,
+                        "byMember": {
+                            "_id": "u103",
+                            "username": "DanKatorza",
+                            "fullname": "Dan Katorza",
+                            "imgUrl": "http://res.cloudinary.com/shaishar9/image/upload/v1590850482/j1glw3c9jsoz2py0miol.jpg"
+                        },
+                        "style": {
+                            "bgColor": "#26de81"
+                        }
+                    }
+                ],
+                "style": {}
+            },
+            {
+                "id": "g103",
+                "title": "Done",
+                "tasks": [
+                    {
+                        "id": "c107",
+                        "title": "Let's talk",
+                        "isArchived":false
+                    },
+                    {
+                        "id": "c108",
+                        "title": "Meeting at 10:00",
                         "description": "description",
                         "comments": [
                             {

@@ -1,0 +1,20 @@
+
+.quick-task-editor-title-wrapper{
+    background-color:transparent;
+    position: absolute;
+ 
+
+
+}
+
+.quick-task-editor-title-input {
+    box-sizing: border-box;
+    min-height: 112px;
+    white-space: nowrap;
+    background-color: rgb(255, 255, 255);
+    border: none;
+    border-radius: 3px;
+    position: absolute;
+    right: 225px;
+    
+}
