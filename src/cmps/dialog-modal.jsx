@@ -9,22 +9,20 @@ import CloseIcon from '@material-ui/icons/Close';
 import TextField from '@mui/material/TextField';
 import BasicMenu from './SideMenuDialog';
 import { makeStyles } from '@material-ui/styles';
-import { CssBaseline } from '@mui/material';
-import { InputBase } from '@mui/material';
+
 
 const useStyles = makeStyles({
   dialog:{
     backgroundColor: '#f4f5f7',
     width: 768 + 'px',
     padding: 16 + 'px',
+    marginBlockStart:0,
    
   },
   dialogContainer:{
-    // display: 'flex',
-    // alignItems: 'flex-start',
+ 
     backgroundColor: '#000000a3',
     justifyContent: 'center',
-    // position: 'fixed',
   },
   headerDialog:{
     width: 75 + '%',
@@ -40,20 +38,16 @@ export default function SimpleDialog(props) {
   const { onClose, selectedValue, open } = props;
   const [value, setValue] = React.useState('Controlled');
   const classes = useStyles();
-
-  // const handleListItemClick = (value) => {
-  //   onClose(value);
-  // };
   const handleChange = (event) => {
     props.task.title=event.target.value;
     setValue(event.target.value);
   };
 
+
   const { title, members } = props.task;
   const { task } = props;
   return (
     <Dialog onClose={props.onClose} open={open} className={classes.dialogContainer}>
-      {/* <CssBaseline /> */}
       <main className={classes.dialog}>
         <header className={classes.headerDialog}>
           <IconButton className={classes.closeBtn} onClick={()=>{onClose()}}>

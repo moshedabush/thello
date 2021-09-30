@@ -3,6 +3,8 @@ import { connect } from 'react-redux'
 import { Link, NavLink } from 'react-router-dom'
 // import HomeIcon from '../assets/img/home-icon.svg';
 import BoardIcon from '../assets/img/board-icon.svg';
+import { userService } from "../services/user.service";
+
 
 import routes from '../routes'
 
@@ -11,6 +13,12 @@ import { onLogin, onLogout, onSignup, loadUsers, removeUser } from '../store/use
 import { LoginSignup } from './login-signup.jsx'
 
 class _AppHeader extends React.Component {
+    state={
+        user: '',
+    }
+    componentDidMount(){
+        this.setState({user: userService.getLoggedinUser()})
+    }
     onLogin = (credentials) => {
         this.props.onLogin(credentials)
         
@@ -23,7 +31,8 @@ class _AppHeader extends React.Component {
     }
 
     render() {
-        const { user } = this.props
+        const { user } = this.state
+        if (!user) return <div></div>
         return (
             <header className="app-header flex ">
                 {/* <a className="btn-header" href="/boardlist">
@@ -44,17 +53,13 @@ class _AppHeader extends React.Component {
                 
                 
                 <nav>
-                    {/* {routes.map(route => <NavLink exact key={route.path} to={route.path}>{route.label}</NavLink>)} */}
-                    {user && <span className="user-info flex">
-                            <Link to={`user/${user._id}`}>
-                                {user.fullname}
-                                <span className="score">{user.score?.toLocaleString()}</span>
+                    { <span className="user-info flex">
+                            <Link to={`user/${user._id}`} style={{marginRight:10+'px',marginTop:5+'px'}}>
+                                {user.username }
                             </Link>
                         <button className="btn-header flex" to="/" onClick={this.onLogout} ><NavLink key='/' to='/'>Logout</NavLink></button>
                     </span>}
-                    {!user && <section className="user-info">
-                        <LoginSignup onLogin={this.onLogin} onSignup={this.onSignup} />
-                    </section>}
+                
                 </nav>
             </header>
         )

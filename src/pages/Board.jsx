@@ -6,10 +6,11 @@ import { DragDropContext, Droppable } from 'react-beautiful-dnd'
 import { onSaveBoard, loadBoard } from '../store/board.actions.js'
 import { Column } from '../cmps/column.jsx'
 import styled from 'styled-components';
-import { tableSortLabelClasses } from '@mui/material';
-import SimpleDialog from '../cmps/dialog-modal.jsx';
+// import { tableSortLabelClasses } from '@mui/material';
+// import SimpleDialog from '../cmps/dialog-modal.jsx';
 
 import { GroupAdd } from '../cmps/GroupAdd.jsx';
+import { AppHeader } from '../cmps/app-header.jsx';
 
 
 //Need to convert it to scss
@@ -112,17 +113,19 @@ class _Board extends React.Component {
 
      
         return (
+            <div>
+
+                <AppHeader/>
             <DragDropContext onDragEnd={this.onDragEnd}>
-      
                 <Droppable
                     droppableId="groups.id"
                     direction="horizontal"
                     type="group"
-                >
+                    >
                     {provided => (
                         <Container
-                            {...provided.droppableProps}
-                            ref={provided.innerRef}
+                        {...provided.droppableProps}
+                        ref={provided.innerRef}
                         >
                             {groups.map((group, index) => {
                                 
@@ -135,6 +138,7 @@ class _Board extends React.Component {
                     )}                                 
                 </Droppable>
             </DragDropContext>
+                    </div>
         )
     }
 }

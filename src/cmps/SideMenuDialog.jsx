@@ -22,6 +22,7 @@ import CollectionsBookmarkOutlinedIcon from '@mui/icons-material/CollectionsBook
 import RemoveRedEyeOutlinedIcon from '@mui/icons-material/RemoveRedEyeOutlined';
 import ArchiveOutlinedIcon from '@mui/icons-material/ArchiveOutlined';
 import ReplayOutlinedIcon from '@mui/icons-material/ReplayOutlined';
+import  { ActionsContainer  } from './ActionsContainer';
 const useStyles = makeStyles({
   paper: {
     width: 192 + 'px',
@@ -95,6 +96,7 @@ const useStyles = makeStyles({
 
 export default function MenuListComposition() {
   const [open, setOpen] = React.useState(false);
+  const [isClicked, click] = React.useState(false);
   const anchorRef = React.useRef(null);
   const classes = useStyles();
 
@@ -140,20 +142,20 @@ export default function MenuListComposition() {
             textAlign: 'left',
           }}>
           <span className={classes.title}>add to card</span>
+
           <MenuItem
             className={classes.field}
-            onClick={(ev) => {
-              console.log(ev.target.innerText);
+            onClick={() => {
+              click(isClicked? null : 'Members');
             }}>
-            {' '}
             <span>
               <PersonOutlineOutlinedIcon className={classes.icon} />
             </span>
             Members
           </MenuItem>
-          <MenuItem
-            className={classes.field}
-           >
+            {isClicked==='Members' && <ActionsContainer type={'Members'}/>}{' '}
+
+          <MenuItem className={classes.field}>
             <span>
               <LocalOfferOutlinedIcon className={classes.icon} />
             </span>
@@ -165,12 +167,16 @@ export default function MenuListComposition() {
             </span>
             Checklist
           </MenuItem>
-          <MenuItem className={classes.field}>
+          <MenuItem className={classes.field}
+           onClick={() => {
+            click(isClicked? null : 'Dates');
+          }}>
             <span>
               <AccessTimeOutlinedIcon className={classes.icon} />
             </span>
             Dates
           </MenuItem>
+          {isClicked==='Dates' && <ActionsContainer type={'Dates'} onClose={()=>{click(null)}}/>}{' '}
           <MenuItem className={classes.field}>
             <span>
               <AttachFileOutlinedIcon className={classes.icon} />

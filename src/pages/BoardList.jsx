@@ -5,6 +5,7 @@ import { loadUsers } from '../store/user.actions';
 // import boardData from '../data/boardsData';
 import  boardsData from '../data/boards.json'
 import { Link } from 'react-router-dom';
+import { AppHeader } from '../cmps/app-header';
 
 class _BoardList extends React.Component {
   state = {
@@ -40,6 +41,7 @@ class _BoardList extends React.Component {
     console.log('boards in render',boards)
     return (
       <div>
+        <AppHeader/>
         <h1>Board List</h1>
         {boards.map((board, idx) => (
           <Link to={`board/${board._id}`} key={idx}>
