@@ -2,7 +2,7 @@ import {HomePage} from '../src/pages/HomePage.jsx'
 import { BoardList } from './pages/BoardList.jsx';
 import { Board } from './pages/Board.jsx';
 import { Login } from './pages/Login.jsx';
-import { SingUp } from './pages/Singup.jsx';
+import { SingUp } from './pages/SingUp.jsx';
 const routes = [
     {
         path:'/',

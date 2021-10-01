@@ -78,7 +78,7 @@ class _SingUp extends React.Component {
         <main style={sectionStyle} className="home-container">
           <HomeHeader />
           
-            <section className="hero">
+           
             
           
             <button
@@ -122,7 +122,7 @@ class _SingUp extends React.Component {
                 )}
               </div>
             )}
-          </section>
+         
         </main>
                
 

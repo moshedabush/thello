@@ -78,8 +78,6 @@ class _Login extends React.Component {
         <main style={sectionStyle} className="home-container">
           <HomeHeader />
           
-          
-          
         </main>
                
 
