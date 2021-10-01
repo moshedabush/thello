@@ -35,9 +35,7 @@ class _AppHeader extends React.Component {
         if (!user) return <div></div>
         return (
             <header className="app-header flex ">
-                {/* <a className="btn-header" href="/boardlist">
-                <img src={HomeIcon} alt="" />
-                </a> */}
+        
                 
 
                 <a className="btn-header"  href="/boardlist" > 
