@@ -1,5 +1,4 @@
 import React from "react";
-import Hero from "../assets/img/hero.png";
 import { LoginSignup } from "../cmps/login-signup";
 import { connect } from "react-redux";
 
@@ -78,6 +77,15 @@ class _Login extends React.Component {
         <main style={sectionStyle} className="home-container">
           <HomeHeader />
           
+          <button
+                  className="clean-link a "
+                  onClick={() => {
+                    this.onGuestLogin();
+                  }}
+                >
+                  Get started! Guest Mode
+                </button>
+
         </main>
                
 

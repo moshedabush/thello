@@ -1,5 +1,4 @@
 import React from "react";
-import Hero from "../assets/img/hero.png";
 import { LoginSignup } from "../cmps/login-signup";
 import { connect } from "react-redux";
 
