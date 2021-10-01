@@ -8,7 +8,7 @@ import { onSignup } from "../store/user.actions";
 import { HomeHeader } from "../cmps/home-header";
 
 
-class _HomePage extends React.Component {
+class _SingUp extends React.Component {
   state = {
     credentials: {
       username: "",
@@ -77,39 +77,18 @@ class _HomePage extends React.Component {
       <div className="home">
         <main style={sectionStyle} className="home-container">
           <HomeHeader />
-          <div className="hero-container">
+          
             <section className="hero">
-              <div className="hero-info">
-                <h1>Thello helps teams move work forward.</h1>
-                <p>
-                  Collaborate, manage projects, and reach new productivity
-                  peaks. From high rises to the home office, the way your team
-                  works is unique—accomplish it all with Thello.
-                </p>
-                <button
-                  className="clean-link a"
-                  onClick={() => {
-                    this.onGuestLogin();
-                  }}
-                >
-                  Get started! Guest Mode
-                </button>
-              </div>
-              <div className="hero-img">
-                <img src={Hero} alt="" />
-                <img src="assets/img/hero.png" alt="" />
-              </div>
-            </section>
-          </div>
-          <section>
-            {/* <button
+            
+          
+            <button
               className="signup-btn"
               onClick={() => {
                 this.toggleSignup();
               }}
             >
               Sign Up!(link to signup-cmp)
-            </button> */}
+            </button>
             {isSignup && (
               <div className="signup-section">
                 {isSignup && (
@@ -159,4 +138,4 @@ const mapDispatchToProps = {
   onSignup,
 };
 
-export const HomePage = connect(mapStateToProps, mapDispatchToProps)(_HomePage);
+export const SingUp = connect(mapStateToProps, mapDispatchToProps)(_SingUp);
