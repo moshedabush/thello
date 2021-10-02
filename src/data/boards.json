@@ -9,6 +9,7 @@
             "imgUrl": "http://some-img"
         },
         "style": {
+            "backgroundColor": "lightblue"
         },
         "labels": [
             {
@@ -38,7 +39,9 @@
                         "title": "Add Samples"
                     }
                 ],
-                "style": {}
+                "style": {
+                 
+                }
             },
             {
                 "id": "g102",
