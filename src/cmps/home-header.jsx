@@ -37,10 +37,10 @@ class _HomeHeader extends React.Component {
             thello
         </div>
           <div className="nav-btns">
-            <a className="login-btn clean-link" href="#/login">
+            <a className="login-btn clean-link" href="/login">
               Log in
             </a>
-            <a className="signup-btn clean-link" href="#/signup">
+            <a className="signup-btn clean-link" href="/signup">
               Sign up
             </a>
           </div>

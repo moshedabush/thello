@@ -102,14 +102,14 @@ class _HomePage extends React.Component {
             </section>
           </div>
           <section>
-            <button
+            {/* <button
               className="signup-btn"
               onClick={() => {
                 this.toggleSignup();
               }}
             >
               Sign Up!(link to signup-cmp)
-            </button>
+            </button> */}
             {isSignup && (
               <div className="signup-section">
                 {isSignup && (
