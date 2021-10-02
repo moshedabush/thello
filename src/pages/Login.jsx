@@ -1,11 +1,10 @@
 import React from "react";
 import { LoginSignup } from "../cmps/login-signup";
 import { connect } from "react-redux";
+import BoardIcon from "../assets/img/board-icon.svg";
 
 import { userService } from "../services/user.service";
 import { onSignup } from "../store/user.actions";
-import { HomeHeader } from "../cmps/home-header";
-
 
 class _Login extends React.Component {
   state = {
@@ -15,10 +14,12 @@ class _Login extends React.Component {
       fullname: "",
     },
     isSignup: false,
+    users: [],
   };
-  componentDidMount = () => {
-    console.log("loggedInUser", userService.getLoggedinUser());
-  };
+  async componentDidMount() {
+    const users = await userService.getUsers();
+    this.setState({ users });
+  }
   clearState = () => {
     const clearTemplate = {
       credentials: {
@@ -31,24 +32,19 @@ class _Login extends React.Component {
     this.setState({ clearTemplate });
   };
 
-  onSignup = (ev = null) => {
-    if (ev) ev.preventDefault();
-    if (
-      !this.state.credentials.username ||
-      !this.state.credentials.password ||
-      !this.state.credentials.fullname
-    )
-      return;
-    this.props.onSignup(this.state.credentials);
-    this.clearState();
-    this.props.history.push("/boardlist");
-  };
   handleChange = (ev) => {
     const field = ev.target.name;
     const value = ev.target.value;
     this.setState({
       credentials: { ...this.state.credentials, [field]: value },
     });
+  };
+
+  onLogin = (ev = null) => {
+    if (ev) ev.preventDefault();
+    if (!this.state.credentials.username) return;
+    this.props.onLogin(this.state.credentials);
+    this.clearState();
   };
   onGuestLogin = async () => {
     const guest = await userService.signup({
@@ -73,22 +69,57 @@ class _Login extends React.Component {
     const { username, password, fullname } = this.state.credentials;
     const { isSignup, users } = this.state;
     return (
-      <div className="home">
-        <main style={sectionStyle} className="home-container">
-          <HomeHeader />
-          
+      <div className="login-page">
+        <main style={sectionStyle}>
+          <header className="home-header ">
+            <nav className="flex space-between">
+              <div className="logo">
+                <img src={BoardIcon} alt="" />
+                thello
+              </div>
+            </nav>
+          </header>
+          <form className="login-form" onSubmit={this.onLogin}>
+                    <select
+                        name="username"
+                        value={username}
+                        onChange={this.handleChange}
+                    >
+                        <option value="">Select User</option>
+                        {users.map(user => <option key={user._id} value={user.username}>{user.fullname}</option>)}
+                    </select>
+
+                    <input
+                        type="text"
+                        name="username"
+                        value={username}
+                        placeholder="Username"
+                        onChange={this.handleChange}
+                        required
+                        autoFocus
+                    />
+                    <input
+                        type="password"
+                        name="password"
+                        value={password}
+                        placeholder="Password"
+                        onChange={this.handleChange}
+                        required
+                    />
+                    <button>Login!</button>
+                </form>
           <button
-                  className="clean-link a "
-                  onClick={() => {
-                    this.onGuestLogin();
-                  }}
-                >
-                  Get started! Guest Mode
-                </button>
+            className="clean-link a "
+            onClick={() => {
+              this.onGuestLogin();
+            }}
+          >
+            Try for free
+          </button>
+
+
 
         </main>
-               
-
       </div>
     );
   }

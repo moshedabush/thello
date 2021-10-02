@@ -28,7 +28,7 @@ const routes = [
         path:'/singup',
         component: SingUp,
         label: 'singup',
-    },
+    }
 ]
 
 export default routes;
