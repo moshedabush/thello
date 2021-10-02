@@ -77,6 +77,11 @@ class _Login extends React.Component {
                 <img src={BoardIcon} alt="" />
                 thello
               </div>
+              <div className="nav-btns">
+            <a className="signup-btn clean-link" href="/signup">
+              Sign up
+            </a>
+          </div>
             </nav>
           </header>
           <form className="login-form" onSubmit={this.onLogin}>
@@ -108,14 +113,7 @@ class _Login extends React.Component {
                     />
                     <button>Login!</button>
                 </form>
-          <button
-            className="clean-link a "
-            onClick={() => {
-              this.onGuestLogin();
-            }}
-          >
-            Try for free
-          </button>
+
 
 
 

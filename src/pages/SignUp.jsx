@@ -6,7 +6,6 @@ import { userService } from "../services/user.service";
 import { onSignup } from "../store/user.actions";
 import BoardIcon from "../assets/img/board-icon.svg";
 
-
 class _SignUp extends React.Component {
   state = {
     credentials: {
@@ -16,9 +15,10 @@ class _SignUp extends React.Component {
     },
     isSignup: false,
   };
-  componentDidMount = () => {
-    console.log("loggedInUser", userService.getLoggedinUser());
-  };
+  async componentDidMount() {
+    const users = await userService.getUsers();
+    this.setState({ users });
+  }
   clearState = () => {
     const clearTemplate = {
       credentials: {
@@ -81,45 +81,55 @@ class _SignUp extends React.Component {
                 <img src={BoardIcon} alt="" />
                 thello
               </div>
+              <div className="nav-btns">
+                <a className="signup-btn clean-link" href="/login">
+                  Log in
+                </a>
+              </div>
             </nav>
           </header>
-            {!isSignup && (
-              <div className="signup-section">
-                {!isSignup && (
-                  <form className="signup-form" onSubmit={this.onSignup}>
-                    <input
-                      type="text"
-                      name="fullname"
-                      value={fullname}
-                      placeholder="Fullname"
-                      onChange={this.handleChange}
-                      required
-                    />
-                    <input
-                      type="text"
-                      name="username"
-                      value={username}
-                      placeholder="Username"
-                      onChange={this.handleChange}
-                      required
-                    />
-                    <input
-                      type="password"
-                      name="password"
-                      value={password}
-                      placeholder="Password"
-                      onChange={this.handleChange}
-                      required
-                    />
-                    <button>Sign Up!</button>
-                  </form>
-                )}
-              </div>
-            )}
-         
+          {!isSignup && (
+            <div className="signup-section">
+              {!isSignup && (
+                <form className="signup-form" onSubmit={this.onSignup}>
+                  <input
+                    type="text"
+                    name="fullname"
+                    value={fullname}
+                    placeholder="Fullname"
+                    onChange={this.handleChange}
+                    required
+                  />
+                  <input
+                    type="text"
+                    name="username"
+                    value={username}
+                    placeholder="Username"
+                    onChange={this.handleChange}
+                    required
+                  />
+                  <input
+                    type="password"
+                    name="password"
+                    value={password}
+                    placeholder="Password"
+                    onChange={this.handleChange}
+                    required
+                  />
+                  <button>Sign Up!</button>
+                </form>
+              )}
+            </div>
+          )}
+          <button
+            className="clean-link a "
+            onClick={() => {
+              this.onGuestLogin();
+            }}
+          >
+            Log In With Guest Mode !
+          </button>
         </main>
-               
-
       </div>
     );
   }
