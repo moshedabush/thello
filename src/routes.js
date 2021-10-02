@@ -1,8 +1,8 @@
-import {HomePage} from '../src/pages/HomePage.jsx'
+import {HomePage} from '../src/pages/HomePage.jsx';
 import { BoardList } from './pages/BoardList.jsx';
 import { Board } from './pages/Board.jsx';
 import { Login } from './pages/Login.jsx';
-import { SingUp } from './pages/SingUp.jsx';
+import { SignUp } from './pages/SignUp.jsx';
 const routes = [
     {
         path:'/',
@@ -20,15 +20,15 @@ const routes = [
         label: 'Board',
     },
     {
-        path:'/login',
-        component: Login,
-        label: 'login',
+        path:'/signup',
+        component: SignUp,
+        label: 'Singup',
     },
     {
-        path:'/singup',
-        component: SingUp,
-        label: 'singup',
-    }
+        path:'/login',
+        component: Login,
+        label: 'Login',
+    },
 ]
 
 export default routes;

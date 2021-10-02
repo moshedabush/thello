@@ -4,10 +4,10 @@ import { connect } from "react-redux";
 
 import { userService } from "../services/user.service";
 import { onSignup } from "../store/user.actions";
-import { HomeHeader } from "../cmps/home-header";
+import BoardIcon from "../assets/img/board-icon.svg";
 
 
-class _SingUp extends React.Component {
+class _SignUp extends React.Component {
   state = {
     credentials: {
       username: "",
@@ -73,24 +73,19 @@ class _SingUp extends React.Component {
     const { username, password, fullname } = this.state.credentials;
     const { isSignup, users } = this.state;
     return (
-      <div className="home">
-        <main style={sectionStyle} className="home-container">
-          <HomeHeader />
-          
-           
-            
-          
-            <button
-              className="signup-btn"
-              onClick={() => {
-                this.toggleSignup();
-              }}
-            >
-              Sign Up!(link to signup-cmp)
-            </button>
-            {isSignup && (
+      <div className="sign-up-page">
+        <main style={sectionStyle}>
+          <header className="home-header ">
+            <nav className="flex space-between">
+              <div className="logo">
+                <img src={BoardIcon} alt="" />
+                thello
+              </div>
+            </nav>
+          </header>
+            {!isSignup && (
               <div className="signup-section">
-                {isSignup && (
+                {!isSignup && (
                   <form className="signup-form" onSubmit={this.onSignup}>
                     <input
                       type="text"
@@ -137,4 +132,4 @@ const mapDispatchToProps = {
   onSignup,
 };
 
-export const SingUp = connect(mapStateToProps, mapDispatchToProps)(_SingUp);
+export const SignUp = connect(mapStateToProps, mapDispatchToProps)(_SignUp);
