@@ -94,7 +94,7 @@ const useStyles = makeStyles({
   },
 });
 
-export default function MenuListComposition() {
+export default function MenuListComposition(props) {
   const [open, setOpen] = React.useState(false);
   const [isClicked, click] = React.useState(false);
   const anchorRef = React.useRef(null);
@@ -189,12 +189,15 @@ export default function MenuListComposition() {
             </span>
             Location
           </MenuItem>
-          <MenuItem className={classes.field}>
+          <MenuItem className={classes.field}  onClick={() => {
+            click(isClicked? null : 'Cover');
+          }}>
             <span>
               <PanoramaOutlinedIcon className={classes.icon} />
             </span>
             Cover
           </MenuItem>
+          {isClicked==='Cover' && <ActionsContainer type={'Cover'} onClose={()=>{click(null)}} setCoverColor={props.setCoverColor}/>}{' '}
           <MenuItem className={classes.field}>
             <span>
               <AllInboxOutlinedIcon className={classes.icon} />

@@ -9,13 +9,14 @@ import CloseIcon from '@material-ui/icons/Close';
 import TextField from '@mui/material/TextField';
 import BasicMenu from './SideMenuDialog';
 import { makeStyles } from '@material-ui/styles';
+import { width } from '@mui/system';
 
 
 const useStyles = makeStyles({
   dialog:{
     backgroundColor: '#f4f5f7',
     width: 768 + 'px',
-    padding: 16 + 'px',
+    // padding: 16 + 'px',
     marginBlockStart:0,
    
   },
@@ -31,11 +32,15 @@ const useStyles = makeStyles({
     position: 'absolute',
     right: 5,
     top: 5,
+  },
+  cover:{
+    width:768 + 'px',
+    height:70 + 'px',
   }
 })
 
 export default function SimpleDialog(props) {
-  const { onClose, selectedValue, open } = props;
+  const { onClose, selectedValue, open,coverColor } = props;
   const [value, setValue] = React.useState('Controlled');
   const classes = useStyles();
   const handleChange = (event) => {
@@ -53,6 +58,7 @@ export default function SimpleDialog(props) {
           <IconButton className={classes.closeBtn} onClick={()=>{onClose()}}>
             <CloseIcon  />
           </IconButton>
+     {coverColor!=='null' &&   <div className={classes.cover} style={{backgroundColor:coverColor}} ></div>}
           <DialogTitle  >
           <TextField
           id="flexible"
@@ -83,7 +89,7 @@ export default function SimpleDialog(props) {
           )}
         </section>
         <section className={'sidebar-menu-dialog'}>
-          <BasicMenu />
+          <BasicMenu setCoverColor={props.setCoverColor}/>
         </section>
       </main>
     </Dialog>

@@ -38,6 +38,7 @@ export class Task extends React.Component {
     width: 0,
     height: 0,
     top: 0,
+    coverColor:'null',
   };
 
   getDimsOfObject = (ev) => {
@@ -71,12 +72,15 @@ export class Task extends React.Component {
   onClose = () => {
     this.setState({ isClicked: false });
   };
+  setCoverColor = (coverColor)=>{
+    this.setState({coverColor})
+  }
 
   render() {
     const { isQuickMenuOpen } = this.state;
     const { left, top, bottom, width, height, right } = this.state;
     const { task, onSaveBoard, board } = this.props;
-
+    const {coverColor} = this.state
     return (
       <div
         ref={(div) => {
@@ -92,19 +96,25 @@ export class Task extends React.Component {
               {
                 <SimpleDialog
                   open={this.state.isClicked}
+                  setCoverColor={this.setCoverColor}
                   onClose={this.onClose}
                   selectedValue={'task'}
                   task={this.props.task}
                   groupTitle={this.props.groupTitle}
+                  coverColor={this.state.coverColor}
                 />
               }
               <div
-                style={{ width: 100 + '%', height: 100 + '%' }}
-                onClick={() => {
-                  this.handleClick(!this.state.isClicked);
-                }}>
+              style={{width: '-webkit-fill-available'}}
+              onClick={() => {
+                this.handleClick(!this.state.isClicked);
+              }}>
+                  {coverColor!=='null' && <div style={{backgroundColor:coverColor,height: 32 + 'px'}} ></div>}
+                 <div>
                 {this.props.task.title}
+                 </div>
               </div>
+
               <div>
                 <div
                   onClick={this.toggleQuickMenu}
@@ -128,6 +138,8 @@ export class Task extends React.Component {
                       width={width}
                       task={task}
                       board={board}
+                      setCoverColor={this.setCoverColor}
+                      coverColor={coverColor}
                     />
                   </div>
                 ) : (

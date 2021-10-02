@@ -1,4 +1,5 @@
 import React from 'react';
+import { Cover } from './Cover';
 import { Dates } from './Dates';
 
 export class ActionsContainer extends React.Component {
@@ -17,8 +18,9 @@ export class ActionsContainer extends React.Component {
   render() {
     const {type} = this.state
     return (
-      <div className={'menu-container'}>
+      <div className={`menu-container `}>
         {type==='Members' && <div>abc</div>}
+        {type==='Cover' && <Cover cover={this.props.cover} onClose={this.props.onClose} setCoverColor={this.props.setCoverColor}/>}
         {type === 'Dates' && (
           <Dates onClose={this.props.onClose} saveDate={this.saveDate}/>
         )}
