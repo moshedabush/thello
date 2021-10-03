@@ -1,11 +1,11 @@
-import React from 'react';
-import { connect } from 'react-redux';
-import { userService } from '../services/user.service';
-import { loadUsers } from '../store/user.actions';
+import React from "react";
+import { connect } from "react-redux";
+import { userService } from "../services/user.service";
+import { loadUsers } from "../store/user.actions";
 // import boardData from '../data/boardsData';
-import boardsData from '../data/boards.json';
-import { Link } from 'react-router-dom';
-import { AppHeader } from '../cmps/app-header';
+import boardsData from "../data/boards.json";
+import { Link } from "react-router-dom";
+import { AppHeader } from "../cmps/app-header";
 
 class _BoardList extends React.Component {
   state = {
@@ -18,7 +18,7 @@ class _BoardList extends React.Component {
     const boardIds = await this.getUserBoardsIds(loggedUser);
     const boards = await this.getBoards(boardIds);
     this.setState({ loggedUser, boards });
-    console.log('this.state', this.state);
+    console.log("this.state", this.state);
   }
 
   getUserBoardsIds = (loggedUser) => {
@@ -37,39 +37,50 @@ class _BoardList extends React.Component {
   render() {
     const { boards, loggedUser } = this.state;
     if (!boards) return <div>Loading</div>;
-    console.log('boards in render', boards);
+    console.log("boards in render", boards);
     return (
-      <div className={'board-list-container'}>
+      <section>
         <AppHeader />
-        <div className={'board-list-recently-viewed'}>
-          <div>
-            <h4> 🕒 Recently viewed</h4>
-          </div>
-        </div>
-
-        <ul className={'user-board-list'}>
-          <div className={'your-workspaces'}>
-            <h4> YOUR WORKSPACES</h4>
-            <div>{loggedUser.username} Workspaces</div>
-          </div>
-          {boards.map((board, idx) => (
-            <div className={'board-list-card'}>
-              <Link to={`board/${board._id}`} key={idx}>
-                <div
-                  className={'board-list-card'}
-                  style={{
-                    backgroundColor: board.style.backgroundColor
-                      ? board.style.backgroundColor
-                      : 'green',
-                  }}>
-                  {console.log('board.style', board.style)}
-                  <div className={'board-list-title'}>{board.title}</div>
+          <section className="board-list-container flex align-flex-start justify-center">
+            <div className="boards-wrapper flex column">
+              <div className={"board-list-recently-viewed"}>
+                <div>
+                  <h4> 🕒 Recently viewed</h4>
                 </div>
-              </Link>
+              </div>
+
+              <ul className={"boards-preview"}>
+                <div className={"preview-title flex align-center"}>
+                  {/* <h3> Workspaces</h3> */}
+                  <h3>{loggedUser.username}'s Workspaces</h3>
+                </div>
+                <div className="board-list">
+                  {boards.map((board, idx) => (
+                    // <div className={"board-list"}>
+                    <Link
+                      className="clean-link"
+                      to={`board/${board._id}`}
+                      key={idx}
+                    >
+                      <div
+                        className={"board-preview"}
+                        style={{
+                          backgroundColor: board.style.backgroundColor
+                            ? board.style.backgroundColor
+                            : "green",
+                        }}
+                      >
+                        {/* {console.log("board.style", board.style)} */}
+                        <div className={"board-list-title"}>{board.title}</div>
+                      </div>
+                    </Link>
+                    // </div>
+                  ))}
+                </div>
+              </ul>
             </div>
-          ))}
-        </ul>
-      </div>
+          </section>
+      </section>
     );
   }
 }
