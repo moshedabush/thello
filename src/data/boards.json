@@ -9,7 +9,7 @@
             "imgUrl": "http://some-img"
         },
         "style": {
-            "backgroundColor": "lightblue"
+            "backgroundColor": "blue"
         },
         "labels": [
             {

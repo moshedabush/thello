@@ -9,12 +9,7 @@
     height: 100%;
     border-radius: $borderRad1;
 
-    .board-preview-details {
-      position: relative;
-      padding: 10px;
-      height: 100%;
-
-      h3 {
+    h3 {
         font-size: 16px;
         color: $clr2;
         z-index: 20;
@@ -24,6 +19,13 @@
         word-wrap: break-word;
         overflow: hidden;
       }
+
+    .board-preview-details {
+      position: relative;
+      padding: 10px;
+      height: 100%;
+
+      
 
       .fa-star {
         color: $clr2;
@@ -89,7 +91,7 @@
       margin-inline-end: 10px;
     }
 
-    svg {
+    img {
       width: 25px;
       height: 25px;
     }
