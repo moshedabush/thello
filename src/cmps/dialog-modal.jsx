@@ -9,22 +9,21 @@ import CloseIcon from '@material-ui/icons/Close';
 import TextField from '@mui/material/TextField';
 import BasicMenu from './SideMenuDialog';
 import { makeStyles } from '@material-ui/styles';
-import { CssBaseline } from '@mui/material';
-import { InputBase } from '@mui/material';
+import { width } from '@mui/system';
+
 
 const useStyles = makeStyles({
   dialog:{
     backgroundColor: '#f4f5f7',
     width: 768 + 'px',
-    padding: 16 + 'px',
+    // padding: 16 + 'px',
+    marginBlockStart:0,
    
   },
   dialogContainer:{
-    // display: 'flex',
-    // alignItems: 'flex-start',
+ 
     backgroundColor: '#000000a3',
     justifyContent: 'center',
-    // position: 'fixed',
   },
   headerDialog:{
     width: 75 + '%',
@@ -33,32 +32,33 @@ const useStyles = makeStyles({
     position: 'absolute',
     right: 5,
     top: 5,
+  },
+  cover:{
+    width:768 + 'px',
+    height:70 + 'px',
   }
 })
 
 export default function SimpleDialog(props) {
-  const { onClose, selectedValue, open } = props;
+  const { onClose, selectedValue, open,coverColor } = props;
   const [value, setValue] = React.useState('Controlled');
   const classes = useStyles();
-
-  // const handleListItemClick = (value) => {
-  //   onClose(value);
-  // };
   const handleChange = (event) => {
     props.task.title=event.target.value;
     setValue(event.target.value);
   };
 
+
   const { title, members } = props.task;
   const { task } = props;
   return (
     <Dialog onClose={props.onClose} open={open} className={classes.dialogContainer}>
-      {/* <CssBaseline /> */}
       <main className={classes.dialog}>
         <header className={classes.headerDialog}>
           <IconButton className={classes.closeBtn} onClick={()=>{onClose()}}>
             <CloseIcon  />
           </IconButton>
+     {coverColor!=='null' &&   <div className={classes.cover} style={{backgroundColor:coverColor}} ></div>}
           <DialogTitle  >
           <TextField
           id="flexible"
@@ -89,7 +89,7 @@ export default function SimpleDialog(props) {
           )}
         </section>
         <section className={'sidebar-menu-dialog'}>
-          <BasicMenu />
+          <BasicMenu setCoverColor={props.setCoverColor}/>
         </section>
       </main>
     </Dialog>

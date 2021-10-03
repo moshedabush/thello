@@ -9,6 +9,7 @@
             "imgUrl": "http://some-img"
         },
         "style": {
+            "backgroundColor": "blue"
         },
         "labels": [
             {
@@ -137,7 +138,9 @@
                         "labelIds": []
                     }
                 ],
-                "style": {}
+                "style": {
+                 
+                }
             },
             {
                 "id": "g102",

@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import ReactDOM from 'react-dom';
 import { Droppable, Draggable } from 'react-beautiful-dnd';
 import styled from 'styled-components'
-import { Task } from './task.jsx'
+import { Task } from './Task.jsx'
 import { TaskAdd } from './TaskAdd'
 import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 
