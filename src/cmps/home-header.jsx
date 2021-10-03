@@ -30,7 +30,7 @@ class _HomeHeader extends React.Component {
     // const { user } = this.props;
     return (
       <header className="home-header ">
-        <nav className="flex space-between">
+        <nav className="flex justify-space-between">
         <div className="logo">
           
             <img  src={BoardIcon} alt="" />

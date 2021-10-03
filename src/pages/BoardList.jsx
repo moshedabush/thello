@@ -6,6 +6,7 @@ import { loadUsers } from "../store/user.actions";
 import boardsData from "../data/boards.json";
 import { Link } from "react-router-dom";
 import { AppHeader } from "../cmps/app-header";
+import BoardIcon from "../assets/img/board-icon.svg";
 
 class _BoardList extends React.Component {
   state = {
@@ -41,45 +42,52 @@ class _BoardList extends React.Component {
     return (
       <section>
         <AppHeader />
-          <section className="board-list-container flex align-flex-start justify-center">
-            <div className="boards-wrapper flex column">
-              <div className={"board-list-recently-viewed"}>
-                <div>
-                  <h4> 🕒 Recently viewed</h4>
-                </div>
+        <section className="board-list-container flex align-flex-start justify-center">
+          <div className="boards-wrapper flex column">
+            <div className="boards-preview flex column">
+              <div className="preview-title flex align-center">
+                <h3> Starred boards</h3>
+              <div className="board-list"></div>
+                <i className="far fa-star"></i>
               </div>
-
-              <ul className={"boards-preview"}>
-                <div className={"preview-title flex align-center"}>
-                  {/* <h3> Workspaces</h3> */}
-                  <h3>{loggedUser.username}'s Workspaces</h3>
-                </div>
-                <div className="board-list">
-                  {boards.map((board, idx) => (
-                    // <div className={"board-list"}>
-                    <Link
-                      className="clean-link"
-                      to={`board/${board._id}`}
-                      key={idx}
-                    >
-                      <div
-                        className={"board-preview"}
-                        style={{
-                          backgroundColor: board.style.backgroundColor
-                            ? board.style.backgroundColor
-                            : "green",
-                        }}
-                      >
-                        {/* {console.log("board.style", board.style)} */}
-                        <div className={"board-list-title"}>{board.title}</div>
-                      </div>
-                    </Link>
-                    // </div>
-                  ))}
-                </div>
-              </ul>
             </div>
-          </section>
+            {/* <div className=" flex align-center">
+              <div>
+                <h3> 🕒 Recently viewed</h3>
+              </div>
+            </div> */}
+
+            <div className={"boards-preview"}>
+              <div className={"preview-title flex align-center"}>
+                {/* <h3> Workspaces</h3> */}
+                <h3><img  src={BoardIcon} alt="" /> {loggedUser.username}'s Workspaces</h3>
+              </div>
+              <div className="board-list">
+                {boards.map((board, idx) => (
+                  <div className={"board-list"}>
+                  <Link
+                    className="clean-link"
+                    to={`board/${board._id}`}
+                    key={idx}
+                  >
+                    <div
+                      className={"board-preview"}
+                      style={{
+                        backgroundColor: board.style.backgroundColor
+                          ? board.style.backgroundColor
+                          : "green",
+                      }}
+                    >
+                      {/* {console.log("board.style", board.style)} */}
+                      <div className={"board-list-title"}>{board.title}</div>
+                    </div>
+                  </Link>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
       </section>
     );
   }
