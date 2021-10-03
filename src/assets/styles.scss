@@ -1,6 +1,6 @@
 // Setup
-@import "setup/mixins.scss";
 @import "setup/variables.scss";
+@import "setup/mixins.scss";
 @import "setup/base.scss";
 
 // Basics
@@ -22,5 +22,5 @@
 
 // Pages 
 @import "pages/home-page.scss";
-@import "pages/login.scss";
-@import "pages/sign-up.scss";
+@import "pages/login-signup.scss";
+@import "pages/board-page.scss";

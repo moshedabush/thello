@@ -116,33 +116,35 @@ class _Board extends React.Component {
 
     return (
       <div>
-        <AppHeader />
+        <header><AppHeader /></header>
+        <main className="board-container">
         <DragDropContext onDragEnd={this.onDragEnd}>
           <Droppable
             droppableId='groups.id'
             direction='horizontal'
             type='group'>
-            {(provided) => (
-              <Container {...provided.droppableProps} ref={provided.innerRef}>
+              {(provided) => (
+                <Container {...provided.droppableProps} ref={provided.innerRef}>
                 {groups.map((group, index) => {
                   const tasks = group.tasks.map((task) => task);
                   return (
                     <Column
-                      key={group.id}
-                      group={group}
-                      tasks={tasks}
-                      index={index}
-                      board={board}
-                      onSaveBoard={this.props.onSaveBoard}
+                    key={group.id}
+                    group={group}
+                    tasks={tasks}
+                    index={index}
+                    board={board}
+                    onSaveBoard={this.props.onSaveBoard}
                     />
-                  );
-                })}
+                    );
+                  })}
                 {provided.placeholder}
                 <GroupAdd board={board} onSaveBoard={this.props.onSaveBoard} />
               </Container>
             )}
           </Droppable>
         </DragDropContext>
+            </main>
       </div>
     );
   }

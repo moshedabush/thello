@@ -1,16 +1,13 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { Link, NavLink } from 'react-router-dom'
-// import HomeIcon from '../assets/img/home-icon.svg';
 import BoardIcon from '../assets/img/board-icon.svg';
 import { userService } from "../services/user.service";
-
-
-import routes from '../routes'
+// import routes from '../routes'
 
 
 import { onLogin, onLogout, onSignup, loadUsers, removeUser } from '../store/user.actions.js'
-import { LoginSignup } from './login-signup.jsx'
+// import { LoginSignup } from './login-signup.jsx'
 
 class _AppHeader extends React.Component {
     state={

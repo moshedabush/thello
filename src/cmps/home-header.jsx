@@ -1,9 +1,9 @@
 import React from "react";
 import { connect } from "react-redux";
-import { Link, NavLink } from "react-router-dom";
+// import { Link, NavLink } from "react-router-dom";
 import BoardIcon from "../assets/img/board-icon.svg";
 
-import routes from "../routes";
+// import routes from "../routes";
 
 
 import {
@@ -13,7 +13,7 @@ import {
   loadUsers,
   removeUser,
 } from "../store/user.actions.js";
-import { LoginSignup } from "./login-signup.jsx";
+// import { LoginSignup } from "./login-signup.jsx";
 
 class _HomeHeader extends React.Component {
   onLogin = (credentials) => {
@@ -27,7 +27,7 @@ class _HomeHeader extends React.Component {
   };
 
   render() {
-    const { user } = this.props;
+    // const { user } = this.props;
     return (
       <header className="home-header ">
         <nav className="flex space-between">
