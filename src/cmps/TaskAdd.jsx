@@ -1,14 +1,20 @@
 import React from 'react';
 import TextField from '@mui/material/TextField';
 import {utilService} from '../services/util.service'
+import { userService } from '../services/user.service';
 
 export class TaskAdd extends React.Component{
 
     state = {
         taskTitle: '',
-        isWrapperOpen: false
+        isWrapperOpen: false,
+        loggedUser:''
     }
-    
+
+    componentDidMount = () => {
+       const loggedUser = userService.getLoggedinUser()
+       this.setState({loggedUser:loggedUser.fullname})
+    }
     toggleTaskAdd = () => {
         const {isWrapperOpen} = this.state
         this.setState({isWrapperOpen:!isWrapperOpen})
@@ -28,13 +34,25 @@ export class TaskAdd extends React.Component{
     onAddTask =()=> {
         const {taskTitle} = this.state
         const {board} = this.props 
+        const {loggedUser} = this.state
+        console.log('loggedinUser',loggedUser);
         const {group} = this.props
         const groupIdx = board.groups.indexOf(group)
          const task ={
             id: utilService.makeId(),
             title:taskTitle,
-            //need to add here fields
-            
+            description:'',
+            comments: [],
+            checklists: [],
+            members: [],
+            labelIds: [],
+            byMember:loggedUser,
+            createdAt: Date.now(),
+            dueDate: 0,            
+            style: {
+                coverMode: '',
+                bgColor: ''
+            }            
         }
         board.groups[groupIdx].tasks.push(task)
         this.props.onSaveBoard(board) 

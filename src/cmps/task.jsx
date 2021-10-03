@@ -8,18 +8,19 @@ import { TaskLabelPreview } from './TaskLabelPreview';
 
 //Need to convert it to scss
 const Container = styled.div`
-  border: 1px solid lightgrey;
+
+  transform: ${props => (props.isDragging ? `rotate(3deg)` : '0')}; ;  
   border-radius: 3px;
-  min-width: 256px;
-  padding: 8px;
+  padding: 6px 8px 2px;
   margin-bottom: 8px;
-  background-color: ${(props) => (props.isDragging ? 'lightblue' : 'white')};
+  background-color:white;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   overflow: hidden;
   white-space: pre-wrap;
   word-break: break-word;
+  box-shadow: 0 1px 0 #091e4240;
 `;
 
 export class Task extends React.Component {
@@ -76,7 +77,7 @@ export class Task extends React.Component {
   render() {
     const { isQuickMenuOpen } = this.state;
     const { left, top, bottom, width, height, right } = this.state;
-    const { task, onSaveBoard, board } = this.props;
+    const { task, onSaveBoard, board, group } = this.props;
     const {coverColor} = this.state
     return (
       <div
@@ -90,6 +91,7 @@ export class Task extends React.Component {
               {...provided.dragHandleProps}
               ref={provided.innerRef}
               isDragging={snapshot.isDragging}>
+              
               {
                 <SimpleDialog
                   open={this.state.isClicked}
@@ -99,6 +101,7 @@ export class Task extends React.Component {
                   task={this.props.task}
                   groupTitle={this.props.groupTitle}
                   coverColor={this.state.coverColor}
+                  
                 />
               }
               <div className="task-labels-preview">
@@ -127,12 +130,13 @@ export class Task extends React.Component {
                   <CreateIcon
                     className='quick-edit-icon'
                     onClick={this.toggleQuickMenu}
+                    
                   />
                 </div>
               </div>
                 
                 {isQuickMenuOpen ? (
-                  <div>
+                  <div ondrage>
                     <TaskQuickMenu left={left} right={right} top={top} bottom={bottom} onSaveBoard={onSaveBoard}
                       height={height} width={width} task={task} group={group} board={board} />
                   </div>)

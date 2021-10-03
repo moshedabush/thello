@@ -3,9 +3,9 @@ import { connect } from 'react-redux'
 import Modal from '@mui/material/Modal'
 import { onSaveBoard,openQuickPopUp  } from '../store/board.actions';
 import { TaskTitleEdit } from '../cmps/TaskTitleEdit';
+import {PopUpHandler} from '../cmps/PopUpHandler'
+import {QuickPopUp} from '../cmps/QuickPopUp'
 import { ActionsContainer } from './ActionsContainer';
-
-
 
 
 class _TaskQuickMenu extends React.Component {
@@ -59,8 +59,8 @@ class _TaskQuickMenu extends React.Component {
 
 
     render() {
-        const { isMenuOpen } = this.state
-        const { task, width, height, right, onSaveBoard, board ,coverColor} = this.props
+        const { isMenuOpen,isQuickPopUpOpen } = this.state
+        const { task, width, height, right, onSaveBoard, board ,coverColor,group} = this.props
         return (
 
             <div>
