@@ -7,12 +7,14 @@ import { ReactComponent as LoginSignupLogo } from '../assets/img/login-signup/lo
 import { ReactComponent as LogoRight } from '../assets/img/login-signup/right-logo.svg'
 import { ReactComponent as LogoLeft } from '../assets/img/login-signup/left-logo.svg'
 import { onLogin, onSignup } from '../store/user.actions'
+import { userService } from "../services/user.service.js";
 // import { onGoogleLogin } from '../store/user.actions'
 
 
 export class _LoginSignup extends Component {
 
     state = {
+        loggedinUser : userService.getLoggedinUser(),
         userInfo: {
             fullname: '',
             username: '',
@@ -27,15 +29,16 @@ export class _LoginSignup extends Component {
     }
 
     componentDidMount() {
-        const { loggedinUser } = this.props
-        if (loggedinUser) this.props.history.push('/workspace')
+        const { loggedinUser } = this.state;
+        console.log(loggedinUser)
+        if (loggedinUser) this.props.history.push('/boardlist')
         const pageMode = this.props.location.pathname === '/login' ? 'login' : 'signup'
         this.setState({ pageMode })
     }
 
     componentDidUpdate() {
-        const { loggedInUser } = this.props
-        if (loggedInUser) this.props.history.push('/workspace')
+        const { loggedInUser } = this.state;
+        if (loggedInUser) this.props.history.push('/boardlist')
     }
 
     validate = (values) => {

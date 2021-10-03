@@ -116,7 +116,7 @@ class _Board extends React.Component {
 
     return (
       <div>
-        <header><AppHeader /></header>
+        <AppHeader />
         <main className="board-container">
         <DragDropContext onDragEnd={this.onDragEnd}>
           <Droppable
