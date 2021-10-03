@@ -1,8 +1,42 @@
-.edit-icon{
+.edit-icon {
     z-index: 200;
 }
 
-
-.quick-edit-icon{
+.quick-edit-icon {
     position: relative;
+}
+
+.task-preview-inside-wrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+.task-preview-inside {
+    display: flex;
+    justify-content: space-between;
+}
+
+
+/* LABELS IN TASKS - PREVIEW */
+
+/* .task-list-labels{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+} */
+
+
+.task-label-preview{
+    font-size: 12px;
+    font-weight: 700;
+    height: 8px;
+    line-height: 100px;
+    margin: 0 4px 4px 0;
+    max-width: 40px;
+    min-width: 40px;
+    padding: 0;
+    text-shadow: none;
+    width: auto;
+    border-radius: 4px;
+
 }

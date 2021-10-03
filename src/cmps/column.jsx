@@ -70,6 +70,7 @@ class _Column extends React.Component {
                                     {this.props.tasks.map((task, index) => (
                                         !task.isArchived && <Task key={task.id} task={task} index={index}
                                         board={this.props.board} groupTitle={this.props.group.title} onSaveBoard={onSaveBoard}
+                                        group={group}
                                         />                             
                                     ))}
                                     {provided.placeholder}

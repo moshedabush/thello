@@ -1,13 +1,10 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import { Draggable } from 'react-beautiful-dnd';
 import styled from 'styled-components';
 import SimpleDialog from './dialog-modal';
 import CreateIcon from '@mui/icons-material/Create';
-import Card from '@mui/material/Card';
 import { TaskQuickMenu } from './TaskQuickMenu';
-import { TaskTitleEdit } from './TaskTitleEdit.jsx';
-import { Icon } from '@mui/material';
+import { TaskLabelPreview } from './TaskLabelPreview';
 
 //Need to convert it to scss
 const Container = styled.div`
@@ -73,9 +70,9 @@ export class Task extends React.Component {
   };
 
   render() {
-    const { isQuickMenuOpen } = this.state;
-    const { left, top, bottom, width, height, right } = this.state;
-    const { task, onSaveBoard, board } = this.props;
+    const { isQuickMenuOpen, left, top, bottom, width, height, right } = this.state;
+    const { group, task, onSaveBoard, board } = this.props;
+    console.log('group78787', group);
 
     return (
       <div
@@ -98,6 +95,12 @@ export class Task extends React.Component {
                   groupTitle={this.props.groupTitle}
                 />
               }
+              <div className="task-labels-preview">
+                  <ul className ="task-preview-labels">
+                  {task.labelIds.map(labelId => <TaskLabelPreview key={labelId}  labelId={labelId} labels={board.labels}/>)}
+                  </ul>
+                  
+                </div>
               <div
                 style={{ width: 100 + '%', height: 100 + '%' }}
                 onClick={() => {
@@ -105,8 +108,7 @@ export class Task extends React.Component {
                 }}>
                 {this.props.task.title}
               </div>
-              <div>
-                <div
+              <div
                   onClick={this.toggleQuickMenu}
                   ref={(div) => {
                     this.editIcon = div;
@@ -116,23 +118,16 @@ export class Task extends React.Component {
                     onClick={this.toggleQuickMenu}
                   />
                 </div>
+              <div>
+                
                 {isQuickMenuOpen ? (
                   <div>
-                    <TaskQuickMenu
-                      left={left}
-                      right={right}
-                      top={top}
-                      bottom={bottom}
-                      onSaveBoard={onSaveBoard}
-                      height={height}
-                      width={width}
-                      task={task}
-                      board={board}
-                    />
-                  </div>
-                ) : (
-                  ''
-                )}
+                    <TaskQuickMenu left={left} right={right} top={top} bottom={bottom} onSaveBoard={onSaveBoard}
+                      height={height} width={width} task={task} group={group} board={board} />
+                  </div>)
+                  :
+                  ('')
+                }
               </div>
             </Container>
           )}

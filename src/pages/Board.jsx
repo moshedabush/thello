@@ -1,6 +1,4 @@
 import React from 'react';
-// import ReactDOM from 'react-dom';
-// import { Route } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { DragDropContext, Droppable } from 'react-beautiful-dnd'
 import { onSaveBoard, loadBoard } from '../store/board.actions.js'
@@ -8,7 +6,6 @@ import { Column } from '../cmps/column.jsx'
 import styled from 'styled-components';
 import { tableSortLabelClasses } from '@mui/material';
 import SimpleDialog from '../cmps/dialog-modal.jsx';
-
 import { GroupAdd } from '../cmps/GroupAdd.jsx';
 
 
@@ -24,10 +21,7 @@ class _Board extends React.Component {
        
     }
 
- 
-        
-    
-
+   
     async componentDidMount() {
         try {
            const {boardId} = this.props.match.params

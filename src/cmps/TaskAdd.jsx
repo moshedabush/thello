@@ -37,7 +37,7 @@ export class TaskAdd extends React.Component{
             
         }
         board.groups[groupIdx].tasks.push(task)
-        this.props.onSaveBoard(board) // need to fix this. not working.
+        this.props.onSaveBoard(board) 
         this.setState({taskTitle:''})  
     }
 

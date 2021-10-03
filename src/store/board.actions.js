@@ -33,6 +33,23 @@ export function loadBoard(boardId) {
     }
 }
 
+export function openQuickPopUp(top,left,cmpName,cmpTitle,task,group) {
+    return dispatch => {
+        const popUp = {
+            type:'SET_POPUP',
+            cmpName,
+            cmpTitle,
+            task,
+            group,
+            top,
+            left
+        }
+        dispatch(popUp)
+    }
+}
+
+
+
 // export function setTask(boardId,columnId,taskId) {
  
 //     return async dispatch => {
