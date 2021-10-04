@@ -6,7 +6,7 @@ import { loadUsers } from "../store/user.actions";
 import boardsData from "../data/boards.json";
 import { Link } from "react-router-dom";
 import { AppHeader } from "../cmps/app-header";
-import BoardIcon from "../assets/img/board-icon.svg";
+import{ ReactComponent as BoardIcon} from "../assets/img/board-icon.svg";
 
 class _BoardList extends React.Component {
   state = {
@@ -46,7 +46,7 @@ class _BoardList extends React.Component {
           <div className="boards-wrapper flex column">
             <div className="boards-preview flex column">
               <div className="preview-title flex align-center">
-              <i class="far fa-star"></i>
+              <i className="far fa-star"></i>
                 <h3> Starred boards</h3>
               </div>
               <div className="board-list"></div>
@@ -61,7 +61,7 @@ class _BoardList extends React.Component {
               <div className={"preview-title flex align-center"}>
                 {/* <h3> Workspaces</h3> */}
                 <h3>
-                  <img src={BoardIcon} alt="" /> {loggedUser.username}'s
+                  <BoardIcon/> {loggedUser.username}'s
                   Workspaces
                 </h3>
               </div>

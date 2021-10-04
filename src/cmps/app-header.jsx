@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { Link, NavLink } from 'react-router-dom'
-import BoardIcon from '../assets/img/board-icon.svg';
+import {ReactComponent as BoardIcon} from '../assets/img/board-icon.svg';
 import { userService } from "../services/user.service";
 // import routes from '../routes'
 
@@ -36,13 +36,13 @@ class _AppHeader extends React.Component {
                 
 
                 <a className="btn-header"  href="/boardlist" > 
-                <img src={BoardIcon} alt="" />
+                <BoardIcon/>
                 <span>Boards</span>
                 </a>
                
                     <div className="logo">  
                 <a href="/boardlist">
-                <img src={BoardIcon} alt="" />
+                <BoardIcon/>
                     <span>thello</span></a>
                     </div>
                 
