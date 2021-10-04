@@ -117,7 +117,7 @@ export class Task extends React.Component {
               onClick={() => {
                 this.handleClick(!this.state.isClicked);
               }}>
-                  {coverColor!=='null' && <div style={{backgroundColor:coverColor,height: 32 + 'px'}} ></div>}
+                  {/* {coverColor!=='null' && <div style={{backgroundColor:coverColor,height: 32 + 'px'}} ></div>} */}
                  <div>
                 {this.props.task.title}
                  </div>
