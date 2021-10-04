@@ -3,20 +3,25 @@
     margin: 0 4px;
     height: auto;
     min-height: 32px;
-    padding: 8px;
+    padding: 4px;
     border-radius: 3px;
     transition: background 85ms ease-in,opacity 40ms ease-in,border-color 85ms ease-in;
+    cursor: pointer;
 }
 
 .group-add-closed{
     width: 272px;
+    color: white;
     background-color: rgba(240, 240, 240, 0.356);
     margin: 0 4px;
     height: auto;
-    min-height: 32px;
-    padding: 4px;
+    /* padding:6px 8px; */
     border-radius: 3px;
     transition: background 85ms ease-in,opacity 40ms ease-in,border-color 85ms ease-in;
+}
+
+.group-add-placeholder{
+    padding: 6px 8px;
 }
 
 .group-add-open {

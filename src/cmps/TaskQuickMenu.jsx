@@ -1,22 +1,30 @@
 import React from 'react';
 import { connect } from 'react-redux'
 import Modal from '@mui/material/Modal'
-import { onSaveBoard,openQuickPopUp  } from '../store/board.actions';
+import { onSaveBoard, openQuickPopUp } from '../store/board.actions';
 import { TaskTitleEdit } from '../cmps/TaskTitleEdit';
-import {PopUpHandler} from '../cmps/PopUpHandler'
-import {QuickPopUp} from '../cmps/QuickPopUp'
+import { PopUpHandler } from '../cmps/PopUpHandler'
+import { QuickPopUp } from '../cmps/QuickPopUp'
 import { ActionsContainer } from './ActionsContainer';
-
+import ArtTrackIcon from '@mui/icons-material/ArtTrack';
+import VideoLabelIcon from '@mui/icons-material/VideoLabel';
+import LocalOfferOutlinedIcon from '@mui/icons-material/LocalOfferOutlined';
+import PersonOutlineIcon from '@mui/icons-material/PersonOutline';
+import DriveFileMoveOutlinedIcon from '@mui/icons-material/DriveFileMoveOutlined';
+import CopyAllOutlinedIcon from '@mui/icons-material/CopyAllOutlined';
+import AccessTimeOutlinedIcon from '@mui/icons-material/AccessTimeOutlined';
+import ArchiveOutlinedIcon from '@mui/icons-material/ArchiveOutlined';
+import { display } from '@mui/system';
 
 class _TaskQuickMenu extends React.Component {
 
     state = {
         isMenuOpen: true,
         taskTitle: '',
-        clickedCover:false,
+        clickedCover: false,
     }
 
-  
+
 
     handleClose = (ev) => {
         if (ev.key === 'Enter') {
@@ -33,14 +41,15 @@ class _TaskQuickMenu extends React.Component {
         this.setState({ isMenuOpen: !isMenuOpen })
     }
 
-     setPopUpDims = ({target}) => {
-        const cmpName = target.name
-        const cmpTitle = target.title
+    setPopUpDims = (ev) => {
+        console.log('evv',ev);
+        const cmpName = ev.target.name
+        const cmpTitle = ev.target.title
         const group = this.props.group
-        const task =  this.props.task
-        const menuBtnDims = this.btnDims.getBoundingClientRect();        
+        const task = this.props.task
+        const menuBtnDims = ev.target.getBoundingClientRect();
         let { top, left } = menuBtnDims;
-        this.props.openQuickPopUp(top,left,cmpName,cmpTitle,task.id,group.id)
+        this.props.openQuickPopUp(top, left, cmpName, cmpTitle, task.id, group.id)
         const { isQuickPopUpOpen } = this.state;
         this.setState({ isQuickPopUpOpen: !isQuickPopUpOpen })
     };
@@ -53,14 +62,14 @@ class _TaskQuickMenu extends React.Component {
             onSaveBoard(board)
         }
     }
-    handleCover =()=>{
-        this.setState({clickedCover:!this.state.clickedCover})
+    handleCover = () => {
+        this.setState({ clickedCover: !this.state.clickedCover })
     }
 
 
     render() {
-        const { isMenuOpen,isQuickPopUpOpen } = this.state
-        const { task, width, height, right, onSaveBoard, board ,coverColor,group} = this.props
+        const { isMenuOpen, isQuickPopUpOpen } = this.state
+        const { task, width, height, right, onSaveBoard, board, coverColor, group } = this.props
         return (
 
             <div>
@@ -76,23 +85,31 @@ class _TaskQuickMenu extends React.Component {
                     >
                         <div >
                             <div>
-                                <TaskTitleEdit task={task} width={width} height={height} right={right} onSaveBoard={onSaveBoard} board={board} coverColor={coverColor}/>
+                                <TaskTitleEdit task={task} width={width} height={height} right={right} onSaveBoard={onSaveBoard} board={board} coverColor={coverColor} />
                             </div>
                             <div>
-                                <a className="quick-task-editor-buttons-items">Open card</a>
-                                <a className="quick-task-editor-buttons-items" ref={(a) => {
-                                    this.btnDims = a;}} name="LABELS" group ={group} task={task} title="Labels" onClick={this.setPopUpDims}>Edit labels</a>
-                                <a className="quick-task-editor-buttons-items">Change members</a>
-                                <a className="quick-task-editor-buttons-items" onClick={()=>{this.handleCover()}}>Change cover</a>
-                                {this.state.clickedCover && <ActionsContainer cover={'quick-menu'} type={'Cover'} onClose={()=>{this.handleCover()}} setCoverColor={this.props.setCoverColor}/>}{' '}
+                                <a className="quick-task-editor-buttons-items"><span style={{ display: 'flex' }}><ArtTrackIcon className="task-quick-menu-icons" fontSize="small" /></span><span className="task-quick-menu-txt">Open card</span></a>
 
-                                <a className="quick-task-editor-buttons-items">Change Move</a>
-                                <a className="quick-task-editor-buttons-items">Copy</a>
-                                <a className="quick-task-editor-buttons-items">Edit dates</a>
-                                <a className="quick-task-editor-buttons-items" name="archive" onClick={(ev) => this.sendToArchive(ev)}>Archive</a>
+                                <a className="quick-task-editor-buttons-items" onClick={(ev) => this.setPopUpDims(ev)}
+                                    name="LABELS" group={group} task={task} title="Labels">
+                                    <LocalOfferOutlinedIcon className="task-quick-menu-icons" fontSize="small" 
+                                     style={{pointerEvents:'none',marginRight:'4px'}} />
+                                    Edit labels</a>
+
+                                <a className="quick-task-editor-buttons-items"><span style={{ display: 'flex' }}><PersonOutlineIcon className="task-quick-menu-icons" fontSize="small" /></span><span className="task-quick-menu-txt">Change members</span></a>
+
+                                <a className="quick-task-editor-buttons-items" onClick={() => { this.handleCover() }}><span style={{ display: 'flex' }}><VideoLabelIcon className="task-quick-menu-icons" fontSize="small" /></span><span className="task-quick-menu-txt" >Change cover</span></a>
+                                {this.state.clickedCover && <ActionsContainer cover={'quick-menu'} type={'Cover'} onClose={() => { this.handleCover() }} setCoverColor={this.props.setCoverColor} />}{' '}
+
+                                <a className="quick-task-editor-buttons-items"><span style={{ display: 'flex' }}><DriveFileMoveOutlinedIcon className="task-quick-menu-icons" fontSize="small" /></span ><span className="task-quick-menu-txt">Change Move</span></a>
+
+                                <a className="quick-task-editor-buttons-items"><span style={{ display: 'flex' }}><CopyAllOutlinedIcon className="task-quick-menu-icons" fontSize="small" /></span><span className="task-quick-menu-txt">Copy</span></a>
+
+                                <a className="quick-task-editor-buttons-items"><span style={{ display: 'flex' }}><AccessTimeOutlinedIcon className="task-quick-menu-icons" fontSize="small" /></span><span className="task-quick-menu-txt">Edit dates</span></a>
+
+                                <a className="quick-task-editor-buttons-items" name="archive" onClick={(ev) => this.sendToArchive(ev)}> Archive</a>
                             </div>
-                            {isQuickPopUpOpen? <QuickPopUp> <PopUpHandler/> </QuickPopUp> :''
-                            }
+                            {isQuickPopUpOpen ? <QuickPopUp> <PopUpHandler /> </QuickPopUp> : ''}
                         </div>
                     </Modal>
                     : ''

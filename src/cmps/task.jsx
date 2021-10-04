@@ -13,6 +13,7 @@ const Container = styled.div`
   border-radius: 3px;
   padding: 6px 8px 2px;
   margin-bottom: 8px;
+  border:none;
   background-color:white;
   display: flex;
   flex-direction: row;
@@ -136,7 +137,7 @@ export class Task extends React.Component {
               </div>
                 
                 {isQuickMenuOpen ? (
-                  <div ondrage>
+                  <div>
                     <TaskQuickMenu left={left} right={right} top={top} bottom={bottom} onSaveBoard={onSaveBoard}
                       height={height} width={width} task={task} group={group} board={board} />
                   </div>)

@@ -22,6 +22,7 @@ border-radius: 3px;
 background-color:#ebecf0;
 width: 272px;
 white-space: normal
+max-height:100%
 `;
 
 const Title = styled.h2`
@@ -47,7 +48,7 @@ flex: 1 1 auto;
 margin: 0 4px;
 min-height: 0;
 overflow-x: hidden;
-overflow-y: auto;
+overflow-y: visible;
 padding: 0 4px;
 `;
 
