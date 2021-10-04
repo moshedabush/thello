@@ -79,8 +79,8 @@ export class Task extends React.Component {
     const { isQuickMenuOpen } = this.state;
     const { left, top, bottom, width, height, right } = this.state;
     const { task, onSaveBoard, board, group } = this.props;
-    const {coverColor} = this.state
-    console.log(this.state.coverColor);
+    // const {coverColor} = this.state
+    // console.log(this.state.coverColor);
     return (
       <div
         ref={(div) => {

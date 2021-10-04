@@ -123,7 +123,7 @@ class _Board extends React.Component {
               {(provided) => (
                 <Container {...provided.droppableProps} ref={provided.innerRef}>
                 {groups.map((group, index) => {
-                  const tasks = group.tasks.map((task) => task);
+                  const tasks = group.tasks
                   return (
                     <Column
                     key={group.id}

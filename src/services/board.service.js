@@ -1,5 +1,6 @@
 import { storageService } from './async-storage.service'
 const gBoards = require('../data/boards.json')
+const STORAGE_KEY_BOARD = 'board'
 
 export const boardService = {
     save,
@@ -11,8 +12,11 @@ window.boardService = boardService
 
 async function getBoardById(boardId){
     try{
-        const boards = await gBoards.find(board => board._id === boardId)
-        return boards
+        const boards = await storageService.query('board') 
+        const board = boards.find(board => board._id === boardId) || gBoards.find(board => board._id === boardId)
+        
+        return board
+
     }catch (err) {
         throw err
     }
@@ -34,3 +38,4 @@ async function save(board) {
         }
     }
 }
+
