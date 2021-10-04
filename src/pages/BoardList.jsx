@@ -46,7 +46,7 @@ class _BoardList extends React.Component {
           <div className="boards-wrapper flex column">
             <div className="boards-preview flex column">
               <div className="preview-title flex align-center">
-                <i class="far fa-star"></i>
+              <i class="far fa-star"></i>
                 <h3> Starred boards</h3>
               </div>
               <div className="board-list"></div>
