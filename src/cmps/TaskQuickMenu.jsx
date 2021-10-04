@@ -14,7 +14,6 @@ import DriveFileMoveOutlinedIcon from '@mui/icons-material/DriveFileMoveOutlined
 import CopyAllOutlinedIcon from '@mui/icons-material/CopyAllOutlined';
 import AccessTimeOutlinedIcon from '@mui/icons-material/AccessTimeOutlined';
 import ArchiveOutlinedIcon from '@mui/icons-material/ArchiveOutlined';
-import { display } from '@mui/system';
 
 class _TaskQuickMenu extends React.Component {
 
@@ -42,7 +41,7 @@ class _TaskQuickMenu extends React.Component {
     }
 
     setPopUpDims = (ev) => {
-        console.log('evv',ev);
+        console.log('evv', ev);
         const cmpName = ev.target.name
         const cmpTitle = ev.target.title
         const group = this.props.group
@@ -92,22 +91,43 @@ class _TaskQuickMenu extends React.Component {
 
                                 <a className="quick-task-editor-buttons-items" onClick={(ev) => this.setPopUpDims(ev)}
                                     name="LABELS" group={group} task={task} title="Labels">
-                                    <LocalOfferOutlinedIcon className="task-quick-menu-icons" fontSize="small" 
-                                     style={{pointerEvents:'none',marginRight:'4px'}} />
+                                    <LocalOfferOutlinedIcon className="task-quick-menu-icons" fontSize="small"
+                                        style={{ pointerEvents: 'none', marginRight: '4px' }} />
                                     Edit labels</a>
 
-                                <a className="quick-task-editor-buttons-items"><span style={{ display: 'flex' }}><PersonOutlineIcon className="task-quick-menu-icons" fontSize="small" /></span><span className="task-quick-menu-txt">Change members</span></a>
+                                <a className="quick-task-editor-buttons-items">
+                                    <span style={{ display: 'flex' }}>
+                                        <PersonOutlineIcon className="task-quick-menu-icons" fontSize="small" />
+                                        </span><span className="task-quick-menu-txt">Change members</span></a>
 
-                                <a className="quick-task-editor-buttons-items" onClick={() => { this.handleCover() }}><span style={{ display: 'flex' }}><VideoLabelIcon className="task-quick-menu-icons" fontSize="small" /></span><span className="task-quick-menu-txt" >Change cover</span></a>
-                                {this.state.clickedCover && <ActionsContainer cover={'quick-menu'} type={'Cover'} onClose={() => { this.handleCover() }} setCoverColor={this.props.setCoverColor} />}{' '}
+                                <a className="quick-task-editor-buttons-items" onClick={() => { this.handleCover() }}>
+                                    <VideoLabelIcon className="task-quick-menu-icons" fontSize="small"
+                                        style={{ pointerEvents: 'none', marginRight: '4px' }} />
+                                    Change cover</a>
+                                {this.state.clickedCover && <ActionsContainer   cover={'quick-menu'}
+                                         type={'Cover'} onClose={() => { this.handleCover() }} setCoverColor={this.props.setCoverColor} />}{' '}
 
-                                <a className="quick-task-editor-buttons-items"><span style={{ display: 'flex' }}><DriveFileMoveOutlinedIcon className="task-quick-menu-icons" fontSize="small" /></span ><span className="task-quick-menu-txt">Change Move</span></a>
+                                <a className="quick-task-editor-buttons-items">
+                                    <span style={{ display: 'flex' }}>
+                                        <DriveFileMoveOutlinedIcon className="task-quick-menu-icons" fontSize="small" />
+                                        </span ><span className="task-quick-menu-txt">Change Move</span></a>
 
-                                <a className="quick-task-editor-buttons-items"><span style={{ display: 'flex' }}><CopyAllOutlinedIcon className="task-quick-menu-icons" fontSize="small" /></span><span className="task-quick-menu-txt">Copy</span></a>
+                                <a className="quick-task-editor-buttons-items">
+                                    <span style={{ display: 'flex' }}>
+                                        <CopyAllOutlinedIcon className="task-quick-menu-icons" fontSize="small" />
+                                        </span><span className="task-quick-menu-txt">Copy</span></a>
 
-                                <a className="quick-task-editor-buttons-items"><span style={{ display: 'flex' }}><AccessTimeOutlinedIcon className="task-quick-menu-icons" fontSize="small" /></span><span className="task-quick-menu-txt">Edit dates</span></a>
+                                <a className="quick-task-editor-buttons-items">
+                                    <span style={{ display: 'flex' }}>
+                                        <AccessTimeOutlinedIcon className="task-quick-menu-icons" fontSize="small" />
+                                        </span><span className="task-quick-menu-txt">Edit dates</span></a>
 
-                                <a className="quick-task-editor-buttons-items" name="archive" onClick={(ev) => this.sendToArchive(ev)}> Archive</a>
+                                <a className="quick-task-editor-buttons-items" name="archive"
+                                    onClick={(ev) => this.sendToArchive(ev)}>
+                                    <ArchiveOutlinedIcon className="task-quick-menu-icons" fontSize="small"
+                                        style={{ pointerEvents: 'none', marginRight: '4px' }} />
+                                    Archive</a>
+
                             </div>
                             {isQuickPopUpOpen ? <QuickPopUp> <PopUpHandler /> </QuickPopUp> : ''}
                         </div>
