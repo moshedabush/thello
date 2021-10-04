@@ -1,7 +1,8 @@
 import { connect } from 'react-redux'
 import {Labels} from '../cmps/Labels'
-import {LabelEdit} from '../cmps/LabelEdit'
-import {Test} from '../cmps/TEST'
+import {Covers} from '../cmps/Covers'
+
+
 
 
 
@@ -11,6 +12,7 @@ function _PopUpHandler({ currPopUp }) {
     switch (name) {
         
         case 'LABELS': return <Labels />;  
+        case 'COVERS': return <Covers />;  
   
     }
 }

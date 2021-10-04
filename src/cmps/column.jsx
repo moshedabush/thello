@@ -21,8 +21,10 @@ margin: 4px;
 border-radius: 3px;
 background-color:#ebecf0;
 min-width: 272px;
-white-space: normal
-max-height:100%
+max-width:272px;
+white-space: normal;
+max-height:100%;
+
 `;
 
 const Title = styled.h2`
@@ -37,12 +39,10 @@ line-height: 24px;
 min-height: 20px;
 padding: 4px 8px;
 position: relative;
-
 `
 
 
 const TaskList = styled.div`
-
 background-color: ${props => (props.isDraggingOver ? `#e1e1e1` : 'inherit')};
 flex: 1 1 auto;
 margin: 0 4px;

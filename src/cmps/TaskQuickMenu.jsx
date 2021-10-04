@@ -38,6 +38,8 @@ class _TaskQuickMenu extends React.Component {
     toggleQuickMenu = () => {
         const { isMenuOpen } = this.state
         this.setState({ isMenuOpen: !isMenuOpen })
+        this.props.handleEditIcon()
+
     }
 
     setPopUpDims = (ev) => {
@@ -73,7 +75,7 @@ class _TaskQuickMenu extends React.Component {
 
             <div>
                 {isMenuOpen ?
-                    <Modal className="quick-menu-modal" style={{ bottom: this.props.bottom, top: this.props.top, left: this.props.left }}
+                    <Modal className="quick-menu-modal" style={{ bottom: this.props.bottom, top: this.props.top, left: this.props.left + 227 + 'px' }}
                         onClose={this.handleClose}
                         closeAfterTransition
                         open={isMenuOpen}
@@ -98,29 +100,28 @@ class _TaskQuickMenu extends React.Component {
                                 <a className="quick-task-editor-buttons-items">
                                     <span style={{ display: 'flex' }}>
                                         <PersonOutlineIcon className="task-quick-menu-icons" fontSize="small" />
-                                        </span><span className="task-quick-menu-txt">Change members</span></a>
+                                    </span><span className="task-quick-menu-txt">Change members</span></a>
 
-                                <a className="quick-task-editor-buttons-items" onClick={() => { this.handleCover() }}>
+                                <a className="quick-task-editor-buttons-items" onClick={(ev) => this.setPopUpDims(ev)}
+                                    name="COVERS" group={group} task={task} title="Cover">
                                     <VideoLabelIcon className="task-quick-menu-icons" fontSize="small"
                                         style={{ pointerEvents: 'none', marginRight: '4px' }} />
                                     Change cover</a>
-                                {this.state.clickedCover && <ActionsContainer   cover={'quick-menu'}
-                                         type={'Cover'} onClose={() => { this.handleCover() }} setCoverColor={this.props.setCoverColor} />}{' '}
 
                                 <a className="quick-task-editor-buttons-items">
                                     <span style={{ display: 'flex' }}>
                                         <DriveFileMoveOutlinedIcon className="task-quick-menu-icons" fontSize="small" />
-                                        </span ><span className="task-quick-menu-txt">Change Move</span></a>
+                                    </span ><span className="task-quick-menu-txt">Change Move</span></a>
 
                                 <a className="quick-task-editor-buttons-items">
                                     <span style={{ display: 'flex' }}>
                                         <CopyAllOutlinedIcon className="task-quick-menu-icons" fontSize="small" />
-                                        </span><span className="task-quick-menu-txt">Copy</span></a>
+                                    </span><span className="task-quick-menu-txt">Copy</span></a>
 
                                 <a className="quick-task-editor-buttons-items">
                                     <span style={{ display: 'flex' }}>
                                         <AccessTimeOutlinedIcon className="task-quick-menu-icons" fontSize="small" />
-                                        </span><span className="task-quick-menu-txt">Edit dates</span></a>
+                                    </span><span className="task-quick-menu-txt">Edit dates</span></a>
 
                                 <a className="quick-task-editor-buttons-items" name="archive"
                                     onClick={(ev) => this.sendToArchive(ev)}>

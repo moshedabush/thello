@@ -1,10 +1,27 @@
 .edit-icon {
     z-index: 200;
 }
+.quick-edit-icon-wrapper{
+    background-color: tomato;
+    display: flex;
+    justify-content: flex-end;
+    
+}
 
 .quick-edit-icon {
-    position: relative;
+    color: #42526e;
+    background-clip: padding-box;
+    background-color: #f4f5f7;
+    background-origin: initial;
+    border-radius: 3px;
+    opacity: .8;
+    padding: 4px;
+    position: absolute;
+    right: 2px;
+    top: 2px;
+    z-index: 40;
 }
+
 
 .task-preview-inside-wrapper {
     display: flex;
@@ -16,17 +33,34 @@
     justify-content: space-between;
 }
 
+.task-drag-rotate {
+    transform: rotate(1deg);
+}
+
+/* COVER IN TASKS - PREVIEW */
+.task-cover-preview{
+    width: 100%;
+    max-height: 32px;
+    min-height: 32px;
+    background-color:rgb(48, 224, 255);
+    padding: 0px;
+    margin: 0;
+    border-width: 2px;
+    border-radius: 3px 3px 0 0;
+    background-size: cover;
+    user-select: none;
+    background-repeat: no-repeat;
+    position: relative;
+}
+
+
+
+
+
 
 /* LABELS IN TASKS - PREVIEW */
 
-/* .task-list-labels{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-} */
-
-
-.task-label-preview{
+.task-label-preview {
     font-size: 12px;
     font-weight: 700;
     height: 8px;
@@ -38,5 +72,23 @@
     text-shadow: none;
     width: auto;
     border-radius: 4px;
+}
 
+.task-preview-labels {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    justify-content: flex-start;
+    overflow: auto;
+    position: relative;
+    margin: 0px;
+    padding: 6px 8px 2px;
+}
+
+.list-card-labels {
+    padding: 0px;
+}
+
+.task-title{
+    padding: 6px 8px 2px;
 }

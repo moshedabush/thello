@@ -1,8 +1,8 @@
 import React from 'react';
 import TextField from '@mui/material/TextField';
+import InputBase from '@mui/material/InputBase';
 import Button from '@mui/material/Button';
-import { ListItem } from '@mui/material';
-
+import { TaskLabelPreview } from './TaskLabelPreview';
 
 
 export class TaskTitleEdit extends React.Component {
@@ -14,7 +14,7 @@ export class TaskTitleEdit extends React.Component {
 
     componentDidMount() {
         const title = this.props.task.title
-        this.setState({ taskTitle: title,coverColor:this.props.coverColor })
+        this.setState({ taskTitle: title, coverColor: this.props.coverColor })
     }
 
     toggleTitleEdit = () => {
@@ -50,43 +50,51 @@ export class TaskTitleEdit extends React.Component {
 
     render() {
         const { isTextEditOpen, taskTitle } = this.state
+        const { task, board } = this.props
         return (
-            <div className="quick-task-editor-title-wrapper"
-                style={{
-                    width: this.props.width,
-                }}
-            >
-                {isTextEditOpen ?
-                    <form id="savetitle">
-                    <div className="quick-task-editor-title-container">
-                        <div className="quick-task-editor-title-input-wrapper">
-                            <TextField className="quick-task-editor-title-input" style={{
-                                width: this.props.width,
-                                minHeight: this.props.height,
-                                top: this.props.top,
-                                bottom: this.props.bottom,
-                               
-                            }}
-                            multiline
-                            autoFocus
-                            open={isTextEditOpen}
-                            value={taskTitle}
-                            onChange={this.handleChange}
-                            onKeyDown={this.handleChange}
-                            minRows={4}
-                            />
-                            {/* {coverColor!=='null' && <div style={{backgroundColor:coverColor,height: 32 + 'px'}} ></div>} */}
-                        </div>
-                        <div className="quick-task-editor-title-save-btn">
-                            <Button name="save" onClick={this.onEditTaskTitle} variant="contained">Save</Button>
-                        </div>
-                    </div>
-                    </form>
-                    :
-                    ''
-                }
+            <>
+                <div class="quick-task-editor-task">
+                    
+                    <div className="quick-task-editor-title-wrapper"
+                        style={{
+                            width: this.props.width,
+                        }}
+                    >
+                        {isTextEditOpen ?
+                            <form id="savetitle">
+                                <div className="quick-task-cover-preview" style={{width:this.props.width}}></div>
+                                <ul className="quick-task-label-preview">
+                                            {task.labelIds.map(labelId => <TaskLabelPreview key={labelId} labelId={labelId} labels={board.labels} />)}
+                                        </ul>
+                                <div className="quick-task-editor-title-container">
+                                    <div className="quick-task-editor-title-input-wrapper">
+                                        <InputBase className="quick-task-editor-title-input" style={{
+                                            width: this.props.width,
+                                            minHeight: this.props.height,
+                                            padding:'0 8px'
+                                        }}
+                                            multiline
+                                            autoFocus
+                                            open={isTextEditOpen}
+                                            value={taskTitle}
+                                            onChange={this.handleChange}
+                                            onKeyDown={this.handleChange}
+                                            minRows={4}
+                                        />
+                                        
+                                    </div>
+                                    <div className="quick-task-editor-title-save-btn">
+                                        <Button name="save" onClick={this.onEditTaskTitle} variant="contained">Save</Button>
+                                    </div>
+                                </div>
+                            </form>
+                            :
+                            ''
+                        }
 
-            </div>
+                    </div>
+                </div>
+            </>
         )
     }
 

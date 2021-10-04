@@ -8,6 +8,33 @@
     position: absolute;
 }
 
+.quick-task-cover-preview{
+    right: 227px;
+    max-height: 32px;
+    min-height: 32px;
+    background-color:rgb(48, 224, 255);
+    padding: 0px;
+    margin: 0;
+    border-width: 2px;
+    border-radius: 3px 3px 0 0;
+    background-size: cover;
+    user-select: none;
+    background-repeat: no-repeat;
+    position: relative;
+}
+.quick-task-label-preview{
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    justify-content: flex-start;
+    overflow: auto;
+    position: relative;
+    margin: 0px;
+    padding: 6px 8px 2px;
+    right: 227px;
+    background-color: white;
+}
+
 .quick-task-editor-title-input {
     box-sizing: border-box;
     min-height: 112px;
@@ -15,8 +42,10 @@
     white-space: nowrap;
     background-color: rgb(255, 255, 255);
     border: none;
-    border-radius: 3px;
-    right: 225px;
+    overflow: hidden;
+    overflow-wrap: break-word;
+    resize: none;
+    right: 227px;
     
 }
 

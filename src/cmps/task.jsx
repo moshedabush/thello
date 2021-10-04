@@ -9,19 +9,19 @@ import { TaskLabelPreview } from './TaskLabelPreview';
 //Need to convert it to scss
 const Container = styled.div`
 
-  transform: ${props => (props.isDragging ? `rotate(3deg)` : '0')}; ;  
   border-radius: 3px;
-  padding: 6px 8px 2px;
+  
   margin-bottom: 8px;
   border:none;
   background-color:white;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: space-between;
   overflow: hidden;
   white-space: pre-wrap;
   word-break: break-word;
   box-shadow: 0 1px 0 #091e4240;
+  position:relative;
 `;
 
 export class Task extends React.Component {
@@ -31,21 +31,22 @@ export class Task extends React.Component {
     taskId: '',
     isClicked: false,
     isQuickMenuOpen: false,
+    isEditIcon:false,
     left: 0,
     right: 0,
     bottom: 0,
     width: 0,
     height: 0,
     top: 0,
-    coverColor:'null',
+    coverColor: 'null',
   };
 
   getDimsOfObject = (ev) => {
     let divTaskDims = this.taskDims.getBoundingClientRect();
-    let icon = this.editIcon.getBoundingClientRect();
+    // let icon = this.editIcon.getBoundingClientRect();
     ev.preventDefault();
-    let { left, bottom } = icon;
-    let { top, width, height, right } = divTaskDims;
+    // let { left, bottom } = icon;
+    let { top, width, height, right,left,bottom } = divTaskDims;
     this.setState({
       menuLeft: left,
       bottom: bottom,
@@ -71,30 +72,44 @@ export class Task extends React.Component {
   onClose = () => {
     this.setState({ isClicked: false });
   };
-  setCoverColor = (coverColor)=>{
-    this.setState({coverColor})
+
+  setCoverColor = (coverColor) => {
+    this.setState({ coverColor })
   }
 
+  handleEditIcon = () =>{
+    const {isEditIcon} = this.state
+    this.setState({isEditIcon:!isEditIcon})
+  }
+
+
   render() {
-    const { isQuickMenuOpen } = this.state;
+    const { isQuickMenuOpen,isEditIcon } = this.state;
     const { left, top, bottom, width, height, right } = this.state;
     const { task, onSaveBoard, board, group } = this.props;
-    // const {coverColor} = this.state
-    // console.log(this.state.coverColor);
+
     return (
-      <div
+      
+      <div className="root-div"
+      
         ref={(div) => {
           this.taskDims = div;
         }}>
+          
         <Draggable draggableId={this.props.task.id} index={this.props.index}>
+          
           {(provided, snapshot) => (
-            <Container
+            <Container 
+             onMouseEnter={this.handleEditIcon}
+              onMouseLeave={this.handleEditIcon}
+
               {...provided.draggableProps}
               {...provided.dragHandleProps}
               ref={provided.innerRef}
               isDragging={snapshot.isDragging}>
-              
+                
               {
+                
                 <SimpleDialog
                   open={this.state.isClicked}
                   setCoverColor={this.setCoverColor}
@@ -103,52 +118,38 @@ export class Task extends React.Component {
                   task={this.props.task}
                   groupTitle={this.props.groupTitle}
                   coverColor={this.state.coverColor}
-                  
                 />
               }
-              <div className="task-labels-preview">
-                  <ul className ="task-preview-labels">
-                  {task.labelIds.map(labelId => <TaskLabelPreview key={labelId}  labelId={labelId} labels={board.labels}/>)}
-                  </ul>
-                  
-                </div>
-                <div
-              style={{width: '-webkit-fill-available'}}
-              onClick={() => {
-                this.handleClick(!this.state.isClicked);
-              }}>
-                  {/* {coverColor!=='null' && <div style={{backgroundColor:coverColor,height: 32 + 'px'}} ></div>} */}
-                 <div>
-                {this.props.task.title}
-                 </div>
-              </div>
-              <div>
-                <div
-                  onClick={this.toggleQuickMenu}
-                  ref={(div) => {
-                    this.editIcon = div;
-                  }}>
-                  <CreateIcon
+               <div className="task-cover-preview"></div>
+              
+              <CreateIcon
                     className='quick-edit-icon'
                     onClick={this.toggleQuickMenu}
-                    
+                    style={{ visibility: isEditIcon? 'visible' :'hidden' }}
                   />
-                </div>
+                  
+              <div className="task-labels-preview">
+                <ul className="task-preview-labels">
+                  {task.labelIds.map(labelId => <TaskLabelPreview key={labelId} labelId={labelId} labels={board.labels} />)}
+                </ul>
               </div>
-                
-                {isQuickMenuOpen ? (
-                  <div>
-                    <TaskQuickMenu left={left} right={right} top={top} bottom={bottom} onSaveBoard={onSaveBoard}
-                      height={height} width={width} task={task} group={group} board={board} />
-                  </div>)
-                  :
-                  ''
-                }
-              
+              <div className="task-title">
+                {this.props.task.title}
+              </div>
+                    
+              {isQuickMenuOpen ? (
+                <div>
+                  <TaskQuickMenu left={left} right={right} top={top} bottom={bottom} onSaveBoard={onSaveBoard}
+                    height={height} width={width} task={task} group={group} board={board} handleEditIcon={this.handleEditIcon} />
+                </div>)
+                :
+                ''
+              }
+
             </Container>
           )}
         </Draggable>
-      </div>
+      </div >
     );
   }
 }
