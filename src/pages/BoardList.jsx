@@ -1,5 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
+import { onSaveBoard } from '../store/board.actions';
 import { userService } from "../services/user.service";
 import { loadUsers } from "../store/user.actions";
 import boardsData from "../data/boards.json";
@@ -42,10 +43,11 @@ class _BoardList extends React.Component {
 
   onToggleFavorite = (ev, boardId) => {
     ev.preventDefault()
-    const { boards, onSaveBoard } = this.props
+    const { boards } = this.state
+    const { onSaveBoard } = this.props
     const board = boards.find(board => board._id === boardId)
     board.isFavorite = !board.isFavorite
-    onSaveBoard(board)
+    onSaveBoard(board);
   };
 
   render() {
@@ -62,7 +64,7 @@ class _BoardList extends React.Component {
                 <i className="far fa-star"></i>
                 <h3> Starred boards</h3>
               </div>
-              <BoardsList boards={this.favoriteBoards} />
+              <BoardsList onToggleFavorite={this.onToggleFavorite} boards={this.favoriteBoards} />
             </div>
 
             <div className={"boards-preview"}>
@@ -71,7 +73,7 @@ class _BoardList extends React.Component {
                   <BoardIcon /> {loggedUser.username}'s Workspaces
                 </h3>
               </div>
-              <BoardsList boards={boards} />
+              <BoardsList onToggleFavorite={this.onToggleFavorite} boards={boards} />
             </div>
           </div>
         </section>
