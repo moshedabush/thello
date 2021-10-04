@@ -15,7 +15,7 @@
     background-color: rgba(240, 240, 240, 0.356);
     margin: 0 4px;
     height: auto;
-    /* padding:6px 8px; */
+    padding:6px 8px;
     border-radius: 3px;
     transition: background 85ms ease-in,opacity 40ms ease-in,border-color 85ms ease-in;
 }

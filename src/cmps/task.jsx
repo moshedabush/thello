@@ -80,6 +80,7 @@ export class Task extends React.Component {
     const { left, top, bottom, width, height, right } = this.state;
     const { task, onSaveBoard, board, group } = this.props;
     const {coverColor} = this.state
+    console.log(this.state.coverColor);
     return (
       <div
         ref={(div) => {
@@ -111,7 +112,7 @@ export class Task extends React.Component {
                   </ul>
                   
                 </div>
-              <div
+                <div
               style={{width: '-webkit-fill-available'}}
               onClick={() => {
                 this.handleClick(!this.state.isClicked);
@@ -121,7 +122,6 @@ export class Task extends React.Component {
                 {this.props.task.title}
                  </div>
               </div>
-
               <div>
                 <div
                   onClick={this.toggleQuickMenu}

@@ -20,7 +20,7 @@ height: 100%;
 margin: 4px;
 border-radius: 3px;
 background-color:#ebecf0;
-width: 272px;
+min-width: 272px;
 white-space: normal
 max-height:100%
 `;

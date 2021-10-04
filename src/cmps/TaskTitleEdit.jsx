@@ -10,7 +10,6 @@ export class TaskTitleEdit extends React.Component {
     state = {
         isTextEditOpen: true,
         taskTitle: '',
-        coverColor:'null',
     }
 
     componentDidMount() {
@@ -51,7 +50,6 @@ export class TaskTitleEdit extends React.Component {
 
     render() {
         const { isTextEditOpen, taskTitle } = this.state
-        const {coverColor} = this.props
         return (
             <div className="quick-task-editor-title-wrapper"
                 style={{
@@ -62,23 +60,11 @@ export class TaskTitleEdit extends React.Component {
                     <form id="savetitle">
                     <div className="quick-task-editor-title-container">
                         <div className="quick-task-editor-title-input-wrapper">
-                           {coverColor!=='null' && <ListItem
-                           className="quick-task-editor-title-input cover-list-item"
-                            style={{
-                                width: this.props.width,
-                                minHeight: 32+'px',
-                                top: this.props.top,
-                                bottom: this.props.bottom,
-                                backgroundColor:coverColor,
-                                
-                            }} 
-                            />}
                             <TextField className="quick-task-editor-title-input" style={{
                                 width: this.props.width,
                                 minHeight: this.props.height,
                                 top: this.props.top,
                                 bottom: this.props.bottom,
-                                // background:  'linear-gradient(180deg, rgba(207,162,24,0.8130602582830007) 51%, rgba(50,231,33,0) 51%)',
                                
                             }}
                             multiline
