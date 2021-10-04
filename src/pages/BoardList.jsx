@@ -2,11 +2,11 @@ import React from "react";
 import { connect } from "react-redux";
 import { userService } from "../services/user.service";
 import { loadUsers } from "../store/user.actions";
-// import boardData from '../data/boardsData';
 import boardsData from "../data/boards.json";
 import { Link } from "react-router-dom";
 import { AppHeader } from "../cmps/app-header";
-import{ ReactComponent as BoardIcon} from "../assets/img/board-icon.svg";
+import { BoardsList } from '../cmps/boards-list';
+import { ReactComponent as BoardIcon } from "../assets/img/board-icon.svg";
 
 class _BoardList extends React.Component {
   state = {
@@ -27,12 +27,25 @@ class _BoardList extends React.Component {
     const boardIds = [loggedUser.userBoardIds];
     return boardIds;
   };
+  
+  get favoriteBoards() {
+    const { boards } = this.state
+    return boards.filter(board => board.isFavorite)
+  };
 
   getBoards = (boardIds) => {
     let filteredBoards = boardIds.map((id) =>
       boardsData.find(({ _id }) => _id === id)
     );
     return filteredBoards;
+  };
+
+  onToggleFavorite = (ev, boardId) => {
+    ev.preventDefault()
+    const { boards, onSaveBoard } = this.props
+    const board = boards.find(board => board._id === boardId)
+    board.isFavorite = !board.isFavorite
+    onSaveBoard(board)
   };
 
   render() {
@@ -46,47 +59,19 @@ class _BoardList extends React.Component {
           <div className="boards-wrapper flex column">
             <div className="boards-preview flex column">
               <div className="preview-title flex align-center">
-              <i className="far fa-star"></i>
+                <i className="far fa-star"></i>
                 <h3> Starred boards</h3>
               </div>
-              <div className="board-list"></div>
+              <BoardsList boards={this.favoriteBoards} />
             </div>
-            {/* <div className=" flex align-center">
-              <div>
-                <h3> 🕒 Recently viewed</h3>
-              </div>
-            </div> */}
 
             <div className={"boards-preview"}>
               <div className={"preview-title flex align-center"}>
-                {/* <h3> Workspaces</h3> */}
                 <h3>
-                  <BoardIcon/> {loggedUser.username}'s
-                  Workspaces
+                  <BoardIcon /> {loggedUser.username}'s Workspaces
                 </h3>
               </div>
-
-              {boards.map((board, idx) => (
-                <div className={"board-list"}>
-                  <Link
-                    className="clean-link"
-                    to={`board/${board._id}`}
-                    key={idx}
-                  >
-                    <div
-                      className={"board-preview"}
-                      style={{
-                        backgroundColor: board.style.backgroundColor
-                          ? board.style.backgroundColor
-                          : "green",
-                      }}
-                    >
-                      {/* {console.log("board.style", board.style)} */}
-                      <h3 className={"board-preview-details"}>{board.title}</h3>
-                    </div>
-                  </Link>
-                </div>
-              ))}
+              <BoardsList boards={boards} />
             </div>
           </div>
         </section>

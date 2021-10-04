@@ -41,6 +41,9 @@
         white-space: nowrap;
         transition: 0.15s;
         cursor: pointer;
+        &.home-icon{
+            margin-inline-start: 4px;
+        }
         span {
             padding: 0 2px 0 8px;
         }
