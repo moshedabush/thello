@@ -1,7 +1,8 @@
-import React from 'react'
-import { connect } from 'react-redux'
-import { Link, NavLink } from 'react-router-dom'
-import BoardIcon from '../assets/img/board-icon.svg';
+import React from 'react';
+import { connect } from 'react-redux';
+import { Link, NavLink } from 'react-router-dom';
+import {ReactComponent as BoardIcon} from '../assets/img/board-icon.svg';
+import {ReactComponent as HomeIcon} from '../assets/img/home-icon.svg';
 import { userService } from "../services/user.service";
 // import routes from '../routes'
 
@@ -33,17 +34,21 @@ class _AppHeader extends React.Component {
         return (
             <header className="app-header flex ">
         
-                
-
-                <a className="btn-header"  href="/boardlist" > 
-                <img src={BoardIcon} alt="" />
+                <div className="flex">
+                <NavLink className="btn-header home-icon"  to="/boardlist">
+                <HomeIcon/>
+                </NavLink>
+                <NavLink className="btn-header"  to="/boardlist" > 
+                <BoardIcon/>
                 <span>Boards</span>
-                </a>
+                </NavLink>
+                </div>
                
                     <div className="logo">  
-                <a href="/boardlist">
-                <img src={BoardIcon} alt="" />
-                    <span>thello</span></a>
+                <NavLink to="/boardlist">
+                <BoardIcon/>
+                    <span>thello</span>
+                    </NavLink>
                     </div>
                 
                 

@@ -83,22 +83,22 @@
     color: $clr4;
     font-size: 16px;
     font-weight: 700;
-    margin-inline-start: 5px;
+    // margin-inline-start: 5px;
     margin-top: 6px;
     margin-bottom: 11px;
     > *:first-child {
-      font-size: 21.5px;
+    //   font-size: 21.5px;
       margin-inline-end: 10px;
     }
 
-    img {
+    svg {
       width: 25px;
       height: 25px;
     }
   }
 
   @include for-wide-layout {
-    margin: 40px 0 0 0;
+    margin: 80px 0 0 0;
   }
 }
 

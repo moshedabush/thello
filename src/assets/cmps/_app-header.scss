@@ -3,7 +3,7 @@
     top: 0;
     left: 0;
     right: 0;
-    min-height: 7vh;
+    min-height: 5.5vh;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -11,8 +11,8 @@
 
     background: linear-gradient(
         180deg,
-        rgb(2, 106, 167) 0%,
-        rgb(2, 106, 150) 80%,
+        rgb(31, 138, 200) 0%,
+        rgb(10, 112, 156) 80%,
         rgba(2, 106, 140) 100%
     );
 
@@ -41,6 +41,9 @@
         white-space: nowrap;
         transition: 0.15s;
         cursor: pointer;
+        &.home-icon{
+            margin-inline-start: 4px;
+        }
         span {
             padding: 0 2px 0 8px;
         }
