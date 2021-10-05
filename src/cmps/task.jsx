@@ -70,7 +70,6 @@ export class Task extends React.Component {
   };
 
   onClose = (ev) => {
-    ev.stopPropagation()
     const {isClicked} = this.state
     const {isEditIcon} =this.state
     this.setState({ isClicked: !isClicked });
@@ -109,9 +108,7 @@ export class Task extends React.Component {
               ref={provided.innerRef}
               isDragging={snapshot.isDragging}>
 
-               
-                
-              {
+               {
                 
                 <SimpleDialog
                   open={this.state.isClicked}
