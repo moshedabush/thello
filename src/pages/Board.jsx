@@ -7,7 +7,6 @@ import { onSaveBoard, loadBoard } from '../store/board.actions.js';
 import { Column } from '../cmps/column.jsx';
 import styled from 'styled-components';
 // import { tableSortLabelClasses } from '@mui/material';
-// import SimpleDialog from '../cmps/dialog-modal.jsx';
 
 import { GroupAdd } from '../cmps/GroupAdd.jsx';
 import { AppHeader } from '../cmps/app-header.jsx';

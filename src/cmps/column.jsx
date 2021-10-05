@@ -101,8 +101,12 @@ class _Column extends React.Component {
         )
     }
 }
-
+function mapStateToProps(state) {
+    return {
+      board: state.boardModule.board,
+    };
+  }
 const mapDispatchToProps = {
 
 }
-export const Column = connect(null, mapDispatchToProps)(_Column)
+export const Column = connect(mapStateToProps, mapDispatchToProps)(_Column)

@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux'
-import { onSaveBoard } from '../store/board.actions'
+import { onSaveBoard,onSetTask,updateBoard } from '../store/board.actions'
 
 
 class _Covers extends React.Component {
@@ -9,16 +9,32 @@ class _Covers extends React.Component {
         coverColor:''
     }
 
-     toggleTaskCover = (coverColor) => {
-      const {board, onSaveBoard, currPopUp} = this.props
-      const groupIdx = board.groups.findIndex(group => group.id ===currPopUp.group)
-      const taskIdx = board.groups[groupIdx].tasks.findIndex(task => task.id === currPopUp.task)
-      const task = board.groups[groupIdx].tasks[taskIdx]
-      task.style={
-          coverColor,
-      }
-      onSaveBoard(board)
+     toggleTaskCover = async (coverColor) => {
+         if(this.props.from==='MainModal'){
+             const {currTask,groupId,board,onSaveBoard} = this.props
+            const taskToSave = {...currTask, style:{...currTask.style,coverColor}}
+            this.props.onSetTask(taskToSave)
+
+        const boardToSave =  updateBoard(board, groupId, currTask.id, taskToSave)
+         
+           onSaveBoard(boardToSave)
+            
+         }else{
+
+             
+             const {board, onSaveBoard, currPopUp} = this.props
+             const groupIdx = board.groups.findIndex(group => group.id ===currPopUp.group)
+             const taskIdx = board.groups[groupIdx].tasks.findIndex(task => task.id === currPopUp.task)
+             const task = board.groups[groupIdx].tasks[taskIdx]
+             task.style={
+                 coverColor,
+                }
+                onSaveBoard(board)
+                
+            }
+     
     }
+    
 
     setCover() {
         const {labelId,labels} = this.props
@@ -58,12 +74,15 @@ function mapStateToProps(state) {
     return {
         board: state.boardModule.board,
         currPopUp: state.boardModule.currPopUp,
+        currTask: state.boardModule.currTask,
     }
 }
 
 
 const mapDispatchToProps = {
     onSaveBoard,
+    onSetTask,
+    updateBoard,
 }
 
 export const Covers = connect(mapStateToProps, mapDispatchToProps)(_Covers)
