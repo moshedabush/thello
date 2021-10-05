@@ -62,7 +62,10 @@ export class TaskTitleEdit extends React.Component {
                     >
                         {isTextEditOpen ?
                             <form id="savetitle">
-                                <div className="quick-task-cover-preview" style={{width:this.props.width}}></div>
+                                {task.style && 
+                                <div className="quick-task-cover-preview" style={{width:this.props.width ,backgroundColor:`${task.style.coverColor}`}}>
+                                 </div>}
+                               
                                 <ul className="quick-task-label-preview">
                                             {task.labelIds.map(labelId => <TaskLabelPreview key={labelId} labelId={labelId} labels={board.labels} />)}
                                         </ul>

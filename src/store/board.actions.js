@@ -22,7 +22,6 @@ export function loadBoard(boardId) {
     return async dispatch => {
         try {
             const board = await boardService.getBoardById(boardId)
-            console.log('sdfsdfdsf',board);
             dispatch({
                 type: 'SET_BOARD',
                 board :board

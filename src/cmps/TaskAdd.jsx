@@ -50,7 +50,7 @@ export class TaskAdd extends React.Component{
             createdAt: Date.now(),
             dueDate: 0,            
             style: {
-                coverMode: '',
+                coverColor: '',
                 bgColor: ''
             }            
         }

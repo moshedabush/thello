@@ -17,7 +17,6 @@ export class LabelEdit extends React.Component {
 
     handleChange = (ev) => {
         const {value} = ev.target
-        console.log('32132132',value);
         this.setState({title:value})
     }
 

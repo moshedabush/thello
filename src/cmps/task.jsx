@@ -5,6 +5,7 @@ import SimpleDialog from './dialog-modal';
 import CreateIcon from '@mui/icons-material/Create';
 import { TaskQuickMenu } from './TaskQuickMenu';
 import { TaskLabelPreview } from './TaskLabelPreview';
+import { Covers } from './Covers';
 
 //Need to convert it to scss
 const Container = styled.div`
@@ -38,14 +39,11 @@ export class Task extends React.Component {
     width: 0,
     height: 0,
     top: 0,
-    coverColor: 'null',
   };
 
   getDimsOfObject = (ev) => {
     let divTaskDims = this.taskDims.getBoundingClientRect();
-    // let icon = this.editIcon.getBoundingClientRect();
     ev.preventDefault();
-    // let { left, bottom } = icon;
     let { top, width, height, right,left,bottom } = divTaskDims;
     this.setState({
       menuLeft: left,
@@ -73,10 +71,7 @@ export class Task extends React.Component {
     this.setState({ isClicked: false });
   };
 
-  setCoverColor = (coverColor) => {
-    this.setState({ coverColor })
-  }
-
+   
   handleEditIcon = () =>{
     const {isEditIcon} = this.state
     this.setState({isEditIcon:!isEditIcon})
@@ -120,19 +115,21 @@ export class Task extends React.Component {
                   coverColor={this.state.coverColor}
                 />
               }
-               <div className="task-cover-preview"></div>
+              {task.style && 
+                 <div className="task-cover-preview" style={{backgroundColor:`${task.style.coverColor}`}}> 
+               </div>}
               
               <CreateIcon
                     className='quick-edit-icon'
                     onClick={this.toggleQuickMenu}
                     style={{ visibility: isEditIcon? 'visible' :'hidden' }}
                   />
-                  
+               {task.labelIds.length !== 0 &&  
               <div className="task-labels-preview">
                 <ul className="task-preview-labels">
                   {task.labelIds.map(labelId => <TaskLabelPreview key={labelId} labelId={labelId} labels={board.labels} />)}
                 </ul>
-              </div>
+              </div>} 
               <div className="task-title">
                 {this.props.task.title}
               </div>
