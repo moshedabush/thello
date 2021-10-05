@@ -26,8 +26,8 @@ class _TaskQuickMenu extends React.Component {
 
 
     handleClose = (ev) => {
+        ev.stopPropagation()
         if (ev.key === 'Enter') {
-            ev.preventDefault();
             const { isMenuOpen } = this.state
             this.setState({ isMenuOpen: !isMenuOpen })
             return

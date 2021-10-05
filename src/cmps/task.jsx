@@ -57,18 +57,24 @@ export class Task extends React.Component {
   };
 
   toggleQuickMenu = (ev) => {
+    ev.stopPropagation()
     this.getDimsOfObject(ev);
-    ev.preventDefault();
     const { isQuickMenuOpen } = this.state;
     this.setState({ isQuickMenuOpen: !isQuickMenuOpen });
   };
 
-  handleClick = (bool) => {
-    this.setState({ isClicked: bool });
+  handleClick = (ev) => {
+    ev.stopPropagation()
+    const {isClicked} = this.state
+    this.setState({ isClicked: !isClicked });
   };
 
-  onClose = () => {
-    this.setState({ isClicked: false });
+  onClose = (ev) => {
+    ev.stopPropagation()
+    const {isClicked} = this.state
+    const {isEditIcon} =this.state
+    this.setState({ isClicked: !isClicked });
+    this.setState({isEditIcon:!isEditIcon})
   };
 
    
@@ -79,8 +85,7 @@ export class Task extends React.Component {
 
 
   render() {
-    const { isQuickMenuOpen,isEditIcon } = this.state;
-    const { left, top, bottom, width, height, right } = this.state;
+    const { isQuickMenuOpen,isEditIcon,left, top, bottom, width, height, right } = this.state;
     const { task, onSaveBoard, board, group } = this.props;
 
     return (
@@ -94,7 +99,8 @@ export class Task extends React.Component {
         <Draggable draggableId={this.props.task.id} index={this.props.index}>
           
           {(provided, snapshot) => (
-            <Container 
+            <Container onClick={(ev) => {this.handleClick(ev);}}
+
              onMouseEnter={this.handleEditIcon}
               onMouseLeave={this.handleEditIcon}
 
@@ -102,13 +108,15 @@ export class Task extends React.Component {
               {...provided.dragHandleProps}
               ref={provided.innerRef}
               isDragging={snapshot.isDragging}>
+
+               
                 
               {
                 
                 <SimpleDialog
                   open={this.state.isClicked}
                   setCoverColor={this.setCoverColor}
-                  onClose={this.onClose}
+                  onClose={(ev)=> {this.onClose(ev)}}
                   selectedValue={'task'}
                   task={this.props.task}
                   groupTitle={this.props.groupTitle}
@@ -121,13 +129,14 @@ export class Task extends React.Component {
               
               <CreateIcon
                     className='quick-edit-icon'
-                    onClick={this.toggleQuickMenu}
+                    onClick={(ev)=> {this.toggleQuickMenu(ev)}}
                     style={{ visibility: isEditIcon? 'visible' :'hidden' }}
                   />
                {task.labelIds.length !== 0 &&  
               <div className="task-labels-preview">
                 <ul className="task-preview-labels">
-                  {task.labelIds.map(labelId => <TaskLabelPreview key={labelId} labelId={labelId} labels={board.labels} />)}
+                  {task.labelIds.map(labelId => <TaskLabelPreview key={labelId} 
+                  labelId={labelId} labels={board.labels} />)}
                 </ul>
               </div>} 
               <div className="task-title">

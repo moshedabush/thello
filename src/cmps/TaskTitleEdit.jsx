@@ -53,7 +53,7 @@ export class TaskTitleEdit extends React.Component {
         const { task, board } = this.props
         return (
             <>
-                <div class="quick-task-editor-task">
+                <div className="quick-task-editor-task">
                     
                     <div className="quick-task-editor-title-wrapper"
                         style={{
