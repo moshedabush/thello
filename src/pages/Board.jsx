@@ -6,10 +6,10 @@ import { DragDropContext, Droppable } from 'react-beautiful-dnd';
 import { onSaveBoard, loadBoard } from '../store/board.actions.js';
 import { Column } from '../cmps/column.jsx';
 
-import styled from 'styled-components';
+// import styled from 'styled-components';
 
 import { GroupAdd } from '../cmps/GroupAdd.jsx';
-import { AppHeader } from '../cmps/app-header.jsx';
+import { BoardHeader } from '../cmps/BoardHeader';
 
 
 class _Board extends React.Component {
@@ -108,7 +108,7 @@ class _Board extends React.Component {
 
     return (
       <div className="in-board">
-        <AppHeader/>
+        <BoardHeader/>
         <main className="board-container">
         <DragDropContext onDragEnd={this.onDragEnd}>
           <Droppable

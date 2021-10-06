@@ -1,27 +1,13 @@
 import React from "react";
 import { connect } from "react-redux";
 import { onSaveBoard,onSaveBoards,loadBoards } from '../store/board.actions';
-import { userService } from "../services/user.service";
-import { loadUsers } from "../store/user.actions";
-import boardsData from "../data/boards.json";
-import { Link } from "react-router-dom";
 import { AppHeader } from "../cmps/app-header";
 import { BoardsList } from '../cmps/boards-list';
 import { ReactComponent as BoardIcon } from "../assets/img/board-icon.svg";
 import { ReactComponent as StarIcon } from "../assets/img/star-icon.svg";
 
 class _BoardList extends React.Component {
-  // state = {
-  //   loggedUser: {},
-  //   boards: [],
-  // };
-  // async componentDidMount() {
-  //   const loggedUser = await userService.getLoggedinUser();
-  //   const boardIds = await this.getUserBoardsIds(loggedUser);
-  //   const boards = await this.getBoards(boardIds);
-  //   this.setState({ loggedUser, boards });
-  //   console.log("this.state", this.state);
-  // }
+ 
   async componentDidMount() {
     try {
     const userId = this.props.loggedUser._ID;
@@ -31,23 +17,10 @@ class _BoardList extends React.Component {
   }
 }
 
-  // getUserBoardsIds = (loggedUser) => {
-  //   //test with multiple board ids
-  //   const boardIds = [loggedUser.userBoardIds];
-  //   return boardIds;
-  // };
-  
   get favoriteBoards() {
     const { boards } = this.props
     return boards.filter(board => board.isFavorite)
-  };
-
-  // getBoards = (boardIds) => {
-  //   let filteredBoards = boardIds.map((id) =>
-  //     boardsData.find(({ _id }) => _id === id)
-  //   );
-  //   return filteredBoards;
-  // };
+  };  
 
   onToggleFavorite = (ev, boardId) => {
     ev.preventDefault()

@@ -3,33 +3,24 @@ import { connect } from 'react-redux';
 import { Link, NavLink } from 'react-router-dom';
 import {ReactComponent as BoardIcon} from '../assets/img/board-icon.svg';
 import {ReactComponent as HomeIcon} from '../assets/img/home-icon.svg';
-import { userService } from "../services/user.service";
-// import routes from '../routes'
-
-
-import { onLogin, onLogout, onSignup, loadUsers, removeUser } from '../store/user.actions.js'
-// import { LoginSignup } from './login-signup.jsx'
+import { onLogout } from '../store/user.actions.js';
 
 class _AppHeader extends React.Component {
-    state={
-        user: '',
-    }
-    componentDidMount(){
-        this.setState({user: userService.getLoggedinUser()})
-    }
-    onLogin = (credentials) => {
-        this.props.onLogin(credentials)
-        
-    }
-    onSignup = (credentials) => {
-        this.props.onSignup(credentials)
-    }
+    // async componentDidMount() {
+    //     try {
+    //     const user = this.props.loggedUser;
+    //      } catch (err) {
+    //     console.log('err');
+    //   }
+    // }
+    // componentDidMount(){
+    //     this.setState({user: userService.getLoggedinUser()})
+    // }
     onLogout = () => {
         this.props.onLogout()
     }
-
     render() {
-        const { user } = this.state
+        const user = this.props.user
         if (!user) return <div></div>
         return (
             <header className="app-header flex ">
@@ -47,7 +38,7 @@ class _AppHeader extends React.Component {
                     <div className="logo">  
                 <NavLink to="/boardlist">
                 <BoardIcon/>
-                    <span>thello</span>
+                    <span>Thello</span>
                     </NavLink>
                     </div>
                 
@@ -74,11 +65,7 @@ function mapStateToProps(state) {
     }
 }
 const mapDispatchToProps = {
-    onLogin,
-    onSignup,
     onLogout,
-    loadUsers,
-    removeUser
 }
 
 
