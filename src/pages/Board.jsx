@@ -5,6 +5,9 @@ import { connect } from 'react-redux';
 import { DragDropContext, Droppable } from 'react-beautiful-dnd';
 import { onSaveBoard, loadBoard } from '../store/board.actions.js';
 import { Column } from '../cmps/column.jsx';
+
+import styled from 'styled-components';
+
 import { GroupAdd } from '../cmps/GroupAdd.jsx';
 import { AppHeader } from '../cmps/app-header.jsx';
 

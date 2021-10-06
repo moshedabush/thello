@@ -1,5 +1,6 @@
 import React from 'react';
 import { Cover } from './Cover';
+import { Covers } from './Covers';
 import { Dates } from './Dates';
 
 export class ActionsContainer extends React.Component {
@@ -20,7 +21,8 @@ export class ActionsContainer extends React.Component {
     return (
       <div className={`menu-container `}>
         {type==='Members' && <div>abc</div>}
-        {type==='Cover' && <Cover cover={this.props.cover} onClose={this.props.onClose} setCoverColor={this.props.setCoverColor}/>}
+        {type==='Cover' && <Covers from={'MainModal'} groupId={this.props.groupId}/>}
+        {/* {type==='Cover' && <Cover cover={this.props.cover} onClose={this.props.onClose} setCoverColor={this.props.setCoverColor}/>} */}
         {type === 'Dates' && (
           <Dates onClose={this.props.onClose} saveDate={this.saveDate}/>
         )}

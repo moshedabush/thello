@@ -197,7 +197,7 @@ export default function MenuListComposition(props) {
             </span>
             Cover
           </MenuItem>
-          {isClicked==='Cover' && <ActionsContainer type={'Cover'} onClose={()=>{click(null)}} setCoverColor={props.setCoverColor}/>}{' '}
+          {isClicked==='Cover' && <ActionsContainer type={'Cover'} onClose={()=>{click(null)}} groupId={props.groupId}/>}{' '}
           <MenuItem className={classes.field}>
             <span>
               <AllInboxOutlinedIcon className={classes.icon} />
@@ -264,15 +264,7 @@ export default function MenuListComposition(props) {
               }}>
               <Paper>
                 <ClickAwayListener onClickAway={handleClose}>
-                  <MenuList
-                    autoFocusItem={open}
-                    id='composition-menu'
-                    aria-labelledby='composition-button'
-                    onKeyDown={handleListKeyDown}>
-                    <MenuItem onClick={handleClose}>Members</MenuItem>
-                    <MenuItem onClick={handleClose}>Is</MenuItem>
-                    <MenuItem onClick={handleClose}>This</MenuItem>
-                  </MenuList>
+                 
                 </ClickAwayListener>
               </Paper>
             </Grow>
