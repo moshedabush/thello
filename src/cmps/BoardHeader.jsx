@@ -2,7 +2,8 @@ import React from "react";
 import { connect } from "react-redux";
 import { Link, NavLink } from "react-router-dom";
 import { ReactComponent as BoardIcon } from "../assets/img/board-icon.svg";
-import { ReactComponent as HomeIcon } from "../assets/img/home-icon.svg";
+// import { ReactComponent as HomeIcon } from "../assets/img/home-icon.svg";
+import { ReactComponent as ArrowDown } from "../assets/img/arrow-down.svg";
 import { onLogout } from "../store/user.actions.js";
 
 class _BoardHeader extends React.Component {
@@ -27,7 +28,8 @@ class _BoardHeader extends React.Component {
           </NavLink> */}
           <NavLink className="btn-board-header" to="/boardlist">
             {/* <BoardIcon /> */}
-            <span>Boards ></span>
+            <span>Boards</span>
+            <ArrowDown />
           </NavLink>
         </div>
         </div>
