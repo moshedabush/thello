@@ -11,18 +11,17 @@ import { Covers } from './Covers';
 const Container = styled.div`
 
   border-radius: 3px;
-  
   margin-bottom: 8px;
   border:none;
   background-color:white;
-  display: flex;
-  flex-direction: column;
+  flex: 1 1 auto;
   justify-content: space-between;
-  overflow: hidden;
   white-space: pre-wrap;
   word-break: break-word;
   box-shadow: 0 1px 0 #091e4240;
   position:relative;
+  overflow-y: auto;
+  overflow-x: hidden;
 `;
 
 export class Task extends React.Component {
@@ -85,7 +84,7 @@ export class Task extends React.Component {
 
   render() {
     const { isQuickMenuOpen,isEditIcon,left, top, bottom, width, height, right } = this.state;
-    const { task, onSaveBoard, board, group } = this.props;
+    const { task, onSaveBoard, board, group, task :{style}} = this.props;
 
     return (
       
@@ -120,7 +119,7 @@ export class Task extends React.Component {
                   coverColor={this.state.coverColor}
                 />
               }
-              {task.style && 
+              {style.coverColor.length !==0 && 
                  <div className="task-cover-preview" style={{backgroundColor:`${task.style.coverColor}`}}> 
                </div>}
               

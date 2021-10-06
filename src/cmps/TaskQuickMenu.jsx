@@ -111,7 +111,7 @@ class _TaskQuickMenu extends React.Component {
                                 <a className="quick-task-editor-buttons-items">
                                     <span style={{ display: 'flex' }}>
                                         <DriveFileMoveOutlinedIcon className="task-quick-menu-icons" fontSize="small" />
-                                    </span ><span className="task-quick-menu-txt">Change Move</span></a>
+                                    </span ><span className="task-quick-menu-txt">Move</span></a>
 
                                 <a className="quick-task-editor-buttons-items">
                                     <span style={{ display: 'flex' }}>

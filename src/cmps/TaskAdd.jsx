@@ -1,7 +1,8 @@
 import React from 'react';
-import TextField from '@mui/material/TextField';
 import {utilService} from '../services/util.service'
 import { userService } from '../services/user.service';
+import InputBase from '@mui/material/InputBase';
+import CloseIcon from '@mui/icons-material/Close';
 
 export class TaskAdd extends React.Component{
 
@@ -35,7 +36,6 @@ export class TaskAdd extends React.Component{
         const {taskTitle} = this.state
         const {board} = this.props 
         const {loggedUser} = this.state
-        console.log('loggedinUser',loggedUser);
         const {group} = this.props
         const groupIdx = board.groups.indexOf(group)
          const task ={
@@ -54,6 +54,7 @@ export class TaskAdd extends React.Component{
                 bgColor: ''
             }            
         }
+        if (task.title)
         board.groups[groupIdx].tasks.push(task)
         this.props.onSaveBoard(board) 
         this.setState({taskTitle:''})  
@@ -66,9 +67,10 @@ export class TaskAdd extends React.Component{
 
             <div className="add-task-wrapper" >
                 {isWrapperOpen ? 
+                <>
                 <div className="task-add-open">
                     
-                    <TextField className="task-add-input"
+                    <InputBase className="task-add-input"
                         id="outlined-multiline-static"
                         placeholder="Enter a title for this card.."
                         size="small"
@@ -80,7 +82,18 @@ export class TaskAdd extends React.Component{
                         onChange={this.handleChange}
                         onKeyDown = {this.handleChange}
                     />
+                
                 </div>
+                <div className="task-add-controls-wrapper">
+                            <button onClick={this.onAddTask} className="task-add-controls">Add card</button>
+                            <CloseIcon onClick={this.toggleTaskAdd}
+                                style={{
+                                    height: '32px', lineHeight: '32px', width: '32px',
+                                     marginLeft: '4px',marginBottom:'4px', cursor: 'pointer'
+                                }} />
+                        </div>
+                </>
+                
                 :
                 <div className="task-add-closed" onClick={this.toggleTaskAdd}>+ Add a card</div>
                 }

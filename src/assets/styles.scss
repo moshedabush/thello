@@ -5,9 +5,12 @@
 
 // Basics
 @import "basics/helpers.scss";
+@import "basics/body.scss";
+
 
 // Components
 @import "cmps/app-header.scss";
+@import "cmps/columns.scss";
 @import "cmps/home-header.scss";
 @import "cmps/dialog-modal.scss";
 @import "cmps/board-list.scss";

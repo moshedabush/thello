@@ -5,17 +5,9 @@ import { connect } from 'react-redux';
 import { DragDropContext, Droppable } from 'react-beautiful-dnd';
 import { onSaveBoard, loadBoard } from '../store/board.actions.js';
 import { Column } from '../cmps/column.jsx';
-import styled from 'styled-components';
-// import { tableSortLabelClasses } from '@mui/material';
-// import SimpleDialog from '../cmps/dialog-modal.jsx';
-
 import { GroupAdd } from '../cmps/GroupAdd.jsx';
 import { AppHeader } from '../cmps/app-header.jsx';
 
-//Need to convert it to scss
-const Container = styled.div`
-  display: flex;
-`;
 
 class _Board extends React.Component {
   state = {
@@ -121,7 +113,7 @@ class _Board extends React.Component {
             direction='horizontal'
             type='group'>
               {(provided) => (
-                <Container {...provided.droppableProps} ref={provided.innerRef}>
+                <div {...provided.droppableProps} ref={provided.innerRef} className="group-tasks-container">
                 {groups.map((group, index) => {
                   const tasks = group.tasks
                   return (
@@ -137,7 +129,7 @@ class _Board extends React.Component {
                   })}
                 {provided.placeholder}
                 <GroupAdd board={board} onSaveBoard={this.props.onSaveBoard} />
-              </Container>
+              </div>
             )}
           </Droppable>
         </DragDropContext>

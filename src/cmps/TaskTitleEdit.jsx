@@ -50,7 +50,7 @@ export class TaskTitleEdit extends React.Component {
 
     render() {
         const { isTextEditOpen, taskTitle } = this.state
-        const { task, board } = this.props
+        const { task, board, task:{style} } = this.props
         return (
             <>
                 <div className="quick-task-editor-task">
@@ -62,7 +62,7 @@ export class TaskTitleEdit extends React.Component {
                     >
                         {isTextEditOpen ?
                             <form id="savetitle">
-                                {task.style && 
+                                {style.coverColor.length !==0 && 
                                 <div className="quick-task-cover-preview" style={{width:this.props.width ,backgroundColor:`${task.style.coverColor}`}}>
                                  </div>}
                                
