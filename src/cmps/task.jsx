@@ -89,7 +89,7 @@ class _Task extends React.Component {
 
   render() {
     const { isQuickMenuOpen,isEditIcon,left, top, bottom, width, height, right } = this.state;
-    const { task, onSaveBoard, board, group, currTask } = this.props;
+    const { task, onSaveBoard, board, group } = this.props;
 
     return (
       
