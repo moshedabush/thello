@@ -25,20 +25,7 @@ import ReplayOutlinedIcon from '@mui/icons-material/ReplayOutlined';
 import  { ActionsContainer  } from './ActionsContainer';
 const useStyles = makeStyles({
   paper: {
-    width: 192 + 'px',
-    overflow: 'hidden',
-    padding: '0 16px 8px 8px',
-    zIndex: 10,
-    color: '#172b4d',
-    fontFamily:
-      '-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Noto Sans,Ubuntu,Droid Sans,Helvetica Neue,sans-serif',
-    fontSize: 14 + 'px',
-    fontWeight: 400,
-    lineHeight: 20 + 'px',
-    backgroundColor: '#0000',
-    position: 'absolute',
-    right: 0,
-    top: 55 + 'px',
+  
   },
   title: {
     fontSize: 12 + 'px',
@@ -53,40 +40,7 @@ const useStyles = makeStyles({
       ' -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Noto Sans,Ubuntu,Droid Sans,Helvetica Neue,sans-serif;',
   },
   field: {
-    backgroundColor: '#091e420a',
-    border: 'none',
-    borderRadius: 3 + 'px',
-    color: '#172b4d',
-    boxShadow: 'none',
-    boxSizing: 'border-box',
-    cursor: 'pointer',
-    display: 'block',
-    height: 32 + 'px',
-    marginTop: 8 + 'px',
-    width: 168 + 'px',
-    overflow: 'hidden',
-    paddingTop: 6 + 'px',
-    paddingRight: 12 + 'px',
-    paddingLeft: 12 + 'px',
-    position: 'relative',
-    textDecoration: 'none',
-    textOverflow: 'ellipsis',
-    transitionDuration: 85 + 'ms',
-    transitionProperty: 'background-color,border-color,box-shadow',
-    transitionTimingFunction: 'ease',
-    userSelect: 'none',
-    whiteSpace: 'nowrap',
-    fontFamily:
-      '-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Noto Sans,Ubuntu,Droid Sans,Helvetica Neue,sans-serif',
-    fontSize: 14 + 'px',
-    fontWeight: 400,
-    lineHeight: 20 + 'px',
-    '&:hover': {
-      backgroundColor: '#091e4214',
-      border: 'none',
-      boxShadow: 'none',
-      color: '#091e42',
-    },
+
   },
   icon: {
     fontSize: 16 + 'px',
@@ -161,7 +115,8 @@ export default function MenuListComposition(props) {
             </span>
             Labels
           </MenuItem>
-          <MenuItem className={classes.field}>
+          {/* <MenuItem className={classes.field}> */}
+          <MenuItem className={'field'}>
             <span>
               <AssignmentTurnedInOutlinedIcon className={classes.icon} />
             </span>
@@ -254,7 +209,8 @@ export default function MenuListComposition(props) {
           role={undefined}
           placement='bottom-start'
           transition
-          disablePortal>
+          disablePortal
+          display={'none'}>
           {({ TransitionProps, placement }) => (
             <Grow
               {...TransitionProps}

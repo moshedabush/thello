@@ -12,16 +12,14 @@ class _Covers extends React.Component {
         imgUrl: ''
     }
 
-    toggleTaskCover = async (coverColor) => {
-        if (this.props.from === 'MainModal') {
+    toggleTaskCover = async (coverColor ) => {
+        if (this.props.from === 'MainModal') {   
             const { currTask, groupId, board, onSaveBoard } = this.props
-            const taskToSave = { ...currTask, style: { ...currTask.style, coverColor } }
+            // const taskToSave = { ...currTask, style: { ...currTask.style, coverColor } }
+            const taskToSave = { ...currTask, style: { ...currTask.style, coverColor,imgUrl:'' } }
             this.props.onSetTask(taskToSave)
-
             const boardToSave = updateBoard(board, groupId, currTask.id, taskToSave)
-
             onSaveBoard(boardToSave)
-
         } else {
             const {imgUrl} = this.state
             const { board, onSaveBoard, currPopUp } = this.props
@@ -30,7 +28,7 @@ class _Covers extends React.Component {
             const task = board.groups[groupIdx].tasks[taskIdx]
             task.style = {
                 coverColor,
-                imgUrl,
+                imgUrl:'',
             }
             onSaveBoard(board)
 
@@ -62,6 +60,16 @@ class _Covers extends React.Component {
             coverColor,
             imgUrl,
         }
+        if (this.props.from === 'MainModal'){
+            const { imgUrl,coverColor } = this.state
+            const { currTask, groupId, board, onSaveBoard } = this.props
+            const taskToSave = { ...currTask, style: { ...currTask.style, coverColor,imgUrl } }
+            this.props.onSetTask(taskToSave)
+            const boardToSave = updateBoard(board, groupId, currTask.id, taskToSave)
+            onSaveBoard(boardToSave)
+        }
+        
+        onSetTask(task)
         onSaveBoard(board)
 
     }
