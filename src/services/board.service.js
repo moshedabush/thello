@@ -1,6 +1,5 @@
 import { storageService } from './async-storage.service'
 const gBoards = require('../data/boards.json')
-const STORAGE_KEY_BOARD = 'board'
 
 export const boardService = {
     save,

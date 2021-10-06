@@ -35,7 +35,19 @@ function _DialogModal(props) {
   return (
    
     <Dialog onClose={props.onClose} open={open} className={'DIALOG-CMP@@@@@'}>
-     {style.coverColor &&   <div className={'cover'} style={{backgroundColor:style.coverColor}} ></div>}
+     {style.coverColor.length !== 0 &&   <div className={'cover'} style={{backgroundColor:style.coverColor}} ></div>}
+     {style.imgUrl.length !== 0 &&
+                <div 
+                 style={{
+                  backgroundImage: `url(${currTask.style.imgUrl})`,
+                  height: 145+'px',
+                  backgroundPosition: 'center center',
+                  backgroundSize: 'contain',
+                  backgroundRepeat: 'no-repeat',
+                  backgroundColor: '#5f9ea0a8',
+                  
+                }}>
+                </div>}
       <section className={ 'dialog-container' }>
         <header className={'header-dialog' }>
           <IconButton className={'close-btn'} onClick={()=>{onClose()}}>

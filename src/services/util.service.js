@@ -2,7 +2,8 @@ export const utilService = {
     makeId,
     makeLorem,
     getRandomIntInclusive,
-    delay
+    delay,
+    isValidImg
 }
 
 function makeId(length = 6) {
@@ -14,6 +15,11 @@ function makeId(length = 6) {
     }
 
     return txt;
+}
+
+function isValidImg(filename) {
+    return (/\.(gif|jpe?g|tiff?|png|webp|bmp)$/i).test(filename)
+
 }
 
 function makeLorem(size = 100) {

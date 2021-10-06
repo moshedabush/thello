@@ -20,7 +20,6 @@ class _BoardList extends React.Component {
     const boardIds = await this.getUserBoardsIds(loggedUser);
     const boards = await this.getBoards(boardIds);
     this.setState({ loggedUser, boards });
-    console.log("this.state", this.state);
   }
 
   getUserBoardsIds = (loggedUser) => {
@@ -53,7 +52,6 @@ class _BoardList extends React.Component {
   render() {
     const { boards, loggedUser } = this.state;
     if (!boards) return <div>Loading</div>;
-    console.log("boards in render", boards);
     return (
       <section>
         <AppHeader />

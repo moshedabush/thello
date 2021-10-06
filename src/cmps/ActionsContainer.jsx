@@ -21,7 +21,7 @@ export class ActionsContainer extends React.Component {
     return (
       <div className={`menu-container `}>
         {type==='Members' && <div>abc</div>}
-        {type==='Cover' && <Covers from={'MainModal'} groupId={this.props.groupId}/>}
+        {type==='Cover' && <Covers className={'covers-from-main-dialog'} from={'MainModal'} groupId={this.props.groupId}/>}
         {/* {type==='Cover' && <Cover cover={this.props.cover} onClose={this.props.onClose} setCoverColor={this.props.setCoverColor}/>} */}
         {type === 'Dates' && (
           <Dates onClose={this.props.onClose} saveDate={this.saveDate}/>
