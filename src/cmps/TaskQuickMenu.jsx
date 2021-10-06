@@ -35,7 +35,8 @@ class _TaskQuickMenu extends React.Component {
 
     }
 
-    toggleQuickMenu = () => {
+    toggleQuickMenu = (ev) => {
+        ev.stopPropagation()
         const { isMenuOpen } = this.state
         this.setState({ isMenuOpen: !isMenuOpen })
         this.props.handleEditIcon()
@@ -79,7 +80,7 @@ class _TaskQuickMenu extends React.Component {
                         onClose={this.handleClose}
                         closeAfterTransition
                         open={isMenuOpen}
-                        onBackdropClick={this.toggleQuickMenu}
+                        onBackdropClick={(ev)=>{this.toggleQuickMenu(ev)}}
                         disableAutoFocus
                         onKeyDown={this.handleClose}
                         onClick={this.handleClose}

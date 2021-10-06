@@ -16,16 +16,18 @@ export class TaskAdd extends React.Component{
        const loggedUser = userService.getLoggedinUser()
        this.setState({loggedUser:loggedUser.fullname})
     }
-    toggleTaskAdd = () => {
+    toggleTaskAdd = (ev) => {
+        ev.stopPropagation()
         const {isWrapperOpen} = this.state
         this.setState({isWrapperOpen:!isWrapperOpen})
     }
     
     handleChange =(ev) =>{
+        ev.stopPropagation()
         if (ev.key === 'Enter') {
             this.toggleTaskAdd()
             ev.preventDefault();
-            this.onAddTask()
+            this.onAddTask(ev)
             return
         }
         const {value} = ev.target
@@ -95,7 +97,7 @@ export class TaskAdd extends React.Component{
                 </>
                 
                 :
-                <div className="task-add-closed" onClick={this.toggleTaskAdd}>+ Add a card</div>
+                <div className="task-add-closed" onClick={(ev)=>{this.toggleTaskAdd(ev)}}>+ Add a card</div>
                 }
             </div>
         )

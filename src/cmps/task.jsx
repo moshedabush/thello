@@ -88,7 +88,7 @@ class _Task extends React.Component {
 
   render() {
     const { isQuickMenuOpen,isEditIcon,left, top, bottom, width, height, right } = this.state;
-    const { task, onSaveBoard, board, group, currTask } = this.props;
+    const { task, onSaveBoard, board, group, currTask,task :{style} } = this.props;
 
     return (
       
@@ -122,7 +122,7 @@ class _Task extends React.Component {
                   
                 />
               }
-              {task.style && 
+              {style.coverColor.length !==0 && 
                 //  <div className="task-cover-preview" style={{backgroundColor:task.style.coverColor}}> 
                  <div  onClick={() => {
                   this.handleOpenMainModal(!this.state.isClicked,task);
