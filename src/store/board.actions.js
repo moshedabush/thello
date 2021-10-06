@@ -4,6 +4,7 @@ import { showErrorMsg } from '../services/event-bus.service.js'
 export function onSaveBoard(board) {  
     return async dispatch => {
         try {
+            console.log('hi from onSaveBoard');
             const savedBoard = await boardService.save(board)
             dispatch({
                  type: 'SAVE_BOARD',
@@ -46,6 +47,7 @@ export function loadBoards(userId) {
 export function loadBoard(boardId) {
  
     return async dispatch => {
+        
         try {
             const board = await boardService.getBoardById(boardId)
             dispatch({
@@ -73,6 +75,29 @@ export function openQuickPopUp(top,left,cmpName,cmpTitle,task,group) {
         dispatch(popUp)
     }
 }
+
+export function onSetTask(taskToSave) {  
+    return dispatch => {
+        const currTask = {
+            type:'SET_CURRTASK',
+            task:taskToSave
+        }
+        dispatch(currTask)
+    }
+}
+
+export function updateBoard(board, groupId, taskToUpdateId, taskToSave) {
+
+    const newBoard = {...board};
+    const groupIdx = newBoard.groups.findIndex(group => group.id === groupId)
+    newBoard.groups[groupIdx].tasks = newBoard.groups[groupIdx].tasks.map(task => {
+        if (task.id === taskToUpdateId) return taskToSave
+        else return task;
+    })
+
+  return newBoard
+   }
+
 
 
 

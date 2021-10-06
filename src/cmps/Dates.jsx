@@ -10,7 +10,6 @@ export class Dates extends React.Component {
    handleChange =(ev)=>{
      const selected = ev._d.toString().substring(0,25)
      this.setState({selectedVal:selected})
-    console.log('this.state',this.state)
    }
   render() {
     return (

@@ -12,19 +12,14 @@ const Container = styled.div`
 transform: ${props => (props.isDragging ? 'rotate(3deg)' : '0')}; 
 box-sizing:border-box;
 display: inline-block;
-display:flex;
-flex-direction: column;
-justify-content: space-between;
 min-height:100px;
-height: 100%;
 margin: 4px;
 border-radius: 3px;
 background-color:#ebecf0;
 min-width: 272px;
 max-width:272px;
 white-space: normal;
-max-height:100%;
-
+vertical-align: top
 `;
 
 const Title = styled.h2`
@@ -41,15 +36,29 @@ padding: 4px 8px;
 position: relative;
 `
 
-
 const TaskList = styled.div`
 background-color: ${props => (props.isDraggingOver ? `#e1e1e1` : 'inherit')};
 flex: 1 1 auto;
 margin: 0 4px;
-min-height: 0;
 overflow-x: hidden;
-overflow-y: visible;
+overflow-y:auto ;
 padding: 0 4px;
+box-sizing: border-box;
+position: relative;
+white-space: normal
+max-height:100%
+::-webkit-scrollbar {
+    width: 8px;
+}
+::-webkit-scrollbar-track {
+    border-radius: $borderRad2;
+    margin-bottom: 2px;
+    background-color: #dadbe2;
+}
+&::-webkit-scrollbar-thumb {
+    border-radius: $borderRad2;
+    background-color: #bfc4ce;
+}
 `;
 
 class _Column extends React.Component {
@@ -64,9 +73,9 @@ class _Column extends React.Component {
         const { group } = this.props
         const { onSaveBoard } = this.props
 
-        if (!board) return <div>loading...</div> // Create cmp with killer loading
+        if (!board) return <div>loading...</div> 
         return (
-
+            <>
             <Draggable draggableId={this.props.group.id} index={this.props.index}>
                 {(provided) => (
                     <Container {...provided.draggableProps} ref={provided.innerRef}{...provided.dragHandleProps}
@@ -80,7 +89,7 @@ class _Column extends React.Component {
                         <Droppable droppableId={this.props.group.id} type="task">
                             {(provided, snapshot) => (
                                 <>
-                                    <TaskList ref={provided.innerRef} {...provided.droppableProps}
+                                    <TaskList className="scroller" ref={provided.innerRef} {...provided.droppableProps}
                                         isDraggingOver={snapshot.isDraggingOver}>
                                         {this.props.tasks.map((task, index) => (
                                             !task.isArchived && <Task key={task.id} task={task} index={index}
@@ -89,20 +98,27 @@ class _Column extends React.Component {
                                             />
                                         ))}
                                         {provided.placeholder}
-                                    </TaskList>
-                                    <TaskAdd board={board} group={group} onSaveBoard={onSaveBoard} />
+                                        
+                                    </TaskList> 
                                 </>
+                                
                             )}
-
                         </Droppable>
+                        <TaskAdd board={board} group={group} onSaveBoard={onSaveBoard} />
                     </Container>
                 )}
             </Draggable>
+            
+          </>  
         )
     }
 }
-
+function mapStateToProps(state) {
+    return {
+      board: state.boardModule.board,
+    };
+  }
 const mapDispatchToProps = {
 
 }
-export const Column = connect(null, mapDispatchToProps)(_Column)
+export const Column = connect(mapStateToProps, mapDispatchToProps)(_Column)

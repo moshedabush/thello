@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { connect } from "react-redux";
 import PropTypes from 'prop-types';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
@@ -9,56 +10,49 @@ import CloseIcon from '@material-ui/icons/Close';
 import TextField from '@mui/material/TextField';
 import BasicMenu from './SideMenuDialog';
 import { makeStyles } from '@material-ui/styles';
+import {onSaveBoard, onSetTask,updateBoard} from '../store/board.actions'
 import { width } from '@mui/system';
 
 
-const useStyles = makeStyles({
-  dialog:{
-    backgroundColor: '#f4f5f7',
-    width: 768 + 'px',
-    // padding: 16 + 'px',
-    marginBlockStart:0,
-   
-  },
-  dialogContainer:{
- 
-    backgroundColor: '#000000a3',
-    justifyContent: 'center',
-  },
-  headerDialog:{
-    width: 75 + '%',
-  },
-  closeBtn:{
-    position: 'absolute',
-    right: 5,
-    top: 5,
-  },
-  cover:{
-    width:768 + 'px',
-    height:70 + 'px',
-  }
-})
-
-export default function SimpleDialog(props) {
-  const { onClose, selectedValue, open,coverColor } = props;
+function _DialogModal(props) {
+  const { onClose, selectedValue, open,coverColor,currTask } = props;
   const [value, setValue] = React.useState('Controlled');
-  const classes = useStyles();
   const handleChange = (event) => {
     props.task.title=event.target.value;
     setValue(event.target.value);
   };
+  const setCoverColor = async (coverColor)=>{
+    const taskToSave = {...currTask,coverColor}
+  props.onSetTask(taskToSave)
+  const { board} = props
+  updateBoard(board, props.groupId, currTask.id, taskToSave)
+  
+  }
 
-
-  const { title, members } = props.task;
-  const { task } = props;
+  const { title, members,style } = currTask;
+  console.log('currTask',currTask)
+  console.log('board in dialog',props.board)
   return (
-    <Dialog onClose={props.onClose} open={open} className={classes.dialogContainer}>
-      <main className={classes.dialog}>
-        <header className={classes.headerDialog}>
-          <IconButton className={classes.closeBtn} onClick={()=>{onClose()}}>
+   
+    <Dialog onClose={props.onClose} open={open} className={'DIALOG-CMP@@@@@'}>
+     {style.coverColor.length !== 0 &&   <div className={'cover'} style={{backgroundColor:style.coverColor}} ></div>}
+     {style.imgUrl.length !== 0 &&
+                <div 
+                 style={{
+                  backgroundImage: `url(${currTask.style.imgUrl})`,
+                  height: 145+'px',
+                  backgroundPosition: 'center center',
+                  backgroundSize: 'contain',
+                  backgroundRepeat: 'no-repeat',
+                  backgroundColor: '#5f9ea0a8',
+                  
+                }}>
+                </div>}
+      <section className={ 'dialog-container' }>
+        <header className={'header-dialog' }>
+          <IconButton className={'close-btn'} onClick={()=>{onClose()}}>
             <CloseIcon  />
           </IconButton>
-     {coverColor!=='null' &&   <div className={classes.cover} style={{backgroundColor:coverColor}} ></div>}
           <DialogTitle  >
           <TextField
           id="flexible"
@@ -68,36 +62,55 @@ export default function SimpleDialog(props) {
           onChange={handleChange}
          
         />          
+            <div>in list: {props.groupTitle}</div>
           </DialogTitle>
-            <small>in list: {props.groupTitle}</small>
          
         </header>
-        <section className={'main-dialog'}>
-          <ListItem> Desc: {task.description}</ListItem>
-          {task.byMember && (
+        <main className={'main'}>
+
+          <div> Desc: {currTask.description}</div>
+          {currTask.byMember && (
             <List>
-              <ListItem> Created by: {task.byMember.fullname}</ListItem>
+              <ListItem> Created by: {currTask.byMember.fullname}</ListItem>
               <ListItem>
                 {' '}
-                At: {new Date(task.createdAt).toLocaleDateString('en-US')}
+                At: {new Date(currTask.createdAt).toLocaleDateString('en-US')}
               </ListItem>
               <ListItem>
                 {' '}
-                Due Date: {new Date(task.dueDate).toLocaleDateString('en-US')}
+                Due Date: {new Date(currTask.dueDate).toLocaleDateString('en-US')}
               </ListItem>
             </List>
           )}
-        </section>
+        </main>
         <section className={'sidebar-menu-dialog'}>
-          <BasicMenu setCoverColor={props.setCoverColor}/>
+          <BasicMenu  setCoverColor={setCoverColor} groupId={props.groupId}/>
         </section>
-      </main>
+      </section>
     </Dialog>
   );
 }
 
-SimpleDialog.propTypes = {
+_DialogModal.propTypes = {
   onClose: PropTypes.func.isRequired,
   open: PropTypes.bool.isRequired,
   selectedValue: PropTypes.string.isRequired,
 };
+
+function mapStateToProps(state) {
+  return {
+    user: state.userModule.user,
+    board: state.boardModule.board,
+    currTask: state.boardModule.currTask,
+  };
+}
+const mapDispatchToProps = {
+  updateBoard,
+  onSetTask,
+  onSaveBoard,
+};
+
+export const DialogModal = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(_DialogModal);

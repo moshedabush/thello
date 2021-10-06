@@ -4,6 +4,7 @@ const initialState = {
     boards: [],
     board: null,
     task:null,
+    currTask:null,
     currPopUp: {
         name: '',
         title:'',
@@ -27,7 +28,9 @@ export function boardReducer(state = initialState, action) {
             return { ...state, board: action.board }
         case 'SET_POPUP':
             return { ...state, currPopUp: { name: action.cmpName, title: action.cmpTitle, group:action.group, task:action.task, top: action.top, left: action.left } }
-        default:
+        case 'SET_CURRTASK':
+            return {...state,  currTask: {...action.task} }
+            default:
             return state
     }
 

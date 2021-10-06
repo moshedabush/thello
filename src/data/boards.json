@@ -131,12 +131,22 @@
                     {
                         "id": "c101",
                         "title": "Replace logo",
-                        "labelIds": []
+                        "labelIds": [],
+                        "style": {
+                            "coverColor": "",
+                            "bgColor": "",
+                            "imgUrl":""
+                        }        
                     },
                     {
                         "id": "c102",
                         "title": "Add Samples",
-                        "labelIds": []
+                        "labelIds": [],
+                        "style": {
+                            "coverColor": "",
+                            "bgColor": "",
+                            "imgUrl":""
+                        }       
                     }
                 ],
                 "style": {
@@ -151,7 +161,12 @@
                         "id": "c103",
                         "title": "Do that",
                         "labelIds": [],
-                        "isArchived":false
+                        "isArchived":false,
+                        "style": {
+                            "coverColor": "",
+                            "'bgColor'": "",
+                            "imgUrl":""
+                        }       
                     },
                     {
                         "id": "c104",
@@ -200,8 +215,10 @@
                             "imgUrl": "http://res.cloudinary.com/shaishar9/image/upload/v1590850482/j1glw3c9jsoz2py0miol.jpg"
                         },
                         "style": {
-                            "bgColor": "#26de81"
-                        }
+                            "coverColor": "",
+                            "bgColor": "",
+                            "imgUrl":""
+                        }       
                     }
                 ],
                 "style": {}
@@ -214,7 +231,12 @@
                         "id": "c107",
                         "title": "Let's talk",
                         "labelIds": [],
-                        "isArchived":false
+                        "isArchived":false,
+                        "style": {
+                            "coverColor": "",
+                            "bgColor": "",
+                            "imgUrl":""
+                        }
                     },
                     {
                         "id": "c108",
@@ -263,8 +285,10 @@
                             "imgUrl": "http://res.cloudinary.com/shaishar9/image/upload/v1590850482/j1glw3c9jsoz2py0miol.jpg"
                         },
                         "style": {
-                            "bgColor": "#26de81"
-                        }
+                            "coverColor": "",
+                            "bgColor": "",
+                            "imgUrl":""
+                        }       
                     }
                 ],
                 "style": {}
@@ -419,12 +443,22 @@
                     {
                         "id": "c101",
                         "title": "Replace logo",
-                        "labelIds": []
+                        "labelIds": [],
+                        "style": {
+                            "coverColor": "",
+                            "bgColor": "",
+                            "imgUrl":""
+                        }       
                     },
                     {
                         "id": "c102",
                         "title": "Add Samples",
-                        "labelIds": []
+                        "labelIds": [],
+                        "style": {
+                            "coverColor": "",
+                            "bgColor": "",
+                            "imgUrl":""
+                        }       
                     }
                 ],
                 "style": {
@@ -439,12 +473,18 @@
                         "id": "c103",
                         "title": "Do that",
                         "labelIds": [],
-                        "isArchived":false
+                        "isArchived":false,
+                        "style": {
+                            "coverColor": "",
+                            "bgColor": "",
+                            "imgUrl":""
+                        }       
                     },
                     {
                         "id": "c104",
                         "title": "Help me",
                         "description": "description",
+                        
                         "comments": [
                             {
                                 "id": "ZdPnm",
@@ -488,8 +528,10 @@
                             "imgUrl": "http://res.cloudinary.com/shaishar9/image/upload/v1590850482/j1glw3c9jsoz2py0miol.jpg"
                         },
                         "style": {
-                            "bgColor": "#26de81"
-                        }
+                            "coverColor": "",
+                            "bgColor": "",
+                            "imgUrl":""
+                        }       
                     }
                 ],
                 "style": {}
@@ -502,7 +544,12 @@
                         "id": "c107",
                         "title": "Let's talk",
                         "labelIds": [],
-                        "isArchived":false
+                        "isArchived":false,
+                        "style": {
+                            "coverColor": "",
+                            "bgColor": "",
+                            "imgUrl":""
+                        }      
                     },
                     {
                         "id": "c108",
@@ -551,8 +598,10 @@
                             "imgUrl": "http://res.cloudinary.com/shaishar9/image/upload/v1590850482/j1glw3c9jsoz2py0miol.jpg"
                         },
                         "style": {
-                            "bgColor": "#26de81"
-                        }
+                            "coverColor": "",
+                            "bgColor": "",
+                            "imgUrl":""
+                        }       
                     }
                 ],
                 "style": {}
@@ -707,12 +756,22 @@
                     {
                         "id": "c101",
                         "title": "Replace logo",
-                        "labelIds": []
+                        "labelIds": [],
+                        "style": {
+                            "coverColor": "",
+                            "bgColor": "",
+                            "imgUrl":""
+                        }       
                     },
                     {
                         "id": "c102",
                         "title": "Add Samples",
-                        "labelIds": []
+                        "labelIds": [],
+                        "style": {
+                            "coverColor": "",
+                            "bgColor": "",
+                            "imgUrl":""
+                        }       
                     }
                 ],
                 "style": {
@@ -727,12 +786,18 @@
                         "id": "c103",
                         "title": "Do that",
                         "labelIds": [],
-                        "isArchived":false
+                        "isArchived":false,
+                        "style": {
+                            "coverColor": "",
+                            "bgColor": "",
+                            "imgUrl":""
+                        }       
                     },
                     {
                         "id": "c104",
                         "title": "Help me",
                         "description": "description",
+                        
                         "comments": [
                             {
                                 "id": "ZdPnm",
@@ -776,8 +841,10 @@
                             "imgUrl": "http://res.cloudinary.com/shaishar9/image/upload/v1590850482/j1glw3c9jsoz2py0miol.jpg"
                         },
                         "style": {
-                            "bgColor": "#26de81"
-                        }
+                            "coverColor": "",
+                            "bgColor": "",
+                            "imgUrl":""
+                        }      
                     }
                 ],
                 "style": {}
@@ -790,12 +857,18 @@
                         "id": "c107",
                         "title": "Let's talk",
                         "labelIds": [],
-                        "isArchived":false
+                        "isArchived":false,
+                        "style": {
+                            "coverColor": "",
+                            "bgColor": "",
+                            "imgUrl":""
+                        }      
                     },
                     {
                         "id": "c108",
                         "title": "Meeting at 10:00",
                         "description": "description",
+                        
                         "comments": [
                             {
                                 "id": "ZdPnm",
@@ -840,7 +913,8 @@
                         },
                         "style": {
                             "bgColor": "#26de81",
-                            "Cover":""
+                            "coverColor":"",
+                            "imgUrl":""
                         }
                     }
                 ],

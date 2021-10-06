@@ -6,10 +6,13 @@
 // Basics
 @import "basics/helpers.scss";
 
+
 // Components
 @import "cmps/app-header.scss";
+@import "cmps/columns.scss";
 @import "cmps/home-header.scss";
 @import "cmps/dialog-modal.scss";
+@import "cmps/dialog-side-menu";
 @import "cmps/board-list.scss";
 // @import "cmps/cover.scss";
 @import "cmps/GroupAdd.css";

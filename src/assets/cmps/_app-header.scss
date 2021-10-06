@@ -14,7 +14,9 @@
         rgb(10, 113, 156) 80%,
         rgba(2, 107, 140) 100%
     );
-
+    &.board-container{
+        background: #ffffff00;
+    }
     p {
         background-color: $clr1;
     }
@@ -83,3 +85,5 @@
         }
     }
 }
+
+

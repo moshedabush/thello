@@ -35,7 +35,8 @@ class _TaskQuickMenu extends React.Component {
 
     }
 
-    toggleQuickMenu = () => {
+    toggleQuickMenu = (ev) => {
+        ev.stopPropagation()
         const { isMenuOpen } = this.state
         this.setState({ isMenuOpen: !isMenuOpen })
         this.props.handleEditIcon()
@@ -79,7 +80,7 @@ class _TaskQuickMenu extends React.Component {
                         onClose={this.handleClose}
                         closeAfterTransition
                         open={isMenuOpen}
-                        onBackdropClick={this.toggleQuickMenu}
+                        onBackdropClick={(ev)=>{this.toggleQuickMenu(ev)}}
                         disableAutoFocus
                         onKeyDown={this.handleClose}
                         onClick={this.handleClose}
@@ -111,7 +112,7 @@ class _TaskQuickMenu extends React.Component {
                                 <a className="quick-task-editor-buttons-items">
                                     <span style={{ display: 'flex' }}>
                                         <DriveFileMoveOutlinedIcon className="task-quick-menu-icons" fontSize="small" />
-                                    </span ><span className="task-quick-menu-txt">Change Move</span></a>
+                                    </span ><span className="task-quick-menu-txt">Move</span></a>
 
                                 <a className="quick-task-editor-buttons-items">
                                     <span style={{ display: 'flex' }}>
