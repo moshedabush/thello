@@ -12,6 +12,7 @@ import BasicMenu from './SideMenuDialog';
 import { makeStyles } from '@material-ui/styles';
 import {onSaveBoard, onSetTask,updateBoard} from '../store/board.actions'
 import { width } from '@mui/system';
+import { ReactComponent as DescIcon } from "../assets/img/board/description.svg";
 
 
 function _DialogModal(props) {
@@ -53,22 +54,24 @@ function _DialogModal(props) {
           <IconButton className={'close-btn'} onClick={()=>{onClose()}}>
             <CloseIcon  />
           </IconButton>
-          <DialogTitle  >
+          <div className="dialog-title">
+          <DialogTitle >
           <TextField
           id="flexible"
           multiline
           maxRows={2}
           value={title}
           onChange={handleChange}
-         
-        />          
+          
+          />          
             <div>in list: {props.groupTitle}</div>
           </DialogTitle>
+          </div>
          
         </header>
-        <main className={'main'}>
-
-          <div> Desc: {currTask.description}</div>
+        <main className={'main flex'}>
+          <DescIcon/>
+          <div> Description {currTask.description}</div>
           {currTask.byMember && (
             <List>
               <ListItem> Created by: {currTask.byMember.fullname}</ListItem>
