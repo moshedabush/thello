@@ -88,11 +88,7 @@ class _Task extends React.Component {
 
   render() {
     const { isQuickMenuOpen,isEditIcon,left, top, bottom, width, height, right } = this.state;
-<<<<<<< HEAD
-    const { task, onSaveBoard, board, group, task :{style}} = this.props;
-=======
     const { task, onSaveBoard, board, group, currTask } = this.props;
->>>>>>> 4388e410e3ffc6a0b5b5038a97e1dc9b89dcf24b
 
     return (
       
@@ -126,16 +122,11 @@ class _Task extends React.Component {
                   
                 />
               }
-<<<<<<< HEAD
-              {style.coverColor.length !==0 && 
-                 <div className="task-cover-preview" style={{backgroundColor:`${task.style.coverColor}`}}> 
-=======
               {task.style && 
                 //  <div className="task-cover-preview" style={{backgroundColor:task.style.coverColor}}> 
                  <div  onClick={() => {
                   this.handleOpenMainModal(!this.state.isClicked,task);
                 }} className="task-cover-preview" style={{backgroundColor:`${task.style.coverColor}`}}> 
->>>>>>> 4388e410e3ffc6a0b5b5038a97e1dc9b89dcf24b
                </div>}
               
               <CreateIcon
