@@ -5,7 +5,7 @@ const boardData =
             "title": "Robot dev proj",
             "createdAt": 1589983468418,
             "createdBy": {
-                "_id": "u102",
+                "_id": "u101",
                 "fullname": "MosheDabush",
                 "imgUrl": "http://some-img"
             },

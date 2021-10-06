@@ -15,7 +15,33 @@ export function onSaveBoard(board) {
         }
     }
 }
+export function onSaveBoards(boards) {  
+    return async dispatch => {
+        try {
+            const savedBoards = await boardService.save(boards)
+            dispatch({
+                 type: 'SAVE_BOARDS',
+                 boards:savedBoards 
+                })
+        } catch (err) {
+            showErrorMsg('Cannot save board')
+            console.log('BoardAction: err in onSaveBoard', err)
+        }
+    }
+}
 
+export function loadBoards(userId) {
+    // console.log(userId);
+    return async dispatch => {
+        try {
+            dispatch({ type: 'SET_LOADING' })
+            const boards = await boardService.query(userId)
+            dispatch({ type: 'SET_BOARDS', boards })
+        } catch (err) {
+            console.log('BoardActions: err in loadBoards', err)
+        }
+    }
+}
 
 export function loadBoard(boardId) {
  

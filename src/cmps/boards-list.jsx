@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import { ReactComponent as Star } from "../assets/img/star.svg";
 export function BoardsList({ boards, onToggleFavorite }) {
     return (
         <div className="board-list">
@@ -11,9 +12,11 @@ export function BoardsList({ boards, onToggleFavorite }) {
                           }}>
                         <div className="board-preview-details">
                             <h3>{board.title.length > 20 ? board.title.substring(0, 20) + '...' : board.title}</h3>
-                            <span className={`far fa-star ${board.isFavorite ? 'favorite' : ''}`}
-                                onClick={(ev) => onToggleFavorite(ev, board._id)}>
-                            </span>
+                            <Star  className={`far fa-star ${board.isFavorite ? 'favorite' : ''}`}
+                                onClick={(ev) => onToggleFavorite(ev, board._id)}/>
+                            {/* <span className={`far fa-star ${board.isFavorite ? 'favorite' : ''}`}
+                                onClick={(ev) => onToggleFavorite(ev, board._id)}> */}
+                            {/* </span> */}
                         </div>
                     </div>
                 </Link >

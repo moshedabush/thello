@@ -5,8 +5,8 @@
         "isFavorite": true,
         "createdAt": 1589983468418,
         "createdBy": {
-            "_id": "u102",
-            "fullname": "MosheDabush",
+            "_id": "u101",
+            "fullname": "Guest",
             "imgUrl": "http://some-img"
         },
         "style": {
@@ -288,17 +288,17 @@
         ]
     },
     {
-        "_id": "b101",
+        "_id": "b102",
         "title": "Backend Proccess",
         "isFavorite": false,
         "createdAt": 1589983468418,
         "createdBy": {
-            "_id": "u102",
-            "fullname": "MosheDabush",
+            "_id": "u101",
+            "fullname": "Guest",
             "imgUrl": "http://some-img"
         },
         "style": {
-            "backgroundColor": "blue"
+            "backgroundColor": "red"
         },
         "labels": [
             {
@@ -576,17 +576,17 @@
         ]
     },
     {
-        "_id": "b101",
+        "_id": "b103",
         "title": "Developers Project",
         "isFavorite": false,
         "createdAt": 1589983468418,
         "createdBy": {
-            "_id": "u102",
-            "fullname": "MosheDabush",
+            "_id": "u101",
+            "fullname": "Guest",
             "imgUrl": "http://some-img"
         },
         "style": {
-            "backgroundColor": "blue"
+            "backgroundColor": "green"
         },
         "labels": [
             {
