@@ -1,56 +1,73 @@
 import React from 'react';
 import { connect } from 'react-redux'
-import { onSaveBoard,onSetTask,updateBoard } from '../store/board.actions'
+import { onSaveBoard, onSetTask, updateBoard } from '../store/board.actions'
+import { utilService } from '../services/util.service'
+import { UploadFiles } from './UploadFiles';
 
 
 class _Covers extends React.Component {
 
-    state={
-        coverColor:''
+    state = {
+        coverColor: '',
+        imgUrl: ''
     }
 
-     toggleTaskCover = async (coverColor) => {
-         if(this.props.from==='MainModal'){
-             const {currTask,groupId,board,onSaveBoard} = this.props
-            const taskToSave = {...currTask, style:{...currTask.style,coverColor}}
+    toggleTaskCover = async (coverColor) => {
+        if (this.props.from === 'MainModal') {
+            const { currTask, groupId, board, onSaveBoard } = this.props
+            const taskToSave = { ...currTask, style: { ...currTask.style, coverColor } }
             this.props.onSetTask(taskToSave)
 
-        const boardToSave =  updateBoard(board, groupId, currTask.id, taskToSave)
-         
-           onSaveBoard(boardToSave)
-            
-         }else{
+            const boardToSave = updateBoard(board, groupId, currTask.id, taskToSave)
 
-             
-             const {board, onSaveBoard, currPopUp} = this.props
-             const groupIdx = board.groups.findIndex(group => group.id ===currPopUp.group)
-             const taskIdx = board.groups[groupIdx].tasks.findIndex(task => task.id === currPopUp.task)
-             const task = board.groups[groupIdx].tasks[taskIdx]
-             task.style={
-                 coverColor,
-                }
-                onSaveBoard(board)
-                
+            onSaveBoard(boardToSave)
+
+        } else {
+            const {imgUrl} = this.state
+            const { board, onSaveBoard, currPopUp } = this.props
+            const groupIdx = board.groups.findIndex(group => group.id === currPopUp.group)
+            const taskIdx = board.groups[groupIdx].tasks.findIndex(task => task.id === currPopUp.task)
+            const task = board.groups[groupIdx].tasks[taskIdx]
+            task.style = {
+                coverColor,
+                imgUrl,
             }
-     
-    }
-    
+            onSaveBoard(board)
 
-    setCover() {
-        const {labelId,labels} = this.props
-        const label = labels.find(label => label.id === labelId)
-        this.setState({label:label})
+        }
+
     }
 
-
-    setSelectedColor = (selectedColor) =>{
-        const {color} = selectedColor
+    setSelectedColor = (selectedColor) => {
+        const { color } = selectedColor
         const coverColor = color
-         this.toggleTaskCover(coverColor)
+        this.toggleTaskCover(coverColor)
+    }
+
+    setFileUpload = (fileUrl) => {
+        console.log('fileUrl',fileUrl);
+        if (!utilService.isValidImg(fileUrl)) return
+        this.setState({ imgUrl: fileUrl, coverColor: ''})
+        console.log('the state',this.state);
+        this.onSaveFile()
+    }
+
+    onSaveFile = () => {
+        const { imgUrl,coverColor } = this.state
+        const { board, onSaveBoard, currPopUp } = this.props
+        const groupIdx = board.groups.findIndex(group => group.id === currPopUp.group)
+        const taskIdx = board.groups[groupIdx].tasks.findIndex(task => task.id === currPopUp.task)
+        const task = board.groups[groupIdx].tasks[taskIdx]
+        task.style = {
+            coverColor,
+            imgUrl,
+        }
+        onSaveBoard(board)
+
     }
 
     render() {
-        const {board : {colorPalette}} = this.props
+        const { board: { colorPalette } } = this.props
 
         return (
             <>
@@ -59,9 +76,15 @@ class _Covers extends React.Component {
                     <div className="covers-new-colors">
                         {colorPalette.map(color => {
                             return <div key={color.id} className="covers-edit-palette" style={{ backgroundColor: color.color }}
-                                name="color"  value={color.color}
-                                    onClick={()=> this.setSelectedColor(color)}/> })}
+                                name="color" value={color.color}
+                                onClick={() => this.setSelectedColor(color)} />
+                        })}
                     </div>
+                    <label className="covers-select-color">Attachments</label>
+                    <div className="covers-new-colors">
+                        <UploadFiles setFileUpload={this.setFileUpload} />
+                    </div>
+
                 </div>
             </>
         )

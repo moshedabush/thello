@@ -134,7 +134,8 @@
                         "labelIds": [],
                         "style": {
                             "coverColor": "",
-                            "bgColor": ""
+                            "bgColor": "",
+                            "imgUrl":""
                         }        
                     },
                     {
@@ -143,7 +144,8 @@
                         "labelIds": [],
                         "style": {
                             "coverColor": "",
-                            "bgColor": ""
+                            "bgColor": "",
+                            "imgUrl":""
                         }       
                     }
                 ],
@@ -162,7 +164,8 @@
                         "isArchived":false,
                         "style": {
                             "coverColor": "",
-                            "'bgColor'": ""
+                            "'bgColor'": "",
+                            "imgUrl":""
                         }       
                     },
                     {
@@ -213,7 +216,8 @@
                         },
                         "style": {
                             "coverColor": "",
-                            "bgColor": ""
+                            "bgColor": "",
+                            "imgUrl":""
                         }       
                     }
                 ],
@@ -230,7 +234,8 @@
                         "isArchived":false,
                         "style": {
                             "coverColor": "",
-                            "bgColor": ""
+                            "bgColor": "",
+                            "imgUrl":""
                         }
                     },
                     {
@@ -281,7 +286,8 @@
                         },
                         "style": {
                             "coverColor": "",
-                            "bgColor": ""
+                            "bgColor": "",
+                            "imgUrl":""
                         }       
                     }
                 ],
@@ -440,7 +446,8 @@
                         "labelIds": [],
                         "style": {
                             "coverColor": "",
-                            "bgColor": ""
+                            "bgColor": "",
+                            "imgUrl":""
                         }       
                     },
                     {
@@ -449,7 +456,8 @@
                         "labelIds": [],
                         "style": {
                             "coverColor": "",
-                            "bgColor": ""
+                            "bgColor": "",
+                            "imgUrl":""
                         }       
                     }
                 ],
@@ -468,7 +476,8 @@
                         "isArchived":false,
                         "style": {
                             "coverColor": "",
-                            "bgColor": ""
+                            "bgColor": "",
+                            "imgUrl":""
                         }       
                     },
                     {
@@ -520,7 +529,8 @@
                         },
                         "style": {
                             "coverColor": "",
-                            "bgColor": ""
+                            "bgColor": "",
+                            "imgUrl":""
                         }       
                     }
                 ],
@@ -537,7 +547,8 @@
                         "isArchived":false,
                         "style": {
                             "coverColor": "",
-                            "bgColor": ""
+                            "bgColor": "",
+                            "imgUrl":""
                         }      
                     },
                     {
@@ -588,7 +599,8 @@
                         },
                         "style": {
                             "coverColor": "",
-                            "bgColor": ""
+                            "bgColor": "",
+                            "imgUrl":""
                         }       
                     }
                 ],
@@ -747,7 +759,8 @@
                         "labelIds": [],
                         "style": {
                             "coverColor": "",
-                            "bgColor": ""
+                            "bgColor": "",
+                            "imgUrl":""
                         }       
                     },
                     {
@@ -756,7 +769,8 @@
                         "labelIds": [],
                         "style": {
                             "coverColor": "",
-                            "bgColor": ""
+                            "bgColor": "",
+                            "imgUrl":""
                         }       
                     }
                 ],
@@ -775,7 +789,8 @@
                         "isArchived":false,
                         "style": {
                             "coverColor": "",
-                            "bgColor": ""
+                            "bgColor": "",
+                            "imgUrl":""
                         }       
                     },
                     {
@@ -827,7 +842,8 @@
                         },
                         "style": {
                             "coverColor": "",
-                            "bgColor": ""
+                            "bgColor": "",
+                            "imgUrl":""
                         }      
                     }
                 ],
@@ -844,7 +860,8 @@
                         "isArchived":false,
                         "style": {
                             "coverColor": "",
-                            "bgColor": ""
+                            "bgColor": "",
+                            "imgUrl":""
                         }      
                     },
                     {
@@ -896,7 +913,8 @@
                         },
                         "style": {
                             "bgColor": "#26de81",
-                            "coverColor":""
+                            "coverColor":"",
+                            "imgUrl":""
                         }
                     }
                 ],
