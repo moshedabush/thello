@@ -1,56 +1,39 @@
 import React from "react";
 import { connect } from "react-redux";
-import { onSaveBoard } from '../store/board.actions';
-import { userService } from "../services/user.service";
-import { loadUsers } from "../store/user.actions";
-import boardsData from "../data/boards.json";
-import { Link } from "react-router-dom";
+import { onSaveBoard,onSaveBoards,loadBoards } from '../store/board.actions';
 import { AppHeader } from "../cmps/app-header";
 import { BoardsList } from '../cmps/boards-list';
 import { ReactComponent as BoardIcon } from "../assets/img/board-icon.svg";
+import { ReactComponent as StarIcon } from "../assets/img/star-icon.svg";
 
 class _BoardList extends React.Component {
-  state = {
-    loggedUser: {},
-    boards: [],
-  };
-
+ 
   async componentDidMount() {
-    const loggedUser = await userService.getLoggedinUser();
-    const boardIds = await this.getUserBoardsIds(loggedUser);
-    const boards = await this.getBoards(boardIds);
-    this.setState({ loggedUser, boards });
+    try {
+    const userId = this.props.loggedUser._ID;
+    this.props.loadBoards(userId);
+     } catch (err) {
+    console.log('err');
   }
+}
 
-  getUserBoardsIds = (loggedUser) => {
-    //test with multiple board ids
-    const boardIds = [loggedUser.userBoardIds];
-    return boardIds;
-  };
-  
   get favoriteBoards() {
-    const { boards } = this.state
+    const { boards } = this.props
     return boards.filter(board => board.isFavorite)
-  };
-
-  getBoards = (boardIds) => {
-    let filteredBoards = boardIds.map((id) =>
-      boardsData.find(({ _id }) => _id === id)
-    );
-    return filteredBoards;
-  };
+  };  
 
   onToggleFavorite = (ev, boardId) => {
     ev.preventDefault()
-    const { boards } = this.state
-    const { onSaveBoard } = this.props
+    const { boards,onSaveBoard,onSaveBoards } = this.props
     const board = boards.find(board => board._id === boardId)
     board.isFavorite = !board.isFavorite
+    // console.log(board,boards);
     onSaveBoard(board);
+    onSaveBoards(boards);
   };
 
   render() {
-    const { boards, loggedUser } = this.state;
+    const { boards, loggedUser } = this.props;
     if (!boards) return <div>Loading</div>;
     return (
       <section>
@@ -59,16 +42,17 @@ class _BoardList extends React.Component {
           <div className="boards-wrapper flex column">
             <div className="boards-preview flex column">
               <div className="preview-title flex align-center">
-                <i className="far fa-star"></i>
-                <h3> Starred boards</h3>
+                <StarIcon className=" far fa-star"/>
+                <h3 className="flex"> Starred boards</h3>
               </div>
               <BoardsList onToggleFavorite={this.onToggleFavorite} boards={this.favoriteBoards} />
             </div>
 
             <div className={"boards-preview"}>
               <div className={"preview-title flex align-center"}>
-                <h3>
-                  <BoardIcon /> {loggedUser.username}'s Workspaces
+                 <BoardIcon /> 
+                <h3 className="flex">
+                  {loggedUser.username}'s Workspaces
                 </h3>
               </div>
               <BoardsList onToggleFavorite={this.onToggleFavorite} boards={boards} />
@@ -82,11 +66,14 @@ class _BoardList extends React.Component {
 
 function mapStateToProps(state) {
   return {
-    user: state.userModule.user,
+    boards: state.boardModule.boards,
+    loggedUser: state.userModule.user,
   };
 }
 const mapDispatchToProps = {
-  loadUsers,
+  onSaveBoard,
+  onSaveBoards,
+  loadBoards,
 };
 
 export const BoardList = connect(

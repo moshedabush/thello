@@ -1,6 +1,11 @@
 
 
 .MuiDialog-container{
+    // .dialog-title{
+    //     position: absolute;
+    //     left: -7px;
+    //     top: 62px;
+    // }
     background-color: #000000a3;
     left: 0;
     overflow-y: auto;
@@ -46,6 +51,8 @@
         }
             }
     .main{
+        // position: absolute;
+        // left: 0px;
         float: left;
         margin: 0;
         min-height: 24px;

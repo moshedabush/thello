@@ -17,6 +17,8 @@ import { FormControl, InputLabel } from '@mui/material';
 import { alpha, styled } from '@mui/material/styles';
 import InputBase from '@mui/material/InputBase';
 import AddIcon from '@mui/icons-material/Add';
+import { ReactComponent as DescIcon } from "../assets/img/board/description.svg";
+
 
 function _DialogModal(props) {
   const { onClose, selectedValue, open, coverColor, currTask, board,onSetTask } = props;
