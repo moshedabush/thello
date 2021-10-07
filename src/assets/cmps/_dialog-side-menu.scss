@@ -6,7 +6,7 @@
         box-shadow: none; 
     }
      .MuiButtonBase-root{   
-            // background-color: hsla(218, 53%, 47%, 0.039);
+            background-color: hsla(218, 53%, 47%, 0.039);
             border: none;
             border-radius: 3px;
             box-shadow: none;
@@ -28,11 +28,17 @@
             user-select: none;
             white-space: nowrap;
             
+            font-family: "Roboto","Helvetica","Arial",sans-serif;
+    font-weight: 400;
+    font-size: 1rem;
+    line-height: 1.5;
+    letter-spacing: 0.00938em;
+            
+            &:hover{
+                background-color: hsla(218, 53%, 47%, 0.085);
+               
+            }
     
-    }
-    &:hover{
-        // background-color: hsla(218, 53%, 47%, 0.039);
-       
     }
   
       

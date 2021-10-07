@@ -13,9 +13,8 @@ class _Covers extends React.Component {
     }
 
     toggleTaskCover = async (coverColor ) => {
-        if (this.props.from === 'MainModal') {   
+        if (this.props.from === 'MainDialog') {  
             const { currTask, groupId, board, onSaveBoard } = this.props
-            // const taskToSave = { ...currTask, style: { ...currTask.style, coverColor } }
             const taskToSave = { ...currTask, style: { ...currTask.style, coverColor,imgUrl:'' } }
             this.props.onSetTask(taskToSave)
             const boardToSave = updateBoard(board, groupId, currTask.id, taskToSave)
@@ -51,26 +50,29 @@ class _Covers extends React.Component {
     }
 
     onSaveFile = () => {
-        const { imgUrl,coverColor } = this.state
-        const { board, onSaveBoard, currPopUp } = this.props
-        const groupIdx = board.groups.findIndex(group => group.id === currPopUp.group)
-        const taskIdx = board.groups[groupIdx].tasks.findIndex(task => task.id === currPopUp.task)
-        const task = board.groups[groupIdx].tasks[taskIdx]
-        task.style = {
-            coverColor,
-            imgUrl,
-        }
-        if (this.props.from === 'MainModal'){
+        if (this.props.from === 'MainDialog'){
+            console.log('from MainDialog')
             const { imgUrl,coverColor } = this.state
             const { currTask, groupId, board, onSaveBoard } = this.props
             const taskToSave = { ...currTask, style: { ...currTask.style, coverColor,imgUrl } }
             this.props.onSetTask(taskToSave)
             const boardToSave = updateBoard(board, groupId, currTask.id, taskToSave)
             onSaveBoard(boardToSave)
+        }else{
+
+            const { imgUrl,coverColor } = this.state
+            const { board, onSaveBoard, currPopUp } = this.props
+            const groupIdx = board.groups.findIndex(group => group.id === currPopUp.group)
+            const taskIdx = board.groups[groupIdx].tasks.findIndex(task => task.id === currPopUp.task)
+            const task = board.groups[groupIdx].tasks[taskIdx]
+            task.style = {
+                coverColor,
+                imgUrl,
+            }
+            
+            onSetTask(task)
+            onSaveBoard(board)
         }
-        
-        onSetTask(task)
-        onSaveBoard(board)
 
     }
 

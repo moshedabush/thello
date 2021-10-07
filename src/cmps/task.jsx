@@ -89,8 +89,7 @@ class _Task extends React.Component {
   render() {
     const { isQuickMenuOpen, isEditIcon, left, top, bottom, width, height, right } = this.state;
     const { task, onSaveBoard, board, group, task: { style } } = this.props;
-    console.log('style imgUrl', style.imgUrl);
-    console.log('style coverColor', style.coverColor);
+   
 
     return (
 
@@ -121,7 +120,7 @@ class _Task extends React.Component {
                   groupId={this.props.group.id}
                   groupTitle={this.props.groupTitle}
                   coverColor={this.state.coverColor}
-
+                  group={group}
                 />
               }
               {style.coverColor.length !== 0 &&

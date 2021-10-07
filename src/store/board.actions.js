@@ -2,9 +2,9 @@ import { boardService } from "../services/board.service.js";
 import { showErrorMsg } from '../services/event-bus.service.js'
 
 export function onSaveBoard(board) {  
-    return async dispatch => {
+    console.log('hi from onSaveBoard')
+        return async dispatch => {
         try {
-            console.log('hi from onSaveBoard');
             const savedBoard = await boardService.save(board)
             dispatch({
                  type: 'SAVE_BOARD',
@@ -35,7 +35,7 @@ export function loadBoard(boardId) {
     }
 }
 
-export function openQuickPopUp(top,left,cmpName,cmpTitle,task,group) {
+export function openQuickPopUp(top,left,cmpName,cmpTitle,task,group,from) {
     return dispatch => {
         const popUp = {
             type:'SET_POPUP',
@@ -44,7 +44,8 @@ export function openQuickPopUp(top,left,cmpName,cmpTitle,task,group) {
             task,
             group,
             top,
-            left
+            left,
+            from,
         }
         dispatch(popUp)
     }
@@ -61,14 +62,13 @@ export function onSetTask(taskToSave) {
 }
 
 export function updateBoard(board, groupId, taskToUpdateId, taskToSave) {
-
     const newBoard = {...board};
     const groupIdx = newBoard.groups.findIndex(group => group.id === groupId)
     newBoard.groups[groupIdx].tasks = newBoard.groups[groupIdx].tasks.map(task => {
         if (task.id === taskToUpdateId) return taskToSave
         else return task;
     })
-
+console.log('newBoard',newBoard)
   return newBoard
    }
 
