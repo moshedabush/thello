@@ -4,6 +4,7 @@ export const storageService = {
     get,
     post,
     put,
+    putArray,
     remove,
     postMany
 }
@@ -36,6 +37,14 @@ function put(entityType, updatedEntity) {
         .then(entities => {
             const idx = entities.findIndex(entity => entity._id === updatedEntity._id)
             entities.splice(idx, 1, updatedEntity)
+            _save(entityType, entities)
+            return updatedEntity
+        })
+}
+function putArray(entityType, updatedEntity) {
+    return query(entityType)
+        .then(entities => {
+            entities = updatedEntity;
             _save(entityType, entities)
             return updatedEntity
         })

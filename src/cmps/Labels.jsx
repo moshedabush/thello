@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux'
-import { onSaveBoard } from '../store/board.actions'
+import { onSaveBoard , onSetTask , updateBoard} from '../store/board.actions'
 import { LabelPreview } from './LabelPreview';
 import {LabelEdit} from './LabelEdit'
 import {utilService} from '../services/util.service'
@@ -15,14 +15,34 @@ class _Labels extends React.Component {
  
  
     toggleTaskLabels = (label) => {
-      const {board, onSaveBoard, currPopUp} = this.props
-      const groupIdx = board.groups.findIndex(group => group.id ===currPopUp.group)
-      const taskIdx = board.groups[groupIdx].tasks.findIndex(task => task.id === currPopUp.task)
-      const labelIdx = board.groups[groupIdx].tasks[taskIdx].labelIds.findIndex(labelId => labelId === label.id)
+        if(this.props.from==="MainDialog"){
+            const { currTask, groupId, board, onSaveBoard } = this.props
+            const labelIdx = currTask.labelIds.findIndex(labelId => labelId === label.id)
+            if(labelIdx === -1){
+                const taskToSave = { ...currTask,labelIds:[...currTask.labelIds ,label.id]  }
+                this.props.onSetTask(taskToSave)
+            const boardToSave = updateBoard(board, groupId, currTask.id, taskToSave)
+            onSaveBoard(boardToSave)
+            }else{
+                currTask.labelIds.splice(labelIdx,1) 
+                const taskToSave = {...currTask}
+                this.props.onSetTask(taskToSave)
+            const boardToSave = updateBoard(board, groupId, currTask.id, taskToSave)
+            onSaveBoard(boardToSave)
+            }
+            
+        }else{
 
-      if (labelIdx === -1) board.groups[groupIdx].tasks[taskIdx].labelIds.push(label.id) 
-      else board.groups[groupIdx].tasks[taskIdx].labelIds.splice(labelIdx,1) 
-      onSaveBoard(board)
+            const {board, onSaveBoard, currPopUp} = this.props
+            const groupIdx = board.groups.findIndex(group => group.id ===currPopUp.group)
+            const taskIdx = board.groups[groupIdx].tasks.findIndex(task => task.id === currPopUp.task)
+            const labelIdx = board.groups[groupIdx].tasks[taskIdx].labelIds.findIndex(labelId => labelId === label.id)
+            
+            if (labelIdx === -1) board.groups[groupIdx].tasks[taskIdx].labelIds.push(label.id) 
+            else board.groups[groupIdx].tasks[taskIdx].labelIds.splice(labelIdx,1) 
+            onSaveBoard(board)
+            
+        }
     }
 
 
@@ -89,12 +109,16 @@ function mapStateToProps(state) {
     return {
         board: state.boardModule.board,
         currPopUp: state.boardModule.currPopUp,
+        currTask: state.boardModule.currTask,
+
     }
 }
 
 
 const mapDispatchToProps = {
     onSaveBoard,
+    onSetTask,
+    updateBoard
 }
 
 export const Labels = connect(mapStateToProps, mapDispatchToProps)(_Labels)

@@ -89,7 +89,11 @@ class _Task extends React.Component {
   render() {
     const { isQuickMenuOpen, isEditIcon, left, top, bottom, width, height, right } = this.state;
     const { task, onSaveBoard, board, group, task: { style } } = this.props;
+<<<<<<< HEAD
   
+=======
+   
+>>>>>>> f2125ba62ef1f59cfa0c32e720265ab990594c79
 
     return (
 
@@ -120,7 +124,7 @@ class _Task extends React.Component {
                   groupId={this.props.group.id}
                   groupTitle={this.props.groupTitle}
                   coverColor={this.state.coverColor}
-
+                  group={group}
                 />
               }
               {style.coverColor.length !== 0 &&

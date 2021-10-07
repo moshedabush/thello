@@ -83,10 +83,21 @@ class _Covers extends React.Component {
             this.props.onSetTask(taskToSave)
             const boardToSave = updateBoard(board, groupId, currTask.id, taskToSave)
             onSaveBoard(boardToSave)
-        }
+        }else{
 
-        onSetTask(task)
-        onSaveBoard(board)
+            const { imgUrl,coverColor } = this.state
+            const { board, onSaveBoard, currPopUp } = this.props
+            const groupIdx = board.groups.findIndex(group => group.id === currPopUp.group)
+            const taskIdx = board.groups[groupIdx].tasks.findIndex(task => task.id === currPopUp.task)
+            const task = board.groups[groupIdx].tasks[taskIdx]
+            task.style = {
+                coverColor,
+                imgUrl,
+            }
+            
+            onSetTask(task)
+            onSaveBoard(board)
+        }
 
     }
 

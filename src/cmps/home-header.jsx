@@ -34,7 +34,7 @@ class _HomeHeader extends React.Component {
         <div className="logo">
           
             <img  src={BoardIcon} alt="" />
-            thello
+            Thello
         </div>
           <div className="nav-btns">
             <a className="login-btn clean-link" href="/login">

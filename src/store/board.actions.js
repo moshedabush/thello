@@ -2,9 +2,9 @@ import { boardService } from "../services/board.service.js";
 import { showErrorMsg } from '../services/event-bus.service.js'
 
 export function onSaveBoard(board) {  
-    return async dispatch => {
+    console.log('hi from onSaveBoard')
+        return async dispatch => {
         try {
-            console.log('hi from onSaveBoard');
             const savedBoard = await boardService.save(board)
             dispatch({
                  type: 'SAVE_BOARD',
@@ -17,6 +17,32 @@ export function onSaveBoard(board) {
     }
 }
 
+export function onSaveBoards(boards) {  
+    return async dispatch => {
+        try {
+            const savedBoards = await boardService.saveBoards(boards)
+            dispatch({
+                 type: 'SAVE_BOARDS',
+                 boards:savedBoards 
+                })
+        } catch (err) {
+            showErrorMsg('Cannot save board')
+            console.log('BoardAction: err in onSaveBoard', err)
+        }
+    }
+}
+
+export function loadBoards(userId) {
+    return async dispatch => {
+        try {
+            dispatch({ type: 'SET_LOADING' })
+            const boards = await boardService.query(userId)
+            dispatch({ type: 'SET_BOARDS', boards })
+        } catch (err) {
+            console.log('BoardActions: err in loadBoards', err)
+        }
+    }
+}
 
 export function loadBoard(boardId) {
  
@@ -24,6 +50,7 @@ export function loadBoard(boardId) {
         
         try {
             const board = await boardService.getBoardById(boardId)
+            console.log(board);
             dispatch({
                 type: 'SET_BOARD',
                 board :board
@@ -35,7 +62,7 @@ export function loadBoard(boardId) {
     }
 }
 
-export function openQuickPopUp(top,left,cmpName,cmpTitle,task,group) {
+export function openQuickPopUp(top,left,cmpName,cmpTitle,task,group,from) {
     return dispatch => {
         const popUp = {
             type:'SET_POPUP',
@@ -44,7 +71,8 @@ export function openQuickPopUp(top,left,cmpName,cmpTitle,task,group) {
             task,
             group,
             top,
-            left
+            left,
+            from,
         }
         dispatch(popUp)
     }
@@ -61,14 +89,13 @@ export function onSetTask(taskToSave) {
 }
 
 export function updateBoard(board, groupId, taskToUpdateId, taskToSave) {
-
     const newBoard = {...board};
     const groupIdx = newBoard.groups.findIndex(group => group.id === groupId)
     newBoard.groups[groupIdx].tasks = newBoard.groups[groupIdx].tasks.map(task => {
         if (task.id === taskToUpdateId) return taskToSave
         else return task;
     })
-
+console.log('newBoard',newBoard)
   return newBoard
    }
 

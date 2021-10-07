@@ -3,13 +3,13 @@ import React from 'react';
 // import { Route } from 'react-router-dom'
 import { connect } from 'react-redux';
 import { DragDropContext, Droppable } from 'react-beautiful-dnd';
-import { onSaveBoard, loadBoard } from '../store/board.actions.js';
+import { onSaveBoard, loadBoard,onSaveBoards } from '../store/board.actions.js';
 import { Column } from '../cmps/column.jsx';
 
-import styled from 'styled-components';
+// import styled from 'styled-components';
 
 import { GroupAdd } from '../cmps/GroupAdd.jsx';
-import { AppHeader } from '../cmps/app-header.jsx';
+import { BoardHeader } from '../cmps/BoardHeader';
 
 
 class _Board extends React.Component {
@@ -21,6 +21,19 @@ class _Board extends React.Component {
     try {
       const { boardId } = this.props.match.params;
       await this.props.loadBoard(boardId);
+    } catch (err) {
+      console.log('err');
+    }
+    
+  }
+  async componentWillUnmount() {
+    try {
+      const { boards,board } = this.props;
+      const { boardId } = this.props.match.params;
+      const idx = boards.findIndex(board => board._id === boardId);
+      boards[idx] = board;
+      console.log(boards,'refresh return');
+      await this.props.onSaveBoards(boards);
     } catch (err) {
       console.log('err');
     }
@@ -107,8 +120,8 @@ class _Board extends React.Component {
     const { groups } = board;
 
     return (
-      <div>
-        <AppHeader />
+      <div className="in-board">
+        <BoardHeader/>
         <main className="board-container">
         <DragDropContext onDragEnd={this.onDragEnd}>
           <Droppable
@@ -145,11 +158,13 @@ class _Board extends React.Component {
 function mapStateToProps(state) {
   return {
     board: state.boardModule.board,
+    boards: state.boardModule.boards,
   };
 }
 
 const mapDispatchToProps = {
   onSaveBoard,
+  onSaveBoards,
   loadBoard,
 };
 

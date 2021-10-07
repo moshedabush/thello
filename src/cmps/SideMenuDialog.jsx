@@ -23,6 +23,13 @@ import RemoveRedEyeOutlinedIcon from '@mui/icons-material/RemoveRedEyeOutlined';
 import ArchiveOutlinedIcon from '@mui/icons-material/ArchiveOutlined';
 import ReplayOutlinedIcon from '@mui/icons-material/ReplayOutlined';
 import  { ActionsContainer  } from './ActionsContainer';
+import {onSaveBoard,openQuickPopUp } from '../store/board.actions'
+import { connect } from 'react-redux'
+import { QuickPopUp } from '../cmps/QuickPopUp'
+import { PopUpHandler } from '../cmps/PopUpHandler'
+
+
+
 const useStyles = makeStyles({
   paper: {
   
@@ -48,7 +55,7 @@ const useStyles = makeStyles({
   },
 });
 
-export default function MenuListComposition(props) {
+ function _SideMenu(props) {
   const [open, setOpen] = React.useState(false);
   const [isClicked, click] = React.useState(false);
   const anchorRef = React.useRef(null);
@@ -74,6 +81,17 @@ export default function MenuListComposition(props) {
       setOpen(false);
     }
   }
+ const setPopUpDims =(ev,group,task,title)=> {
+   console.log('props',props)
+    console.log('evv', ev);
+    console.log('ev.target',ev.target)
+    const cmpName = ev.target.name
+    const cmpTitle = title
+    const menuBtnDims = ev.target.getBoundingClientRect();
+    let { top, left } = menuBtnDims;
+    props.openQuickPopUp(top, left, cmpName, cmpTitle, task.id, group.id)
+    click(isClicked? null : title);
+};
 
   // return focus to the button when we transitioned from !open -> open
   const prevOpen = React.useRef(open);
@@ -98,7 +116,7 @@ export default function MenuListComposition(props) {
           <span className={classes.title}>add to card</span>
 
           <MenuItem
-            className={classes.field}
+            className={`MuiButtonBase-root`}
             onClick={() => {
               click(isClicked? null : 'Members');
             }}>
@@ -109,20 +127,24 @@ export default function MenuListComposition(props) {
           </MenuItem>
             {isClicked==='Members' && <ActionsContainer type={'Members'}/>}{' '}
 
-          <MenuItem className={classes.field}>
+            <a name="LABELS"  
+          
+          className={`MuiButtonBase-root`}  onClick={(ev) => {setPopUpDims(ev,props.group,props.task,"Labels")}}>
             <span>
-              <LocalOfferOutlinedIcon className={classes.icon} />
+              <LocalOfferOutlinedIcon style={{ pointerEvents: 'none'}} className={classes.icon}  />
             </span>
             Labels
-          </MenuItem>
+          </a>
+          {isClicked==='Labels' && <QuickPopUp> <PopUpHandler from={'MainDialog'} groupId={props.group.id}/> </QuickPopUp> }
+
           {/* <MenuItem className={classes.field}> */}
-          <MenuItem className={'field'}>
+          <MenuItem className={'MuiButtonBase-root'}>
             <span>
               <AssignmentTurnedInOutlinedIcon className={classes.icon} />
             </span>
             Checklist
           </MenuItem>
-          <MenuItem className={classes.field}
+          <MenuItem className={`MuiButtonBase-root`}
            onClick={() => {
             click(isClicked? null : 'Dates');
           }}>
@@ -138,63 +160,54 @@ export default function MenuListComposition(props) {
             </span>
             Attachment
           </MenuItem>
-          <MenuItem className={classes.field}>
+          <MenuItem className={`MuiButtonBase-root`}>
             <span>
               <LocationOnOutlinedIcon className={classes.icon} />
             </span>
             Location
           </MenuItem>
-          <MenuItem className={classes.field}  onClick={() => {
-            click(isClicked? null : 'Cover');
-          }}>
+          <a name="COVERS"  
+          
+          className={`MuiButtonBase-root`}  onClick={(ev) => {setPopUpDims(ev,props.group,props.task,"Cover")}}>
             <span>
-              <PanoramaOutlinedIcon className={classes.icon} />
+              <PanoramaOutlinedIcon style={{ pointerEvents: 'none'}} className={classes.icon} />
             </span>
             Cover
-          </MenuItem>
-          {isClicked==='Cover' && <ActionsContainer type={'Cover'} onClose={()=>{click(null)}} groupId={props.groupId}/>}{' '}
-          <MenuItem className={classes.field}>
-            <span>
-              <AllInboxOutlinedIcon className={classes.icon} />
-            </span>
-            Custom Fields
-          </MenuItem>
-          <span className={classes.title}>power-ups</span>
-          <MenuItem className={''}>+ Add Power-Ups</MenuItem>
-          <span className={classes.title}>automation </span>
-          <MenuItem className={''}>+ Add Button</MenuItem>
+            </a>
+           
+           {isClicked==='Cover' && <QuickPopUp> <PopUpHandler from={'MainDialog'} groupId={props.group.id}/> </QuickPopUp> }
           <span className={classes.title}>actions </span>
-          <MenuItem className={classes.field}>
+          <MenuItem className={`MuiButtonBase-root`}>
             <span>
               <ArrowForwardOutlinedIcon className={classes.icon} />
             </span>
             Move
           </MenuItem>
-          <MenuItem className={classes.field}>
+          <MenuItem className={`MuiButtonBase-root`}>
             <span>
               <ContentCopyOutlinedIcon className={classes.icon} />
             </span>
             Copy
           </MenuItem>
-          <MenuItem className={classes.field}>
+          <MenuItem className={`MuiButtonBase-root`}>
             <span>
               <CollectionsBookmarkOutlinedIcon className={classes.icon} />
             </span>
             Make Template
           </MenuItem>
-          <MenuItem className={classes.field}>
+          <MenuItem className={`MuiButtonBase-root`}>
             <span>
               <RemoveRedEyeOutlinedIcon className={classes.icon} />
             </span>
             Watch
           </MenuItem>
-          <MenuItem className={classes.field}>
+          <MenuItem className={`MuiButtonBase-root`}>
             <span>
               <ArchiveOutlinedIcon className={classes.icon} />
             </span>
             Archive
           </MenuItem>
-          <MenuItem className={classes.field}>
+          <MenuItem className={`MuiButtonBase-root`}>
             <span>
               <ReplayOutlinedIcon className={classes.icon} />
             </span>
@@ -230,3 +243,17 @@ export default function MenuListComposition(props) {
     </Stack>
   );
 }
+function mapStateToProps(state) {
+  return {
+      board: state.boardModule.board,
+      currPopUp: state.boardModule.currPopUp,
+  }
+}
+
+const mapDispatchToProps = {
+  onSaveBoard,
+  openQuickPopUp
+}
+
+
+export const SideMenu = connect(mapStateToProps, mapDispatchToProps)(_SideMenu)

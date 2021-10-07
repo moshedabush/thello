@@ -53,10 +53,10 @@ class _HomePage extends React.Component {
   };
   onGuestLogin = async () => {
     const guest = await userService.signup({
+      _ID: "u101",
       fullname: "Guest Guest",
       username: "Guest",
       password: "Guest",
-      userBoardIds: "b101",
     });
     userService.login(guest);
     this.props.history.push("/boardlist");
