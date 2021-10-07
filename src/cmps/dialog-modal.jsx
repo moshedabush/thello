@@ -18,27 +18,44 @@ import { alpha, styled } from '@mui/material/styles';
 import InputBase from '@mui/material/InputBase';
 import AddIcon from '@mui/icons-material/Add';
 import { ReactComponent as DescIcon } from "../assets/img/board/description.svg";
-
-
+import Datetime from "react-datetime";
 function _DialogModal(props) {
   const { onClose, selectedValue, open, coverColor, currTask, board,onSetTask } = props;
   const [value, setValue] = React.useState(currTask.title);
+  const [valueDate, onDateChange] = React.useState(currTask.dueDate||new Date());
+
   const handleChange =  (event) => {
     event.preventDefault();
     currTask.title = event.target.value
     setValue(event.target.value);
-  const taskToSave = {...currTask}
-   onSetTask(taskToSave)
-   const boardToSave = updateBoard(board, props.group.id, currTask.id, currTask)
-    props.onSaveBoard(boardToSave)
+    SaveTaskAndBoard(currTask)
+ 
   };
-  
+  const handleDescChange = (event) =>{
+    event.preventDefault()
+    currTask.description = event.target.value
+    SaveTaskAndBoard(currTask)
+  }
+  const onSaveDate = (ev) =>{
+    onDateChange(ev)
+  const {currTask,board,groupId} = props
+  currTask.dueDate = ev._d.toString().substring(0,25)
+  const taskToSave = {...currTask,dueDate:ev._d}
+  props.onSetTask(currTask)
+  const boardToSave = updateBoard(board, groupId, currTask.id, taskToSave)
+     props.onSaveBoard(boardToSave)
+  }
+ 
+  const SaveTaskAndBoard =(currTask) =>{
+    const taskToSave = {...currTask}
+    onSetTask(taskToSave)
+    const boardToSave = updateBoard(board, props.group.id, currTask.id, currTask)
+     props.onSaveBoard(boardToSave)
+  }  
   const setCoverColor = async (coverColor) => {
-    // const taskToSave = { ...currTask, coverColor };
-    // props.onSetTask(taskToSave);
-    // updateBoard(board, groupId, currTask.id, taskToSave);
+   
   };
-  const BootstrapInput = styled(InputBase)(({ theme }) => ({
+  const TitleInput = styled(InputBase)(({ theme }) => ({
     'label + &': {
       marginTop: theme.spacing(3),
     },
@@ -73,8 +90,53 @@ function _DialogModal(props) {
       ].join(','),
       '&:focus': {
         boxShadow: `${alpha(theme.palette.primary.main, 0.25)} 0 0 0 0.2rem`,
-        boxShadow:'inset 0 0 0 2px hsl(218deg 54% 20%)',
+        boxShadow:'rgb(0,121,191) 0px 0px 0px 2px inset',
         borderColor: theme.palette.primary.main,
+      },
+    },
+  }));
+  const DescriptionInput = styled(InputBase)(({ theme }) => ({
+    'label + &': {
+      marginTop: theme.spacing(3),
+    },
+    '& .MuiInputBase-input': {
+      height:56 + 'px',
+      borderRadius: 2,
+      position: 'relative',
+      backgroundColor: theme.palette.mode === 'light' ? '#091e420a' : 'white',
+      border: 'none',
+      fontSize: 14,
+      fontWeight: 400,
+      color: '#172b4d',
+      width: 480 + 'px',
+      padding: '0px 10px',
+      marginTop: 20 + 'px',
+      transition: theme.transitions.create([
+        'border-color',
+        'background-color',
+        'box-shadow',
+        'backgroundColor',
+        "height",
+      ]),
+      // Use the system font instead of the default Roboto font.
+      fontFamily: [
+        '-apple-system',
+        'BlinkMacSystemFont',
+        '"Segoe UI"',
+        'Roboto',
+        '"Helvetica Neue"',
+        'Arial',
+        'sans-serif',
+        '"Apple Color Emoji"',
+        '"Segoe UI Emoji"',
+        '"Segoe UI Symbol"',
+      ].join(','),
+      '&:focus': {
+        boxShadow: `${alpha(theme.palette.primary.main, 0.25)} 0 0 0 0.2rem`,
+        boxShadow:'rgba(0,121,191,0.79) 0px 0px 0px 1.5728px inset',
+        borderColor: theme.palette.primary.main,
+        backgroundColor: 'white',
+        height: 100 + 'px',
       },
     },
   }));
@@ -120,14 +182,14 @@ function _DialogModal(props) {
               }}>
               <TvOutlinedIcon sx={{    position: 'absolute'}} />
               <FormControl variant='standard'   onBlur={(ev)=>handleChange(ev)} >
-                <BootstrapInput
+                <TitleInput
                   defaultValue={value}
                   id='bootstrap-input'
                 
                 />
               </FormControl>{' '}
             </Box>
-            <div>in list: {props.groupTitle}</div>
+            <div className={'in-list-dialog'}>in list: {<span style={{textDecorationLine:'underline'}}>{props.groupTitle}</span>} </div>
           </DialogTitle>
         </header>
         <main className={'main'}>
@@ -146,7 +208,7 @@ function _DialogModal(props) {
             </div>
 
             <div className={'card-detail-item labels'}>
-              <h3 className='card-detail-item-header'>Labels</h3>
+            {currTask.labelIds.length !== 0 &&  <h3 className='card-detail-item-header'>Labels</h3>}
               <div className='u-clearfix js-card-detail-labels-list js-edit-label'>
               <div>{currTask.labelIds.map((labelId)=>{
                 return board.labels.map((label,idx)=>{
@@ -157,34 +219,47 @@ function _DialogModal(props) {
               </div>
               </div>
             </div>
+            <div className={'card-detail-item due-date'}>
+              <div className={'card-detail-item-header'}>DUE DATE</div>
+            <Datetime  input={ true } 
+              inputFormat="MM/dd/yyyy"
+              value={valueDate}
+              renderInput={(params) => <TextField  {...params} />}
+               onChange={onSaveDate} 
+              
+               />
 
-            <div className={'card-detail-item due-date'}></div>
-          </div>
-
-          <div className='window-module'>
-            <div className='window-module-title window-module-title-no-divider description-title'>
-              <span className='icon-description icon-lg window-module-title-icon icon-list-items fas fa-list'></span>
-              <h3 className='u-inline-block '>Description</h3>
-              <div className='editable' attr='desc'>
-                <span className='editing-members-description js-editing-members-description hide'></span>
-              </div>
             </div>
-            <div className='u-gutter'>
-              <div className='editable' attr='desc'>
-                <div className='description-content js-desc-content'>
-                  <div
-                    className='current markeddown hide-on-edit js-desc js-show-with-desc hide'
-                    dir='auto'></div>
+          </div>
+               
+              <div className={'description-container'}>
+             <div className={'description-logo'} style={{ position: 'absolute', left: '25px'}}>
+                 <DescIcon  />
+                 </div> 
+                <span className={'description-title'}>Description</span>
+                <div className={'description-header'}>
+                  <div className={'description-textarea'}>
+                  <Box
+              component='form'
+              noValidate
+              sx={{
+                width:100 + '%',
 
-                  <div className='description-edit edit'>
-                    <textarea
-                      className='field field-autosave js-description-draft description card-description'
-                      placeholder='Add a more detailed description…'></textarea>
+              }}>
+           
+              <FormControl variant='standard' onBlur={(ev)=>handleDescChange(ev)} >
+                <DescriptionInput
+                  defaultValue={currTask.description}
+                  id='bootstrap-input-description'
+                  placeholder={'add a more detailed description...'}
+                
+                />
+              </FormControl>{' '}
+            </Box>
                   </div>
                 </div>
               </div>
-            </div>
-          </div>
+       
         </main>
         <section className={'sidebar-menu-dialog'}>
           <SideMenu

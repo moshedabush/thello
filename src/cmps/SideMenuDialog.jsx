@@ -1,5 +1,7 @@
 import * as React from 'react';
 import Button from '@mui/material/Button';
+import Datetime from "react-datetime";
+import TextField from '@mui/material/TextField';
 import ClickAwayListener from '@mui/material/ClickAwayListener';
 import Grow from '@mui/material/Grow';
 import Paper from '@mui/material/Paper';
@@ -23,7 +25,7 @@ import RemoveRedEyeOutlinedIcon from '@mui/icons-material/RemoveRedEyeOutlined';
 import ArchiveOutlinedIcon from '@mui/icons-material/ArchiveOutlined';
 import ReplayOutlinedIcon from '@mui/icons-material/ReplayOutlined';
 import  { ActionsContainer  } from './ActionsContainer';
-import {onSaveBoard,openQuickPopUp } from '../store/board.actions'
+import {onSaveBoard,openQuickPopUp,onSetTask,updateBoard } from '../store/board.actions'
 import { connect } from 'react-redux'
 import { QuickPopUp } from '../cmps/QuickPopUp'
 import { PopUpHandler } from '../cmps/PopUpHandler'
@@ -59,6 +61,7 @@ const useStyles = makeStyles({
   const [open, setOpen] = React.useState(false);
   const [isClicked, click] = React.useState(false);
   const anchorRef = React.useRef(null);
+  const [valueDate, onDateChange] = React.useState(props.currTask.dueDate || new Date());
   const classes = useStyles();
 
   const handleToggle = () => {
@@ -82,9 +85,7 @@ const useStyles = makeStyles({
     }
   }
  const setPopUpDims =(ev,group,task,title)=> {
-   console.log('props',props)
-    console.log('evv', ev);
-    console.log('ev.target',ev.target)
+ 
     const cmpName = ev.target.name
     const cmpTitle = title
     const menuBtnDims = ev.target.getBoundingClientRect();
@@ -92,7 +93,16 @@ const useStyles = makeStyles({
     props.openQuickPopUp(top, left, cmpName, cmpTitle, task.id, group.id)
     click(isClicked? null : title);
 };
-
+const onSaveDate = (ev) =>{
+  onDateChange(ev)
+  const {currTask,board,groupId} = props
+  currTask.dueDate = ev._d.toString().substring(0,25)
+  const taskToSave = {...currTask,dueDate:ev._d}
+  props.onSetTask(currTask)
+  const boardToSave = updateBoard(board, groupId, currTask.id, taskToSave)
+     props.onSaveBoard({...boardToSave})
+  
+}
   // return focus to the button when we transitioned from !open -> open
   const prevOpen = React.useRef(open);
   React.useEffect(() => {
@@ -153,7 +163,13 @@ const useStyles = makeStyles({
             </span>
             Dates
           </MenuItem>
-          {isClicked==='Dates' && <ActionsContainer type={'Dates'} onClose={()=>{click(null)}}/>}{' '}
+          {isClicked==='Dates' && <div>   <Datetime  input={ false } 
+              inputFormat="MM/dd/yyyy"
+              value={valueDate}
+              renderInput={(params) => <TextField  {...params} />}
+               onChange={onSaveDate} 
+               /></div>
+               }{' '}
           <MenuItem className={classes.field}>
             <span>
               <AttachFileOutlinedIcon className={classes.icon} />
@@ -247,12 +263,16 @@ function mapStateToProps(state) {
   return {
       board: state.boardModule.board,
       currPopUp: state.boardModule.currPopUp,
+      currTask: state.boardModule.currTask,
+
   }
 }
 
 const mapDispatchToProps = {
   onSaveBoard,
-  openQuickPopUp
+  openQuickPopUp,
+  onSetTask,
+  updateBoard
 }
 
 
