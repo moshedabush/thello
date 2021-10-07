@@ -36,6 +36,17 @@ function _DialogModal(props) {
     currTask.description = event.target.value
     SaveTaskAndBoard(currTask)
   }
+//   handleChange =(ev) =>{
+//     ev.stopPropagation()
+//     if (ev.key === 'Enter') {
+//         this.toggleTaskAdd()
+//         ev.preventDefault();
+//         this.onAddTask(ev)
+//         return
+//     }
+//     const {value} = ev.target
+//     this.setState({taskTitle:value})
+// }
   const onSaveDate = (ev) =>{
     onDateChange(ev)
   const {currTask,board,groupId} = props
@@ -247,7 +258,7 @@ function _DialogModal(props) {
 
               }}>
            
-              <FormControl variant='standard' onBlur={(ev)=>handleDescChange(ev)} >
+              <FormControl variant='standard' onBlur={(ev)=>handleDescChange(ev)}  >
                 <DescriptionInput
                   defaultValue={currTask.description}
                   id='bootstrap-input-description'
