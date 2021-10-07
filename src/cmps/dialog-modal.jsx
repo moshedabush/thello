@@ -135,8 +135,8 @@ function _DialogModal(props) {
             <div className='card-detail-item u-clearfix js-card-detail-members'>
               <h3 className='card-detail-item-header mod-no-top-margin'>Members</h3>
               <div className='js-card-detail-members-list'>
-                {board.members.map((member)=>{
-               return <div className='member member-on-card'
+                {board.members.map((member,idx)=>{
+               return <div key={idx} className='member member-on-card'
                   title={member.fullname}>
                       {member.fullname.substring(0,1)}                      
                 </div>
@@ -149,9 +149,9 @@ function _DialogModal(props) {
               <h3 className='card-detail-item-header'>Labels</h3>
               <div className='u-clearfix js-card-detail-labels-list js-edit-label'>
               <div>{currTask.labelIds.map((labelId)=>{
-                return board.labels.map((label)=>{
+                return board.labels.map((label,idx)=>{
                   if (label.id === labelId)
-                  return <div style={{backgroundColor:label.color}} className='card-label card-label-green mod-card-detail mod-clickable'> <span className='label-text'>&nbsp;</span></div>
+                  return <div key={idx} style={{backgroundColor:label.color}} className='card-label card-label-green mod-card-detail mod-clickable'> <span className='label-text'>&nbsp;</span></div>
                 })
               })}
               </div>
