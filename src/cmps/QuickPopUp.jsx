@@ -32,7 +32,7 @@ class _QuickPopUp extends React.Component {
                         onClose={this.handleClose}
                         closeAfterTransition
                         open={isPopUpOpen}
-                        onBackdropClick={this.toggleQuickPopUp}
+                        hideBackdrop 
                         disableAutoFocus
                     >
                         <div className="quick-popup-wrapper"> 

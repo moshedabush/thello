@@ -17,13 +17,11 @@ export class TaskAdd extends React.Component{
        this.setState({loggedUser:loggedUser.fullname})
     }
     toggleTaskAdd = (ev) => {
-        ev.stopPropagation()
         const {isWrapperOpen} = this.state
         this.setState({isWrapperOpen:!isWrapperOpen})
     }
     
     handleChange =(ev) =>{
-        ev.stopPropagation()
         if (ev.key === 'Enter') {
             this.toggleTaskAdd()
             ev.preventDefault();
@@ -53,7 +51,9 @@ export class TaskAdd extends React.Component{
             dueDate: 0,            
             style: {
                 coverColor: '',
-                bgColor: ''
+                imgUrl: '',
+                bgColor:''
+
             }            
         }
         if (task.title)
