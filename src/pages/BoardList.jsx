@@ -27,6 +27,7 @@ class _BoardList extends React.Component {
     const { boards,onSaveBoard,onSaveBoards } = this.props
     const board = boards.find(board => board._id === boardId)
     board.isFavorite = !board.isFavorite
+    // console.log(board,boards);
     onSaveBoard(board);
     onSaveBoards(boards);
   };

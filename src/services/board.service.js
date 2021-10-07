@@ -1,19 +1,20 @@
 import { storageService } from './async-storage.service'
-const gBoards = require('../data/boards.json')
-localStorage.setItem("boards",JSON.stringify(gBoards));
+// const gBoards = require('../data/boards.json')
+// localStorage.setItem("boards",JSON.stringify(gBoards));
 // const STORAGE_KEY_BOARD = 'board'
 
 export const boardService = {
     save,
     getBoardById,
-    query
+    query,
+    saveBoards
 }
 
 window.boardService = boardService
 
 async function getBoardById(boardId){
     try{
-        const boards = await storageService.query('board') 
+        const boards = await storageService.query('boards') 
         const board = boards.find(board => board._id === boardId) 
         
         return board
@@ -30,7 +31,7 @@ async function query(userId) {
         const filterBoards = boards.filter(board => {
             return board.createdBy._id === userId
         })
-        // return await storageService.get('boards',userId)
+        // console.log(filterBoards,'board service query');
         return filterBoards
     } catch (err) {
         throw err
@@ -38,14 +39,6 @@ async function query(userId) {
 }
 
 async function save(data) {
-    if(Array.isArray(data)){
-        try {
-            console.log(data,'service data');
-            return await storageService.put('boards', data)
-        } catch (err) {
-            throw err
-        }
-    }else {
     if (data._id) {
         try {
            return await storageService.put('board', data)
@@ -59,6 +52,15 @@ async function save(data) {
             throw err
         }
     }
+}
+async function saveBoards(data) {
+        try {
+            return await storageService.putArray('boards', data)
+        } catch (err) {
+            throw err
+        }
+    }
+
     // } else {
     //     try {
     //         return await storageService.post('boards', data)
@@ -66,5 +68,4 @@ async function save(data) {
     //         throw err
     //     }
     // }
-}
-}
+

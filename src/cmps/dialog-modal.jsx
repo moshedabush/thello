@@ -54,7 +54,6 @@ function _DialogModal(props) {
           <IconButton className={'close-btn'} onClick={()=>{onClose()}}>
             <CloseIcon  />
           </IconButton>
-          <div className="dialog-title">
           <DialogTitle >
           <TextField
           id="flexible"
@@ -66,11 +65,10 @@ function _DialogModal(props) {
           />          
             <div>in list: {props.groupTitle}</div>
           </DialogTitle>
-          </div>
          
         </header>
-        <main className={'main flex'}>
-          <DescIcon/>
+        <main className={'main'}>
+          {/* <DescIcon/> */}
           <div> Description {currTask.description}</div>
           {currTask.byMember && (
             <List>

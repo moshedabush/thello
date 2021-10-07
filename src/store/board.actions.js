@@ -4,7 +4,6 @@ import { showErrorMsg } from '../services/event-bus.service.js'
 export function onSaveBoard(board) {  
     return async dispatch => {
         try {
-            console.log('hi from onSaveBoard');
             const savedBoard = await boardService.save(board)
             dispatch({
                  type: 'SAVE_BOARD',
@@ -16,10 +15,11 @@ export function onSaveBoard(board) {
         }
     }
 }
+
 export function onSaveBoards(boards) {  
     return async dispatch => {
         try {
-            const savedBoards = await boardService.save(boards)
+            const savedBoards = await boardService.saveBoards(boards)
             dispatch({
                  type: 'SAVE_BOARDS',
                  boards:savedBoards 
@@ -32,7 +32,6 @@ export function onSaveBoards(boards) {
 }
 
 export function loadBoards(userId) {
-    // console.log(userId);
     return async dispatch => {
         try {
             dispatch({ type: 'SET_LOADING' })
@@ -50,6 +49,7 @@ export function loadBoard(boardId) {
         
         try {
             const board = await boardService.getBoardById(boardId)
+            console.log(board);
             dispatch({
                 type: 'SET_BOARD',
                 board :board
