@@ -1,8 +1,7 @@
 import { storageService } from './async-storage.service'
-const gBoards = require('../data/boards.json')
-localStorage.setItem("boards",JSON.stringify(gBoards));
-// const gBoards = require('../data/presentation-demo-board.json')
-// const STORAGE_KEY_BOARD = 'board'
+
+// const gBoards = require('../data/boards.json')
+// localStorage.setItem("boards",JSON.stringify(gBoards));
 
 export const boardService = {
     save,

@@ -64,6 +64,7 @@ class _TaskQuickMenu extends React.Component {
             onSaveBoard(board)
         }
     }
+    
     handleCover = () => {
         this.setState({ clickedCover: !this.state.clickedCover })
     }

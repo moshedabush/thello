@@ -1,6 +1,5 @@
 import React from 'react';
 import { connect } from 'react-redux'
-import ReactDOM from 'react-dom';
 import { Droppable, Draggable } from 'react-beautiful-dnd';
 import styled from 'styled-components'
 import { Task } from './Task.jsx'
@@ -19,10 +18,14 @@ background-color:#ebecf0;
 min-width: 272px;
 max-width:272px;
 white-space: normal;
-vertical-align: top
+vertical-align: top;
+overflow-y: hidden;
+overflow-x: hidden;
+max-height:100vh;
+
 `;
 
-const Title = styled.h2`
+const Title = styled.h2`    
 box-sizing: border-box;
 font-weight: 600;
 white-space:pre;
@@ -45,33 +48,63 @@ overflow-y:auto ;
 padding: 0 4px;
 box-sizing: border-box;
 position: relative;
-white-space: normal
-max-height:100%
-::-webkit-scrollbar {
-    width: 8px;
-}
-::-webkit-scrollbar-track {
-    border-radius: $borderRad2;
-    margin-bottom: 2px;
-    background-color: #dadbe2;
-}
-&::-webkit-scrollbar-thumb {
-    border-radius: $borderRad2;
-    background-color: #bfc4ce;
-}
+white-space: normal;
+max-height:82vh;
 `;
 
 class _Column extends React.Component {
 
-    state = {}
+    state = {
+        isTitleEdit:false,
+        groupTitle:'',
+        isMenuOpen:false,
+        isQuickPopUpOpen:false
+        
+    }
 
+    componentDidMount() {
+        const title = this.props.group.title
+        this.setState({ groupTitle: title})
+    }
 
+    toggleTitleEdit = (ev)=> {
+        const {isTitleEdit} = this.state
+        this.setState({isTitleEdit:!isTitleEdit})
+    }
 
+    handleChange = (ev) => {
+        if (ev.key === 'Enter') {
+            ev.stopPropagation();
+            this.onEditGroupTitle()
+            this.toggleTitleEdit()
+            return
+        }
+        const { value } = ev.target
+        this.setState({ groupTitle: value })
+     }
+
+    onEditGroupTitle = () => {
+        const { group, onSaveBoard, board } = this.props
+        const { groupTitle } = this.state
+        if (!groupTitle.length) return
+        group.title = this.state.groupTitle
+        onSaveBoard(board)
+    
+        this.toggleTitleEdit()
+        return
+    }
+   
+    sendToArchive = ({ target }) => {
+        const { group, onSaveBoard, board } = this.props
+        if (target.name === 'archive') {
+            group.isArchived = true
+            onSaveBoard(board)
+        }
+    }
 
     render() {
-        const { board } = this.props
-        const { group } = this.props
-        const { onSaveBoard } = this.props
+        const { board,group,onSaveBoard} = this.props
+        const {isTitleEdit, groupTitle,isQuickPopUpOpen} = this.state
 
         if (!board) return <div>loading...</div> 
         return (
@@ -81,12 +114,24 @@ class _Column extends React.Component {
                     <Container {...provided.draggableProps} ref={provided.innerRef}{...provided.dragHandleProps}
                     >
                         <div className="group-header">
+                           
                             <MoreHorizIcon className="group-header-tool" fontSize="small" 
-                            style={{fontSize:'16px', height:'20px', lineHeight:'20px', width:'20px'}}
-                            />
-                            <Title >{this.props.group.title}</Title>
+                            style={{fontSize:'16px', height:'20px', lineHeight:'20px', width:'20px'}}/>
+                         
+
+                            {isTitleEdit? 
+                            <input type="text" className="group-add-input"
+                            autoFocus
+                            onBlur={this.onEditGroupTitle}
+                            value={groupTitle}
+                            onChange={this.handleChange}
+                            onKeyDown={this.handleChange}
+                        />
+                            :
+                            <Title onClick={(ev)=>{this.toggleTitleEdit(ev)}}>{this.props.group.title}</Title>
+                        }
                         </div>
-                        <Droppable droppableId={this.props.group.id} type="task">
+                        <Droppable droppableId={this.props.group.id} type="task" >
                             {(provided, snapshot) => (
                                 <>
                                     <TaskList className="scroller" ref={provided.innerRef} {...provided.droppableProps}
@@ -116,6 +161,7 @@ class _Column extends React.Component {
 function mapStateToProps(state) {
     return {
       board: state.boardModule.board,
+      currPopUp: state.boardModule.currPopUp,
     };
   }
 const mapDispatchToProps = {

@@ -3,31 +3,43 @@ import { connect } from 'react-redux'
 import { onSaveBoard, onSetTask, updateBoard } from '../store/board.actions'
 import { utilService } from '../services/util.service'
 import { UploadFiles } from './UploadFiles';
-
+import { Unsplash } from './Unsplash'
+import { UnsplashSearch } from './UnsplashSearch'
 
 class _Covers extends React.Component {
 
     state = {
         coverColor: '',
-        imgUrl: ''
+        imgUrl: '',
+        isSearchUnsplash: false,
+        txt: ''
     }
 
-    toggleTaskCover = async (coverColor ) => {
-        if (this.props.from === 'MainDialog') {  
+
+    toggleUnsplash = () => {
+        const { isSearchUnsplash } = this.state
+        this.setState({ isSearchUnsplash: !isSearchUnsplash })
+    }
+
+  
+
+    toggleTaskCover = async (coverColor) => {
+        if (this.props.from === 'MainModal') {
             const { currTask, groupId, board, onSaveBoard } = this.props
-            const taskToSave = { ...currTask, style: { ...currTask.style, coverColor,imgUrl:'' } }
+            // const taskToSave = { ...currTask, style: { ...currTask.style, coverColor } }
+            const taskToSave = { ...currTask, style: { ...currTask.style, coverColor, imgUrl: '' } }
             this.props.onSetTask(taskToSave)
             const boardToSave = updateBoard(board, groupId, currTask.id, taskToSave)
             onSaveBoard(boardToSave)
         } else {
-            const {imgUrl} = this.state
+            const { imgUrl } = this.state
             const { board, onSaveBoard, currPopUp } = this.props
             const groupIdx = board.groups.findIndex(group => group.id === currPopUp.group)
             const taskIdx = board.groups[groupIdx].tasks.findIndex(task => task.id === currPopUp.task)
             const task = board.groups[groupIdx].tasks[taskIdx]
             task.style = {
                 coverColor,
-                imgUrl:'',
+                imgUrl: '',
             }
             onSaveBoard(board)
 
@@ -42,19 +54,32 @@ class _Covers extends React.Component {
     }
 
     setFileUpload = (fileUrl) => {
-        console.log('fileUrl',fileUrl);
         if (!utilService.isValidImg(fileUrl)) return
-        this.setState({ imgUrl: fileUrl, coverColor: ''})
-        console.log('the state',this.state);
+        this.setState({ imgUrl: fileUrl, coverColor: '' })
         this.onSaveFile()
     }
 
+    onImgUpload = async (url) => {
+        if (!utilService.isValidImg(url)) return
+        await this.setState({ imgUrl: url, coverColor: '' })
+        this.onSaveFile()
+    }
+
+
     onSaveFile = () => {
-        if (this.props.from === 'MainDialog'){
-            console.log('from MainDialog')
-            const { imgUrl,coverColor } = this.state
+        const { imgUrl, coverColor } = this.state
+        const { board, onSaveBoard, currPopUp } = this.props
+        const groupIdx = board.groups.findIndex(group => group.id === currPopUp.group)
+        const taskIdx = board.groups[groupIdx].tasks.findIndex(task => task.id === currPopUp.task)
+        const task = board.groups[groupIdx].tasks[taskIdx]
+        task.style = {
+            coverColor,
+            imgUrl,
+        }
+        if (this.props.from === 'MainModal') {
+            const { imgUrl, coverColor } = this.state
             const { currTask, groupId, board, onSaveBoard } = this.props
-            const taskToSave = { ...currTask, style: { ...currTask.style, coverColor,imgUrl } }
+            const taskToSave = { ...currTask, style: { ...currTask.style, coverColor, imgUrl } }
             this.props.onSetTask(taskToSave)
             const boardToSave = updateBoard(board, groupId, currTask.id, taskToSave)
             onSaveBoard(boardToSave)
@@ -78,24 +103,37 @@ class _Covers extends React.Component {
 
     render() {
         const { board: { colorPalette } } = this.props
+        const { isSearchUnsplash, txt} = this.state
 
         return (
             <>
-                <div className="labcoversel-add-content">
-                    <label className="covers-select-color">Colors</label>
-                    <div className="covers-new-colors">
-                        {colorPalette.map(color => {
-                            return <div key={color.id} className="covers-edit-palette" style={{ backgroundColor: color.color }}
-                                name="color" value={color.color}
-                                onClick={() => this.setSelectedColor(color)} />
-                        })}
+                {!isSearchUnsplash ?
+                    <div className="labcoversel-add-content">
+                        <label className="covers-select-color">Colors</label>
+                        <div className="covers-new-colors">
+                            {colorPalette.map(color => {
+                                return <div key={color.id} className="covers-edit-palette" style={{ backgroundColor: color.color }}
+                                    name="color" value={color.color}
+                                    onClick={() => this.setSelectedColor(color)} />
+                            })}
+                        </div>
+                        <label className="covers-select-color">Attachments</label>
+                        <div className="covers-new-colors">
+                            <UploadFiles setFileUpload={this.setFileUpload} />
+                        </div>
+                        <label className="covers-select-color">Unsplash</label>
+                        <div>
+                            <Unsplash search={'nature'} onImgUpload={this.onImgUpload} />
+                        </div>
+                        <div>
+                            <label className="cover-img-upload" onClick={this.toggleUnsplash}>Search for photos</label>
+                        </div>
                     </div>
-                    <label className="covers-select-color">Attachments</label>
-                    <div className="covers-new-colors">
-                        <UploadFiles setFileUpload={this.setFileUpload} />
+                    :
+                    <div>
+                      <UnsplashSearch onImgUpload={this.onImgUpload}/>
                     </div>
-
-                </div>
+                }
             </>
         )
     }
