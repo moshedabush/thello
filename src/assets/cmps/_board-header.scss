@@ -9,12 +9,12 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    background: linear-gradient(
-        180deg,
-        rgb(31, 139, 200) 0%,
-        rgb(10, 113, 156) 80%,
-        rgba(2, 107, 140) 100%
-    );
+    // background: linear-gradient(
+    //     180deg,
+    //     rgb(31, 139, 200) 0%,
+    //     rgb(10, 113, 156) 80%,
+    //     rgba(2, 107, 140) 100%
+    // );
     &.board-container{
         background: #ffffff00;
     }
@@ -115,10 +115,10 @@
         }
     }
 }
-.in-board{
-    .board-header{
-        background: #0099ff;
-    }
-}
+// .in-board{
+//     .board-header{
+//         background: #0099ff;
+//     }
+// }
 
 

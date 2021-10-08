@@ -24,7 +24,8 @@ class _Covers extends React.Component {
   
 
     toggleTaskCover = async (coverColor) => {
-        if (this.props.from === 'MainModal') {
+        if (this.props.from === 'MainDialog') {
+            console.log('hi From Modal');
             const { currTask, groupId, board, onSaveBoard } = this.props
             // const taskToSave = { ...currTask, style: { ...currTask.style, coverColor } }
             const taskToSave = { ...currTask, style: { ...currTask.style, coverColor, imgUrl: '' } }
@@ -76,7 +77,7 @@ class _Covers extends React.Component {
             coverColor,
             imgUrl,
         }
-        if (this.props.from === 'MainModal') {
+        if (this.props.from === 'MainDialog') {
             const { imgUrl, coverColor } = this.state
             const { currTask, groupId, board, onSaveBoard } = this.props
             const taskToSave = { ...currTask, style: { ...currTask.style, coverColor, imgUrl } }
