@@ -161,14 +161,14 @@ const onSaveDate = (ev) =>{
             <span>
               <AccessTimeOutlinedIcon className={classes.icon} />
             </span>
-            Dates
+            Dates  
           </MenuItem>
-          {isClicked==='Dates' && <div>   <Datetime  input={ false } 
+          {isClicked==='Dates' && <div> <Datetime  input={ false } 
               inputFormat="MM/dd/yyyy"
               value={valueDate}
               renderInput={(params) => <TextField  {...params} />}
                onChange={onSaveDate} 
-               /></div>
+               /><div><button style={{borderRadius:'50%',marginTop:'4%'}} onClick={()=>click(null)}>X</button></div></div>
                }{' '}
           <MenuItem className={classes.field}>
             <span>
@@ -191,7 +191,7 @@ const onSaveDate = (ev) =>{
             Cover
             </a>
            
-           {isClicked==='Cover' && <QuickPopUp> <PopUpHandler from={'MainDialog'} groupId={props.group.id}/> </QuickPopUp> }
+           {isClicked==='Cover' &&  <QuickPopUp> <PopUpHandler from={'MainDialog'} groupId={props.group.id}  />  </QuickPopUp> }
           <span className={classes.title}>actions </span>
           <MenuItem className={`MuiButtonBase-root`}>
             <span>

@@ -24,29 +24,17 @@ function _DialogModal(props) {
   const [value, setValue] = React.useState(currTask.title);
   const [valueDate, onDateChange] = React.useState(currTask.dueDate||new Date());
 
-  const handleChange =  (event) => {
-    event.preventDefault();
-    currTask.title = event.target.value
+  const handleChange =  (event,key) => {
+   event.stopPropagation()
+if(event.key==='Enter' || event.type==='blur'){
+  if(key==='title'){
     setValue(event.target.value);
-    SaveTaskAndBoard(currTask)
- 
-  };
-  const handleDescChange = (event) =>{
-    event.preventDefault()
-    currTask.description = event.target.value
-    SaveTaskAndBoard(currTask)
   }
-//   handleChange =(ev) =>{
-//     ev.stopPropagation()
-//     if (ev.key === 'Enter') {
-//         this.toggleTaskAdd()
-//         ev.preventDefault();
-//         this.onAddTask(ev)
-//         return
-//     }
-//     const {value} = ev.target
-//     this.setState({taskTitle:value})
-// }
+  currTask[key] = event.target.value
+  SaveTaskAndBoard(currTask)
+} 
+  };
+
   const onSaveDate = (ev) =>{
     onDateChange(ev)
   const {currTask,board,groupId} = props
@@ -63,9 +51,9 @@ function _DialogModal(props) {
     const boardToSave = updateBoard(board, props.group.id, currTask.id, currTask)
      props.onSaveBoard(boardToSave)
   }  
-  const setCoverColor = async (coverColor) => {
+  // const setCoverColor = async (coverColor) => {
    
-  };
+  // };
   const TitleInput = styled(InputBase)(({ theme }) => ({
     'label + &': {
       marginTop: theme.spacing(3),
@@ -148,11 +136,12 @@ function _DialogModal(props) {
         borderColor: theme.palette.primary.main,
         backgroundColor: 'white',
         height: 100 + 'px',
+        width: 480 + 'px',
       },
     },
   }));
 
-  const { title, members, style } = currTask;
+  const {  style } = currTask;
   console.log('currTask', currTask);
   console.log('board in dialog', props.board);
   return (
@@ -192,11 +181,11 @@ function _DialogModal(props) {
 
               }}>
               <TvOutlinedIcon sx={{    position: 'absolute'}} />
-              <FormControl variant='standard'   onBlur={(ev)=>handleChange(ev)} >
+              <FormControl variant='standard'    onKeyDown={(ev)=>handleChange(ev,'title')} onBlur={(ev)=>handleChange(ev,'title')}   >
                 <TitleInput
                   defaultValue={value}
                   id='bootstrap-input'
-                
+               
                 />
               </FormControl>{' '}
             </Box>
@@ -239,7 +228,6 @@ function _DialogModal(props) {
                onChange={onSaveDate} 
               
                />
-
             </div>
           </div>
                
@@ -258,7 +246,7 @@ function _DialogModal(props) {
 
               }}>
            
-              <FormControl variant='standard' onBlur={(ev)=>handleDescChange(ev)}  >
+              <FormControl className={'description-form-control'} variant='standard' onKeyDown={(ev)=>handleChange(ev,'description')} onBlur={(ev)=>handleChange(ev,'description')}  >
                 <DescriptionInput
                   defaultValue={currTask.description}
                   id='bootstrap-input-description'
@@ -274,7 +262,7 @@ function _DialogModal(props) {
         </main>
         <section className={'sidebar-menu-dialog'}>
           <SideMenu
-            setCoverColor={setCoverColor}
+            // setCoverColor={setCoverColor}
             groupId={props.groupId}
             group={props.group}
             task={currTask}
