@@ -144,7 +144,7 @@ class _Board extends React.Component {
         ? board.style.backgroundColor
           : "green",
       }} >
-        <BoardHeader color={board.style.backgroundColor}/>
+        <BoardHeader/>
         <main className="board-container">
         <DragDropContext onDragEnd={this.onDragEnd}>
           <Droppable
