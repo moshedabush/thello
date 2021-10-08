@@ -10,6 +10,7 @@
     padding: 8px;
     border-radius: 3px;
     transition: background 85ms ease-in,opacity 40ms ease-in,border-color 85ms ease-in;
+    cursor: pointer;
 }
 .task-add-closed:hover{
     background-color: #091e4214;
@@ -18,8 +19,8 @@
 .task-add-open {
     height: 100%;
     display: flex;
-    margin: 0 7px;
-    padding: 8px;
+    margin: 7px;
+    padding-bottom: 8px;
     margin-bottom: 8px;
     vertical-align: top;
     white-space: nowrap;
@@ -32,6 +33,7 @@
 
 .task-add-input{
     background-color:rgb(255, 255, 255);
+    display: block;
     overflow-y: hidden !important;
 }
 
