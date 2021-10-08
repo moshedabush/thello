@@ -3,7 +3,7 @@ import React from 'react';
 // import { Route } from 'react-router-dom'
 import { connect } from 'react-redux';
 import { DragDropContext, Droppable } from 'react-beautiful-dnd';
-import { onSaveBoard, loadBoard,onSaveBoards } from '../store/board.actions.js';
+import { onSaveBoard, loadBoard } from '../store/board.actions.js';
 import { Column } from '../cmps/column.jsx';
 
 // import styled from 'styled-components';
@@ -29,34 +29,6 @@ class _Board extends React.Component {
     }
     
   }
-  // async componentWillUnmount() {
-  //   try {
-  //     const { boards,board } = this.props;
-  //     const { boardId } = this.props.match.params;
-  //     const idx = boards.findIndex(board => board._id === boardId);
-  //     boards[idx] = board;
-  //     console.log(boards,'refresh return');
-  //     await this.props.onSaveBoards(boards);
-  //   } catch (err) {
-  //     console.log('err');
-  //   }
-  // }
-
-  // async onSaveBoard(board){
-  //   try {
-  //     const { boards } = this.props;
-  //     // const { boardId } = this.props.match.params;
-  //     const {boardIdx} = this.state;
-  //     // console.log(this.state);
-  //     // const idx = boards.findIndex(board => board._id === boardId);
-  //     boards[boardIdx] = board;
-  //     console.log(board,boards,'jkfgsnjkgfndjkgfdngkjldfngjkdnk');
-  //     await this.props.onSaveBoard(board);
-  //     await this.props.onSaveBoards(boards);
-  //   } catch (err) {
-  //     console.log('err');
-  //   }
-  // }
 
   onDragEnd = (result) => {
     const { destination, source, draggableId, type } = result;
@@ -187,7 +159,6 @@ function mapStateToProps(state) {
 
 const mapDispatchToProps = {
   onSaveBoard,
-  onSaveBoards,
   loadBoard,
 };
 

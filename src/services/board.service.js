@@ -56,9 +56,9 @@ async function save(data) {
         }
     }
 }
-async function saveBoards(data) {
+async function saveBoards(boards) {
         try {
-            return await storageService.putArray('boards', data)
+            return await storageService.putArray('boards', boards)
         } catch (err) {
             throw err
         }

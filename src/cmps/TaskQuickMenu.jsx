@@ -77,7 +77,8 @@ class _TaskQuickMenu extends React.Component {
 
             <div>
                 {isMenuOpen ?
-                    <Modal className="quick-menu-modal" style={{ bottom: this.props.bottom, top: this.props.top, left: this.props.left + 227 + 'px' }}
+                    <Modal className="quick-menu-modal" 
+                    style={{ bottom: this.props.bottom, top: this.props.top, left: this.props.left + 227 + 'px' }}
                         onClose={this.handleClose}
                         closeAfterTransition
                         open={isMenuOpen}
@@ -88,10 +89,13 @@ class _TaskQuickMenu extends React.Component {
                     >
                         <div >
                             <div>
-                                <TaskTitleEdit task={task} width={width} height={height} right={right} onSaveBoard={onSaveBoard} board={board} coverColor={coverColor} />
+                                <TaskTitleEdit task={task} width={width} height={height} right={right}
+                                 onSaveBoard={onSaveBoard} board={board} coverColor={coverColor} />
                             </div>
                             <div>
-                                <a className="quick-task-editor-buttons-items"><span style={{ display: 'flex' }}><ArtTrackIcon className="task-quick-menu-icons" fontSize="small" /></span><span className="task-quick-menu-txt">Open card</span></a>
+                                <a className="quick-task-editor-buttons-items"><span style={{ display: 'flex' }}>
+                                    <ArtTrackIcon className="task-quick-menu-icons" fontSize="small" />
+                                    </span><span className="task-quick-menu-txt">Open card</span></a>
 
                                 <a className="quick-task-editor-buttons-items" onClick={(ev) => this.setPopUpDims(ev)}
                                     name="LABELS" group={group} task={task} title="Labels">

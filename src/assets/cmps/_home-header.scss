@@ -21,11 +21,13 @@
             font-size: 36px;
             line-height: 36px;
             font-family: SourceSans-Bold;
-            color: #293856;
-            img {
+            // color: #293856;
+            color:rgba(0, 72, 180, 0.7);
+            svg {
                 width: 26px;
                 height: 26px;
                 margin-right: 8px;
+                color:rgba(0, 101, 255, 0.8);
             }
         }
         .nav-btns {
