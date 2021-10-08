@@ -135,7 +135,7 @@ class _Board extends React.Component {
 
   render() {
     const { board } = this.props;
-    if (!board) return <div>loading...</div>; // Create cmp with killer loading
+    if (!board) return <div>loading...</div>; 
     const { groups } = board;
 
     return (

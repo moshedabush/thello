@@ -17,10 +17,20 @@ class _Labels extends React.Component {
     toggleTaskLabels = (label) => {
         if(this.props.from==="MainDialog"){
             const { currTask, groupId, board, onSaveBoard } = this.props
-            const taskToSave = { ...currTask,labelIds:[...currTask.labelIds ,label.id]  }
-            this.props.onSetTask(taskToSave)
+            const labelIdx = currTask.labelIds.findIndex(labelId => labelId === label.id)
+            if(labelIdx === -1){
+                const taskToSave = { ...currTask,labelIds:[...currTask.labelIds ,label.id]  }
+                this.props.onSetTask(taskToSave)
             const boardToSave = updateBoard(board, groupId, currTask.id, taskToSave)
             onSaveBoard(boardToSave)
+            }else{
+                currTask.labelIds.splice(labelIdx,1) 
+                const taskToSave = {...currTask}
+                this.props.onSetTask(taskToSave)
+            const boardToSave = updateBoard(board, groupId, currTask.id, taskToSave)
+            onSaveBoard(boardToSave)
+            }
+            
         }else{
 
             const {board, onSaveBoard, currPopUp} = this.props
