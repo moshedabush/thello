@@ -3,7 +3,7 @@ import React from 'react';
 // import { Route } from 'react-router-dom'
 import { connect } from 'react-redux';
 import { DragDropContext, Droppable } from 'react-beautiful-dnd';
-import { onSaveBoard, loadBoard,onSaveBoards } from '../store/board.actions.js';
+import { onSaveBoard, loadBoard } from '../store/board.actions.js';
 import { Column } from '../cmps/column.jsx';
 
 // import styled from 'styled-components';
@@ -14,29 +14,20 @@ import { BoardHeader } from '../cmps/BoardHeader';
 
 class _Board extends React.Component {
   state = {
-    board: [],
+    boardIdx: null,
   };
 
   async componentDidMount() {
     try {
       const { boardId } = this.props.match.params;
+      // const {boards} = this.props;
+      // const boardIdx = boards.findIndex(board => board._id === boardId);
+      // this.setState({boardIdx});
       await this.props.loadBoard(boardId);
     } catch (err) {
       console.log('err');
     }
     
-  }
-  async componentWillUnmount() {
-    try {
-      const { boards,board } = this.props;
-      const { boardId } = this.props.match.params;
-      const idx = boards.findIndex(board => board._id === boardId);
-      boards[idx] = board;
-      console.log(boards,'refresh return');
-      await this.props.onSaveBoards(boards);
-    } catch (err) {
-      console.log('err');
-    }
   }
 
   onDragEnd = (result) => {
@@ -120,8 +111,12 @@ class _Board extends React.Component {
     const { groups } = board;
 
     return (
-      <div className="in-board">
-        <BoardHeader/>
+      <div className="in-board"
+      style={{backgroundColor: board.style.backgroundColor
+        ? board.style.backgroundColor
+          : "green",
+      }} >
+        <BoardHeader color={board.style.backgroundColor}/>
         <main className="board-container">
         <DragDropContext onDragEnd={this.onDragEnd}>
           <Droppable
@@ -164,7 +159,6 @@ function mapStateToProps(state) {
 
 const mapDispatchToProps = {
   onSaveBoard,
-  onSaveBoards,
   loadBoard,
 };
 

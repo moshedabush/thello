@@ -63,7 +63,8 @@ export class TaskTitleEdit extends React.Component {
                         {isTextEditOpen ?
                             <form id="savetitle">
                                 {style.coverColor.length !== 0 &&
-                                    <div className="quick-task-cover-preview" style={{ width: this.props.width, backgroundColor: `${task.style.coverColor}` }}>
+                                    <div className="quick-task-cover-preview" 
+                                    style={{ width: this.props.width, backgroundColor: `${task.style.coverColor}` }}>
                                     </div>}
 
                                 {style.imgUrl.length !== 0 &&
@@ -77,9 +78,10 @@ export class TaskTitleEdit extends React.Component {
                                 }}>
                             </div>}
 
-                        <ul className="quick-task-label-preview">
-                            {task.labelIds.map(labelId => <TaskLabelPreview key={labelId} labelId={labelId} labels={board.labels} />)}
-                        </ul>
+                            {task.labelIds.length !== 0 && <ul className="quick-task-label-preview">
+                            {task.labelIds.map(labelId => 
+                            <TaskLabelPreview key={labelId} labelId={labelId} labels={board.labels} />)}
+                        </ul>}
                         <div className="quick-task-editor-title-container">
                             <div className="quick-task-editor-title-input-wrapper">
                                 <InputBase className="quick-task-editor-title-input" style={{

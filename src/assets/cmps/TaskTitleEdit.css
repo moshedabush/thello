@@ -55,6 +55,7 @@
     overflow-wrap: break-word;
     resize: none;
     position: relative;
+    
     right: 227px;
 }
 
@@ -63,4 +64,7 @@
     margin-top: 15px;
     margin-left: -225px;
     z-index: 1500;
+}
+textarea.MuiInputBase-input.MuiInputBase-inputMultiline.css-rhrbtd-MuiInputBase-input{
+    height: 100px;
 }
