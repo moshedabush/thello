@@ -104,7 +104,7 @@ class _Covers extends React.Component {
 
     render() {
         const { board: { colorPalette } } = this.props
-        const { isSearchUnsplash, txt} = this.state
+        const { isSearchUnsplash} = this.state
 
         return (
             <>
@@ -132,7 +132,7 @@ class _Covers extends React.Component {
                     </div>
                     :
                     <div>
-                      <UnsplashSearch onImgUpload={this.onImgUpload}/>
+                      <UnsplashSearch perPage={12} onImgUpload={this.onImgUpload}/>
                     </div>
                 }
             </>

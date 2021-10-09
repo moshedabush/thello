@@ -8,7 +8,6 @@ import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 
 //Need to convert it to scss
 const Container = styled.div`
-transform: ${props => (props.isDragging ? 'rotate(3deg)' : '0')}; 
 box-sizing:border-box;
 display: inline-block;
 margin: 4px;
@@ -105,7 +104,7 @@ class _Column extends React.Component {
 
     render() {
         const { board,group,onSaveBoard} = this.props
-        const {isTitleEdit, groupTitle,isQuickPopUpOpen} = this.state
+        const {isTitleEdit, groupTitle} = this.state
 
         if (!board) return <div>loading...</div> 
         return (

@@ -62,7 +62,7 @@ export function loadBoard(boardId) {
     }
 }
 
-export function openQuickPopUp(top,left,cmpName,cmpTitle,task,group,from) {
+export function openQuickPopUp(top,left,height,width,cmpName,cmpTitle,task,group,from) {
     return dispatch => {
         const popUp = {
             type:'SET_POPUP',
@@ -72,6 +72,8 @@ export function openQuickPopUp(top,left,cmpName,cmpTitle,task,group,from) {
             group,
             top,
             left,
+            width,
+            height,
             from,
         }
         dispatch(popUp)

@@ -15,7 +15,7 @@ class _BoardHeader extends React.Component {
     const {color} = this.props
     if (!user) return <div></div>;
     return (
-      <header className="board-header flex " style={{backgroundColor:color}}>
+      <header className="board-header flex ">
         <div className="left-container flex">
         <div className="logo flex align-center">
           <NavLink to="/boardlist">
