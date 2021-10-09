@@ -2,6 +2,7 @@ import { boardService } from "../services/board.service.js";
 import { showErrorMsg } from '../services/event-bus.service.js'
 
 export function onSaveBoard(board) {  
+    // console.log('hi from onSaveBoard')
         return async dispatch => {
         try {
             const savedBoard = await boardService.save(board)
@@ -16,26 +17,27 @@ export function onSaveBoard(board) {
     }
 }
 
-export function onSaveBoards(boards) {  
-    return async dispatch => {
-        try {
-            const savedBoards = await boardService.saveBoards(boards)
-            dispatch({
-                 type: 'SAVE_BOARDS',
-                 boards:savedBoards 
-                })
-        } catch (err) {
-            showErrorMsg('Cannot save board')
-            console.log('BoardAction: err in onSaveBoard', err)
-        }
-    }
-}
+// export function onSaveBoards(boards) {  
+//     return async dispatch => {
+//         try {
+//             const savedBoards = await boardService.saveBoards(boards)
+//             dispatch({
+//                  type: 'SAVE_BOARDS',
+//                  boards:savedBoards 
+//                 })
+//         } catch (err) {
+//             showErrorMsg('Cannot save board')
+//             console.log('BoardAction: err in onSaveBoard', err)
+//         }
+//     }
+// }
 
-export function loadBoards(userId) {
+export function loadBoards() {
+    console.log('userId from action');
     return async dispatch => {
         try {
             dispatch({ type: 'SET_LOADING' })
-            const boards = await boardService.query(userId)
+            const boards = await boardService.query()
             dispatch({ type: 'SET_BOARDS', boards })
         } catch (err) {
             console.log('BoardActions: err in loadBoards', err)
@@ -60,7 +62,7 @@ export function loadBoard(boardId) {
     }
 }
 
-export function openQuickPopUp(top,left,height,width,cmpName,cmpTitle,task,group,from) {
+export function openQuickPopUp(top,left,cmpName,cmpTitle,task,group,from) {
     return dispatch => {
         const popUp = {
             type:'SET_POPUP',
@@ -70,8 +72,6 @@ export function openQuickPopUp(top,left,height,width,cmpName,cmpTitle,task,group
             group,
             top,
             left,
-            width,
-            height,
             from,
         }
         dispatch(popUp)
