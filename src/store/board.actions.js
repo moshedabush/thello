@@ -2,7 +2,6 @@ import { boardService } from "../services/board.service.js";
 import { showErrorMsg } from '../services/event-bus.service.js'
 import {userService} from '../services/user.service.js'
 export function onSaveBoard(board) {  
-    // console.log('hi from onSaveBoard')
         return async dispatch => {
         try {
             const savedBoard = await boardService.save(board)
@@ -17,29 +16,27 @@ export function onSaveBoard(board) {
     }
 }
 
-// export function onSaveBoards(boards) {  
-//     return async dispatch => {
-//         try {
-//             const savedBoards = await boardService.saveBoards(boards)
-//             dispatch({
-//                  type: 'SAVE_BOARDS',
-//                  boards:savedBoards 
-//                 })
-//         } catch (err) {
-//             showErrorMsg('Cannot save board')
-//             console.log('BoardAction: err in onSaveBoard', err)
-//         }
-//     }
-// }
+export function onSaveBoards(boards) {  
+    return async dispatch => {
+        try {
+            const savedBoards = await boardService.saveBoards(boards)
+            dispatch({
+                 type: 'SAVE_BOARDS',
+                 boards:savedBoards 
+                })
+        } catch (err) {
+            showErrorMsg('Cannot save board')
+            console.log('BoardAction: err in onSaveBoard', err)
+        }
+    }
+}
 
-
-export function loadBoards() {
-    console.log('userId from action');
+export function loadBoards(userId) {
     return async dispatch => {
         console.log('hi from load');
         try {
             dispatch({ type: 'SET_LOADING' })
-            const boards = await boardService.query()
+            const boards = await boardService.query(userId)
             dispatch({ type: 'SET_BOARDS', boards })
         } catch (err) {
             console.log('BoardActions: err in loadBoards', err)

@@ -8,8 +8,7 @@ export class RootCmp extends React.Component {
     user : userService.getLoggedinUser()
   }
   componentDidMount = () => {
-    console.log("loggedInUser", userService.getLoggedinUser(),this.state.user);
-    
+    // console.log("loggedInUser", userService.getLoggedinUser(),this.state.user);
   };
   render() {
     return (

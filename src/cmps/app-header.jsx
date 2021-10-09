@@ -26,7 +26,7 @@ class _AppHeader extends React.Component {
             <header className="app-header flex ">
         
                 <div className="flex">
-                <NavLink className="btn-header home-icon"  to="/boardlist">
+                <NavLink className="btn-header home-icon"  to="/">
                 <HomeIcon/>
                 </NavLink>
                 <NavLink className="btn-header"  to="/boardlist" > 
