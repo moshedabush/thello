@@ -125,7 +125,7 @@ const onSaveDate = (ev) =>{
           }}>
           <span className={classes.title}>add to card</span>
 
-          <MenuItem
+          {/* <MenuItem
             className={`MuiButtonBase-root`}
             onClick={() => {
               click(isClicked? null : 'Members');
@@ -134,8 +134,18 @@ const onSaveDate = (ev) =>{
               <PersonOutlineOutlinedIcon className={classes.icon} />
             </span>
             Members
-          </MenuItem>
-            {isClicked==='Members' && <ActionsContainer type={'Members'}/>}{' '}
+          </MenuItem> */}
+            {/* {isClicked==='Members' && <ActionsContainer type={'Members'}/>}{' '} */}
+            <a name="MEMBERS"  
+          
+          className={`MuiButtonBase-root`}  onClick={(ev) => {setPopUpDims(ev,props.group,props.task,"Members")}}>
+            <span>
+              <PersonOutlineOutlinedIcon style={{ pointerEvents: 'none'}} className={classes.icon} />
+            </span>
+            Members
+            </a>
+           
+           {isClicked==='Members' &&  <QuickPopUp> <PopUpHandler from={'MainDialog'} groupId={props.group.id}  />  </QuickPopUp> }
 
             <a name="LABELS"  
           
@@ -176,12 +186,7 @@ const onSaveDate = (ev) =>{
             </span>
             Attachment
           </MenuItem>
-          <MenuItem className={`MuiButtonBase-root`}>
-            <span>
-              <LocationOnOutlinedIcon className={classes.icon} />
-            </span>
-            Location
-          </MenuItem>
+       
           <a name="COVERS"  
           
           className={`MuiButtonBase-root`}  onClick={(ev) => {setPopUpDims(ev,props.group,props.task,"Cover")}}>
@@ -193,42 +198,34 @@ const onSaveDate = (ev) =>{
            
            {isClicked==='Cover' &&  <QuickPopUp> <PopUpHandler from={'MainDialog'} groupId={props.group.id}  />  </QuickPopUp> }
           <span className={classes.title}>actions </span>
-          <MenuItem className={`MuiButtonBase-root`}>
+          {/* <MenuItem className={`MuiButtonBase-root`}>
             <span>
               <ArrowForwardOutlinedIcon className={classes.icon} />
             </span>
             Move
-          </MenuItem>
-          <MenuItem className={`MuiButtonBase-root`}>
+          </MenuItem> */}
+    
+
+          <a name="COPY"  
+          
+          className={`MuiButtonBase-root`}  onClick={(ev) => {setPopUpDims(ev,props.group,props.task,"Copy")}}>
             <span>
-              <ContentCopyOutlinedIcon className={classes.icon} />
+              <ContentCopyOutlinedIcon style={{ pointerEvents: 'none'}} className={classes.icon} />
             </span>
             Copy
-          </MenuItem>
-          <MenuItem className={`MuiButtonBase-root`}>
+            </a>
+           
+           {isClicked==='Copy' &&  <QuickPopUp> <PopUpHandler from={'MainDialog'} groupId={props.group.id}  />  </QuickPopUp> }
+          
+          <a name="ARCHIVE"  
+          
+          className={`MuiButtonBase-root`}  onClick={(ev) => {setPopUpDims(ev,props.group,props.task,"Archive")}}>
             <span>
-              <CollectionsBookmarkOutlinedIcon className={classes.icon} />
-            </span>
-            Make Template
-          </MenuItem>
-          <MenuItem className={`MuiButtonBase-root`}>
-            <span>
-              <RemoveRedEyeOutlinedIcon className={classes.icon} />
-            </span>
-            Watch
-          </MenuItem>
-          <MenuItem className={`MuiButtonBase-root`}>
-            <span>
-              <ArchiveOutlinedIcon className={classes.icon} />
+              <ArchiveOutlinedIcon style={{ pointerEvents: 'none'}} className={classes.icon} />
             </span>
             Archive
-          </MenuItem>
-          <MenuItem className={`MuiButtonBase-root`}>
-            <span>
-              <ReplayOutlinedIcon className={classes.icon} />
-            </span>
-            Share
-          </MenuItem>
+            </a>
+            {isClicked==='Archive' &&  <QuickPopUp> <PopUpHandler from={'MainDialog'} groupId={props.group.id}  />  </QuickPopUp> }
         </MenuList>
       </Paper>
       <div>

@@ -1,6 +1,6 @@
 import { boardService } from "../services/board.service.js";
 import { showErrorMsg } from '../services/event-bus.service.js'
-
+import {userService} from '../services/user.service.js'
 export function onSaveBoard(board) {  
     // console.log('hi from onSaveBoard')
         return async dispatch => {
@@ -32,9 +32,11 @@ export function onSaveBoard(board) {
 //     }
 // }
 
+
 export function loadBoards() {
     console.log('userId from action');
     return async dispatch => {
+        console.log('hi from load');
         try {
             dispatch({ type: 'SET_LOADING' })
             const boards = await boardService.query()
@@ -99,21 +101,16 @@ console.log('newBoard',newBoard)
   return newBoard
    }
 
-
-
-
-// export function setTask(boardId,columnId,taskId) {
- 
-//     return async dispatch => {
-//         try {
-//             const task = await boardService.getTaskById(boardId,columnId,taskId)
-//             dispatch({
-//                 type: 'SET_TASK',
-//                 task :task
-//             })
-//         } catch (err) {
-//             showErrorMsg('Cannot set task')
-//             console.log('BoardAction: err in setTask', err)
-//         }
-//     }
-// }
+   export function loadBoardsToState() {
+       const currUser = userService.getLoggedinUser()
+       
+       return async dispatch => {
+        try {
+            dispatch({ type: 'SET_LOADING' })
+            const boards = await boardService.query(currUser._ID)
+            dispatch({ type: 'SET_BOARDS', boards })
+        } catch (err) {
+            console.log('BoardActions: err in loadBoards', err)
+        }
+    }
+}

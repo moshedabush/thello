@@ -35,7 +35,7 @@ class _QuickPopUp extends React.Component {
                         hideBackdrop 
                         disableAutoFocus
                     >
-                        <div className="quick-popup-wrapper"> 
+                        <div className="quick-popup-wrapper quick-popup-wrapper-dialog "> 
                             <div>
                                 <div className="quick-popup-header">
                                     <span className="quick-popup-header-title">{currPopUp.title}</span>  

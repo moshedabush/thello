@@ -13,14 +13,14 @@
     .MuiDialog-paper{
         background-color: #f4f5f7;
         border-radius: 2px;
-        margin: 48px 0 80px;
+        // margin: 48px 0 80px;
         overflow: hidden;
         position: relative;
         width: 768px;
         z-index: 25;
         max-width: 768px;
-        min-height: 910px;
-        top: 170px;
+        // min-height: 910px;
+        // top: 170px;
     }
     .cover{
         height: 85px;
@@ -56,11 +56,11 @@
         // left: 0px;
         float: left;
         margin: 0;
-        min-height: 24px;
+        min-height: 420px;
         overflow-x: hidden;
         overflow-y: auto;
         padding: 0 8px 8px 16px;
-        position: relative;
+        // position: relative;
         width: 552px;
         z-index: 0;
         margin-top: 30px;
@@ -95,7 +95,7 @@
         .card-detail-item{
             display: block;
             float: left;
-            margin: 0 8px 8px 0;
+            margin: 0 8px 12px 0;
             max-width: 100%;
         }
         .card-detail-item-header{
@@ -125,36 +125,7 @@
             padding: 0 12px;
             width: auto;
         }
-        .card-label-green {
-            background-color: #61bd4f;
-        }
-        .card-label-yellow {
-            background-color: #f2d600;
-        }
-        .card-label-red {
-            background-color: #eb5a46;
-        }
-        .card-label-purple {
-            background-color: #c377e0;
-        }
-        .card-label-blue {
-            background-color: #0079bf;
-        }
-        .card-label-orange {
-            background-color: #ff9f1a;
-        }
-        .card-label-sky {
-            background-color: #00c2e0;
-        }
-        .card-label-lime {
-            background-color: #51e898;
-        }
-        .card-label-pink {
-            background-color: #ff78cb;
-        }
-        .card-label-black {
-            background-color: #344563;
-        }
+     
         .MuiOutlinedInput-root{
             // top:15px;
             width: 100%;
@@ -167,11 +138,15 @@
     .description-container{
         margin-top: 100px;
     margin-left: 46px;
-    .description-title{
-        font-size: 16px;
-        line-height: 20px;
-        font-weight: 600;
-        color: #172b4d;
+    .description-header{
+        max-width: fit-content;
+        
+        .description-title{
+            font-size: 16px;
+            line-height: 20px;
+            font-weight: 600;
+            color: #172b4d;
+        }
     }
     }
     .sidebar-menu-dialog{
@@ -180,6 +155,6 @@
         padding: 0 16px 8px 8px;
         width: 192px;
         z-index: 10;
-        height: 701px;
+        height: 500px;
     }
 }

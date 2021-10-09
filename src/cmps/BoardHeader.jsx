@@ -7,7 +7,7 @@ import { ReactComponent as ArrowDown } from "../assets/img/arrow-down.svg";
 import { onLogout } from "../store/user.actions.js";
 
 class _BoardHeader extends React.Component {
-  onLogout = () => {
+    onLogout = () => {
     this.props.onLogout();
   };
   render() {
