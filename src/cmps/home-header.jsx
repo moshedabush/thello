@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 // import { Link, NavLink } from "react-router-dom";
-import BoardIcon from "../assets/img/board-icon.svg";
+import { ReactComponent as BoardIcon } from "../assets/img/board-icon.svg";
 
 // import routes from "../routes";
 
@@ -33,7 +33,7 @@ class _HomeHeader extends React.Component {
         <nav className="flex justify-space-between">
         <div className="logo">
           
-            <img  src={BoardIcon} alt="" />
+            <BoardIcon/>
             Thello
         </div>
           <div className="nav-btns">

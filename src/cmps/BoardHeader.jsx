@@ -12,7 +12,6 @@ class _BoardHeader extends React.Component {
   };
   render() {
     const user = this.props.user;
-    const {color} = this.props
     if (!user) return <div></div>;
     return (
       <header className="board-header flex ">
