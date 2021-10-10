@@ -1,42 +1,28 @@
 import React from 'react';
-// import ReactDOM from 'react-dom';
-// import { Route } from 'react-router-dom'
 import { connect } from 'react-redux';
 import { DragDropContext, Droppable } from 'react-beautiful-dnd';
-import { onSaveBoard, loadBoard,onSaveBoards } from '../store/board.actions.js';
+import { onSaveBoard, loadBoard } from '../store/board.actions.js';
 import { Column } from '../cmps/column.jsx';
-
-// import styled from 'styled-components';
-
 import { GroupAdd } from '../cmps/GroupAdd.jsx';
 import { BoardHeader } from '../cmps/BoardHeader';
-
+import { SidePopUp } from '../cmps/SidePopUp.jsx';
+import{BoardSecondHeader} from '../cmps/BoardSecondHeader'
 
 class _Board extends React.Component {
+
+
   state = {
-    board: [],
   };
 
   async componentDidMount() {
     try {
       const { boardId } = this.props.match.params;
-      await this.props.loadBoard(boardId);
+         await this.props.loadBoard(boardId);
+         console.log('this.props.location',this.props.location);
     } catch (err) {
       console.log('err');
     }
     
-  }
-  async componentWillUnmount() {
-    try {
-      const { boards,board } = this.props;
-      const { boardId } = this.props.match.params;
-      const idx = boards.findIndex(board => board._id === boardId);
-      boards[idx] = board;
-      console.log(boards,'refresh return');
-      await this.props.onSaveBoards(boards);
-    } catch (err) {
-      console.log('err');
-    }
   }
 
   onDragEnd = (result) => {
@@ -115,15 +101,26 @@ class _Board extends React.Component {
   };
 
   render() {
-    const { board } = this.props;
+    const { board} = this.props;
     if (!board) return <div>loading...</div>; 
     const { groups } = board;
 
     return (
-      <div className="in-board">
-        <BoardHeader/>
-        <main className="board-container">
+      <div className="in-board" 
+      style={board.style.coverColor  ?
+        {background:`${board.style.coverColor}`}:
+        {backgroundImage:`url(${board.style.imgUrl})`,
+        backgroundPosition: 'center',
+        backgroundSize: 'cover',
+        backgroundRepeat: 'no-repeat'}}
+         >
+         <BoardHeader/>
+         <BoardSecondHeader/>
+        <main className="board-container" >
+       
+         
         <DragDropContext onDragEnd={this.onDragEnd}>
+        
           <Droppable
             droppableId='groups.id'
             direction='horizontal'
@@ -164,7 +161,6 @@ function mapStateToProps(state) {
 
 const mapDispatchToProps = {
   onSaveBoard,
-  onSaveBoards,
   loadBoard,
 };
 

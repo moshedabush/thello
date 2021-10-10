@@ -21,6 +21,7 @@ class _TaskQuickMenu extends React.Component {
         isMenuOpen: true,
         taskTitle: '',
         clickedCover: false,
+     
     }
 
 
@@ -50,11 +51,24 @@ class _TaskQuickMenu extends React.Component {
         const group = this.props.group
         const task = this.props.task
         const menuBtnDims = ev.target.getBoundingClientRect();
-        let { top, left } = menuBtnDims;
-        this.props.openQuickPopUp(top, left, cmpName, cmpTitle, task.id, group.id)
+        let { top, left,width,height } = menuBtnDims;
+        this.props.openQuickPopUp(top, left,height,width, cmpName, cmpTitle, task.id, group.id)
+        console.log(top, left,height,width);
         const { isQuickPopUpOpen } = this.state;
         this.setState({ isQuickPopUpOpen: !isQuickPopUpOpen })
     };
+
+    //  checkViewport = () => {
+    //      let {top} = this.props.currPopUp 
+    //      const vpHeight = window.innerHeight
+    //     //  const vpWidth = window.innerWidth
+    //      console.log('vpHeight',vpHeight);
+    //      if (top < vpHeight) top = vpHeight -650
+         
+    //      console.log('top',top);
+    //      this.setState({top:top})
+
+    //  }
 
 
     sendToArchive = ({ target }) => {
@@ -77,7 +91,8 @@ class _TaskQuickMenu extends React.Component {
 
             <div>
                 {isMenuOpen ?
-                    <Modal className="quick-menu-modal" style={{ bottom: this.props.bottom, top: this.props.top, left: this.props.left + 227 + 'px' }}
+                    <Modal className="quick-menu-modal" 
+                    style={{ bottom: this.props.bottom, top: this.props.top  , left: this.props.left + 227 + 'px' }}
                         onClose={this.handleClose}
                         closeAfterTransition
                         open={isMenuOpen}
@@ -88,10 +103,13 @@ class _TaskQuickMenu extends React.Component {
                     >
                         <div >
                             <div>
-                                <TaskTitleEdit task={task} width={width} height={height} right={right} onSaveBoard={onSaveBoard} board={board} coverColor={coverColor} />
+                                <TaskTitleEdit task={task} width={width} height={height} right={right}
+                                 onSaveBoard={onSaveBoard} board={board} coverColor={coverColor} />
                             </div>
                             <div>
-                                <a className="quick-task-editor-buttons-items"><span style={{ display: 'flex' }}><ArtTrackIcon className="task-quick-menu-icons" fontSize="small" /></span><span className="task-quick-menu-txt">Open card</span></a>
+                                <a className="quick-task-editor-buttons-items"><span style={{ display: 'flex' }}>
+                                    <ArtTrackIcon className="task-quick-menu-icons" fontSize="small" />
+                                    </span><span className="task-quick-menu-txt">Open card</span></a>
 
                                 <a className="quick-task-editor-buttons-items" onClick={(ev) => this.setPopUpDims(ev)}
                                     name="LABELS" group={group} task={task} title="Labels">

@@ -1,6 +1,6 @@
 import React from "react";
 import Hero from "../assets/img/hero.png";
-import { LoginSignup } from "../cmps/login-signup";
+import Product from "../assets/img/home-product.png";
 import { connect } from "react-redux";
 
 import { userService } from "../services/user.service";
@@ -71,8 +71,6 @@ class _HomePage extends React.Component {
     const sectionStyle = {
       textAlign: "center",
     };
-    const { username, password, fullname } = this.state.credentials;
-    const { isSignup, users } = this.state;
     return (
       <div className="home">
         <main style={sectionStyle} className="home-container">
@@ -97,52 +95,27 @@ class _HomePage extends React.Component {
               </div>
               <div className="hero-img">
                 <img src={Hero} alt="" />
-                <img src="assets/img/hero.png" alt="" />
               </div>
             </section>
           </div>
+          <section className="product">
+            <div className="product-info">
+              <h2>It's more than work. It's a way of working together.</h2>
+              <p>Start with a Bambello board, lists, and cards. Customize and 
+                expand with more features as your teamwork grows. Manage projects, 
+                organize tasks, and build team spirit—all in one place.</p>
+                <button className="clean-link"
+                onClick={() => {
+                    this.onGuestLogin();
+                  }}>
+                    Start doing →
+                    </button>
+                    </div><div>
+                    <img src={Product} alt="" />
+                  </div>
+                  </section>
           <section>
-            {/* <button
-              className="signup-btn"
-              onClick={() => {
-                this.toggleSignup();
-              }}
-            >
-              Sign Up!(link to signup-cmp)
-            </button> */}
-            {isSignup && (
-              <div className="signup-section">
-                {isSignup && (
-                  <form className="signup-form" onSubmit={this.onSignup}>
-                    <input
-                      type="text"
-                      name="fullname"
-                      value={fullname}
-                      placeholder="Fullname"
-                      onChange={this.handleChange}
-                      required
-                    />
-                    <input
-                      type="text"
-                      name="username"
-                      value={username}
-                      placeholder="Username"
-                      onChange={this.handleChange}
-                      required
-                    />
-                    <input
-                      type="password"
-                      name="password"
-                      value={password}
-                      placeholder="Password"
-                      onChange={this.handleChange}
-                      required
-                    />
-                    <button>Sign Up!</button>
-                  </form>
-                )}
-              </div>
-            )}
+   
           </section>
         </main>
                

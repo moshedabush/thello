@@ -10,8 +10,8 @@ class _BoardList extends React.Component {
  
   async componentDidMount() {
     try {
-    const userId = this.props.loggedUser._ID;
-    this.props.loadBoards(userId);
+    const userId = await this.props.loggedUser._ID;
+    await this.props.loadBoards(userId);
      } catch (err) {
     console.log('err');
   }
@@ -21,13 +21,16 @@ class _BoardList extends React.Component {
     const { boards } = this.props
     return boards.filter(board => board.isFavorite)
   };  
+  get notFavoriteBoards() {
+    const { boards } = this.props
+    return boards.filter(board => !board.isFavorite)
+  };  
 
   onToggleFavorite = (ev, boardId) => {
     ev.preventDefault()
     const { boards,onSaveBoard,onSaveBoards } = this.props
     const board = boards.find(board => board._id === boardId)
     board.isFavorite = !board.isFavorite
-    // console.log(board,boards);
     onSaveBoard(board);
     onSaveBoards(boards);
   };
@@ -36,7 +39,7 @@ class _BoardList extends React.Component {
     const { boards, loggedUser } = this.props;
     if (!boards) return <div>Loading</div>;
     return (
-      <section>
+      <section className="board-page">
         <AppHeader />
         <section className="board-list-container flex align-flex-start justify-center">
           <div className="boards-wrapper flex column">
@@ -55,7 +58,7 @@ class _BoardList extends React.Component {
                   {loggedUser.username}'s Workspaces
                 </h3>
               </div>
-              <BoardsList onToggleFavorite={this.onToggleFavorite} boards={boards} />
+              <BoardsList onToggleFavorite={this.onToggleFavorite} boards={this.notFavoriteBoards} />
             </div>
           </div>
         </section>
@@ -66,8 +69,8 @@ class _BoardList extends React.Component {
 
 function mapStateToProps(state) {
   return {
-    boards: state.boardModule.boards,
     loggedUser: state.userModule.user,
+    boards: state.boardModule.boards,
   };
 }
 const mapDispatchToProps = {

@@ -9,7 +9,12 @@ class _QuickPopUp extends React.Component {
 
     state = {
         isPopUpOpen: true,
+        // top:0
     }
+
+    // componentDidMount() {
+    //     this.checkViewport()
+    // }
 
     toggleQuickPopUp = (ev) => {
         ev.preventDefault();
@@ -17,6 +22,19 @@ class _QuickPopUp extends React.Component {
         this.setState({ isPopUpOpen: !isPopUpOpen });
     };
 
+    //  checkViewport = () => {
+    //      let {top} = this.props.currPopUp 
+    //      const vpHeight = window.innerHeight
+    //     //  const vpWidth = window.innerWidth
+    //      console.log('vpHeight',vpHeight);
+    //      if (top < vpHeight) top = vpHeight -650
+         
+    //      console.log('top',top);
+    //      this.setState({top:top})
+
+    //  }
+        
+    
 
 
     render() {
@@ -30,9 +48,8 @@ class _QuickPopUp extends React.Component {
                     <Modal
                         style={{ top: currPopUp.top, left: currPopUp.left}} 
                         onClose={this.handleClose}
-                        closeAfterTransition
                         open={isPopUpOpen}
-                        hideBackdrop 
+                        hideBackdrop= 'true'
                         disableAutoFocus
                     >
                         <div className="quick-popup-wrapper"> 

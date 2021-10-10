@@ -1,6 +1,7 @@
 // Setup
 @import "setup/variables.scss";
 @import "setup/mixins.scss";
+@import "setup/typography.scss";
 @import "setup/base.scss";
 
 // Basics
@@ -16,6 +17,9 @@
 @import "cmps/dialog-side-menu";
 // @import "cmps/board-list.scss";
 @import "cmps/description-in-dialog";
+@import "cmps/SidePopUp.css";
+@import "cmps/ChangeBackground.css";
+@import "cmps/BoardSecondHeader.css";
 
 // @import "cmps/cover.scss";
 @import "cmps/GroupAdd.css";

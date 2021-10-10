@@ -8,10 +8,8 @@ import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 
 //Need to convert it to scss
 const Container = styled.div`
-transform: ${props => (props.isDragging ? 'rotate(3deg)' : '0')}; 
 box-sizing:border-box;
 display: inline-block;
-min-height:100px;
 margin: 4px;
 border-radius: 3px;
 background-color:#ebecf0;
@@ -21,12 +19,13 @@ white-space: normal;
 vertical-align: top;
 overflow-y: hidden;
 overflow-x: hidden;
-max-height:100vh;
+max-height:100%;
 
 `;
 
 const Title = styled.h2`    
 box-sizing: border-box;
+width:100%;
 font-weight: 600;
 white-space:pre;
 overflow: hidden;
@@ -43,6 +42,7 @@ const TaskList = styled.div`
 background-color: ${props => (props.isDraggingOver ? `#e1e1e1` : 'inherit')};
 flex: 1 1 auto;
 margin: 0 4px;
+min-height:20px;
 overflow-x: hidden;
 overflow-y:auto ;
 padding: 0 4px;
@@ -104,7 +104,7 @@ class _Column extends React.Component {
 
     render() {
         const { board,group,onSaveBoard} = this.props
-        const {isTitleEdit, groupTitle,isQuickPopUpOpen} = this.state
+        const {isTitleEdit, groupTitle} = this.state
 
         if (!board) return <div>loading...</div> 
         return (
@@ -116,11 +116,11 @@ class _Column extends React.Component {
                         <div className="group-header">
                            
                             <MoreHorizIcon className="group-header-tool" fontSize="small" 
-                            style={{fontSize:'16px', height:'20px', lineHeight:'20px', width:'20px'}}/>
+                            style={{fontSize:'14px', height:'32px', lineHeight:'20px', width:'32px'}}/>
                          
 
                             {isTitleEdit? 
-                            <input type="text" className="group-add-input"
+                            <input type="text" className="group-edit-input"
                             autoFocus
                             onBlur={this.onEditGroupTitle}
                             value={groupTitle}
@@ -148,9 +148,11 @@ class _Column extends React.Component {
                                 </>
                                 
                             )}
+                            
                         </Droppable>
                         <TaskAdd board={board} group={group} onSaveBoard={onSaveBoard} />
                     </Container>
+                    
                 )}
             </Draggable>
             

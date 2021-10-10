@@ -2,7 +2,7 @@ import EditIcon from '@mui/icons-material/Edit';
 import CheckIcon from '@mui/icons-material/Check';
 import { motion } from "framer-motion"
 
-export function LabelPreview({ label, toggleLabel, isSelected, toggleEditLabel}) {
+export function LabelPreview({isOnTask,label, toggleEditLabel,toggleLabel}) {
 
     return <li className="label-mod">
         <div className="label-mod-wrapper">
@@ -11,8 +11,8 @@ export function LabelPreview({ label, toggleLabel, isSelected, toggleEditLabel})
                 whileHover={{ boxShadow: `-8px 0 ${label.hoverColor}` }}
                 onClick={() => toggleLabel(label, 'labels')}>
                 <span>{label.title}</span>
-                {isSelected && <span className="icon-check" >
-                    <CheckIcon style={{ width: '16px', height: '16px', color: 'white' }} />
+                {isOnTask && <span className="icon-check" >
+                    <CheckIcon style={{ width: '16px', height: '15px', color: 'white' }} />
                 </span>}
             </motion.div>
             <div className="label-edit-btn">
