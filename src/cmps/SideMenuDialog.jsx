@@ -85,11 +85,14 @@ const useStyles = makeStyles({
     }
   }
  const setPopUpDims =(ev,group,task,title)=> {
- 
+  let top = 215
+  if(title=== 'Archive'){
+    top = 400
+  }
     const cmpName = ev.target.name
     const cmpTitle = title
     const menuBtnDims = ev.target.getBoundingClientRect();
-    let { top, left } = menuBtnDims;
+    let {  left } = menuBtnDims;
     props.openQuickPopUp(top, left, cmpName, cmpTitle, task.id, group.id)
     click(isClicked? null : title);
 };
@@ -125,17 +128,7 @@ const onSaveDate = (ev) =>{
           }}>
           <span className={classes.title}>add to card</span>
 
-          {/* <MenuItem
-            className={`MuiButtonBase-root`}
-            onClick={() => {
-              click(isClicked? null : 'Members');
-            }}>
-            <span>
-              <PersonOutlineOutlinedIcon className={classes.icon} />
-            </span>
-            Members
-          </MenuItem> */}
-            {/* {isClicked==='Members' && <ActionsContainer type={'Members'}/>}{' '} */}
+        
             <a name="MEMBERS"  
           
           className={`MuiButtonBase-root`}  onClick={(ev) => {setPopUpDims(ev,props.group,props.task,"Members")}}>
@@ -144,8 +137,10 @@ const onSaveDate = (ev) =>{
             </span>
             Members
             </a>
-           
            {isClicked==='Members' &&  <QuickPopUp> <PopUpHandler from={'MainDialog'} groupId={props.group.id}  />  </QuickPopUp> }
+          {isClicked==='Labels' && <QuickPopUp> <PopUpHandler from={'MainDialog'} groupId={props.group.id}/> </QuickPopUp> }
+          {isClicked==='Cover' && <div> <QuickPopUp> <PopUpHandler from={'MainDialog'} groupId={props.group.id}  />  </QuickPopUp> </div>}
+           
 
             <a name="LABELS"  
           
@@ -155,7 +150,7 @@ const onSaveDate = (ev) =>{
             </span>
             Labels
           </a>
-          {isClicked==='Labels' && <QuickPopUp> <PopUpHandler from={'MainDialog'} groupId={props.group.id}/> </QuickPopUp> }
+          {/* {isClicked==='Labels' && <QuickPopUp> <PopUpHandler from={'MainDialog'} groupId={props.group.id}/> </QuickPopUp> } */}
 
           {/* <MenuItem className={classes.field}> */}
           <MenuItem className={'MuiButtonBase-root'}>
@@ -195,15 +190,10 @@ const onSaveDate = (ev) =>{
             </span>
             Cover
             </a>
+           {/* {isClicked==='Cover' &&  <QuickPopUp> <PopUpHandler from={'MainDialog'} groupId={props.group.id}  />  </QuickPopUp> } */}
            
-           {isClicked==='Cover' &&  <QuickPopUp> <PopUpHandler from={'MainDialog'} groupId={props.group.id}  />  </QuickPopUp> }
           <span className={classes.title}>actions </span>
-          {/* <MenuItem className={`MuiButtonBase-root`}>
-            <span>
-              <ArrowForwardOutlinedIcon className={classes.icon} />
-            </span>
-            Move
-          </MenuItem> */}
+     
     
 
           <a name="COPY"  

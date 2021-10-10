@@ -1,78 +1,25 @@
 import React from "react";
-import Hero from "../assets/img/hero.png";
-import { LoginSignup } from "../cmps/login-signup";
 import { connect } from "react-redux";
-
 import { userService } from "../services/user.service";
 import { onSignup } from "../store/user.actions";
 import { HomeHeader } from "../cmps/home-header";
-
-
+import Hero from "../assets/img/hero.png";
 class _HomePage extends React.Component {
   state = {
-    credentials: {
-      username: "",
-      password: "",
-      fullname: "",
-    },
-    isSignup: false,
   };
   componentDidMount = () => {
     console.log("loggedInUser", userService.getLoggedinUser());
   };
-  clearState = () => {
-    const clearTemplate = {
-      credentials: {
-        username: "",
-        password: "",
-        fullname: "",
-      },
-      isSignup: false,
-    };
-    this.setState({ clearTemplate });
-  };
-
-  onSignup = (ev = null) => {
-    if (ev) ev.preventDefault();
-    if (
-      !this.state.credentials.username ||
-      !this.state.credentials.password ||
-      !this.state.credentials.fullname
-    )
-      return;
-    this.props.onSignup(this.state.credentials);
-    this.clearState();
-    this.props.history.push("/boardlist");
-  };
-  handleChange = (ev) => {
-    const field = ev.target.name;
-    const value = ev.target.value;
-    this.setState({
-      credentials: { ...this.state.credentials, [field]: value },
-    });
-  };
   onGuestLogin = async () => {
-    const guest = await userService.signup({
-      _ID: "u101",
-      fullname: "Guest Guest",
-      username: "Guest",
-      password: "Guest",
-    });
-    userService.login(guest);
+    const guestUser = await userService.getById('u101')
+    userService.login(guestUser)
     this.props.history.push("/boardlist");
-    console.log("guest", guest);
+    console.log("guestUser", guestUser);
   };
-  toggleSignup = () => {
-    this.setState({ isSignup: !this.state.isSignup });
-    console.log("signed up");
-  };
-
   render() {
     const sectionStyle = {
       textAlign: "center",
     };
-    const { username, password, fullname } = this.state.credentials;
-    const { isSignup, users } = this.state;
     return (
       <div className="home">
         <main style={sectionStyle} className="home-container">
@@ -101,49 +48,6 @@ class _HomePage extends React.Component {
               </div>
             </section>
           </div>
-          <section>
-            {/* <button
-              className="signup-btn"
-              onClick={() => {
-                this.toggleSignup();
-              }}
-            >
-              Sign Up!(link to signup-cmp)
-            </button> */}
-            {isSignup && (
-              <div className="signup-section">
-                {isSignup && (
-                  <form className="signup-form" onSubmit={this.onSignup}>
-                    <input
-                      type="text"
-                      name="fullname"
-                      value={fullname}
-                      placeholder="Fullname"
-                      onChange={this.handleChange}
-                      required
-                    />
-                    <input
-                      type="text"
-                      name="username"
-                      value={username}
-                      placeholder="Username"
-                      onChange={this.handleChange}
-                      required
-                    />
-                    <input
-                      type="password"
-                      name="password"
-                      value={password}
-                      placeholder="Password"
-                      onChange={this.handleChange}
-                      required
-                    />
-                    <button>Sign Up!</button>
-                  </form>
-                )}
-              </div>
-            )}
-          </section>
         </main>
                
 

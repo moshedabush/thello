@@ -44,7 +44,7 @@ export class TaskAdd extends React.Component{
             description:'',
             comments: [],
             checklists: [],
-            members: [],
+            members: [{...board.members}],
             labelIds: [],
             byMember:loggedUser,
             createdAt: Date.now(),

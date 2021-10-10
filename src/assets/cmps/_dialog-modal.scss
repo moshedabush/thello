@@ -67,16 +67,21 @@
     }
     .details-badges-section{
         margin-left:46px;
-        .member-on-card{
-            background-color: #00875a;
-            height: 32px;
-            width: 32px;
-            border-radius: 50%;
-            text-align: center;
-            line-height: 30px;
-            color: white;
-            position: absolute;
+        .js-card-detail-members-list{
+            display: flex;
            
+            .member-on-card{
+                background-color: #00875a;
+                height: 32px;
+                width: 32px;
+                border-radius: 50%;
+                text-align: center;
+                line-height: 30px;
+                color: white;
+                margin-right: 5px;
+                // position: absolute;
+                
+            }
         }
      .add-btn-member{
         width: 32px;
@@ -96,7 +101,7 @@
             display: block;
             float: left;
             margin: 0 8px 12px 0;
-            max-width: 100%;
+            max-width: 290px;
         }
         .card-detail-item-header{
             color: #5e6c84;
@@ -155,6 +160,6 @@
         padding: 0 16px 8px 8px;
         width: 192px;
         z-index: 10;
-        height: 500px;
+        height: 455px;
     }
 }

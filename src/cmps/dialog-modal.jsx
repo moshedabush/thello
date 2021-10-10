@@ -11,7 +11,7 @@ import TextField from '@mui/material/TextField';
 import { SideMenu } from './SideMenuDialog';
 import TvOutlinedIcon from '@mui/icons-material/TvOutlined';
 import { makeStyles } from '@material-ui/styles';
-import { onSaveBoard, onSetTask, updateBoard } from '../store/board.actions';
+import { onSaveBoard, onSetTask, updateBoard,openQuickPopUp } from '../store/board.actions';
 import { Box, width } from '@mui/system';
 import { FormControl, InputLabel } from '@mui/material';
 import { alpha, styled } from '@mui/material/styles';
@@ -19,6 +19,8 @@ import InputBase from '@mui/material/InputBase';
 import AddIcon from '@mui/icons-material/Add';
 import { ReactComponent as DescIcon } from '../assets/img/board/description.svg';
 import Datetime from 'react-datetime';
+import { QuickPopUp } from './QuickPopUp';
+import { PopUpHandler } from './PopUpHandler';
 function _DialogModal(props) {
   const {
     onClose,
@@ -33,6 +35,7 @@ function _DialogModal(props) {
   const [valueDate, onDateChange] = React.useState(
     currTask.dueDate || new Date()
   );
+  const [isClicked, click] = React.useState(false);
 
   const handleChange = (event, key) => {
     event.stopPropagation();
@@ -66,6 +69,16 @@ function _DialogModal(props) {
     );
     props.onSaveBoard(boardToSave);
   };
+  const setPopUpDims =(ev,group,task,title)=> {
+ 
+    const cmpName = ev.target.name
+    const cmpTitle = title
+    const menuBtnDims = ev.target.getBoundingClientRect();
+    let { top, left } = menuBtnDims;
+    props.openQuickPopUp(top, left, cmpName, cmpTitle, task.id, group.id)
+    click(isClicked? null : title);
+};
+
   // const setCoverColor = async (coverColor) => {
 
   // };
@@ -157,8 +170,10 @@ function _DialogModal(props) {
   }));
 
   const { style } = currTask;
+
   console.log('currTask', currTask);
   console.log('board in dialog', props.board);
+  console.log('props',props)
   return (
     <Dialog onClose={props.onClose} open={open} className={'DIALOG-CMP'}>
       {style.coverColor.length !== 0 && (
@@ -219,18 +234,38 @@ function _DialogModal(props) {
                 Members
               </h3>
               <div className='js-card-detail-members-list'>
-                {board.members.map((member, idx) => {
-                  return (
-                    <div
-                      key={idx}
-                      className='member member-on-card'
-                      title={member.fullname}>
-                      {member.fullname.substring(0, 1)}
-                    </div>
-                  );
+                {currTask.members.map((member, idx) => {
+                  if (member.isAssigned)
+                    return (
+                      <div
+                        key={idx}
+                        className='member member-on-card'
+                        title={member.fullname}>
+                        {member.fullname.substring(0, 1)}
+                      </div>
+                    );
                 })}
+                <div className={'add-btn-member'}>
+                  {' '}
+                  <a
+                    name='MEMBERS'
+                    className={`MuiButtonBase-root`}
+                    onClick={(ev) => {
+                      setPopUpDims(ev, props.group, currTask, 'Members');
+                    }}>
+                    +
+                  </a>
+                  {isClicked === 'Members' && (
+                    <QuickPopUp>
+                      {' '}
+                      <PopUpHandler
+                        from={'MainDialog'}
+                        groupId={props.group.id}
+                      />{' '}
+                    </QuickPopUp>
+                  )}
+                </div>
               </div>
-              <div className={'add-btn-member'}>+</div>
             </div>
 
             <div className={'card-detail-item labels'}>
@@ -276,7 +311,7 @@ function _DialogModal(props) {
           <div className={'description-container'}>
             <div className={'description-header'}>
               <div className={'desc-icon'}>
-                <DescIcon style={{position: 'absolute',left: 30 + 'px'}}/>
+                <DescIcon style={{ position: 'absolute', left: 30 + 'px' }} />
                 <span className={'description-title'}>Description</span>
               </div>
             </div>
@@ -332,6 +367,7 @@ const mapDispatchToProps = {
   updateBoard,
   onSetTask,
   onSaveBoard,
+  openQuickPopUp,
 };
 
 export const DialogModal = connect(

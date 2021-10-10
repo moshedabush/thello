@@ -40,6 +40,7 @@ class _Task extends React.Component {
     width: 0,
     height: 0,
     top: 0,
+    boardMembers:'',
   };
 
   getDimsOfObject = (ev) => {
@@ -89,7 +90,6 @@ class _Task extends React.Component {
   render() {
     const { isQuickMenuOpen, isEditIcon, left, top, bottom, width, height, right } = this.state;
     const { task, onSaveBoard, board, group, task: { style } } = this.props;
-  
 
     return (
 
@@ -114,6 +114,7 @@ class _Task extends React.Component {
 
               {this.state.isClicked &&
                 <DialogModal
+                  // boardMembers={this.state.boardMembers}
                   open={this.state.isClicked}
                   onClose={this.onClose}
                   selectedValue={'task'}
@@ -194,7 +195,8 @@ function mapStateToProps(state) {
 const mapDispatchToProps = {
   onSaveBoard,
   loadBoard,
-  onSetTask
+  onSetTask,
+  
 };
 
 export const Task = connect(mapStateToProps, mapDispatchToProps)(_Task);

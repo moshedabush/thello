@@ -1,10 +1,9 @@
-import React from "react";
-import { connect } from "react-redux";
+import React from 'react';
+import { connect } from 'react-redux';
 // import { Link, NavLink } from "react-router-dom";
-import { ReactComponent as BoardIcon } from "../assets/img/board-icon.svg";
+import { ReactComponent as BoardIcon } from '../assets/img/board-icon.svg';
 
 // import routes from "../routes";
-
 
 import {
   onLogin,
@@ -12,7 +11,7 @@ import {
   onSignup,
   loadUsers,
   removeUser,
-} from "../store/user.actions.js";
+} from '../store/user.actions.js';
 // import { LoginSignup } from "./login-signup.jsx";
 
 class _HomeHeader extends React.Component {
@@ -29,18 +28,17 @@ class _HomeHeader extends React.Component {
   render() {
     // const { user } = this.props;
     return (
-      <header className="home-header ">
-        <nav className="flex justify-space-between">
-        <div className="logo">
-          
-            <BoardIcon/>
+      <header className='home-header '>
+        <nav className='flex justify-space-between'>
+          <div className='logo'>
+            <BoardIcon />
             Thello
-        </div>
-          <div className="nav-btns">
-            <a className="login-btn clean-link" href="/login">
+          </div>
+          <div className='nav-btns'>
+            <a className='login-btn clean-link' href='/login'>
               Log in
             </a>
-            <a className="signup-btn clean-link" href="/signup">
+            <a className='signup-btn clean-link' href='/signup'>
               Sign up
             </a>
           </div>

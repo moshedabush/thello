@@ -65,7 +65,7 @@ class _Copy extends React.Component {
       (group) => group.id === selectedGroup.id
     );
     selectedBoard.groups[groupIdx].tasks.push(newTask);
-    boardService.save(selectedBoard);
+    boardService.save({...selectedBoard});
     this.setState({ isCreated: true });
   };
 
@@ -88,9 +88,9 @@ class _Copy extends React.Component {
           <h3>Copy to Board:{selectedBoard.title && selectedBoard.title}</h3>
           <Box>
             <FormControl fullWidth>
-              {/* <InputLabel id='input-label'>Board</InputLabel> */}
               <Select
-                value={'Boards'}
+                value={''}
+                defaultValue={''}
                 open={this.state.isBoardClicked}
                 placeholder={'Boards'}
                 labelId='select-label'
@@ -100,9 +100,8 @@ class _Copy extends React.Component {
                 }>
                 {this.props.boards.map((board, idx) => {
                   return (
-                    <div>
+                    <div key={idx}>
                       <MenuItem
-                        key={idx}
                         onClick={(ev) =>
                           this.handleChange(ev, 'board', board._id)
                         }
@@ -118,9 +117,8 @@ class _Copy extends React.Component {
           <h3>In list..{selectedGroup.title && selectedGroup.title}</h3>
           <Box>
             <FormControl fullWidth>
-              {/* <InputLabel id='input-label'>List</InputLabel> */}
               <Select
-                value={'List'}
+                value={''}
                 open={this.state.isListClicked}
                 labelId='select-label'
                 id='select-label'
@@ -130,9 +128,9 @@ class _Copy extends React.Component {
                 {selectedBoard !== '' &&
                   selectedBoard.groups.map((group, idx) => {
                     return (
-                      <div>
+                      <div key={idx}>
                         <MenuItem
-                          key={idx}
+                         
                           onClick={(ev) =>
                             this.handleChange(ev, 'group', group.id)
                           }

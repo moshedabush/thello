@@ -3,6 +3,8 @@ import { storageService } from './async-storage.service'
 // import { socketService, SOCKET_EVENT_USER_UPDATED } from './socket.service'
 const STORAGE_KEY_LOGGEDIN_USER = 'loggedinUser';
 var gWatchedUser = null;
+const gUsers = require('../data/users.json')
+localStorage.setItem("user",JSON.stringify(gUsers));
 
 export const userService = {
     login,
