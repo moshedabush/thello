@@ -2,7 +2,6 @@ import { boardService } from "../services/board.service.js";
 import { showErrorMsg } from '../services/event-bus.service.js'
 
 export function onSaveBoard(board) {  
-    // console.log('hi from onSaveBoard')
         return async dispatch => {
         try {
             const savedBoard = await boardService.save(board)

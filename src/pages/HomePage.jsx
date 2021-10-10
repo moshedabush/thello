@@ -85,7 +85,7 @@ class _HomePage extends React.Component {
                   works is unique—accomplish it all with Thello.
                 </p>
                 <button
-                  className="clean-link a"
+                  className="clean-link"
                   onClick={() => {
                     this.onGuestLogin();
                   }}

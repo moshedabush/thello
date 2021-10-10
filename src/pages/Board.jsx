@@ -115,7 +115,7 @@ class _Board extends React.Component {
         backgroundRepeat: 'no-repeat'}}
          >
          <BoardHeader/>
-         <BoardSecondHeader/>
+         <BoardSecondHeader title={board.title}/>
         <main className="board-container" >
        
          

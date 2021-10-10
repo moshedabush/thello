@@ -35,6 +35,7 @@
                     letter-spacing: 1px;
                     color: #fff;
                     background-color: #0065ff;
+                    border: unset;
                     &:hover {
                         background-color: #0051cc;
                     }
@@ -49,7 +50,7 @@
             line-height: 1.5;
 
             .product-info {
-                margin-bottom: 20px;
+                margin-bottom: rem(24px);
             }
 
             h2 {

@@ -26,6 +26,30 @@
     text-overflow: ellipsis;
     cursor: pointer;
 }
+.board-second-title{
+    background-color: #ffffff3d;
+    border-radius: 3px;
+    color: #fff;
+    cursor: default;
+    float: left;
+    font-size: 14px;
+    height: 32px;
+    line-height: 32px;
+    margin: 0 4px 4px 0;
+    max-width: 400px;
+    overflow: hidden;
+    padding-left: 12px;
+    padding-right: 12px;
+    position: relative;
+    text-decoration: none;
+    text-overflow: ellipsis;
+    cursor: pointer;
+}
+.board-second-title .svg{
+    width: 15px;
+    height: 15px;
+    fill: white;
+}
 
 .board-second-btn-show-menu:hover {
     background-color: #ffffff52;

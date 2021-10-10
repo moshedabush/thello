@@ -40,16 +40,20 @@ async function query(userId) {
     }
 }
 
-async function save(board) {
-    if (board._id) {
+async function save(data) {
+    if (data._id) {
         try {
-            return await storageService.put('board', board)
+            const boards = await storageService.query('boards')
+            const idx = boards.findIndex(board => board._id === data._id);
+            boards[idx] = data;
+            await this.saveBoards(boards)
+           return await storageService.put('board', data)
         } catch (err) {
             throw err
         }
     } else {
         try {
-            return await storageService.post('board', board)
+            return await storageService.post('board', data)
         } catch (err) {
             throw err
         }

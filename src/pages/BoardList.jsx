@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import { onSaveBoard,onSaveBoards,loadBoards } from '../store/board.actions';
+import { onSaveBoards,loadBoards } from '../store/board.actions';
 import { AppHeader } from "../cmps/app-header";
 import { BoardsList } from '../cmps/boards-list';
 import { ReactComponent as BoardIcon } from "../assets/img/board-icon.svg";
@@ -15,7 +15,7 @@ class _BoardList extends React.Component {
      } catch (err) {
     console.log('err');
   }
-}
+}  
 
   get favoriteBoards() {
     const { boards } = this.props
@@ -28,10 +28,9 @@ class _BoardList extends React.Component {
 
   onToggleFavorite = (ev, boardId) => {
     ev.preventDefault()
-    const { boards,onSaveBoard,onSaveBoards } = this.props
+    const { boards,onSaveBoards } = this.props
     const board = boards.find(board => board._id === boardId)
     board.isFavorite = !board.isFavorite
-    onSaveBoard(board);
     onSaveBoards(boards);
   };
 
@@ -55,7 +54,8 @@ class _BoardList extends React.Component {
               <div className={"preview-title flex align-center"}>
                  <BoardIcon /> 
                 <h3 className="flex">
-                  {loggedUser.username}'s Workspaces
+                  {/* {loggedUser.username}'s Workspaces */}
+                  Workspaces
                 </h3>
               </div>
               <BoardsList onToggleFavorite={this.onToggleFavorite} boards={this.notFavoriteBoards} />
@@ -74,7 +74,6 @@ function mapStateToProps(state) {
   };
 }
 const mapDispatchToProps = {
-  onSaveBoard,
   onSaveBoards,
   loadBoards,
 };
