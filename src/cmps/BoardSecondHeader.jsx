@@ -21,15 +21,14 @@ class _BoardSecondHeader extends React.Component {
         const {isSidePopUpOpen} = this.state
         return (
             <section className="board-second-wrapper flex justify-space-between">
-                <div>
-
-                        <span className="board-second-title">{title}</span>
-                        <span className="board-second-title"><StarIcon/></span>
+                <div className="left-nav">
+                        <span className="board-title">{title}</span>
+                        <span className="board-star"><StarIcon/></span>
                 </div>
                 <div className="board-second-container">
-                    <a className="board-second-btn-show-menu" onClick={(ev)=> {this.toggleSidePopUp(ev)}}>
-                        <span className="board-second-icon"><MoreHorizIcon/></span>
-                        <span className="board-second-btn-text">Show Menu</span>
+                    <a className="btn-show-menu" onClick={(ev)=> {this.toggleSidePopUp(ev)}}>
+                        <span className="header-icon"><MoreHorizIcon/></span>
+                        <span className="btn-text">Show Menu</span>
                         
                     </a>
                     {isSidePopUpOpen && <SidePopUp/> } 
