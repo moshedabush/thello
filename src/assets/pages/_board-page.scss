@@ -7,11 +7,17 @@
     overflow-x: auto;
     overflow-y: hidden;
     height: 94vh;
-    margin: 0 4px;
+    margin: 0 8px;
     white-space: nowrap;
     padding-bottom: 10px;
     margin-bottom: 10px;
-
+    
+    .bnzAPs:first-child{
+        margin: unset;
+        margin-top: 4px;
+        margin-right: 4px;
+        margin-bottom: 4px;
+    }
 
     &::-webkit-scrollbar {
         height: 12px;

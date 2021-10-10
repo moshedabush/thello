@@ -3,8 +3,8 @@ import { connect } from 'react-redux';
 // import { Link, NavLink } from "react-router-dom";
 import { ReactComponent as BoardIcon } from '../assets/img/board-icon.svg';
 
-// import routes from "../routes";
 
+// import routes from "../routes";
 import {
   onLogin,
   onLogout,
@@ -12,9 +12,30 @@ import {
   loadUsers,
   removeUser,
 } from '../store/user.actions.js';
-// import { LoginSignup } from "./login-signup.jsx";
+
 
 class _HomeHeader extends React.Component {
+
+  state = {
+    isNavBgVisible: false
+}
+
+componentDidMount() {
+    window.addEventListener('scroll', this.handleScroll)
+}
+
+componentWillUnmount() {
+    window.removeEventListener('scroll', this.handleScroll)
+}
+
+handleScroll = () => {
+    const { isNavBgVisible } = this.state
+    if (window.pageYOffset > 100 && !isNavBgVisible) {
+        this.setState({ isNavBgVisible: true })
+    } else if (window.pageYOffset < 100 && isNavBgVisible) {
+        this.setState({ isNavBgVisible: false })
+    }
+}
   onLogin = (credentials) => {
     this.props.onLogin(credentials);
   };
@@ -26,9 +47,9 @@ class _HomeHeader extends React.Component {
   };
 
   render() {
-    // const { user } = this.props;
+    const { isNavBgVisible } = this.state;
     return (
-      <header className='home-header '>
+      <header className={`home-header ${isNavBgVisible ? 'visibleBg' : ''}`}>
         <nav className='flex justify-space-between'>
           <div className='logo'>
             <BoardIcon />

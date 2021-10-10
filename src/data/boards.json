@@ -984,7 +984,9 @@
       "imgUrl": "http://some-img"
     },
     "style": {
-      "backgroundColor": "red"
+      "backgroundColor": "DarkCyan",
+      "coverColor": "DarkCyan",
+      "bgImg":""
     },
     "labels": [
       {
@@ -1298,7 +1300,9 @@
       "imgUrl": "http://some-img"
     },
     "style": {
-      "backgroundColor": "green"
+      "backgroundColor": "BlueViolet",
+      "coverColor": "BlueViolet",
+      "bgImg":""
     },
     "labels": [
       {
