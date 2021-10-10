@@ -7,7 +7,6 @@ import { TaskQuickMenu } from './TaskQuickMenu';
 import { TaskLabelPreview } from './TaskLabelPreview';
 import { onSaveBoard, loadBoard, onSetTask } from '../store/board.actions.js';
 import { connect } from 'react-redux';
-import { Covers } from './Covers';
 
 //Need to convert it to scss
 const Container = styled.div`
@@ -102,7 +101,9 @@ class _Task extends React.Component {
         <Draggable draggableId={this.props.task.id} index={this.props.index}>
 
           {(provided, snapshot) => (
-            <Container
+            <div className="task-container"
+
+            
 
               onMouseEnter={this.handleEditIcon}
               onMouseLeave={this.handleEditIcon}
@@ -110,7 +111,9 @@ class _Task extends React.Component {
               {...provided.draggableProps}
               {...provided.dragHandleProps}
               ref={provided.innerRef}
-              isDragging={snapshot.isDragging}>
+              // isDragging={snapshot.isDragging}
+              >
+
 
               {this.state.isClicked &&
                 <DialogModal
@@ -178,7 +181,7 @@ class _Task extends React.Component {
                 ''
               }
 
-            </Container>
+            </div>
           )}
         </Draggable>
       </div >

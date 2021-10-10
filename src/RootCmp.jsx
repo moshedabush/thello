@@ -1,20 +1,26 @@
 import React from "react";
 import { Switch, Route } from "react-router";
 import routes from "./routes";
+import { connect } from 'react-redux';
 import { userService } from "./services/user.service";
 
 export class RootCmp extends React.Component {
   state = {
-    user : userService.getLoggedinUser()
+    user: userService.getLoggedinUser()
   }
   componentDidMount = () => {
-    // console.log("loggedInUser", userService.getLoggedinUser(),this.state.user);
-  };
+    console.log("loggedInUser", userService.getLoggedinUser(), this.state.user);
+  }
+
+
+
   render() {
+
+   
+
     return (
       <div>
-       
-        <main>
+     
           <Switch>
             {routes.map((route) => (
               <Route
@@ -25,7 +31,7 @@ export class RootCmp extends React.Component {
               />
             ))}
           </Switch>
-        </main>
+       
         {/* <AppFooter /> */}
       </div>
     );

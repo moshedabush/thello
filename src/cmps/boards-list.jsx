@@ -6,8 +6,8 @@ export function BoardsList({ boards, onToggleFavorite }) {
             {boards.map(board => {
                 return <Link key={board._id} className="clean-link" to={`/board/${board._id}`}>
                     <div className="board-preview"
-                          style={{backgroundColor: board.style.backgroundColor
-                            ? board.style.backgroundColor
+                          style={{backgroundColor: board.style.coverColor
+                            ? board.style.coverColor
                               : "green",
                           }}>
                         <div className="board-preview-details">

@@ -10,7 +10,9 @@
       "imgUrl": "http://some-img"
     },
     "style": {
-      "backgroundColor": "#315faec7"
+      "backgroundColor": "#315faec7",
+      "coverColor": "lightblue",
+      "bgImg":""
     },
     "labels": [
       {

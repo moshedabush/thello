@@ -1,9 +1,10 @@
 import React from "react";
+import Hero from "../assets/img/hero.png";
+import Product from "../assets/img/home-product.png";
 import { connect } from "react-redux";
 import { userService } from "../services/user.service";
 import { onSignup } from "../store/user.actions";
 import { HomeHeader } from "../cmps/home-header";
-import Hero from "../assets/img/hero.png";
 class _HomePage extends React.Component {
   state = {
   };
@@ -34,7 +35,7 @@ class _HomePage extends React.Component {
                   works is unique—accomplish it all with Thello.
                 </p>
                 <button
-                  className="clean-link a"
+                  className="clean-link"
                   onClick={() => {
                     this.onGuestLogin();
                   }}
@@ -44,10 +45,28 @@ class _HomePage extends React.Component {
               </div>
               <div className="hero-img">
                 <img src={Hero} alt="" />
-                <img src="assets/img/hero.png" alt="" />
               </div>
             </section>
           </div>
+          <section className="product">
+            <div className="product-info">
+              <h2>It's more than work. It's a way of working together.</h2>
+              <p>Start with a Bambello board, lists, and cards. Customize and 
+                expand with more features as your teamwork grows. Manage projects, 
+                organize tasks, and build team spirit—all in one place.</p>
+                <button className="clean-link"
+                onClick={() => {
+                    this.onGuestLogin();
+                  }}>
+                    Start doing →
+                    </button>
+                    </div><div>
+                    <img src={Product} alt="" />
+                  </div>
+                  </section>
+          <section>
+   
+          </section>
         </main>
                
 

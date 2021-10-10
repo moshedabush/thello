@@ -21,6 +21,7 @@ class _TaskQuickMenu extends React.Component {
         isMenuOpen: true,
         taskTitle: '',
         clickedCover: false,
+     
     }
 
 
@@ -52,9 +53,22 @@ class _TaskQuickMenu extends React.Component {
         const menuBtnDims = ev.target.getBoundingClientRect();
         let { top, left } = menuBtnDims;
         this.props.openQuickPopUp(top, left, cmpName, cmpTitle, task.id, group.id)
+        console.log(top, left);
         const { isQuickPopUpOpen } = this.state;
         this.setState({ isQuickPopUpOpen: !isQuickPopUpOpen })
     };
+
+    //  checkViewport = () => {
+    //      let {top} = this.props.currPopUp 
+    //      const vpHeight = window.innerHeight
+    //     //  const vpWidth = window.innerWidth
+    //      console.log('vpHeight',vpHeight);
+    //      if (top < vpHeight) top = vpHeight -650
+         
+    //      console.log('top',top);
+    //      this.setState({top:top})
+
+    //  }
 
 
     sendToArchive = ({ target }) => {
@@ -78,7 +92,7 @@ class _TaskQuickMenu extends React.Component {
             <div>
                 {isMenuOpen ?
                     <Modal className="quick-menu-modal" 
-                    style={{ bottom: this.props.bottom, top: this.props.top, left: this.props.left + 227 + 'px' }}
+                    style={{ bottom: this.props.bottom, top: this.props.top  , left: this.props.left + 227 + 'px' }}
                         onClose={this.handleClose}
                         closeAfterTransition
                         open={isMenuOpen}

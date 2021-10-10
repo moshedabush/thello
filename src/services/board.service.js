@@ -1,8 +1,9 @@
 import { storageService } from './async-storage.service'
-
 // const gBoards = require('../data/boards.json')
-// const gBoards = require('../data/new-board.json')
-// localStorage.setItem("boards",JSON.stringify(gBoards));
+const gBoards = require('../data/new-board.json')
+localStorage.setItem("boards",JSON.stringify(gBoards));
+// const gBoards = require('../data/presentation-demo-board.json')
+// const STORAGE_KEY_BOARD = 'board'
 
 export const boardService = {
     save,
@@ -20,18 +21,20 @@ async function getBoardById(boardId){
         
         return board
 
-    }catch (err) {
+    } catch (err) {
         throw err
     }
 }
 
 async function query(userId) {
-    
+    console.log('query',userId);
+
     try {
         const boards = await storageService.query('boards') 
         const filterBoards = boards.filter(board => {
             return board.createdBy._id === userId
         })
+        // console.log(filterBoards,'board service query');
         return filterBoards
     } catch (err) {
         throw err
@@ -57,13 +60,13 @@ async function save(data) {
         }
     }
 }
-async function saveBoards(boards) {
-        try {
-            return await storageService.putArray('boards', boards)
-        } catch (err) {
-            throw err
-        }
+async function saveBoards(data) {
+    try {
+        return await storageService.putArray('boards', data)
+    } catch (err) {
+        throw err
     }
+}
 
     // } else {
     //     try {
