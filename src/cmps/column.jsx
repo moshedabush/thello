@@ -4,6 +4,7 @@ import { Droppable, Draggable } from 'react-beautiful-dnd';
 import styled from 'styled-components'
 import { Task } from './Task.jsx'
 import { TaskAdd } from './TaskAdd'
+import {onSetTask} from '../store/board.actions'
 import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 
 //Need to convert it to scss
@@ -150,7 +151,7 @@ class _Column extends React.Component {
                             )}
                             
                         </Droppable>
-                        <TaskAdd board={board} group={group} onSaveBoard={onSaveBoard} />
+                        <TaskAdd board={board} group={group} onSaveBoard={onSaveBoard} onSetTask={this.props.onSetTask} />
                     </Container>
                     
                 )}
@@ -167,6 +168,6 @@ function mapStateToProps(state) {
     };
   }
 const mapDispatchToProps = {
-
+    onSetTask,
 }
 export const Column = connect(mapStateToProps, mapDispatchToProps)(_Column)

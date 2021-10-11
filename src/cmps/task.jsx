@@ -170,6 +170,21 @@ class _Task extends React.Component {
                 <div className="task-title">
                   {this.props.task.title}
                 </div>
+               <div>
+               {/* {task.members && <div className='js-card-detail-members-list'>
+                {task.members.map((member, idx) => {
+                  if (member.isAssigned)
+                    return (
+                      <div
+                        key={idx}
+                        className='member member-on-card'
+                        title={member.fullname}>
+                        {member.fullname.substring(0, 1)}
+                      </div>
+                    );
+                })}
+                </div>} */}
+               </div>
               </div>
 
               {isQuickMenuOpen ? (

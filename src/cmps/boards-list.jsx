@@ -6,12 +6,19 @@ export function BoardsList({ boards, onToggleFavorite,onToggleBoard }) {
             {boards.map(board => {
                 return <Link key={board._id} className="clean-link" to={`/board/${board._id}`}>
                     <div className="board-preview" 
-                       style={{backgroundColor: board.style.coverColor
-                        ? board.style.coverColor
-                          : "green",
-                        //   style={{background: `${board.style.imgUrl ? `${board.style.imgUrl} center center / cover` : board.style.coverColor}`
+                    style={board.style.coverColor  ?
+                        {background:`${board.style.coverColor}`}:
+                        {backgroundImage:`url(${board.style.imgUrl})`,
+                        backgroundPosition: 'center',
+                        backgroundSize: 'cover',
+                        backgroundRepeat: 'no-repeat'}}
+                    //    style={{backgroundColor: board.style.coverColor
+                    //     ? board.style.coverColor
+                    //       : "green",
+                    //     //   style={{background: `${board.style.imgUrl ? `${board.style.imgUrl} center center / cover` : board.style.coverColor}`
                               
-                          }}>
+                    //       }}
+                    >
                         <div className="board-preview-details" onClick={() => onToggleBoard(board._id)}>
                             <h3>{board.title.length > 20 ? board.title.substring(0, 20) + '...' : board.title}</h3>
                             <Star  className={`far fa-star ${board.isFavorite ? 'favorite' : ''}`}

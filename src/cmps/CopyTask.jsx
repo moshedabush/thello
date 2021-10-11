@@ -58,6 +58,7 @@ class _Copy extends React.Component {
 
   handleCreateCard = (ev) => {
     ev.preventDefault();
+    console.log('this.props',this.props)
     const { boards } = this.props;
     const { selectedBoard, selectedGroup, newTask } = this.state;
     newTask.id = utilService.makeId();
@@ -65,7 +66,11 @@ class _Copy extends React.Component {
       (group) => group.id === selectedGroup.id
     );
     selectedBoard.groups[groupIdx].tasks.push(newTask);
-    boardService.save({...selectedBoard});
+    if (this.props.board._id===selectedBoard._id){
+      this.props.onSaveBoard({...selectedBoard})
+    }else{
+      boardService.save({...selectedBoard});
+    }
     this.setState({ isCreated: true });
   };
 

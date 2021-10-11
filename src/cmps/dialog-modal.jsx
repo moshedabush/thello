@@ -233,7 +233,7 @@ function _DialogModal(props) {
               <h3 className='card-detail-item-header mod-no-top-margin'>
                 Members
               </h3>
-              <div className='js-card-detail-members-list'>
+             {currTask.members && <div className='js-card-detail-members-list'>
                 {currTask.members.map((member, idx) => {
                   if (member.isAssigned)
                     return (
@@ -265,7 +265,7 @@ function _DialogModal(props) {
                     </QuickPopUp>
                   )}
                 </div>
-              </div>
+              </div>}
             </div>
 
             <div className={'card-detail-item labels'}>

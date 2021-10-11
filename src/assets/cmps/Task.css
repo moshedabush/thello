@@ -137,3 +137,21 @@
 }
 
 
+.js-card-detail-members-list{
+    display: flex;
+    justify-content: flex-end;
+}
+.member-on-card{
+    background-color: #00875a;
+    height: 27px;
+    width: 27px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 26px;
+    color: white;
+
+    margin-bottom: 4px;
+    margin-right: 3px;
+    margin-left: 2px;
+    
+}

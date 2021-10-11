@@ -60,6 +60,7 @@ export class TaskAdd extends React.Component{
         if (task.title)
         board.groups[groupIdx].tasks.push(task)
         this.props.onSaveBoard(board) 
+        // this.props.onSetTask(task)
         this.setState({taskTitle:''})  
     }
 
