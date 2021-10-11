@@ -51,6 +51,15 @@
                 transform: scale(0.95);
                 fill: white; 
             }
+            &.favorite {
+                svg{
+                fill: #f0dc6c;
+                &:hover {
+                    transform: scale(1.2);
+                    fill: #dbc443e5;
+                  }
+                }
+            }
         }
     }
         

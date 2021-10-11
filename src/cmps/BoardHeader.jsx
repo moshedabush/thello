@@ -45,7 +45,6 @@ toggleTopPopUp = ()=> {;
         </div>
         <div className="flex">
             <div className="btn-board-header">
-              {console.log(this.props)}
             <a onClick={(ev)=> {this.toggleTopPopUp(ev)}}>Workspaces</a>
             <ArrowDown />
             </div>

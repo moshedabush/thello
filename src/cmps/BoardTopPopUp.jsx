@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux'
-import { onSaveBoard,onSaveBoards,loadBoards } from '../store/board.actions';
+import { onSaveBoard,onSaveBoards,loadBoards,loadBoard } from '../store/board.actions';
 import Drawer from '@mui/material/Drawer';
 import CloseIcon from '@mui/icons-material/Close';
 import { ChangeBackground } from './ChangeBackground';
@@ -30,6 +30,9 @@ class _TopPopUp extends React.Component {
         board.isFavorite = !board.isFavorite
         onSaveBoards(boards);
       };
+      onToggleBoard = (boardId) =>{
+          this.props.loadBoard(boardId)
+      }
 
     render() {
         const { board } = this.props
@@ -50,7 +53,7 @@ class _TopPopUp extends React.Component {
                             </div>
                         {isMenuOpen ? 
                         <div>
-                            <BoardsList onToggleFavorite={this.onToggleFavorite} boards={boards} />
+                            <BoardsList onToggleFavorite={this.onToggleFavorite} onToggleBoard={this.onToggleBoard} boards={boards} />
                             </div> :
                             
                             <ChangeBackground board={board}/>
@@ -78,6 +81,7 @@ const mapDispatchToProps = {
     onSaveBoard,
     onSaveBoards,
     loadBoards,
+    loadBoard,
 }
 
 export const TopPopUp = connect(mapStateToProps, mapDispatchToProps)(_TopPopUp)
