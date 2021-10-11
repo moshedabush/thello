@@ -5,115 +5,115 @@
       "isFavorite": true,
       "createdAt": 1589983468418,
       "createdBy": {
-        "_id": "u101",
-        "fullname": "MosheDabush",
-        "imgUrl": "http://some-img"
+          "_id": "u101",
+          "fullname": "MosheDabush",
+          "imgUrl": "http://some-img"
       },
       "style": {
-          "coverColor": "lightblue",
-          "bgImg":""
+          "coverColor": "",
+          "imgUrl": "https://images.unsplash.com/photo-1522252234503-e356532cafd5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyNjU1MzR8MHwxfHNlYXJjaHw1fHxjb2RlfGVufDB8MHx8fDE2MzM5NzI5MTQ&ixlib=rb-1.2.1&q=80&w=1080.jpg"
       },
       "labels": [
-        {
-          "id": "l101",
-          "title": "Copy Request",
-          "color": "#f2d600",
-          "hoverColor": "#d9b51c"
-        },
-        {
-          "id": "l102",
-          "title": "One more step",
-          "color": "#ff9f1a",
-          "hoverColor": "#cd8313"
-        },
-        {
-          "id": "l103",
-          "title": "Priority",
-          "color": "#eb5a46",
-          "hoverColor": "#b04632"
-        },
-        {
-          "id": "l104",
-          "title": "Design Team",
-          "color": "#c377e0",
-          "hoverColor": "#89609e"
-        },
-        {
-          "id": "l105",
-          "title": "Product Marketing",
-          "color": "#0079bf",
-          "hoverColor": "#055a8c"
-        },
-        {
-          "id": "l106",
-          "title": "Thello Tip",
-          "color": "#00c2e0",
-          "hoverColor": "#0098b7"
-        },
-        {
-          "id": "l107",
-          "title": "Halp",
-          "color": "#51e898",
-          "hoverColor": "#4bbf6b"
-        },
-        {
-          "id": "l108",
-          "title": "Review",
-          "color": "#00c2e0",
-          "hoverColor": "#0098b7"
-        }
+          {
+              "title": "Stuck",
+              "color": "#f2d600",
+              "hoverColor": "#d9b51c",
+              "id": "l101"
+          },
+          {
+              "title": "In Progress",
+              "color": "#ff9f1a",
+              "hoverColor": "#cd8313",
+              "id": "l102"
+          },
+          {
+              "id": "l103",
+              "title": "Priority",
+              "color": "#eb5a46",
+              "hoverColor": "#b04632"
+          },
+          {
+              "id": "l104",
+              "title": "Design Team",
+              "color": "#c377e0",
+              "hoverColor": "#89609e"
+          },
+          {
+              "id": "l105",
+              "title": "Product Marketing",
+              "color": "#0079bf",
+              "hoverColor": "#055a8c"
+          },
+          {
+              "title": "Backend",
+              "color": "#00c2e0",
+              "hoverColor": "#0098b7",
+              "id": "l106"
+          },
+          {
+              "id": "l107",
+              "title": "Halp",
+              "color": "#51e898",
+              "hoverColor": "#4bbf6b"
+          },
+          {
+              "title": "Review",
+              "color": "#172b4d",
+              "hoverColor": "#344563",
+              "id": "l108"
+          }
       ],
       "colorPalette": [
-        {
-          "id": "lp101",
-          "color": "#f2d600",
-          "hoverColor": "#d9b51c"
-        },
-        {
-          "id": "lp102",
-          "color": "#ff9f1a",
-          "hoverColor": "#cd8313"
-        },
-        {
-          "id": "lp103",
-          "color": "#eb5a46",
-          "hoverColor": "#b04632"
-        },
-        {
-          "id": "lp104",
-          "color": "#c377e0",
-          "hoverColor": "#89609e"
-        },
-        {
-          "id": "lp105",
-          "color": "#0079bf",
-          "hoverColor": "#055a8c"
-        },
-        {
-          "id": "lp106",
-          "color": "#00c2e0",
-          "hoverColor": "#0098b7"
-        },
-        {
-          "id": "lp107",
-          "color": "#51e898",
-          "hoverColor": "#4bbf6b"
-        },
-        {
-          "id": "lp108",
-          "color": "#00c2e0",
-          "hoverColor": "#0098b7"
-        },
-        {
-          "id": "lp109",
-          "color": "#61bd4f",
-          "hoverColor": "#519839"
-        },
-        {
-          "id": "lp110",
-          "color": "#172b4d",
-          "hoverColor": "#344563"
-        }
+          {
+              "id": "lp101",
+              "color": "#f2d600",
+              "hoverColor": "#d9b51c"
+          },
+          {
+              "id": "lp102",
+              "color": "#ff9f1a",
+              "hoverColor": "#cd8313"
+          },
+          {
+              "id": "lp103",
+              "color": "#eb5a46",
+              "hoverColor": "#b04632"
+          },
+          {
+              "id": "lp104",
+              "color": "#c377e0",
+              "hoverColor": "#89609e"
+          },
+          {
+              "id": "lp105",
+              "color": "#0079bf",
+              "hoverColor": "#055a8c"
+          },
+          {
+              "id": "lp106",
+              "color": "#00c2e0",
+              "hoverColor": "#0098b7"
+          },
+          {
+              "id": "lp107",
+              "color": "#51e898",
+              "hoverColor": "#4bbf6b"
+          },
+          {
+              "id": "lp108",
+              "color": "#00c2e0",
+              "hoverColor": "#0098b7"
+          },
+          {
+              "id": "lp109",
+              "color": "#61bd4f",
+              "hoverColor": "#519839"
+          },
+          {
+              "id": "lp110",
+              "color": "#172b4d",
+              "hoverColor": "#344563"
+          }
       ],
       "members": [
           {
@@ -124,7 +124,8 @@
           {
               "_id": "u103",
               "fullname": "Moshe Dabush",
-              "imgUrl": "https://www.google.com"
+              "imgUrl": "https://www.google.com",
+              "isAssigned": true
           },
           {
               "_id": "u104",
@@ -143,777 +144,1667 @@
           }
       ],
       "groups": [
-        {
-          "id": "g101",
-          "title": "Todo",
-          "tasks": [
-            {
-              "id": "c101",
-              "title": "Connect Everything",
-              "members": [
+          {
+              "id": "g101",
+              "title": "In Progress",
+              "tasks": [
                   {
-                      "_id": "u102",
-                      "fullname": "Dan Katorza",
-                      "imgUrl": "https://www.google.com",
-                      "isAssigned": true
+                      "id": "c101",
+                      "title": "Connect Everything",
+                      "members": [
+                          {
+                              "_id": "u102",
+                              "fullname": "Dan Katorza",
+                              "imgUrl": "https://www.google.com",
+                              "isAssigned": true
+                          },
+                          {
+                              "_id": "u103",
+                              "fullname": "Moshe Dabush",
+                              "imgUrl": "https://www.google.com",
+                              "isAssigned": false
+                          },
+                          {
+                              "_id": "u104",
+                              "fullname": "Eran Danieli",
+                              "imgUrl": "https://www.google.com",
+                              "isAssigned": false
+                          },
+                          {
+                              "_id": "u105",
+                              "fullname": "David Cohen",
+                              "imgUrl": "https://www.google.com",
+                              "isAssigned": false
+                          },
+                          {
+                              "_id": "u106",
+                              "fullname": "Omer Levy",
+                              "imgUrl": "https://www.google.com",
+                              "isAssigned": false
+                          }
+                      ],
+                      "labelIds": [
+                          "l104",
+                          "l105",
+                          "l107",
+                          "l103"
+                      ],
+                      "style": {
+                          "coverColor": "",
+                          "imgUrl": "https://res.cloudinary.com/dikcrkxei/image/upload/v1633525254/m3i3jetstyzqh412bivs.png"
+                      },
+                      "isArchived": true
                   },
                   {
-                      "_id": "u103",
-                      "fullname": "Moshe Dabush",
-                      "imgUrl": "https://www.google.com",
-                      "isAssigned": false
+                      "id": "c102",
+                      "title": "Clean the scss code for CR ",
+                      "labelIds": [
+                          "l103",
+                          "l101",
+                          "l102"
+                      ],
+                      "members": [
+                          {
+                              "_id": "u102",
+                              "fullname": "Dan Katorza",
+                              "imgUrl": "https://www.google.com",
+                              "isAssigned": true
+                          },
+                          {
+                              "_id": "u103",
+                              "fullname": "Moshe Dabush",
+                              "imgUrl": "https://www.google.com",
+                              "isAssigned": false
+                          },
+                          {
+                              "_id": "u104",
+                              "fullname": "Eran Danieli",
+                              "imgUrl": "https://www.google.com",
+                              "isAssigned": false
+                          },
+                          {
+                              "_id": "u105",
+                              "fullname": "David Cohen",
+                              "imgUrl": "https://www.google.com",
+                              "isAssigned": false
+                          },
+                          {
+                              "_id": "u106",
+                              "fullname": "Omer Levy",
+                              "imgUrl": "https://www.google.com",
+                              "isAssigned": false
+                          }
+                      ],
+                      "style": {
+                          "coverColor": "",
+                          "bgColor": "",
+                          "imgUrl": ""
+                      }
                   },
                   {
-                      "_id": "u104",
-                      "fullname": "Eran Danieli",
-                      "imgUrl": "https://www.google.com",
-                      "isAssigned": false
+                      "id": "E4sXpw",
+                      "title": "Meeting at 14:00 w/ Assaf",
+                      "description": "Apps & Beers !!!",
+                      "comments": [],
+                      "checklists": [],
+                      "members": [
+                          {
+                              "_id": "u102",
+                              "fullname": "Dan Katorza",
+                              "imgUrl": "https://www.google.com",
+                              "isAssigned": true
+                          },
+                          {
+                              "_id": "u103",
+                              "fullname": "Moshe Dabush",
+                              "imgUrl": "https://www.google.com",
+                              "isAssigned": false
+                          },
+                          {
+                              "_id": "u104",
+                              "fullname": "Eran Danieli",
+                              "imgUrl": "https://www.google.com",
+                              "isAssigned": false
+                          },
+                          {
+                              "_id": "u105",
+                              "fullname": "David Cohen",
+                              "imgUrl": "https://www.google.com",
+                              "isAssigned": false
+                          },
+                          {
+                              "_id": "u106",
+                              "fullname": "Omer Levy",
+                              "imgUrl": "https://www.google.com",
+                              "isAssigned": false
+                          }
+                      ],
+                      "labelIds": [
+                          "l102"
+                      ],
+                      "byMember": "Guest Guest",
+                      "createdAt": 1633525713029,
+                      "dueDate": "Tue Oct 12 2021 14:00:58 ",
+                      "style": {
+                          "coverColor": "",
+                          "imgUrl": "https://images.unsplash.com/photo-1441985969846-3e7c90531139?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyNjU1MzR8MHwxfHNlYXJjaHw0fHxiZWVyfGVufDB8MHx8fDE2MzM5NzMxMDI&ixlib=rb-1.2.1&q=80&w=1080.jpg"
+                      }
                   },
                   {
-                      "_id": "u105",
-                      "fullname": "David Cohen",
-                      "imgUrl": "https://www.google.com",
-                      "isAssigned": false
+                      "id": "Pb6OE1",
+                      "title": "Go There",
+                      "description": "",
+                      "comments": [],
+                      "checklists": [],
+                      "members": [
+                          {
+                              "_id": "u102",
+                              "fullname": "Dan Katorza",
+                              "imgUrl": "https://www.google.com",
+                              "isAssigned": true
+                          },
+                          {
+                              "_id": "u103",
+                              "fullname": "Moshe Dabush",
+                              "imgUrl": "https://www.google.com",
+                              "isAssigned": false
+                          },
+                          {
+                              "_id": "u104",
+                              "fullname": "Eran Danieli",
+                              "imgUrl": "https://www.google.com",
+                              "isAssigned": false
+                          },
+                          {
+                              "_id": "u105",
+                              "fullname": "David Cohen",
+                              "imgUrl": "https://www.google.com",
+                              "isAssigned": false
+                          },
+                          {
+                              "_id": "u106",
+                              "fullname": "Omer Levy",
+                              "imgUrl": "https://www.google.com",
+                              "isAssigned": false
+                          }
+                      ],
+                      "labelIds": [],
+                      "byMember": "Guest Guest",
+                      "createdAt": 1633525195657,
+                      "dueDate": 0,
+                      "style": {
+                          "coverColor": "",
+                          "bgColor": "",
+                          "imgUrl": "https://res.cloudinary.com/dikcrkxei/image/upload/v1633525234/aj5ho7boorx9kvtulvxj.jpg"
+                      },
+                      "isArchived": true
                   },
                   {
-                      "_id": "u106",
-                      "fullname": "Omer Levy",
-                      "imgUrl": "https://www.google.com",
-                      "isAssigned": false
+                      "id": "EPywGy",
+                      "title": "Invite feature",
+                      "description": "",
+                      "comments": [],
+                      "checklists": [],
+                      "members": [
+                          {
+                              "_id": "u102",
+                              "fullname": "Dan Katorza",
+                              "imgUrl": "https://www.google.com"
+                          },
+                          {
+                              "_id": "u103",
+                              "fullname": "Moshe Dabush",
+                              "imgUrl": "https://www.google.com",
+                              "isAssigned": true
+                          },
+                          {
+                              "_id": "u104",
+                              "fullname": "Eran Danieli",
+                              "imgUrl": "https://www.google.com"
+                          },
+                          {
+                              "_id": "u105",
+                              "fullname": "David Cohen",
+                              "imgUrl": "https://www.google.com"
+                          },
+                          {
+                              "_id": "u106",
+                              "fullname": "Omer Levy",
+                              "imgUrl": "https://www.google.com"
+                          }
+                      ],
+                      "labelIds": [
+                          "l102"
+                      ],
+                      "byMember": "Guest Guest",
+                      "createdAt": 1633972966377,
+                      "dueDate": 0,
+                      "style": {
+                          "coverColor": "",
+                          "imgUrl": "",
+                          "bgColor": ""
+                      }
+                  },
+                  {
+                      "id": "UuNi3S",
+                      "title": "implement image selection feature ",
+                      "description": "",
+                      "comments": [],
+                      "checklists": [],
+                      "members": [
+                          {
+                              "_id": "u102",
+                              "fullname": "Dan Katorza",
+                              "imgUrl": "https://www.google.com"
+                          },
+                          {
+                              "_id": "u103",
+                              "fullname": "Moshe Dabush",
+                              "imgUrl": "https://www.google.com",
+                              "isAssigned": true
+                          },
+                          {
+                              "_id": "u104",
+                              "fullname": "Eran Danieli",
+                              "imgUrl": "https://www.google.com"
+                          },
+                          {
+                              "_id": "u105",
+                              "fullname": "David Cohen",
+                              "imgUrl": "https://www.google.com"
+                          },
+                          {
+                              "_id": "u106",
+                              "fullname": "Omer Levy",
+                              "imgUrl": "https://www.google.com"
+                          }
+                      ],
+                      "labelIds": [
+                          "l102"
+                      ],
+                      "byMember": "Guest Guest",
+                      "createdAt": 1633972985799,
+                      "dueDate": 0,
+                      "style": {
+                          "coverColor": "",
+                          "imgUrl": "",
+                          "bgColor": ""
+                      }
+                  },
+                  {
+                      "id": "cH8DzE",
+                      "title": "Color Scheme Approval ",
+                      "description": "",
+                      "comments": [],
+                      "checklists": [],
+                      "members": [
+                          {
+                              "_id": "u102",
+                              "fullname": "Dan Katorza",
+                              "imgUrl": "https://www.google.com"
+                          },
+                          {
+                              "_id": "u103",
+                              "fullname": "Moshe Dabush",
+                              "imgUrl": "https://www.google.com",
+                              "isAssigned": true
+                          },
+                          {
+                              "_id": "u104",
+                              "fullname": "Eran Danieli",
+                              "imgUrl": "https://www.google.com"
+                          },
+                          {
+                              "_id": "u105",
+                              "fullname": "David Cohen",
+                              "imgUrl": "https://www.google.com"
+                          },
+                          {
+                              "_id": "u106",
+                              "fullname": "Omer Levy",
+                              "imgUrl": "https://www.google.com"
+                          }
+                      ],
+                      "labelIds": [
+                          "l103",
+                          "l101",
+                          "l102"
+                      ],
+                      "byMember": "Guest Guest",
+                      "createdAt": 1633973004540,
+                      "dueDate": 0,
+                      "style": {
+                          "coverColor": "",
+                          "imgUrl": "",
+                          "bgColor": ""
+                      }
                   }
               ],
-              "labelIds": [
-                "l104",
-                "l105",
-                "l107",
-                "l103"
-              ],
-              "style": {
-                "coverColor": "",
-                "imgUrl": "https://res.cloudinary.com/dikcrkxei/image/upload/v1633525254/m3i3jetstyzqh412bivs.png"
-              }
-            },
-            {
-              "id": "E4sXpw",
-              "title": "Meeting at 16:30 w/ Assaf",
-              "description": "",
-              "comments": [],
-              "checklists": [],
-              "members": [
+              "style": {}
+          },
+          {
+              "id": "g102",
+              "title": "Backlog 🗒 ",
+              "tasks": [
                   {
-                      "_id": "u102",
-                      "fullname": "Dan Katorza",
-                      "imgUrl": "https://www.google.com",
-                      "isAssigned": true
+                      "id": "c104",
+                      "title": "Make It Colorful",
+                      "description": "description",
+                      "comments": [
+                          {
+                              "id": "ZdPnm",
+                              "txt": "also @yaronb please CR this",
+                              "createdAt": 1590999817436,
+                              "byMember": {
+                                  "_id": "u103",
+                                  "fullname": "DanKatorza",
+                                  "imgUrl": "http://res.cloudinary.com/shaishar9/image/upload/v1590850482/j1glw3c9jsoz2py0miol.jpg"
+                              }
+                          }
+                      ],
+                      "checklists": [
+                          {
+                              "id": "YEhmF",
+                              "title": "Checklist",
+                              "todos": [
+                                  {
+                                      "id": "212jX",
+                                      "title": "To Do 1",
+                                      "isDone": false
+                                  }
+                              ]
+                          }
+                      ],
+                      "members": [
+                          {
+                              "_id": "u102",
+                              "fullname": "Dan Katorza",
+                              "imgUrl": "https://www.google.com",
+                              "isAssigned": true
+                          },
+                          {
+                              "_id": "u103",
+                              "fullname": "Moshe Dabush",
+                              "imgUrl": "https://www.google.com",
+                              "isAssigned": false
+                          },
+                          {
+                              "_id": "u104",
+                              "fullname": "Eran Danieli",
+                              "imgUrl": "https://www.google.com",
+                              "isAssigned": false
+                          },
+                          {
+                              "_id": "u105",
+                              "fullname": "David Cohen",
+                              "imgUrl": "https://www.google.com",
+                              "isAssigned": false
+                          },
+                          {
+                              "_id": "u106",
+                              "fullname": "Omer Levy",
+                              "imgUrl": "https://www.google.com",
+                              "isAssigned": false
+                          }
+                      ],
+                      "labelIds": [
+                          "l101",
+                          "l102",
+                          "l105"
+                      ],
+                      "createdAt": 1590999730348,
+                      "dueDate": 1592999830348,
+                      "byMember": {
+                          "_id": "u103",
+                          "username": "DanKatorza",
+                          "fullname": "Dan Katorza",
+                          "imgUrl": "http://res.cloudinary.com/shaishar9/image/upload/v1590850482/j1glw3c9jsoz2py0miol.jpg"
+                      },
+                      "style": {
+                          "coverColor": "",
+                          "imgUrl": "https://res.cloudinary.com/dikcrkxei/image/upload/v1633525407/lsel1har0linwq6l3vu5.jpg"
+                      },
+                      "isArchived": true
                   },
                   {
-                      "_id": "u103",
-                      "fullname": "Moshe Dabush",
-                      "imgUrl": "https://www.google.com",
-                      "isAssigned": false
+                      "id": "W8eWOu",
+                      "title": "Home Page",
+                      "description": "",
+                      "comments": [],
+                      "checklists": [],
+                      "members": [
+                          {
+                              "_id": "u102",
+                              "fullname": "Dan Katorza",
+                              "imgUrl": "https://www.google.com"
+                          },
+                          {
+                              "_id": "u103",
+                              "fullname": "Moshe Dabush",
+                              "imgUrl": "https://www.google.com",
+                              "isAssigned": true
+                          },
+                          {
+                              "_id": "u104",
+                              "fullname": "Eran Danieli",
+                              "imgUrl": "https://www.google.com"
+                          },
+                          {
+                              "_id": "u105",
+                              "fullname": "David Cohen",
+                              "imgUrl": "https://www.google.com"
+                          },
+                          {
+                              "_id": "u106",
+                              "fullname": "Omer Levy",
+                              "imgUrl": "https://www.google.com"
+                          }
+                      ],
+                      "labelIds": [],
+                      "byMember": "Guest Guest",
+                      "createdAt": 1633972203331,
+                      "dueDate": 0,
+                      "style": {
+                          "coverColor": "#eb5a46",
+                          "imgUrl": ""
+                      },
+                      "isArchived": true
                   },
                   {
-                      "_id": "u104",
-                      "fullname": "Eran Danieli",
-                      "imgUrl": "https://www.google.com",
-                      "isAssigned": false
+                      "id": "6ea3Hm",
+                      "title": " MongoDB Atlas",
+                      "description": "Connect to MongoDb Atlas and create all the collections.",
+                      "comments": [],
+                      "checklists": [],
+                      "members": [
+                          {
+                              "_id": "u102",
+                              "fullname": "Dan Katorza",
+                              "imgUrl": "https://www.google.com"
+                          },
+                          {
+                              "_id": "u103",
+                              "fullname": "Moshe Dabush",
+                              "imgUrl": "https://www.google.com",
+                              "isAssigned": true
+                          },
+                          {
+                              "_id": "u104",
+                              "fullname": "Eran Danieli",
+                              "imgUrl": "https://www.google.com"
+                          },
+                          {
+                              "_id": "u105",
+                              "fullname": "David Cohen",
+                              "imgUrl": "https://www.google.com"
+                          },
+                          {
+                              "_id": "u106",
+                              "fullname": "Omer Levy",
+                              "imgUrl": "https://www.google.com"
+                          }
+                      ],
+                      "labelIds": [
+                          "l101",
+                          "l102",
+                          "l106"
+                      ],
+                      "byMember": "Guest Guest",
+                      "createdAt": 1633972579242,
+                      "dueDate": 0,
+                      "style": {
+                          "coverColor": "#eb5a46",
+                          "imgUrl": "",
+                          "bgColor": ""
+                      }
                   },
                   {
-                      "_id": "u105",
-                      "fullname": "David Cohen",
-                      "imgUrl": "https://www.google.com",
-                      "isAssigned": false
-                  },
-                  {
-                      "_id": "u106",
-                      "fullname": "Omer Levy",
-                      "imgUrl": "https://www.google.com",
-                      "isAssigned": false
+                      "id": "pGoUcn",
+                      "title": "Users management",
+                      "description": "Input fields: - Account type - Name  - Email  - Password",
+                      "comments": [],
+                      "checklists": [],
+                      "members": [
+                          {
+                              "_id": "u102",
+                              "fullname": "Dan Katorza",
+                              "imgUrl": "https://www.google.com"
+                          },
+                          {
+                              "_id": "u103",
+                              "fullname": "Moshe Dabush",
+                              "imgUrl": "https://www.google.com",
+                              "isAssigned": true
+                          },
+                          {
+                              "_id": "u104",
+                              "fullname": "Eran Danieli",
+                              "imgUrl": "https://www.google.com"
+                          },
+                          {
+                              "_id": "u105",
+                              "fullname": "David Cohen",
+                              "imgUrl": "https://www.google.com"
+                          },
+                          {
+                              "_id": "u106",
+                              "fullname": "Omer Levy",
+                              "imgUrl": "https://www.google.com"
+                          }
+                      ],
+                      "labelIds": [
+                          "l102"
+                      ],
+                      "byMember": "Guest Guest",
+                      "createdAt": 1633972599373,
+                      "dueDate": 0,
+                      "style": {
+                          "coverColor": "",
+                          "imgUrl": "",
+                          "bgColor": ""
+                      }
                   }
               ],
-              "labelIds": [],
-              "byMember": "Guest Guest",
-              "createdAt": 1633525713029,
-              "dueDate": 0,
-              "style": {
-                "coverColor": "",
-                "bgColor": "",
-                "imgUrl": ""
-              }
-            },
-            {
-              "id": "Ou0azb",
-              "title": "Add Secondary Header",
-              "description": "",
-              "comments": [],
-              "checklists": [],
-              "members": [
+              "style": {}
+          },
+          {
+              "id": "ztJ3el",
+              "title": "QA - Testing",
+              "tasks": [
                   {
-                      "_id": "u102",
-                      "fullname": "Dan Katorza",
-                      "imgUrl": "https://www.google.com",
-                      "isAssigned": true
+                      "id": "Hyi77v",
+                      "title": "Work on Better Bcg Img",
+                      "description": "",
+                      "comments": [],
+                      "checklists": [],
+                      "members": [
+                          {
+                              "_id": "u102",
+                              "fullname": "Dan Katorza",
+                              "imgUrl": "https://www.google.com",
+                              "isAssigned": true
+                          },
+                          {
+                              "_id": "u103",
+                              "fullname": "Moshe Dabush",
+                              "imgUrl": "https://www.google.com",
+                              "isAssigned": false
+                          },
+                          {
+                              "_id": "u104",
+                              "fullname": "Eran Danieli",
+                              "imgUrl": "https://www.google.com",
+                              "isAssigned": false
+                          },
+                          {
+                              "_id": "u105",
+                              "fullname": "David Cohen",
+                              "imgUrl": "https://www.google.com",
+                              "isAssigned": false
+                          },
+                          {
+                              "_id": "u106",
+                              "fullname": "Omer Levy",
+                              "imgUrl": "https://www.google.com",
+                              "isAssigned": false
+                          }
+                      ],
+                      "labelIds": [],
+                      "byMember": "Guest Guest",
+                      "createdAt": 1633526318844,
+                      "dueDate": 0,
+                      "style": {
+                          "coverColor": "",
+                          "imgUrl": "https://res.cloudinary.com/dikcrkxei/image/upload/v1633526335/cw6p3oucvzhfp9kqhkz9.jpg"
+                      },
+                      "isArchived": true
                   },
                   {
-                      "_id": "u103",
-                      "fullname": "Moshe Dabush",
-                      "imgUrl": "https://www.google.com",
-                      "isAssigned": false
+                      "id": "c103",
+                      "title": "Work On Design ",
+                      "members": [
+                          {
+                              "_id": "u102",
+                              "fullname": "Dan Katorza",
+                              "imgUrl": "https://www.google.com",
+                              "isAssigned": true
+                          },
+                          {
+                              "_id": "u103",
+                              "fullname": "Moshe Dabush",
+                              "imgUrl": "https://www.google.com",
+                              "isAssigned": false
+                          },
+                          {
+                              "_id": "u104",
+                              "fullname": "Eran Danieli",
+                              "imgUrl": "https://www.google.com",
+                              "isAssigned": false
+                          },
+                          {
+                              "_id": "u105",
+                              "fullname": "David Cohen",
+                              "imgUrl": "https://www.google.com",
+                              "isAssigned": false
+                          },
+                          {
+                              "_id": "u106",
+                              "fullname": "Omer Levy",
+                              "imgUrl": "https://www.google.com",
+                              "isAssigned": false
+                          }
+                      ],
+                      "labelIds": [
+                          "l104",
+                          "l102"
+                      ],
+                      "isArchived": true,
+                      "style": {
+                          "coverColor": "#0079bf",
+                          "imgUrl": ""
+                      }
                   },
                   {
-                      "_id": "u104",
-                      "fullname": "Eran Danieli",
-                      "imgUrl": "https://www.google.com",
-                      "isAssigned": false
+                      "id": "tEwePE",
+                      "title": "Db crashes when searching with special characters",
+                      "description": "",
+                      "comments": [],
+                      "checklists": [],
+                      "members": [
+                          {
+                              "_id": "u102",
+                              "fullname": "Dan Katorza",
+                              "imgUrl": "https://www.google.com"
+                          },
+                          {
+                              "_id": "u103",
+                              "fullname": "Moshe Dabush",
+                              "imgUrl": "https://www.google.com",
+                              "isAssigned": true
+                          },
+                          {
+                              "_id": "u104",
+                              "fullname": "Eran Danieli",
+                              "imgUrl": "https://www.google.com"
+                          },
+                          {
+                              "_id": "u105",
+                              "fullname": "David Cohen",
+                              "imgUrl": "https://www.google.com"
+                          },
+                          {
+                              "_id": "u106",
+                              "fullname": "Omer Levy",
+                              "imgUrl": "https://www.google.com"
+                          }
+                      ],
+                      "labelIds": [],
+                      "byMember": "Guest Guest",
+                      "createdAt": 1633972075219,
+                      "dueDate": 0,
+                      "style": {
+                          "coverColor": "#f2d600",
+                          "imgUrl": ""
+                      }
                   },
                   {
-                      "_id": "u105",
-                      "fullname": "David Cohen",
-                      "imgUrl": "https://www.google.com",
-                      "isAssigned": false
+                      "id": "KhAqtX",
+                      "title": "Sockets",
+                      "description": "",
+                      "comments": [],
+                      "checklists": [],
+                      "members": [
+                          {
+                              "_id": "u102",
+                              "fullname": "Dan Katorza",
+                              "imgUrl": "https://www.google.com"
+                          },
+                          {
+                              "_id": "u103",
+                              "fullname": "Moshe Dabush",
+                              "imgUrl": "https://www.google.com",
+                              "isAssigned": true
+                          },
+                          {
+                              "_id": "u104",
+                              "fullname": "Eran Danieli",
+                              "imgUrl": "https://www.google.com"
+                          },
+                          {
+                              "_id": "u105",
+                              "fullname": "David Cohen",
+                              "imgUrl": "https://www.google.com"
+                          },
+                          {
+                              "_id": "u106",
+                              "fullname": "Omer Levy",
+                              "imgUrl": "https://www.google.com"
+                          }
+                      ],
+                      "labelIds": [],
+                      "byMember": "Guest Guest",
+                      "createdAt": 1633972087250,
+                      "dueDate": 0,
+                      "style": {
+                          "coverColor": "",
+                          "imgUrl": "",
+                          "bgColor": ""
+                      }
                   },
                   {
-                      "_id": "u106",
-                      "fullname": "Omer Levy",
-                      "imgUrl": "https://www.google.com",
-                      "isAssigned": false
+                      "id": "0zvS5o",
+                      "title": "Data gets erased upon",
+                      "description": "",
+                      "comments": [],
+                      "checklists": [],
+                      "members": [
+                          {
+                              "_id": "u102",
+                              "fullname": "Dan Katorza",
+                              "imgUrl": "https://www.google.com"
+                          },
+                          {
+                              "_id": "u103",
+                              "fullname": "Moshe Dabush",
+                              "imgUrl": "https://www.google.com",
+                              "isAssigned": true
+                          },
+                          {
+                              "_id": "u104",
+                              "fullname": "Eran Danieli",
+                              "imgUrl": "https://www.google.com"
+                          },
+                          {
+                              "_id": "u105",
+                              "fullname": "David Cohen",
+                              "imgUrl": "https://www.google.com"
+                          },
+                          {
+                              "_id": "u106",
+                              "fullname": "Omer Levy",
+                              "imgUrl": "https://www.google.com"
+                          }
+                      ],
+                      "labelIds": [
+                          "l103",
+                          "l101"
+                      ],
+                      "byMember": "Guest Guest",
+                      "createdAt": 1633972096649,
+                      "dueDate": 0,
+                      "style": {
+                          "coverColor": "",
+                          "imgUrl": "",
+                          "bgColor": ""
+                      }
+                  },
+                  {
+                      "id": "DOBXgk",
+                      "title": "Search in filter",
+                      "description": "",
+                      "comments": [],
+                      "checklists": [],
+                      "members": [
+                          {
+                              "_id": "u102",
+                              "fullname": "Dan Katorza",
+                              "imgUrl": "https://www.google.com"
+                          },
+                          {
+                              "_id": "u103",
+                              "fullname": "Moshe Dabush",
+                              "imgUrl": "https://www.google.com",
+                              "isAssigned": true
+                          },
+                          {
+                              "_id": "u104",
+                              "fullname": "Eran Danieli",
+                              "imgUrl": "https://www.google.com"
+                          },
+                          {
+                              "_id": "u105",
+                              "fullname": "David Cohen",
+                              "imgUrl": "https://www.google.com"
+                          },
+                          {
+                              "_id": "u106",
+                              "fullname": "Omer Levy",
+                              "imgUrl": "https://www.google.com"
+                          }
+                      ],
+                      "labelIds": [
+                          "l107",
+                          "l108"
+                      ],
+                      "byMember": "Guest Guest",
+                      "createdAt": 1633972109684,
+                      "dueDate": 0,
+                      "style": {
+                          "coverColor": "",
+                          "imgUrl": "",
+                          "bgColor": ""
+                      }
+                  }
+              ]
+          },
+          {
+              "id": "g103",
+              "title": "Frontend 🧑🏾‍💻 ",
+              "tasks": [
+                  {
+                      "id": "c108",
+                      "title": "Meeting at 10:00",
+                      "description": "description",
+                      "comments": [
+                          {
+                              "id": "ZdPnm",
+                              "txt": "also @yaronb please CR this",
+                              "createdAt": 1590999817436,
+                              "byMember": {
+                                  "_id": "u103",
+                                  "fullname": "DanKatorza",
+                                  "imgUrl": "http://res.cloudinary.com/shaishar9/image/upload/v1590850482/j1glw3c9jsoz2py0miol.jpg"
+                              }
+                          }
+                      ],
+                      "checklists": [
+                          {
+                              "id": "YEhmF",
+                              "title": "Checklist",
+                              "todos": [
+                                  {
+                                      "id": "212jX",
+                                      "title": "To Do 1",
+                                      "isDone": false
+                                  }
+                              ]
+                          }
+                      ],
+                      "members": [
+                          {
+                              "_id": "u102",
+                              "fullname": "Dan Katorza",
+                              "imgUrl": "https://www.google.com",
+                              "isAssigned": true
+                          },
+                          {
+                              "_id": "u103",
+                              "fullname": "Moshe Dabush",
+                              "imgUrl": "https://www.google.com",
+                              "isAssigned": false
+                          },
+                          {
+                              "_id": "u104",
+                              "fullname": "Eran Danieli",
+                              "imgUrl": "https://www.google.com",
+                              "isAssigned": false
+                          },
+                          {
+                              "_id": "u105",
+                              "fullname": "David Cohen",
+                              "imgUrl": "https://www.google.com",
+                              "isAssigned": false
+                          },
+                          {
+                              "_id": "u106",
+                              "fullname": "Omer Levy",
+                              "imgUrl": "https://www.google.com",
+                              "isAssigned": false
+                          }
+                      ],
+                      "labelIds": [
+                          "l101",
+                          "l102"
+                      ],
+                      "createdAt": 1590999730348,
+                      "dueDate": 1592999830348,
+                      "byMember": {
+                          "_id": "u103",
+                          "username": "DanKatorza",
+                          "fullname": "Dan Katorza",
+                          "imgUrl": "http://res.cloudinary.com/shaishar9/image/upload/v1590850482/j1glw3c9jsoz2py0miol.jpg"
+                      },
+                      "style": {
+                          "coverColor": "#61bd4f",
+                          "bgColor": "",
+                          "imgUrl": ""
+                      },
+                      "isArchived": true
+                  },
+                  {
+                      "id": "c107",
+                      "title": "Homepage",
+                      "labelIds": [
+                          "l103",
+                          "l101"
+                      ],
+                      "isArchived": false,
+                      "members": [
+                          {
+                              "_id": "u102",
+                              "fullname": "Dan Katorza",
+                              "imgUrl": "https://www.google.com",
+                              "isAssigned": true
+                          },
+                          {
+                              "_id": "u103",
+                              "fullname": "Moshe Dabush",
+                              "imgUrl": "https://www.google.com",
+                              "isAssigned": false
+                          },
+                          {
+                              "_id": "u104",
+                              "fullname": "Eran Danieli",
+                              "imgUrl": "https://www.google.com",
+                              "isAssigned": false
+                          },
+                          {
+                              "_id": "u105",
+                              "fullname": "David Cohen",
+                              "imgUrl": "https://www.google.com",
+                              "isAssigned": false
+                          },
+                          {
+                              "_id": "u106",
+                              "fullname": "Omer Levy",
+                              "imgUrl": "https://www.google.com",
+                              "isAssigned": false
+                          }
+                      ],
+                      "style": {
+                          "coverColor": "",
+                          "imgUrl": "https://res.cloudinary.com/dikcrkxei/image/upload/v1633526008/jeoo3xporimdlkkndzb3.png"
+                      }
+                  },
+                  {
+                      "id": "15sJNv",
+                      "title": "Morning Coffee",
+                      "description": "",
+                      "comments": [],
+                      "checklists": [],
+                      "members": [
+                          {
+                              "_id": "u102",
+                              "fullname": "Dan Katorza",
+                              "imgUrl": "https://www.google.com",
+                              "isAssigned": true
+                          },
+                          {
+                              "_id": "u103",
+                              "fullname": "Moshe Dabush",
+                              "imgUrl": "https://www.google.com",
+                              "isAssigned": false
+                          },
+                          {
+                              "_id": "u104",
+                              "fullname": "Eran Danieli",
+                              "imgUrl": "https://www.google.com",
+                              "isAssigned": false
+                          },
+                          {
+                              "_id": "u105",
+                              "fullname": "David Cohen",
+                              "imgUrl": "https://www.google.com",
+                              "isAssigned": false
+                          },
+                          {
+                              "_id": "u106",
+                              "fullname": "Omer Levy",
+                              "imgUrl": "https://www.google.com",
+                              "isAssigned": false
+                          }
+                      ],
+                      "labelIds": [],
+                      "byMember": "Guest Guest",
+                      "createdAt": 1633525062395,
+                      "dueDate": 0,
+                      "style": {
+                          "coverColor": "",
+                          "bgColor": "",
+                          "imgUrl": "https://res.cloudinary.com/dikcrkxei/image/upload/v1633525825/tggl8qxh9meeyknmnhgq.jpg"
+                      },
+                      "isArchived": true
+                  },
+                  {
+                      "id": "Soxu1S",
+                      "title": "Login page and registration",
+                      "description": "",
+                      "comments": [],
+                      "checklists": [],
+                      "members": [
+                          {
+                              "_id": "u102",
+                              "fullname": "Dan Katorza",
+                              "imgUrl": "https://www.google.com"
+                          },
+                          {
+                              "_id": "u103",
+                              "fullname": "Moshe Dabush",
+                              "imgUrl": "https://www.google.com",
+                              "isAssigned": true
+                          },
+                          {
+                              "_id": "u104",
+                              "fullname": "Eran Danieli",
+                              "imgUrl": "https://www.google.com"
+                          },
+                          {
+                              "_id": "u105",
+                              "fullname": "David Cohen",
+                              "imgUrl": "https://www.google.com"
+                          },
+                          {
+                              "_id": "u106",
+                              "fullname": "Omer Levy",
+                              "imgUrl": "https://www.google.com"
+                          }
+                      ],
+                      "labelIds": [],
+                      "byMember": "Guest Guest",
+                      "createdAt": 1633972159906,
+                      "dueDate": 0,
+                      "style": {
+                          "coverColor": "",
+                          "imgUrl": "",
+                          "bgColor": ""
+                      }
+                  },
+                  {
+                      "id": "Ou0azb",
+                      "title": "Add Secondary Header",
+                      "description": "",
+                      "comments": [],
+                      "checklists": [],
+                      "members": [
+                          {
+                              "_id": "u102",
+                              "fullname": "Dan Katorza",
+                              "imgUrl": "https://www.google.com",
+                              "isAssigned": true
+                          },
+                          {
+                              "_id": "u103",
+                              "fullname": "Moshe Dabush",
+                              "imgUrl": "https://www.google.com",
+                              "isAssigned": false
+                          },
+                          {
+                              "_id": "u104",
+                              "fullname": "Eran Danieli",
+                              "imgUrl": "https://www.google.com",
+                              "isAssigned": false
+                          },
+                          {
+                              "_id": "u105",
+                              "fullname": "David Cohen",
+                              "imgUrl": "https://www.google.com",
+                              "isAssigned": false
+                          },
+                          {
+                              "_id": "u106",
+                              "fullname": "Omer Levy",
+                              "imgUrl": "https://www.google.com",
+                              "isAssigned": false
+                          }
+                      ],
+                      "labelIds": [],
+                      "byMember": "Guest Guest",
+                      "createdAt": 1633525508868,
+                      "dueDate": 0,
+                      "style": {
+                          "coverColor": "#00c2e0",
+                          "imgUrl": ""
+                      }
+                  },
+                  {
+                      "id": "BXN277",
+                      "title": "SCSS Layout and Setup ",
+                      "description": "",
+                      "comments": [],
+                      "checklists": [],
+                      "members": [
+                          {
+                              "_id": "u102",
+                              "fullname": "Dan Katorza",
+                              "imgUrl": "https://www.google.com"
+                          },
+                          {
+                              "_id": "u103",
+                              "fullname": "Moshe Dabush",
+                              "imgUrl": "https://www.google.com",
+                              "isAssigned": true
+                          },
+                          {
+                              "_id": "u104",
+                              "fullname": "Eran Danieli",
+                              "imgUrl": "https://www.google.com"
+                          },
+                          {
+                              "_id": "u105",
+                              "fullname": "David Cohen",
+                              "imgUrl": "https://www.google.com"
+                          },
+                          {
+                              "_id": "u106",
+                              "fullname": "Omer Levy",
+                              "imgUrl": "https://www.google.com"
+                          }
+                      ],
+                      "labelIds": [
+                          "l104",
+                          "l101"
+                      ],
+                      "byMember": "Guest Guest",
+                      "createdAt": 1633972176287,
+                      "dueDate": 0,
+                      "style": {
+                          "coverColor": "",
+                          "imgUrl": "",
+                          "bgColor": ""
+                      }
+                  },
+                  {
+                      "id": "Acy1gh",
+                      "title": "Image carousel component",
+                      "description": " Build reusable image carousel component",
+                      "comments": [],
+                      "checklists": [],
+                      "members": [
+                          {
+                              "_id": "u102",
+                              "fullname": "Dan Katorza",
+                              "imgUrl": "https://www.google.com"
+                          },
+                          {
+                              "_id": "u103",
+                              "fullname": "Moshe Dabush",
+                              "imgUrl": "https://www.google.com",
+                              "isAssigned": true
+                          },
+                          {
+                              "_id": "u104",
+                              "fullname": "Eran Danieli",
+                              "imgUrl": "https://www.google.com"
+                          },
+                          {
+                              "_id": "u105",
+                              "fullname": "David Cohen",
+                              "imgUrl": "https://www.google.com"
+                          },
+                          {
+                              "_id": "u106",
+                              "fullname": "Omer Levy",
+                              "imgUrl": "https://www.google.com"
+                          }
+                      ],
+                      "labelIds": [],
+                      "byMember": "Guest Guest",
+                      "createdAt": 1633972232054,
+                      "dueDate": 0,
+                      "style": {
+                          "coverColor": "#172b4d",
+                          "imgUrl": ""
+                      }
                   }
               ],
-              "labelIds": [],
-              "byMember": "Guest Guest",
-              "createdAt": 1633525508868,
-              "dueDate": 0,
-              "style": {
-                "coverColor": "#00c2e0",
-                "imgUrl": ""
-              }
-            },
-            {
-              "id": "c102",
-              "title": "Add Samples",
-              "labelIds": [],
-              "members": [
+              "style": {}
+          },
+          {
+              "id": "FDHfuG",
+              "title": "Backend",
+              "tasks": [
                   {
-                      "_id": "u102",
-                      "fullname": "Dan Katorza",
-                      "imgUrl": "https://www.google.com",
-                      "isAssigned": true
+                      "id": "c5u8gF",
+                      "title": "Cart system",
+                      "description": "",
+                      "comments": [],
+                      "checklists": [],
+                      "members": [
+                          {
+                              "_id": "u102",
+                              "fullname": "Dan Katorza",
+                              "imgUrl": "https://www.google.com",
+                              "isAssigned": true
+                          },
+                          {
+                              "_id": "u103",
+                              "fullname": "Moshe Dabush",
+                              "imgUrl": "https://www.google.com",
+                              "isAssigned": false
+                          },
+                          {
+                              "_id": "u104",
+                              "fullname": "Eran Danieli",
+                              "imgUrl": "https://www.google.com",
+                              "isAssigned": false
+                          },
+                          {
+                              "_id": "u105",
+                              "fullname": "David Cohen",
+                              "imgUrl": "https://www.google.com",
+                              "isAssigned": false
+                          },
+                          {
+                              "_id": "u106",
+                              "fullname": "Omer Levy",
+                              "imgUrl": "https://www.google.com",
+                              "isAssigned": false
+                          }
+                      ],
+                      "labelIds": [
+                          "l102",
+                          "l103",
+                          "l107"
+                      ],
+                      "byMember": "Guest Guest",
+                      "createdAt": 1633527200695,
+                      "dueDate": 0,
+                      "style": {
+                          "coverColor": "",
+                          "bgColor": "",
+                          "imgUrl": ""
+                      }
                   },
                   {
-                      "_id": "u103",
-                      "fullname": "Moshe Dabush",
-                      "imgUrl": "https://www.google.com",
-                      "isAssigned": false
+                      "id": "UBQEwT",
+                      "title": "Meet with the designer for approval ",
+                      "description": "",
+                      "comments": [],
+                      "checklists": [],
+                      "members": [
+                          {
+                              "_id": "u102",
+                              "fullname": "Dan Katorza",
+                              "imgUrl": "https://www.google.com"
+                          },
+                          {
+                              "_id": "u103",
+                              "fullname": "Moshe Dabush",
+                              "imgUrl": "https://www.google.com",
+                              "isAssigned": true
+                          },
+                          {
+                              "_id": "u104",
+                              "fullname": "Eran Danieli",
+                              "imgUrl": "https://www.google.com"
+                          },
+                          {
+                              "_id": "u105",
+                              "fullname": "David Cohen",
+                              "imgUrl": "https://www.google.com"
+                          },
+                          {
+                              "_id": "u106",
+                              "fullname": "Omer Levy",
+                              "imgUrl": "https://www.google.com"
+                          }
+                      ],
+                      "labelIds": [],
+                      "byMember": "Guest Guest",
+                      "createdAt": 1633972338968,
+                      "dueDate": 0,
+                      "style": {
+                          "coverColor": "#c377e0",
+                          "imgUrl": ""
+                      }
                   },
                   {
-                      "_id": "u104",
-                      "fullname": "Eran Danieli",
-                      "imgUrl": "https://www.google.com",
-                      "isAssigned": false
+                      "id": "GPm5bN",
+                      "title": "CRUD",
+                      "description": "Making a full CRUD of our collections on backend.",
+                      "comments": [],
+                      "checklists": [],
+                      "members": [
+                          {
+                              "_id": "u102",
+                              "fullname": "Dan Katorza",
+                              "imgUrl": "https://www.google.com"
+                          },
+                          {
+                              "_id": "u103",
+                              "fullname": "Moshe Dabush",
+                              "imgUrl": "https://www.google.com",
+                              "isAssigned": true
+                          },
+                          {
+                              "_id": "u104",
+                              "fullname": "Eran Danieli",
+                              "imgUrl": "https://www.google.com"
+                          },
+                          {
+                              "_id": "u105",
+                              "fullname": "David Cohen",
+                              "imgUrl": "https://www.google.com"
+                          },
+                          {
+                              "_id": "u106",
+                              "fullname": "Omer Levy",
+                              "imgUrl": "https://www.google.com"
+                          }
+                      ],
+                      "labelIds": [],
+                      "byMember": "Guest Guest",
+                      "createdAt": 1633972294232,
+                      "dueDate": 0,
+                      "style": {
+                          "coverColor": "",
+                          "imgUrl": "",
+                          "bgColor": ""
+                      }
                   },
                   {
-                      "_id": "u105",
-                      "fullname": "David Cohen",
-                      "imgUrl": "https://www.google.com",
-                      "isAssigned": false
+                      "id": "YbTDoC",
+                      "title": "Middlewares",
+                      "description": "",
+                      "comments": [],
+                      "checklists": [],
+                      "members": [
+                          {
+                              "_id": "u102",
+                              "fullname": "Dan Katorza",
+                              "imgUrl": "https://www.google.com"
+                          },
+                          {
+                              "_id": "u103",
+                              "fullname": "Moshe Dabush",
+                              "imgUrl": "https://www.google.com",
+                              "isAssigned": true
+                          },
+                          {
+                              "_id": "u104",
+                              "fullname": "Eran Danieli",
+                              "imgUrl": "https://www.google.com"
+                          },
+                          {
+                              "_id": "u105",
+                              "fullname": "David Cohen",
+                              "imgUrl": "https://www.google.com"
+                          },
+                          {
+                              "_id": "u106",
+                              "fullname": "Omer Levy",
+                              "imgUrl": "https://www.google.com"
+                          }
+                      ],
+                      "labelIds": [
+                          "l101",
+                          "l107"
+                      ],
+                      "byMember": "Guest Guest",
+                      "createdAt": 1633972349144,
+                      "dueDate": 0,
+                      "style": {
+                          "coverColor": "",
+                          "imgUrl": "",
+                          "bgColor": ""
+                      }
                   },
                   {
-                      "_id": "u106",
-                      "fullname": "Omer Levy",
-                      "imgUrl": "https://www.google.com",
-                      "isAssigned": false
+                      "id": "AkGAW9",
+                      "title": "Add integration for images ",
+                      "description": "",
+                      "comments": [],
+                      "checklists": [],
+                      "members": [
+                          {
+                              "_id": "u102",
+                              "fullname": "Dan Katorza",
+                              "imgUrl": "https://www.google.com"
+                          },
+                          {
+                              "_id": "u103",
+                              "fullname": "Moshe Dabush",
+                              "imgUrl": "https://www.google.com",
+                              "isAssigned": true
+                          },
+                          {
+                              "_id": "u104",
+                              "fullname": "Eran Danieli",
+                              "imgUrl": "https://www.google.com"
+                          },
+                          {
+                              "_id": "u105",
+                              "fullname": "David Cohen",
+                              "imgUrl": "https://www.google.com"
+                          },
+                          {
+                              "_id": "u106",
+                              "fullname": "Omer Levy",
+                              "imgUrl": "https://www.google.com"
+                          }
+                      ],
+                      "labelIds": [
+                          "l104"
+                      ],
+                      "byMember": "Guest Guest",
+                      "createdAt": 1633972357169,
+                      "dueDate": 0,
+                      "style": {
+                          "coverColor": "",
+                          "imgUrl": "",
+                          "bgColor": ""
+                      }
                   }
-              ],
-              "style": {
-                "coverColor": "",
-                "bgColor": "",
-                "imgUrl": ""
-              }
-            },
-            {
-              "id": "Pb6OE1",
-              "title": "Go There",
-              "description": "",
-              "comments": [],
-              "checklists": [],
-              "members": [
+              ]
+          },
+          {
+              "id": "8t0iRy",
+              "title": "Bugs",
+              "tasks": [
                   {
-                      "_id": "u102",
-                      "fullname": "Dan Katorza",
-                      "imgUrl": "https://www.google.com",
-                      "isAssigned": true
-                  },
-                  {
-                      "_id": "u103",
-                      "fullname": "Moshe Dabush",
-                      "imgUrl": "https://www.google.com",
-                      "isAssigned": false
-                  },
-                  {
-                      "_id": "u104",
-                      "fullname": "Eran Danieli",
-                      "imgUrl": "https://www.google.com",
-                      "isAssigned": false
-                  },
-                  {
-                      "_id": "u105",
-                      "fullname": "David Cohen",
-                      "imgUrl": "https://www.google.com",
-                      "isAssigned": false
-                  },
-                  {
-                      "_id": "u106",
-                      "fullname": "Omer Levy",
-                      "imgUrl": "https://www.google.com",
-                      "isAssigned": false
+                      "id": "h43ZXq",
+                      "title": "User management",
+                      "description": "",
+                      "comments": [],
+                      "checklists": [],
+                      "members": [
+                          {
+                              "_id": "u102",
+                              "fullname": "Dan Katorza",
+                              "imgUrl": "https://www.google.com"
+                          },
+                          {
+                              "_id": "u103",
+                              "fullname": "Moshe Dabush",
+                              "imgUrl": "https://www.google.com",
+                              "isAssigned": true
+                          },
+                          {
+                              "_id": "u104",
+                              "fullname": "Eran Danieli",
+                              "imgUrl": "https://www.google.com"
+                          },
+                          {
+                              "_id": "u105",
+                              "fullname": "David Cohen",
+                              "imgUrl": "https://www.google.com"
+                          },
+                          {
+                              "_id": "u106",
+                              "fullname": "Omer Levy",
+                              "imgUrl": "https://www.google.com"
+                          }
+                      ],
+                      "labelIds": [
+                          "l103",
+                          "l101"
+                      ],
+                      "byMember": "Guest Guest",
+                      "createdAt": 1633973141559,
+                      "dueDate": 0,
+                      "style": {
+                          "coverColor": "",
+                          "imgUrl": "",
+                          "bgColor": ""
+                      }
                   }
-              ],
-              "labelIds": [],
-              "byMember": "Guest Guest",
-              "createdAt": 1633525195657,
-              "dueDate": 0,
-              "style": {
-                "coverColor": "",
-                "bgColor": "",
-                "imgUrl": "https://res.cloudinary.com/dikcrkxei/image/upload/v1633525234/aj5ho7boorx9kvtulvxj.jpg"
-              }
-            }
-          ],
-          "style": {}
-        },
-        {
-          "id": "ztJ3el",
-          "title": "SCSS",
-          "tasks": [
-            {
-              "id": "Hyi77v",
-              "title": "Work on Better Bcg Img",
-              "description": "",
-              "comments": [],
-              "checklists": [],
-              "members": [
+              ]
+          },
+          {
+              "id": "A8eAKE",
+              "title": "If We Have Time",
+              "tasks": [
                   {
-                      "_id": "u102",
-                      "fullname": "Dan Katorza",
-                      "imgUrl": "https://www.google.com",
-                      "isAssigned": true
+                      "id": "jJEmXZ",
+                      "title": "Having Fun",
+                      "description": "",
+                      "comments": [],
+                      "checklists": [],
+                      "members": [
+                          {
+                              "_id": "u102",
+                              "fullname": "Dan Katorza",
+                              "imgUrl": "https://www.google.com",
+                              "isAssigned": true
+                          },
+                          {
+                              "_id": "u103",
+                              "fullname": "Moshe Dabush",
+                              "imgUrl": "https://www.google.com",
+                              "isAssigned": false
+                          },
+                          {
+                              "_id": "u104",
+                              "fullname": "Eran Danieli",
+                              "imgUrl": "https://www.google.com",
+                              "isAssigned": false
+                          },
+                          {
+                              "_id": "u105",
+                              "fullname": "David Cohen",
+                              "imgUrl": "https://www.google.com",
+                              "isAssigned": false
+                          },
+                          {
+                              "_id": "u106",
+                              "fullname": "Omer Levy",
+                              "imgUrl": "https://www.google.com",
+                              "isAssigned": false
+                          }
+                      ],
+                      "labelIds": [],
+                      "byMember": "Guest Guest",
+                      "createdAt": 1633525112199,
+                      "dueDate": 0,
+                      "style": {
+                          "coverColor": "#00c2e0",
+                          "imgUrl": ""
+                      }
                   },
                   {
-                      "_id": "u103",
-                      "fullname": "Moshe Dabush",
-                      "imgUrl": "https://www.google.com",
-                      "isAssigned": false
+                      "id": "axlFnL",
+                      "title": "Side Menu",
+                      "description": "",
+                      "comments": [],
+                      "checklists": [],
+                      "members": [
+                          {
+                              "_id": "u102",
+                              "fullname": "Dan Katorza",
+                              "imgUrl": "https://www.google.com",
+                              "isAssigned": true
+                          },
+                          {
+                              "_id": "u103",
+                              "fullname": "Moshe Dabush",
+                              "imgUrl": "https://www.google.com",
+                              "isAssigned": false
+                          },
+                          {
+                              "_id": "u104",
+                              "fullname": "Eran Danieli",
+                              "imgUrl": "https://www.google.com",
+                              "isAssigned": false
+                          },
+                          {
+                              "_id": "u105",
+                              "fullname": "David Cohen",
+                              "imgUrl": "https://www.google.com",
+                              "isAssigned": false
+                          },
+                          {
+                              "_id": "u106",
+                              "fullname": "Omer Levy",
+                              "imgUrl": "https://www.google.com",
+                              "isAssigned": false
+                          }
+                      ],
+                      "labelIds": [],
+                      "byMember": "Guest Guest",
+                      "createdAt": 1633525953364,
+                      "dueDate": 0,
+                      "style": {
+                          "coverColor": "#f2d600",
+                          "imgUrl": ""
+                      }
                   },
                   {
-                      "_id": "u104",
-                      "fullname": "Eran Danieli",
-                      "imgUrl": "https://www.google.com",
-                      "isAssigned": false
-                  },
-                  {
-                      "_id": "u105",
-                      "fullname": "David Cohen",
-                      "imgUrl": "https://www.google.com",
-                      "isAssigned": false
-                  },
-                  {
-                      "_id": "u106",
-                      "fullname": "Omer Levy",
-                      "imgUrl": "https://www.google.com",
-                      "isAssigned": false
+                      "id": "T5VVbR",
+                      "title": "Company social event 19:30",
+                      "description": "",
+                      "comments": [],
+                      "checklists": [],
+                      "members": [
+                          {
+                              "_id": "u102",
+                              "fullname": "Dan Katorza",
+                              "imgUrl": "https://www.google.com",
+                              "isAssigned": true
+                          },
+                          {
+                              "_id": "u103",
+                              "fullname": "Moshe Dabush",
+                              "imgUrl": "https://www.google.com",
+                              "isAssigned": true
+                          },
+                          {
+                              "_id": "u104",
+                              "fullname": "Eran Danieli",
+                              "imgUrl": "https://www.google.com",
+                              "isAssigned": true
+                          },
+                          {
+                              "_id": "u105",
+                              "fullname": "David Cohen",
+                              "imgUrl": "https://www.google.com"
+                          },
+                          {
+                              "_id": "u106",
+                              "fullname": "Omer Levy",
+                              "imgUrl": "https://www.google.com"
+                          }
+                      ],
+                      "labelIds": [],
+                      "byMember": "Guest Guest",
+                      "createdAt": 1633940832227,
+                      "dueDate": "2021-10-12T16:30:00.000Z",
+                      "style": {
+                          "coverColor": "",
+                          "imgUrl": "",
+                          "bgColor": ""
+                      }
                   }
-              ],
-              "labelIds": [],
-              "byMember": "Guest Guest",
-              "createdAt": 1633526318844,
-              "dueDate": 0,
-              "style": {
-                "coverColor": "",
-                "imgUrl": "https://res.cloudinary.com/dikcrkxei/image/upload/v1633526335/cw6p3oucvzhfp9kqhkz9.jpg"
-              }
-            },
-            {
-              "id": "c103",
-              "title": "Work On Design ",
-              "members": [
-                  {
-                      "_id": "u102",
-                      "fullname": "Dan Katorza",
-                      "imgUrl": "https://www.google.com",
-                      "isAssigned": true
-                  },
-                  {
-                      "_id": "u103",
-                      "fullname": "Moshe Dabush",
-                      "imgUrl": "https://www.google.com",
-                      "isAssigned": false
-                  },
-                  {
-                      "_id": "u104",
-                      "fullname": "Eran Danieli",
-                      "imgUrl": "https://www.google.com",
-                      "isAssigned": false
-                  },
-                  {
-                      "_id": "u105",
-                      "fullname": "David Cohen",
-                      "imgUrl": "https://www.google.com",
-                      "isAssigned": false
-                  },
-                  {
-                      "_id": "u106",
-                      "fullname": "Omer Levy",
-                      "imgUrl": "https://www.google.com",
-                      "isAssigned": false
-                  }
-              ],
-              "labelIds": [
-                "l104",
-                "l102"
-              ],
-              "isArchived": true,
-              "style": {
-                "coverColor": "#0079bf",
-                "imgUrl": ""
-              }
-            }
-          ]
-        },
-        {
-          "id": "g102",
-          "title": "Doing",
-          "tasks": [
-            {
-              "id": "c107",
-              "title": "Make a Homepage",
-              "labelIds": [],
-              "isArchived": false,
-              "members": [
-                  {
-                      "_id": "u102",
-                      "fullname": "Dan Katorza",
-                      "imgUrl": "https://www.google.com",
-                      "isAssigned": true
-                  },
-                  {
-                      "_id": "u103",
-                      "fullname": "Moshe Dabush",
-                      "imgUrl": "https://www.google.com",
-                      "isAssigned": false
-                  },
-                  {
-                      "_id": "u104",
-                      "fullname": "Eran Danieli",
-                      "imgUrl": "https://www.google.com",
-                      "isAssigned": false
-                  },
-                  {
-                      "_id": "u105",
-                      "fullname": "David Cohen",
-                      "imgUrl": "https://www.google.com",
-                      "isAssigned": false
-                  },
-                  {
-                      "_id": "u106",
-                      "fullname": "Omer Levy",
-                      "imgUrl": "https://www.google.com",
-                      "isAssigned": false
-                  }
-              ],
-              "style": {
-                "coverColor": "",
-                "imgUrl": "https://res.cloudinary.com/dikcrkxei/image/upload/v1633526008/jeoo3xporimdlkkndzb3.png"
-              }
-            },
-            {
-              "id": "c104",
-              "title": "Make It Colorful",
-              "description": "description",
-              "comments": [
-                {
-                  "id": "ZdPnm",
-                  "txt": "also @yaronb please CR this",
-                  "createdAt": 1590999817436,
-                  "byMember": {
-                    "_id": "u103",
-                    "fullname": "DanKatorza",
-                    "imgUrl": "http://res.cloudinary.com/shaishar9/image/upload/v1590850482/j1glw3c9jsoz2py0miol.jpg"
-                  }
-                }
-              ],
-              "checklists": [
-                {
-                  "id": "YEhmF",
-                  "title": "Checklist",
-                  "todos": [
-                    {
-                      "id": "212jX",
-                      "title": "To Do 1",
-                      "isDone": false
-                    }
-                  ]
-                }
-              ],
-              "members": [
-                  {
-                      "_id": "u102",
-                      "fullname": "Dan Katorza",
-                      "imgUrl": "https://www.google.com",
-                      "isAssigned": true
-                  },
-                  {
-                      "_id": "u103",
-                      "fullname": "Moshe Dabush",
-                      "imgUrl": "https://www.google.com",
-                      "isAssigned": false
-                  },
-                  {
-                      "_id": "u104",
-                      "fullname": "Eran Danieli",
-                      "imgUrl": "https://www.google.com",
-                      "isAssigned": false
-                  },
-                  {
-                      "_id": "u105",
-                      "fullname": "David Cohen",
-                      "imgUrl": "https://www.google.com",
-                      "isAssigned": false
-                  },
-                  {
-                      "_id": "u106",
-                      "fullname": "Omer Levy",
-                      "imgUrl": "https://www.google.com",
-                      "isAssigned": false
-                  }
-              ],
-              "labelIds": [
-                "l101",
-                "l102",
-                "l105"
-              ],
-              "createdAt": 1590999730348,
-              "dueDate": 1592999830348,
-              "byMember": {
-                "_id": "u103",
-                "username": "DanKatorza",
-                "fullname": "Dan Katorza",
-                "imgUrl": "http://res.cloudinary.com/shaishar9/image/upload/v1590850482/j1glw3c9jsoz2py0miol.jpg"
-              },
-              "style": {
-                "coverColor": "",
-                "imgUrl": "https://res.cloudinary.com/dikcrkxei/image/upload/v1633525407/lsel1har0linwq6l3vu5.jpg"
-              }
-            }
-          ],
-          "style": {}
-        },
-        {
-          "id": "g103",
-          "title": "Done",
-          "tasks": [
-            {
-              "id": "c108",
-              "title": "Meeting at 10:00",
-              "description": "description",
-              "comments": [
-                {
-                  "id": "ZdPnm",
-                  "txt": "also @yaronb please CR this",
-                  "createdAt": 1590999817436,
-                  "byMember": {
-                    "_id": "u103",
-                    "fullname": "DanKatorza",
-                    "imgUrl": "http://res.cloudinary.com/shaishar9/image/upload/v1590850482/j1glw3c9jsoz2py0miol.jpg"
-                  }
-                }
-              ],
-              "checklists": [
-                {
-                  "id": "YEhmF",
-                  "title": "Checklist",
-                  "todos": [
-                    {
-                      "id": "212jX",
-                      "title": "To Do 1",
-                      "isDone": false
-                    }
-                  ]
-                }
-              ],
-              "members": [
-                  {
-                      "_id": "u102",
-                      "fullname": "Dan Katorza",
-                      "imgUrl": "https://www.google.com",
-                      "isAssigned": true
-                  },
-                  {
-                      "_id": "u103",
-                      "fullname": "Moshe Dabush",
-                      "imgUrl": "https://www.google.com",
-                      "isAssigned": false
-                  },
-                  {
-                      "_id": "u104",
-                      "fullname": "Eran Danieli",
-                      "imgUrl": "https://www.google.com",
-                      "isAssigned": false
-                  },
-                  {
-                      "_id": "u105",
-                      "fullname": "David Cohen",
-                      "imgUrl": "https://www.google.com",
-                      "isAssigned": false
-                  },
-                  {
-                      "_id": "u106",
-                      "fullname": "Omer Levy",
-                      "imgUrl": "https://www.google.com",
-                      "isAssigned": false
-                  }
-              ],
-              "labelIds": [
-                "l101",
-                "l102"
-              ],
-              "createdAt": 1590999730348,
-              "dueDate": 1592999830348,
-              "byMember": {
-                "_id": "u103",
-                "username": "DanKatorza",
-                "fullname": "Dan Katorza",
-                "imgUrl": "http://res.cloudinary.com/shaishar9/image/upload/v1590850482/j1glw3c9jsoz2py0miol.jpg"
-              },
-              "style": {
-                "coverColor": "#61bd4f",
-                "bgColor": "",
-                "imgUrl": ""
-              }
-            },
-            {
-              "id": "15sJNv",
-              "title": "Morning Coffee",
-              "description": "",
-              "comments": [],
-              "checklists": [],
-              "members": [
-                  {
-                      "_id": "u102",
-                      "fullname": "Dan Katorza",
-                      "imgUrl": "https://www.google.com",
-                      "isAssigned": true
-                  },
-                  {
-                      "_id": "u103",
-                      "fullname": "Moshe Dabush",
-                      "imgUrl": "https://www.google.com",
-                      "isAssigned": false
-                  },
-                  {
-                      "_id": "u104",
-                      "fullname": "Eran Danieli",
-                      "imgUrl": "https://www.google.com",
-                      "isAssigned": false
-                  },
-                  {
-                      "_id": "u105",
-                      "fullname": "David Cohen",
-                      "imgUrl": "https://www.google.com",
-                      "isAssigned": false
-                  },
-                  {
-                      "_id": "u106",
-                      "fullname": "Omer Levy",
-                      "imgUrl": "https://www.google.com",
-                      "isAssigned": false
-                  }
-              ],
-              "labelIds": [],
-              "byMember": "Guest Guest",
-              "createdAt": 1633525062395,
-              "dueDate": 0,
-              "style": {
-                "coverColor": "",
-                "bgColor": "",
-                "imgUrl": "https://res.cloudinary.com/dikcrkxei/image/upload/v1633525825/tggl8qxh9meeyknmnhgq.jpg"
-              }
-            }
-          ],
-          "style": {}
-        },
-        {
-          "id": "FDHfuG",
-          "title": "Continue",
-          "tasks": [
-            {
-              "id": "c5u8gF",
-              "title": "Overall Flow",
-              "description": "",
-              "comments": [],
-              "checklists": [],
-              "members": [
-                  {
-                      "_id": "u102",
-                      "fullname": "Dan Katorza",
-                      "imgUrl": "https://www.google.com",
-                      "isAssigned": true
-                  },
-                  {
-                      "_id": "u103",
-                      "fullname": "Moshe Dabush",
-                      "imgUrl": "https://www.google.com",
-                      "isAssigned": false
-                  },
-                  {
-                      "_id": "u104",
-                      "fullname": "Eran Danieli",
-                      "imgUrl": "https://www.google.com",
-                      "isAssigned": false
-                  },
-                  {
-                      "_id": "u105",
-                      "fullname": "David Cohen",
-                      "imgUrl": "https://www.google.com",
-                      "isAssigned": false
-                  },
-                  {
-                      "_id": "u106",
-                      "fullname": "Omer Levy",
-                      "imgUrl": "https://www.google.com",
-                      "isAssigned": false
-                  }
-              ],
-              "labelIds": [],
-              "byMember": "Guest Guest",
-              "createdAt": 1633527200695,
-              "dueDate": 0,
-              "style": {
-                "coverColor": "",
-                "bgColor": "",
-                "imgUrl": ""
-              }
-            },
-            {
-              "id": "jJEmXZ",
-              "title": "Having Fun",
-              "description": "",
-              "comments": [],
-              "checklists": [],
-              "members": [
-                  {
-                      "_id": "u102",
-                      "fullname": "Dan Katorza",
-                      "imgUrl": "https://www.google.com",
-                      "isAssigned": true
-                  },
-                  {
-                      "_id": "u103",
-                      "fullname": "Moshe Dabush",
-                      "imgUrl": "https://www.google.com",
-                      "isAssigned": false
-                  },
-                  {
-                      "_id": "u104",
-                      "fullname": "Eran Danieli",
-                      "imgUrl": "https://www.google.com",
-                      "isAssigned": false
-                  },
-                  {
-                      "_id": "u105",
-                      "fullname": "David Cohen",
-                      "imgUrl": "https://www.google.com",
-                      "isAssigned": false
-                  },
-                  {
-                      "_id": "u106",
-                      "fullname": "Omer Levy",
-                      "imgUrl": "https://www.google.com",
-                      "isAssigned": false
-                  }
-              ],
-              "labelIds": [],
-              "byMember": "Guest Guest",
-              "createdAt": 1633525112199,
-              "dueDate": 0,
-              "style": {
-                "coverColor": "#00c2e0",
-                "imgUrl": ""
-              }
-            }
-          ]
-        },
-        {
-          "id": "A8eAKE",
-          "title": "If We Have Time",
-          "tasks": [
-            {
-              "id": "axlFnL",
-              "title": "Side Menu",
-              "description": "",
-              "comments": [],
-              "checklists": [],
-              "members": [
-                  {
-                      "_id": "u102",
-                      "fullname": "Dan Katorza",
-                      "imgUrl": "https://www.google.com",
-                      "isAssigned": true
-                  },
-                  {
-                      "_id": "u103",
-                      "fullname": "Moshe Dabush",
-                      "imgUrl": "https://www.google.com",
-                      "isAssigned": false
-                  },
-                  {
-                      "_id": "u104",
-                      "fullname": "Eran Danieli",
-                      "imgUrl": "https://www.google.com",
-                      "isAssigned": false
-                  },
-                  {
-                      "_id": "u105",
-                      "fullname": "David Cohen",
-                      "imgUrl": "https://www.google.com",
-                      "isAssigned": false
-                  },
-                  {
-                      "_id": "u106",
-                      "fullname": "Omer Levy",
-                      "imgUrl": "https://www.google.com",
-                      "isAssigned": false
-                  }
-              ],
-              "labelIds": [],
-              "byMember": "Guest Guest",
-              "createdAt": 1633525953364,
-              "dueDate": 0,
-              "style": {
-                "coverColor": "#f2d600",
-                "imgUrl": ""
-              }
-            }
-          ]
-        }
+              ]
+          }
       ],
       "activities": [
-        {
-          "id": "a101",
-          "txt": "Changed Color",
-          "createdAt": 154514,
-          "byMember": {
-            "_id": "u102",
-            "fullname": "Moshe Dabush",
-            "imgUrl": "http://some-img"
-          },
-          "task": {
-            "id": "c101",
-            "title": "Replace Logo"
+          {
+              "id": "a101",
+              "txt": "Changed Color",
+              "createdAt": 154514,
+              "byMember": {
+                  "_id": "u102",
+                  "fullname": "Moshe Dabush",
+                  "imgUrl": "http://some-img"
+              },
+              "task": {
+                  "id": "c101",
+                  "title": "Replace Logo"
+              }
           }
-        }
       ]
-    },
-    {
+  },
+  {
       "_id": "b102",
       "title": "Our Vacation",
       "isFavorite": true,
@@ -1625,7 +2516,8 @@
                           "coverColor": "",
                           "imgUrl": "",
                           "bgColor": ""
-                      }
+                      },
+                      "isArchived": true
                   }
               ]
           },
@@ -2457,7 +3349,7 @@
       },
       "style": {
           "coverColor": "lightgreen",
-          "bgImg":""
+          "bgImg": ""
       },
       "labels": [
           {
