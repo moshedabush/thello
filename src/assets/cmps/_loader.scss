@@ -1,0 +1,12 @@
+.loader-screen{
+    svg{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: fixed;
+      height: 30%;
+      width: 100%;
+      top: 40vh;
+      z-index: 1000;
+    }
+  }

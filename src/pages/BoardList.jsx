@@ -5,6 +5,7 @@ import { AppHeader } from "../cmps/app-header";
 import { BoardsList } from '../cmps/boards-list';
 import { ReactComponent as BoardIcon } from "../assets/img/board-icon.svg";
 import { ReactComponent as StarIcon } from "../assets/img/star-icon.svg";
+import { Loader } from '../cmps/Loader';
 
 class _BoardList extends React.Component {
  
@@ -33,10 +34,13 @@ class _BoardList extends React.Component {
     board.isFavorite = !board.isFavorite
     onSaveBoards(boards);
   };
+  onToggleBoard = (ev) =>{
+    // console.log('')
+  }
 
   render() {
-    const { boards, loggedUser } = this.props;
-    if (!boards) return <div>Loading</div>;
+    const { boards } = this.props;
+    if (!boards) return <Loader/>
     return (
       <section className="board-page">
         <AppHeader />
@@ -47,7 +51,7 @@ class _BoardList extends React.Component {
                 <StarIcon className=" far fa-star"/>
                 <h3 className="flex"> Starred boards</h3>
               </div>
-              <BoardsList onToggleFavorite={this.onToggleFavorite} boards={this.favoriteBoards} />
+              <BoardsList onToggleFavorite={this.onToggleFavorite} onToggleBoard={this.onToggleBoard} boards={this.favoriteBoards} />
             </div>
 
             <div className={"boards-preview"}>
@@ -58,7 +62,7 @@ class _BoardList extends React.Component {
                   Workspaces
                 </h3>
               </div>
-              <BoardsList onToggleFavorite={this.onToggleFavorite} boards={this.notFavoriteBoards} />
+              <BoardsList onToggleFavorite={this.onToggleFavorite} onToggleBoard={this.onToggleBoard} boards={this.notFavoriteBoards} />
             </div>
           </div>
         </section>

@@ -12,7 +12,7 @@ export function BoardsList({ boards, onToggleFavorite,onToggleBoard }) {
                         //   style={{background: `${board.style.imgUrl ? `${board.style.imgUrl} center center / cover` : board.style.coverColor}`
                               
                           }}>
-                        <div className="board-preview-details" onClick={() => onToggleBoard(board._id)}>
+                        <div className="board-preview-details" onClick={(ev) => onToggleBoard(ev,board._id)}>
                             <h3>{board.title.length > 20 ? board.title.substring(0, 20) + '...' : board.title}</h3>
                             <Star  className={`far fa-star ${board.isFavorite ? 'favorite' : ''}`}
                                 onClick={(ev) => onToggleFavorite(ev, board._id)}/>
