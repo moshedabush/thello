@@ -58,3 +58,16 @@
             }
         }
     }
+
+    @media screen and (max-width: 188px) {
+        .home-header {
+            nav {
+                .nav-btns {
+                    > * {
+                    line-height: 24px;
+                  }
+                }
+            }
+        }
+
+    }

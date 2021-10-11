@@ -30,8 +30,9 @@ class _TopPopUp extends React.Component {
         board.isFavorite = !board.isFavorite
         onSaveBoards(boards);
       };
-      onToggleBoard = (boardId) =>{
-          this.props.loadBoard(boardId)
+      onToggleBoard = (ev,boardId) =>{
+           ev.preventDefault();
+          this.props.loadBoard(boardId);
       }
 
     render() {

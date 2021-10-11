@@ -6,7 +6,8 @@ import { Column } from '../cmps/column.jsx';
 import { GroupAdd } from '../cmps/GroupAdd.jsx';
 import { BoardHeader } from '../cmps/BoardHeader';
 import { SidePopUp } from '../cmps/SidePopUp.jsx';
-import{BoardSecondHeader} from '../cmps/BoardSecondHeader'
+import{BoardSecondHeader} from '../cmps/BoardSecondHeader';
+import { Loader } from '../cmps/Loader';
 
 class _Board extends React.Component {
 
@@ -102,7 +103,7 @@ class _Board extends React.Component {
 
   render() {
     const { board} = this.props;
-    if (!board) return <div>loading...</div>; 
+    if (!board) return <Loader/>
     const { groups } = board;
 
     return (
