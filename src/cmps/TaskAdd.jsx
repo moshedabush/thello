@@ -33,6 +33,7 @@ export class TaskAdd extends React.Component{
     }
 
     onAddTask =()=> {
+        
         const {taskTitle} = this.state
         const {board} = this.props 
         const {loggedUser} = this.state
@@ -44,7 +45,7 @@ export class TaskAdd extends React.Component{
             description:'',
             comments: [],
             checklists: [],
-            members: [{...board.members}],
+            members: [...board.members],
             labelIds: [],
             byMember:loggedUser,
             createdAt: Date.now(),
