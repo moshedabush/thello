@@ -2,16 +2,37 @@ import React from "react";
 import { connect } from "react-redux";
 import { Link, NavLink } from "react-router-dom";
 import { ReactComponent as BoardIcon } from "../assets/img/board-icon.svg";
-// import { ReactComponent as HomeIcon } from "../assets/img/home-icon.svg";
 import { ReactComponent as ArrowDown } from "../assets/img/arrow-down.svg";
+import { loadBoards } from '../store/board.actions';
 import { onLogout } from "../store/user.actions.js";
+import { openQuickPopUp } from '../store/board.actions';
+import {TopPopUp} from '../cmps/BoardTopPopUp';
 
 class _BoardHeader extends React.Component {
+  state = {
+    isTopPopUpOpen:false
+}
+async componentDidMount() {
+  try {
+  const userId = await this.props.user._id;
+  await this.props.loadBoards(userId);
+   } catch (err) {
+  console.log('err');
+}
+}  
+
+toggleTopPopUp = ()=> {;
+    const {isTopPopUpOpen} = this.state
+    this.setState({isTopPopUpOpen:!isTopPopUpOpen})  
+};
+
     onLogout = () => {
     this.props.onLogout();
   };
   render() {
     const user = this.props.user;
+    const {boards} = this.props;
+    const {isTopPopUpOpen} = this.state
     if (!user) return <div></div>;
     return (
       <header className="board-header flex ">
@@ -23,14 +44,11 @@ class _BoardHeader extends React.Component {
           </NavLink>
         </div>
         <div className="flex">
-          {/* <NavLink className="btn-header home-icon" to="/boardlist">
-            <HomeIcon />
-          </NavLink> */}
-          <NavLink className="btn-board-header" to="/boardlist">
-            {/* <BoardIcon /> */}
-            <span>Boards</span>
+            <div className="btn-board-header">
+            <a onClick={(ev)=> {this.toggleTopPopUp(ev)}}>Workspaces</a>
             <ArrowDown />
-          </NavLink>
+            </div>
+            {isTopPopUpOpen && <TopPopUp boards={boards}/> } 
         </div>
         </div>
 
@@ -64,11 +82,14 @@ function mapStateToProps(state) {
   return {
     users: state.userModule.users,
     user: state.userModule.user,
-    isLoading: state.systemModule.isLoading,
+    board: state.boardModule.board,
+    boards: state.boardModule.boards,
   };
 }
 const mapDispatchToProps = {
   onLogout,
+  openQuickPopUp,
+  loadBoards,
 };
 
 export const BoardHeader = connect(
