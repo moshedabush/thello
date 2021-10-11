@@ -22,6 +22,7 @@ class _Members extends React.Component {
     const { currTask, board } = this.state;
     if (!board) return <div></div>;
     if (!currTask) return <div></div>;
+    console.log('currTask.members',currTask.members)
     return (
       <div className={'members-container'}>
         <h3>board members</h3>
